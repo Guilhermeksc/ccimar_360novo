@@ -1,0 +1,7 @@
+from .path import (
+    CCIMAR12_DIR,
+    CCIMAR12_PATH,
+    TEMPLATE_TEST1_PATH,
+    TEMPLATE_TEST2_PATH,
+    TEMPLATE_TEST3_PATH,
+)

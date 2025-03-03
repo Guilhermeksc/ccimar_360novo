@@ -1,0 +1,203 @@
+{
+    "Processo A": {
+        "nr": "1",
+        "descricao": "Processo A",
+        "materialidade": {
+            "valor": "Até 10%",
+            "Vulto Financeiro": {
+                "descricao": "Até 10%",
+                "pontuacao": 21
+            },
+            "Militares Apoiados": {
+                "descricao": "Até 20%",
+                "pontuacao": 2
+            },
+            "pontuacao_base": 23,
+            "valor_ponderado": 69
+        },
+        "relevancia": {
+            "valor": "Vinculado a mais de três AEN",
+            "Vinculação a Ação Estratégica Naval (AEN)": {
+                "descricao": "Vinculado a mais de três AEN",
+                "pontuacao": 15
+            },
+            "Vinculação ao Portfólio Estratégico": {
+                "descricao": "Não",
+                "pontuacao": 0
+            },
+            "Vinculação à Ação Orçamentária da LOA": {
+                "descricao": "Não",
+                "pontuacao": 0
+            },
+            "pontuacao_base": 15,
+            "valor_ponderado": 75
+        },
+        "criticidade": {
+            "valor": "Até 2 anos",
+            "Tempo sem Auditoria": {
+                "descricao": "Até 2 anos",
+                "pontuacao": 2
+            },
+            "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
+                "descricao": "Sem registros nos últimos 5 anos",
+                "pontuacao": 2
+            },
+            "Repercussão Externa Negativa (Denúncias/Representações)": {
+                "descricao": "Sem registro",
+                "pontuacao": 2
+            },
+            "pontuacao_base": 6,
+            "valor_ponderado": 30
+        },
+        "total": 174,
+        "tipo_risco": "Alto Risco"
+    },
+    "Processo B": {
+        "nr": "2",
+        "descricao": "Processo B",
+        "materialidade": {
+            "valor": "De 10% a 20%",
+            "pontuacao_base": 45,
+            "valor_ponderado": 135,
+            "Vulto Financeiro": {
+                "descricao": "De 10% a 20%",
+                "pontuacao": 45
+            },
+            "Militares Apoiados": {
+                "descricao": "Acima de 60%",
+                "pontuacao": 20
+            }
+        },
+        "relevancia": {
+            "valor": "Vinculado a uma AEN",
+            "pontuacao_base": 2,
+            "valor_ponderado": 10,
+            "Vinculação a Ação Estratégica Naval (AEN)": {
+                "descricao": "Vinculado a uma AEN",
+                "pontuacao": 2
+            },
+            "Vinculação ao Portfólio Estratégico": {
+                "descricao": "Não",
+                "pontuacao": 0
+            },
+            "Vinculação à Ação Orçamentária da LOA": {
+                "descricao": "Não",
+                "pontuacao": 0
+            }
+        },
+        "criticidade": {
+            "valor": "Até 2 anos",
+            "pontuacao_base": 2,
+            "valor_ponderado": 10,
+            "Tempo sem Auditoria": {
+                "descricao": "Até 2 anos",
+                "pontuacao": 2
+            },
+            "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
+                "descricao": "Sem registros nos últimos 5 anos",
+                "pontuacao": 2
+            },
+            "Repercussão Externa Negativa (Denúncias/Representações)": {
+                "descricao": "Sem registro",
+                "pontuacao": 2
+            }
+        },
+        "total": 155,
+        "tipo_risco": "Alto Risco"
+    },
+    "Processo C": {
+        "nr": "3",
+        "descricao": "Processo C",
+        "materialidade": {
+            "valor": "Acima de 20%",
+            "pontuacao_base": 40,
+            "valor_ponderado": 120,
+            "Vulto Financeiro": {
+                "descricao": "Acima de 20%",
+                "pontuacao": 40
+            },
+            "Militares Apoiados": {
+                "descricao": "Até 20%",
+                "pontuacao": 2
+            }
+        },
+        "relevancia": {
+            "valor": "Vinculado a uma AEN",
+            "pontuacao_base": 2,
+            "valor_ponderado": 10,
+            "Vinculação a Ação Estratégica Naval (AEN)": {
+                "descricao": "Vinculado a uma AEN",
+                "pontuacao": 2
+            },
+            "Vinculação ao Portfólio Estratégico": {
+                "descricao": "Não",
+                "pontuacao": 0
+            },
+            "Vinculação à Ação Orçamentária da LOA": {
+                "descricao": "Não",
+                "pontuacao": 0
+            }
+        },
+        "criticidade": {
+            "valor": "Até 2 anos",
+            "pontuacao_base": 2,
+            "valor_ponderado": 10,
+            "Tempo sem Auditoria": {
+                "descricao": "Até 2 anos",
+                "pontuacao": 2
+            },
+            "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
+                "descricao": "Sem registros nos últimos 5 anos",
+                "pontuacao": 2
+            },
+            "Repercussão Externa Negativa (Denúncias/Representações)": {
+                "descricao": "Sem registro",
+                "pontuacao": 2
+            }
+        },
+        "total": 140,
+        "tipo_risco": "Alto Risco"
+    },
+    "Processo D": {
+        "nr": "4",
+        "descricao": "Processo D",
+        "materialidade": {
+            "valor": "Acima de 20%",
+            "pontuacao_base": 40,
+            "valor_ponderado": 120
+        },
+        "relevancia": {
+            "valor": "Vinculado a mais de três AEN",
+            "pontuacao_base": 15,
+            "valor_ponderado": 75
+        },
+        "criticidade": {
+            "valor": "Com registro reincidente até 2 anos",
+            "pontuacao_base": 20,
+            "valor_ponderado": 100
+        },
+        "total": 295,
+        "tipo_risco": "Alto Risco"
+    },
+    "Processo E": {
+        "nr": "5",
+        "descricao": "Processo E",
+        "materialidade": {
+            "valor": "De 10% a 20%",
+            "pontuacao_base": 45,
+            "valor_ponderado": 135
+        },
+        "relevancia": {
+            "valor": "Não",
+            "pontuacao_base": 0,
+            "valor_ponderado": 0
+        },
+        "criticidade": {
+            "valor": "Sem registro",
+            "pontuacao_base": 2,
+            "valor_ponderado": 10
+        },
+        "total": 145,
+        "tipo_risco": "Alto Risco"
+    }
+}

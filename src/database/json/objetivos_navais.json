@@ -1,0 +1,124 @@
+{
+    "perspectivas": [
+        {
+            "nome": "Resultados para a Sociedade Teste",
+            "obnavs": [
+                {
+                    "numero": 1,
+                    "descricao": "Garantir a Defesa das Águas Jurisdicionais",
+                    "criterios_auditoria": [],
+                    "estrategias_navais": [
+                        {
+                            "numero": 1.1,
+                            "descricao": "Ampliar a Presença Naval",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "1.1.2",
+                                    "descricao": "Expandir a Rede de Estações Navais",
+                                    "criterios_auditoria": [
+                                        "Patrimônio",
+                                        "Última Auditoria",
+                                        "Municiamento",
+                                        "Pagamento"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "numero": 2,
+                    "descricao": "Teste",
+                    "criterios_auditoria": [],
+                    "estrategias_navais": [
+                        {
+                            "numero": 2.1,
+                            "descricao": "Ampliar a Presença Naval",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "2.1.1",
+                                    "descricao": "Expandir a Rede de Estações Navais",
+                                    "criterios_auditoria": [
+                                        "Execução/Licitação",
+                                        "Última Auditoria",
+                                        "Municiamento"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "nome": "Processos",
+            "obnavs": [
+                {
+                    "numero": 6,
+                    "descricao": "Otimizar a Gestão de Recursos",
+                    "criterios_auditoria": [],
+                    "estrategias_navais": [
+                        {
+                            "numero": 6.1,
+                            "descricao": "Modernizar Processos Administrativos",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "6.1.1",
+                                    "descricao": "Implementar Sistema de Gestão Integrada",
+                                    "criterios_auditoria": [
+                                        "Última Auditoria",
+                                        "Patrimônio"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "nome": "Institucional",
+            "obnavs": [
+                {
+                    "numero": 11,
+                    "descricao": "Fortalecer a Imagem Institucional",
+                    "criterios_auditoria": [],
+                    "estrategias_navais": [
+                        {
+                            "numero": 11.1,
+                            "descricao": "Aprimorar a Comunicação Social",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "11.1.1",
+                                    "descricao": "Desenvolver Campanhas de Divulgação"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "nome": "Teste",
+            "obnavs": [
+                {
+                    "numero": 11,
+                    "descricao": "Fortalecer a Imagem Institucional",
+                    "criterios_auditoria": [],
+                    "estrategias_navais": [
+                        {
+                            "numero": 11.1,
+                            "descricao": "Aprimorar a Comunicação Social",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "11.1.1",
+                                    "descricao": "Desenvolver Campanhas de Divulgação"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "mapa_om_representativas": [
+        {
+            "Critério": "EXECFIN",
+            "Peso": 5,
+            "itens": [
+                {
+                    "Descrição": "OM que utilizam até determinado percentual dos recursos orçamentários da MB",
+                    "Percentual": 0.6,
+                    "Parâmetro": "A",
+                    "Pontos": 10
+                },
+                {
+                    "Descrição": "OM que utilizam até determinado percentual dos recursos orçamentários da MB",
+                    "Percentual": 0.25,
+                    "Parâmetro": "B",
+                    "Pontos": 7
+                },
+                {
+                    "Descrição": "OM que utilizam até determinado percentual dos recursos orçamentários da MB",
+                    "Percentual": 0.15,
+                    "Parâmetro": "C",
+                    "Pontos": 4
+                },
+                {
+                    "Descrição": "Unidades Gestoras Responsáveis (UGR)",
+                    "Percentual": 0.0,
+                    "Parâmetro": "N/A",
+                    "Pontos": 0
+                }
+            ]
+        },
+        {
+            "Critério": "PAGMED",
+            "Peso": 4,
+            "itens": [
+                {
+                    "Descrição": "OM que utilizam até determinado percentual da Folha de Pagamento da MB",
+                    "Percentual": 0.7,
+                    "Parâmetro": "A",
+                    "Pontos": 10
+                },
+                {
+                    "Descrição": "OM que utilizam até determinado percentual da Folha de Pagamento da MB",
+                    "Percentual": 0.2,
+                    "Parâmetro": "B",
+                    "Pontos": 7
+                },
+                {
+                    "Descrição": "OM que utilizam até determinado percentual da Folha de Pagamento da MB",
+                    "Percentual": 0.1,
+                    "Parâmetro": "C ",
+                    "Pontos": 4
+                },
+                {
+                    "Descrição": "OM que utilizam até determinado percentual da Folha de Pagamento da MB",
+                    "Percentual": 0.0,
+                    "Parâmetro": "N/A",
+                    "Pontos": 0
+                }
+            ]
+        }
+    ]
+}

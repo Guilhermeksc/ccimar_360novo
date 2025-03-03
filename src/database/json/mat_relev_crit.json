@@ -1,0 +1,142 @@
+{
+    "relevancia": [
+        {
+            "Critério": "Vinculação a Ação Estratégica Naval (AEN)",
+            "Tipo": "Escala",
+            "opcoes": [
+                {
+                    "Descrição": "Vinculado a uma AEN",
+                    "Pontuação": 2
+                },
+                {
+                    "Descrição": "Vinculado a duas AEN",
+                    "Pontuação": 3
+                },
+                {
+                    "Descrição": "Vinculado a três AEN",
+                    "Pontuação": 5
+                },
+                {
+                    "Descrição": "Vinculado a mais de três AEN",
+                    "Pontuação": 15
+                }
+            ]
+        },
+        {
+            "Critério": "Vinculação ao Portfólio Estratégico",
+            "Tipo": "Boolean",
+            "opcoes": [
+                {
+                    "Descrição": "Não",
+                    "Pontuação": 0
+                },
+                {
+                    "Descrição": "Sim",
+                    "Pontuação": 10
+                }
+            ]
+        },
+        {
+            "Critério": "Vinculação à Ação Orçamentária da LOA",
+            "Tipo": "Boolean",
+            "opcoes": [
+                {
+                    "Descrição": "Não",
+                    "Pontuação": 0
+                },
+                {
+                    "Descrição": "Sim",
+                    "Pontuação": 10
+                }
+            ]
+        }
+    ],
+    "materialidade": [
+        {
+            "Critério": "Vulto Financeiro",
+            "Tipo": "Escala",
+            "opcoes": [
+                {
+                    "Descrição": "Até 10%",
+                    "Pontuação": 21
+                },
+                {
+                    "Descrição": "De 10% a 20%",
+                    "Pontuação": 45
+                },
+                {
+                    "Descrição": "Acima de 20%",
+                    "Pontuação": 40
+                }
+            ]
+        }
+    ],
+    "criticidade": [
+        {
+            "Critério": "Tempo sem Auditoria",
+            "Tipo": "Escala",
+            "opcoes": [
+                {
+                    "Descrição": "Até 2 anos",
+                    "Pontuação": 2
+                },
+                {
+                    "Descrição": "2 a 3 anos",
+                    "Pontuação": 3
+                },
+                {
+                    "Descrição": "3 a 4 anos",
+                    "Pontuação": 4
+                },
+                {
+                    "Descrição": "Acima de 4 anos",
+                    "Pontuação": 20
+                }
+            ]
+        },
+        {
+            "Critério": "Eventos Apuratórios Internos (TCE/IPM/Sindicância)",
+            "Tipo": "Escala",
+            "opcoes": [
+                {
+                    "Descrição": "Sem registros nos últimos 5 anos",
+                    "Pontuação": 2
+                },
+                {
+                    "Descrição": "Com registro de evento entre 2 a 5 anos",
+                    "Pontuação": 3
+                },
+                {
+                    "Descrição": "Com registro de evento nos últimos 2 anos",
+                    "Pontuação": 5
+                },
+                {
+                    "Descrição": "Com registro reincidente até 2 anos",
+                    "Pontuação": 20
+                }
+            ]
+        },
+        {
+            "Critério": "Repercussão Externa Negativa (Denúncias/Representações)",
+            "Tipo": "Escala",
+            "opcoes": [
+                {
+                    "Descrição": "Sem registro",
+                    "Pontuação": 2
+                },
+                {
+                    "Descrição": "Registro em até 1 ano",
+                    "Pontuação": 3
+                },
+                {
+                    "Descrição": "Registro entre 1 a 2 anos",
+                    "Pontuação": 4
+                },
+                {
+                    "Descrição": "Registro acima de 2 anos",
+                    "Pontuação": 20
+                }
+            ]
+        }
+    ]
+}
