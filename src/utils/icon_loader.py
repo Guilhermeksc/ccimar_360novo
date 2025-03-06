@@ -71,6 +71,8 @@ def load_icons():
         "timeline": load_icon("timeline.png"),
         "process": load_icon("process.png"),
         "delete": load_icon("delete.png"),
+        "acanto": load_icon("acanto.png"),
+        "marinha": load_icon("marinha.png"),
 
         # "pdf_button": load_icon("pdf_button.png"),
         # "pdf_button_blue": load_icon("pdf_button_blue.png"),

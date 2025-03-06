@@ -6,14 +6,6 @@ utilizando a estrutura modularizada implementada no pacote objetos_auditaveis.
 """
 
 from .objetos_auditaveis import (
-    DetalhesDialog,
-    CriteriosViewDialog,
-    load_multiplicadores,
-    save_multiplicadores,
-    load_objetos_criterios,
-    save_objetos_criterios,
-    update_objeto_criterios,
-    get_objeto_criterios,
     MultiplicadoresDialog,
     CustomTableView,
     ExcelModelManager,

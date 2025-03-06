@@ -2,8 +2,8 @@ from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
 from PyQt6.QtCore import *
 from utils.search_bar import setup_search_bar, MultiColumnFilterProxyModel
-from utils.add_button import add_button
-from assets.styles.styles import table_view_stylesheet, title_view_stylesheet
+from utils.styles.style_add_button import add_button
+from utils.styles import table_view_stylesheet, title_view_stylesheet
 import pandas as pd
 
 class CCIMAR15View(QMainWindow):

@@ -35,7 +35,7 @@ def show_criterios_pesos(view, icons):
 
 def show_objetivos_navais(view):
     view.clear_content()
-    view.content_layout.addWidget(create_objetivos_navais("PEM 2040", view.database_model, icons=view.icons, json_file_path=OBJETIVOS_NAVAIS_PATH))
+    view.content_layout.addWidget(create_objetivos_navais("PEM 2040", icons=view.icons, json_file_path=OBJETIVOS_NAVAIS_PATH))
 
 def show_objetos_auditaveis(view):
     view.clear_content()

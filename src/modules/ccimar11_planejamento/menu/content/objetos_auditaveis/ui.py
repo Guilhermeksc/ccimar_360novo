@@ -11,240 +11,12 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtGui import QStandardItemModel, QStandardItem, QFont
 from PyQt6.QtCore import Qt
 from paths import CONFIG_PAINT_PATH
-from .tableview import CustomTableView, ExcelModelManager, load_config
-from .calculations import MultiplicadoresDialog
+from .tableview import RiscoDelegate, CustomTableView, ExcelModelManager, load_config
+from .multiplicadores import MultiplicadoresDialog
+from utils.styles.style_add_button import apply_button_style
+from utils.styles.style_table import apply_table_style
+from .edit_dialog import EditDialog
 
-class EditDialog(QDialog):
-    def __init__(self, parent=None, objeto_auditavel=None, config=None, row_index=None):
-        super().__init__(parent)
-        self.objeto_auditavel = objeto_auditavel
-        self.config = config
-        self.row_index = row_index
-        self.pontuacao_criterios = config.get("pontuacao_criterios", {})
-        self.comboboxes = {}
-        
-        self.setWindowTitle(f"Editar Objeto Auditável: {objeto_auditavel.get('descricao', '')}")
-        self.setMinimumWidth(700)
-        self.setMinimumHeight(500)
-        
-        # Estilo para o diálogo
-        self.setStyleSheet("""
-            QDialog {
-                background-color: #1E1E2E;
-                color: #FFFFFF;
-            }
-            QLabel {
-                color: #FFFFFF;
-                font-size: 12px;
-            }
-            QTabWidget::pane {
-                border: 1px solid #3D3D5C;
-                background-color: #2D2D44;
-                border-radius: 5px;
-            }
-            QTabBar::tab {
-                background-color: #3D3D5C;
-                color: #FFFFFF;
-                padding: 8px 16px;
-                margin-right: 2px;
-                border-top-left-radius: 4px;
-                border-top-right-radius: 4px;
-            }
-            QTabBar::tab:selected {
-                background-color: #5D5D8C;
-                font-weight: bold;
-            }
-            QComboBox {
-                background-color: #FFFFFF;
-                color: #000000;
-                padding: 5px;
-                border-radius: 3px;
-                min-height: 25px;
-            }
-            QPushButton {
-                background-color: #4CAF50;
-                color: white;
-                font-weight: bold;
-                padding: 8px 16px;
-                border-radius: 4px;
-            }
-            QPushButton:hover {
-                background-color: #45a049;
-            }
-            QPushButton:pressed {
-                background-color: #3d8b40;
-            }
-            QPushButton[text="Cancel"] {
-                background-color: #f44336;
-            }
-            QPushButton[text="Cancel"]:hover {
-                background-color: #e53935;
-            }
-        """)
-        
-        main_layout = QVBoxLayout(self)
-        main_layout.setContentsMargins(20, 20, 20, 20)
-        main_layout.setSpacing(15)
-        
-        # Informações básicas
-        info_frame = QFrame()
-        info_frame.setStyleSheet("background-color: #2D2D44; border-radius: 5px; padding: 10px;")
-        info_layout = QHBoxLayout(info_frame)
-        
-        nr_label = QLabel(f"<b>NR:</b> {objeto_auditavel.get('nr', '')}")
-        nr_label.setStyleSheet("font-size: 14px;")
-        info_layout.addWidget(nr_label)
-        
-        desc_label = QLabel(f"<b>Descrição:</b> {objeto_auditavel.get('descricao', '')}")
-        desc_label.setStyleSheet("font-size: 14px;")
-        info_layout.addWidget(desc_label)
-        
-        main_layout.addWidget(info_frame)
-        
-        # Criar abas para cada categoria
-        tab_widget = QTabWidget()
-        
-        # Aba de Materialidade
-        materialidade_tab = QWidget()
-        materialidade_layout = QFormLayout(materialidade_tab)
-        materialidade_layout.setContentsMargins(15, 15, 15, 15)
-        materialidade_layout.setSpacing(10)
-        self.setup_category_tab(materialidade_layout, "materialidade")
-        tab_widget.addTab(materialidade_tab, "Materialidade")
-        
-        # Aba de Relevância
-        relevancia_tab = QWidget()
-        relevancia_layout = QFormLayout(relevancia_tab)
-        relevancia_layout.setContentsMargins(15, 15, 15, 15)
-        relevancia_layout.setSpacing(10)
-        self.setup_category_tab(relevancia_layout, "relevancia")
-        tab_widget.addTab(relevancia_tab, "Relevância")
-        
-        # Aba de Criticidade
-        criticidade_tab = QWidget()
-        criticidade_layout = QFormLayout(criticidade_tab)
-        criticidade_layout.setContentsMargins(15, 15, 15, 15)
-        criticidade_layout.setSpacing(10)
-        self.setup_category_tab(criticidade_layout, "criticidade")
-        tab_widget.addTab(criticidade_tab, "Criticidade")
-        
-        main_layout.addWidget(tab_widget)
-        
-        # Botões de OK e Cancelar
-        button_box = QDialogButtonBox(QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel)
-        button_box.accepted.connect(self.accept)
-        button_box.rejected.connect(self.reject)
-        
-        # Estilizar os botões
-        ok_button = button_box.button(QDialogButtonBox.StandardButton.Ok)
-        ok_button.setText("Salvar")
-        ok_button.setMinimumWidth(100)
-        
-        cancel_button = button_box.button(QDialogButtonBox.StandardButton.Cancel)
-        cancel_button.setText("Cancelar")
-        cancel_button.setStyleSheet("background-color: #f44336;")
-        cancel_button.setMinimumWidth(100)
-        
-        main_layout.addWidget(button_box, 0, Qt.AlignmentFlag.AlignRight)
-    
-    def setup_category_tab(self, layout, category):
-        """Configura os comboboxes para uma categoria específica (materialidade, relevância, criticidade)"""
-        criterios = self.pontuacao_criterios.get(category, [])
-        objeto_category = self.objeto_auditavel.get(category, {})
-        
-        for criterio_info in criterios:
-            criterio_nome = criterio_info.get("Critério", "")
-            opcoes = criterio_info.get("opcoes", [])
-            
-            # Criar combobox
-            combo = QComboBox()
-            combo.setMinimumWidth(450)
-            combo.setMinimumHeight(30)
-            
-            # Adicionar opções ao combobox
-            selected_index = 0
-            for idx, opcao in enumerate(opcoes):
-                desc = opcao.get("Descrição", "")
-                pont = opcao.get("Pontuação", 0)
-                display_text = f"{desc} ({pont} pts)"
-                combo.addItem(display_text, opcao)
-                
-                # Verificar se esta é a opção atualmente selecionada
-                criterio_atual = objeto_category.get(criterio_nome, {})
-                if criterio_atual.get("texto", "") == desc:
-                    selected_index = idx
-            
-            # Definir o índice selecionado
-            combo.setCurrentIndex(selected_index)
-            
-            # Armazenar referência ao combobox
-            self.comboboxes[(category, criterio_nome)] = combo
-            
-            # Criar label com estilo
-            label = QLabel(f"{criterio_nome}:")
-            label.setStyleSheet("font-weight: bold; font-size: 13px;")
-            
-            # Adicionar ao layout
-            layout.addRow(label, combo)
-    
-    def get_updated_data(self):
-        """Retorna os dados atualizados com base nas seleções do usuário"""
-        updated_objeto = self.objeto_auditavel.copy()
-        
-        for (category, criterio_nome), combo in self.comboboxes.items():
-            selected_index = combo.currentIndex()
-            if selected_index >= 0:
-                selected_option = combo.itemData(selected_index)
-                desc = selected_option.get("Descrição", "")
-                pont = selected_option.get("Pontuação", 0)
-                
-                # Atualizar o objeto auditável
-                if category in updated_objeto:
-                    if criterio_nome in updated_objeto[category]:
-                        updated_objeto[category][criterio_nome] = {
-                            "valor": pont,
-                            "texto": desc
-                        }
-        
-        return updated_objeto
-
-# Adicionar uma classe de delegate para colorir as células de risco
-from PyQt6.QtGui import QColor
-
-class RiscoDelegate(QStyledItemDelegate):
-    def paint(self, painter, option, index):
-        if index.column() == 6:  # Coluna de Risco
-            risco = index.data()
-            opt = option
-
-            # Definir cores que combinam com o fundo #181928
-            if risco in ["Muito Alto", "Alto"]:
-                background_color = QColor("#B71C1C")  # Vermelho escuro
-                text_color = Qt.GlobalColor.white
-            elif risco == "Médio":
-                background_color = QColor("#FBC02D")  # Âmbar
-                text_color = Qt.GlobalColor.black
-            elif risco == "Baixo":
-                background_color = QColor("#388E3C")  # Verde escuro
-                text_color = Qt.GlobalColor.white
-            elif risco == "Muito Baixo":
-                background_color = QColor("#2E7D32")  # Verde ainda mais escuro
-                text_color = Qt.GlobalColor.white
-            else:
-                background_color = Qt.GlobalColor.transparent
-                text_color = Qt.GlobalColor.white
-
-            painter.save()
-            painter.fillRect(opt.rect, background_color)
-            painter.setPen(text_color)
-            painter.drawText(
-                opt.rect,
-                Qt.AlignmentFlag.AlignCenter | Qt.AlignmentFlag.AlignVCenter,
-                str(risco)
-            )
-            painter.restore()
-        else:
-            super().paint(painter, option, index)
 
 
 def create_objetos_auditaveis(title_text):
@@ -260,35 +32,12 @@ def create_objetos_auditaveis(title_text):
     title_layout.addWidget(title_label)
     title_layout.addStretch()
 
-    # Estilo uniforme para os botões no tema escuro
-    button_style = """
-        QPushButton {
-            background-color: #25283D;  /* Fundo escuro sutil */
-            color: white;
-            font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid #3A3D56;
-            font-size: 14px;
-        }
-        
-        QPushButton:hover {
-            background-color: #303456;  /* Cor levemente mais clara ao passar o mouse */
-            border: 1px solid #4A4F78;
-        }
-
-        QPushButton:pressed {
-            background-color: #1E2035;
-            border: 1px solid #6B6F9A;
-        }
-    """
-
     btn_export = QPushButton("Exportar")
-    btn_export.setStyleSheet(button_style)
+    apply_button_style(btn_export)
     title_layout.addWidget(btn_export)
 
     btn_import = QPushButton("Importar")
-    btn_import.setStyleSheet(button_style)
+    apply_button_style(btn_import)
     title_layout.addWidget(btn_import)
 
     def open_riscos_dialog():
@@ -410,7 +159,7 @@ def create_objetos_auditaveis(title_text):
 
     # Configura o botão "Riscos" para abrir o diálogo
     btn_riscos = QPushButton("Riscos")
-    btn_riscos.setStyleSheet(button_style)
+    apply_button_style(btn_riscos)
     title_layout.addWidget(btn_riscos)
     btn_riscos.clicked.connect(open_riscos_dialog)
 
@@ -420,13 +169,13 @@ def create_objetos_auditaveis(title_text):
             load_model_from_config()  # Recarrega a tabela após salvar
 
     btn_multiplicadores = QPushButton("Multiplicadores")
-    btn_multiplicadores.setStyleSheet(button_style)
+    apply_button_style(btn_multiplicadores)
     title_layout.addWidget(btn_multiplicadores)
     btn_multiplicadores.clicked.connect(open_multiplicadores_dialog)
 
     # Botão de full screen para o mapa (table_view)
     btn_fullscreen = QPushButton("Mapa Full Screen")
-    btn_fullscreen.setStyleSheet(button_style)
+    apply_button_style(btn_fullscreen)
     title_layout.addWidget(btn_fullscreen)
 
     def open_fullscreen_tableview():
@@ -481,7 +230,8 @@ def create_objetos_auditaveis(title_text):
 
     # Botão de full screen para os Critérios (criteria_container)
     btn_crit_fullscreen = QPushButton("Critérios Full Screen")
-    btn_crit_fullscreen.setStyleSheet(button_style)
+    apply_button_style(btn_crit_fullscreen)
+
     title_layout.addWidget(btn_crit_fullscreen)
 
     def open_fullscreen_criteria():
@@ -568,31 +318,7 @@ def create_objetos_auditaveis(title_text):
     table_view = CustomTableView()
     table_view.setFont(QFont("Arial", 12))  # Define fonte maior para melhor visibilidade
 
-    table_view.setStyleSheet("""
-        QTableView {
-            background-color: #181928;  /* Fundo da tabela */
-            color: white;  /* Cor do texto */
-            gridline-color: #25283D;  /* Linhas separadoras discretas */
-            selection-background-color: #2A2D44;  /* Fundo ao selecionar */
-            selection-color: white;
-            border: 1px solid #25283D;
-            alternate-background-color: #1F2133; /* Linhas alternadas */
-        }
-        
-        QHeaderView::section {
-            background-color: #25283D;  /* Cabeçalhos escuros */
-            color: white;
-            padding: 6px;
-            font-size: 14px;
-            font-weight: bold;
-            border: 1px solid #2F324B;
-        }
-
-        QTableCornerButton::section {
-            background-color: #25283D;
-            border: 1px solid #2F324B;
-        }
-    """)
+    apply_table_style(table_view)
 
     model = QStandardItemModel()
     table_view.setModel(model)

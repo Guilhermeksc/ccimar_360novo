@@ -1,7 +1,7 @@
 from PyQt6.QtWidgets import *
 from functools import partial
 import json
-from utils.add_button import add_button_func
+from utils.styles.style_add_button import add_button_func
 from utils.linha_layout import linha_divisoria_sem_spacer_layout
 from paths import ORGANIZACOES_FILE
 

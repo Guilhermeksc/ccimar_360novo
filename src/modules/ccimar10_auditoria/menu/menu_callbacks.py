@@ -89,9 +89,10 @@ def show_teste_widget(view):
     view.content_layout.addWidget(create_content("Teste"))
 
 def show_chat_bot(view, icons):
-    view.clear_content()
-    # Se necessário, passe os ícones para create_chatbot ou armazene-os em view
-    view.content_layout.addWidget(create_content("Conselho de Gestão"))
+    pass
+    # view.clear_content()
+    # # Se necessário, passe os ícones para create_chatbot ou armazene-os em view
+    # view.content_layout.addWidget(create_content("Conselho de Gestão"))
 
 def show_chat_bot_local(view, icons):
     view.clear_content()

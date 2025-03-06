@@ -7,7 +7,7 @@ from docx import Document
 from paths import TEMPLATE_TEST_PATH
 from .treeview_menu import TreeMenu
 from .draggable_view_pdf import DraggableGraphicsView
-from utils.add_button import add_button
+from utils.styles.style_add_button import add_button
 
 class UtilsView(QMainWindow):
     # Sinais para comunicação com o controlador

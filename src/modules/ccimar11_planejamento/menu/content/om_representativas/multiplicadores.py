@@ -8,6 +8,7 @@ from PyQt6.QtWidgets import (
 from paths import OM_REPRESENTATIVAS_PATH
 from .tableview import load_config
 from PyQt6.QtCore import QTimer
+from utils.styles import apply_dialog_style
 
 class MultiplicadoresDialog(QDialog):
     def __init__(self, update_callback=None, parent=None):
@@ -16,44 +17,8 @@ class MultiplicadoresDialog(QDialog):
         self.setMinimumSize(300, 200)
         self.update_callback = update_callback
 
-        self.setStyleSheet("""
-            QDialog {
-                background-color: #1E1E2E;
-                color: #FFFFFF;
-                border-radius: 8px;
-            }
-            QLabel {
-                color: #FFFFFF;
-                font-size: 14px;
-                font-weight: bold;
-            }
-            QSpinBox {
-                background-color: #FFFFFF;
-                font-size: 14px;
-            }
-            QPushButton {
-                background-color: #4CAF50;
-                color: white;
-                font-weight: bold;
-                padding: 8px 16px;
-                border-radius: 4px;
-            }
-            QPushButton:hover {
-                background-color: #45a049;
-            }
-            QPushButton:pressed {
-                background-color: #3d8b40;
-            }
-            QPushButton[text="Cancelar"] {
-                background-color: #f44336;
-            }
-            QPushButton[text="Cancelar"]:hover {
-                background-color: #e53935;
-            }
-            QPushButton[text="Cancelar"]:pressed {
-                background-color: #d32f2f;
-            }
-        """)
+
+        apply_dialog_style(self)
 
         layout = QVBoxLayout(self)
         self.config = load_config() or {}

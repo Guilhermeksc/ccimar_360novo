@@ -2,7 +2,7 @@
     "mapa_om_representativas": [
         {
             "Critério": "EXECFIN",
-            "Peso": 5,
+            "Peso": 6,
             "itens": [
                 {
                     "Descrição": "OM que utilizam até determinado percentual dos recursos orçamentários da MB",
@@ -32,7 +32,7 @@
         },
         {
             "Critério": "PAGMED",
-            "Peso": 4,
+            "Peso": 5,
             "itens": [
                 {
                     "Descrição": "OM que utilizam até determinado percentual da Folha de Pagamento da MB",

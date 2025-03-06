@@ -12,8 +12,9 @@ from PyQt6.QtGui import QStandardItemModel, QStandardItem, QFont
 from PyQt6.QtCore import Qt
 from paths import OM_REPRESENTATIVAS_PATH
 from .tableview import CustomTableView, ExcelModelManager, load_config
-from .calculations import MultiplicadoresDialog
+from .multiplicadores import MultiplicadoresDialog
 from .percentual import PercentualDialog
+from utils.styles import apply_table_style, apply_button_style
 
 def create_om_representativas(title_text):
     main_frame = QFrame()
@@ -28,35 +29,12 @@ def create_om_representativas(title_text):
     title_layout.addWidget(title_label)
     title_layout.addStretch()
 
-    # Estilo uniforme para os botões no tema escuro
-    button_style = """
-        QPushButton {
-            background-color: #25283D;  /* Fundo escuro sutil */
-            color: white;
-            font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid #3A3D56;
-            font-size: 14px;
-        }
-        
-        QPushButton:hover {
-            background-color: #303456;  /* Cor levemente mais clara ao passar o mouse */
-            border: 1px solid #4A4F78;
-        }
-
-        QPushButton:pressed {
-            background-color: #1E2035;
-            border: 1px solid #6B6F9A;
-        }
-    """
-
     btn_export = QPushButton("Exportar")
-    btn_export.setStyleSheet(button_style)
+    apply_button_style(btn_export)
     title_layout.addWidget(btn_export)
 
     btn_import = QPushButton("Importar")
-    btn_import.setStyleSheet(button_style)
+    apply_button_style(btn_import)
     title_layout.addWidget(btn_import)
 
     def open_percentual_dialog():
@@ -65,7 +43,7 @@ def create_om_representativas(title_text):
             load_model_from_config()  # Recarrega a tabela após salvar
 
     btn_percentual = QPushButton("Percentual")
-    btn_percentual.setStyleSheet(button_style)
+    apply_button_style(btn_percentual)
     title_layout.addWidget(btn_percentual)
     btn_percentual.clicked.connect(open_percentual_dialog)
 
@@ -75,13 +53,13 @@ def create_om_representativas(title_text):
             load_model_from_config()  # Recarrega a tabela após salvar
 
     btn_multiplicadores = QPushButton("Multiplicadores")
-    btn_multiplicadores.setStyleSheet(button_style)
+    apply_button_style(btn_multiplicadores)
     title_layout.addWidget(btn_multiplicadores)
     btn_multiplicadores.clicked.connect(open_multiplicadores_dialog)
 
     # Botão de full screen para o mapa (table_view)
     btn_fullscreen = QPushButton("Mapa Full Screen")
-    btn_fullscreen.setStyleSheet(button_style)
+    apply_button_style(btn_fullscreen)
     title_layout.addWidget(btn_fullscreen)
 
     def open_fullscreen_tableview():
@@ -140,31 +118,7 @@ def create_om_representativas(title_text):
     table_view = CustomTableView()
     table_view.setFont(QFont("Arial", 12))  # Define fonte maior para melhor visibilidade
 
-    table_view.setStyleSheet("""
-        QTableView {
-            background-color: #181928;  /* Fundo da tabela */
-            color: white;  /* Cor do texto */
-            gridline-color: #25283D;  /* Linhas separadoras discretas */
-            selection-background-color: #2A2D44;  /* Fundo ao selecionar */
-            selection-color: white;
-            border: 1px solid #25283D;
-            alternate-background-color: #1F2133; /* Linhas alternadas */
-        }
-        
-        QHeaderView::section {
-            background-color: #25283D;  /* Cabeçalhos escuros */
-            color: white;
-            padding: 6px;
-            font-size: 14px;
-            font-weight: bold;
-            border: 1px solid #2F324B;
-        }
-
-        QTableCornerButton::section {
-            background-color: #25283D;
-            border: 1px solid #2F324B;
-        }
-    """)
+    apply_table_style(table_view)
 
     model = QStandardItemModel()
     table_view.setModel(model)
@@ -228,50 +182,7 @@ def create_om_representativas(title_text):
         table_view.setColumnWidth(5, 60)
         table_view.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
 
-
-
     load_model_from_config()
-
-    def update_json_from_table():
-        config = load_config()
-        if not config:
-            return
-
-        objetos_auditaveis = config.get("objetos_auditaveis", [])
-        multiplicadores = config.get("multiplicador", {
-            "materialidade": 4,
-            "relevancia": 2,
-            "criticidade": 4
-        })
-
-        # Recalcula os totais e o risco de cada objeto auditável
-        for obj in objetos_auditaveis:
-            # Soma os valores de cada critério (assumindo que cada valor já foi atualizado via critérios filhos)
-            mat_val_raw = sum(v.get("valor", 0) for v in obj.get("materialidade", {}).values())
-            rel_val_raw = sum(v.get("valor", 0) for v in obj.get("relevancia", {}).values())
-            crit_val_raw = sum(v.get("valor", 0) for v in obj.get("criticidade", {}).values())
-
-            # Aplica os multiplicadores
-            mat_val = mat_val_raw * multiplicadores.get("materialidade", 4)
-            rel_val = rel_val_raw * multiplicadores.get("relevancia", 2)
-            crit_val = crit_val_raw * multiplicadores.get("criticidade", 4)
-            total = mat_val + rel_val + crit_val
-            obj["total"] = total
-
-        config["objetos_auditaveis"] = objetos_auditaveis
-
-        try:
-            with open(OM_REPRESENTATIVAS_PATH, "w", encoding="utf-8") as f:
-                json.dump(config, f, indent=4, ensure_ascii=False)
-            print("Arquivo JSON atualizado com sucesso.")
-        except Exception as e:
-            QMessageBox.critical(None, "Erro", f"Falha ao salvar no JSON: {e}")
-
-        # Atualiza o modelo do table_view com os novos valores
-        load_model_from_config()
-
-    # Conectar evento de alteração dos dados na tabela
-    model.dataChanged.connect(update_json_from_table)
 
     def import_from_excel():
         file_path, _ = QFileDialog.getOpenFileName(
@@ -370,81 +281,7 @@ def create_om_representativas(title_text):
         except Exception as e:
             QMessageBox.critical(main_frame, "Erro", f"Falha ao exportar para Excel: {e}")
 
-
-
-    # def on_table_double_clicked(index):
-    #     """Função chamada quando o usuário clica duas vezes em uma linha da tabela"""
-    #     if not index.isValid():
-    #         return
-        
-    #     row = index.row()
-        
-    #     # Carregar a configuração atual
-    #     config = load_config()
-    #     if not config:
-    #         QMessageBox.critical(main_frame, "Erro", "Não foi possível carregar a configuração.")
-    #         return
-        
-    #     # Obter o objeto auditável correspondente à linha clicada
-    #     objetos_auditaveis = config.get("objetos_auditaveis", [])
-    #     if row >= len(objetos_auditaveis):
-    #         QMessageBox.critical(main_frame, "Erro", "Índice de linha inválido.")
-    #         return
-        
-    #     objeto_auditavel = objetos_auditaveis[row]
-        
-    #     # Criar e exibir o diálogo de edição
-    #     dialog = EditDialog(main_frame, objeto_auditavel, config, row)
-    #     if dialog.exec() == QDialog.DialogCode.Accepted:
-    #         # Atualizar o objeto auditável com os dados do diálogo
-    #         updated_objeto = dialog.get_updated_data()
-            
-    #         # Obter os multiplicadores
-    #         multiplicadores = config.get("multiplicador", {
-    #             "materialidade": 4,
-    #             "relevancia": 2,
-    #             "criticidade": 4
-    #         })
-            
-    #         # Calcular os novos valores
-    #         mat_val_raw = sum(v.get("valor", 0) if isinstance(v, dict) else 0 
-    #                          for v in updated_objeto.get("materialidade", {}).values())
-    #         rel_val_raw = sum(v.get("valor", 0) if isinstance(v, dict) else 0 
-    #                          for v in updated_objeto.get("relevancia", {}).values())
-    #         crit_val_raw = sum(v.get("valor", 0) if isinstance(v, dict) else 0 
-    #                           for v in updated_objeto.get("criticidade", {}).values())
-            
-    #         # Aplicar multiplicadores
-    #         mat_val = mat_val_raw * multiplicadores.get("materialidade", 4)
-    #         rel_val = rel_val_raw * multiplicadores.get("relevancia", 2)
-    #         crit_val = crit_val_raw * multiplicadores.get("criticidade", 4)
-            
-    #         # Calcular o total
-    #         total = mat_val + rel_val + crit_val
-            
-    #         # Atualizar o objeto com os novos valores calculados
-    #         updated_objeto["total"] = total
-            
-    #         # Atualizar o objeto na lista
-    #         objetos_auditaveis[row] = updated_objeto
-            
-    #         # Atualizar o arquivo JSON
-    #         config["objetos_auditaveis"] = objetos_auditaveis
-    #         try:
-    #             with open(OM_REPRESENTATIVAS_PATH, "w", encoding="utf-8") as f:
-    #                 json.dump(config, f, indent=4, ensure_ascii=False)
-                
-    #             # Recarregar a tabela para refletir as alterações
-    #             load_model_from_config()
-    #             QMessageBox.information(main_frame, "Sucesso", "Dados atualizados com sucesso!")
-    #         except Exception as e:
-    #             QMessageBox.critical(main_frame, "Erro", f"Falha ao salvar no JSON: {e}")
-    
-    # Conectar o evento de duplo clique na tabela
-    # table_view.doubleClicked.connect(on_table_double_clicked)
-
     btn_import.clicked.connect(import_from_excel)
     btn_export.clicked.connect(export_to_excel)
-    btn_multiplicadores.clicked.connect(lambda: print("Multiplicadores"))
 
     return main_frame

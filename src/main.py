@@ -4,7 +4,7 @@ from PyQt6.QtCore import *
 from paths import *
 from pathlib import Path
 from utils.icon_loader import load_icons
-from assets.styles.styles import get_menu_button_style, get_menu_button_activated_style
+from utils.styles import get_menu_button_style, get_menu_button_activated_style
 from modules.widgets import *
 from config.config_widget import ConfigManager
 

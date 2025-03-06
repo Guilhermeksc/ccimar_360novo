@@ -2,6 +2,35 @@ from PyQt6.QtWidgets import QPushButton
 from PyQt6.QtGui import QIcon, QCursor
 from PyQt6.QtCore import QSize, Qt
 
+def apply_button_style(button):
+    """Applies a consistent style and cursor effect to buttons."""
+    button_style = """
+        QPushButton {
+            background-color: #25283D;  /* Subtle dark background */
+            color: white;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid #3A3D56;
+            font-size: 14px;
+        }
+        
+        QPushButton:hover {
+            background-color: #4A4FD3;  /* Vibrant blue on hover */
+            border: 1px solid #6A6FFF;
+            color: #FFFFFF;
+        }
+
+        QPushButton:pressed {
+            background-color: #1E2035;
+            border: 1px solid #6B6F9A;
+        }
+    """
+    button.setStyleSheet(button_style)
+    button.setCursor(Qt.CursorShape.PointingHandCursor)  # Hand cursor effect
+
+
+
 def add_button_copy(text, icon_name, slot, layout, icons, tooltip=None):
     button = QPushButton()
     

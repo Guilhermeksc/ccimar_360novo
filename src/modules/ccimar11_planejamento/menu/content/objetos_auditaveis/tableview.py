@@ -6,11 +6,48 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import Qt
 from paths import CONFIG_PAINT_PATH
+from PyQt6.QtGui import QColor
 
 class CenteredDelegate(QStyledItemDelegate):
     def initStyleOption(self, option, index):
         super().initStyleOption(option, index)
         option.displayAlignment = Qt.AlignmentFlag.AlignCenter
+
+class RiscoDelegate(QStyledItemDelegate):
+    def paint(self, painter, option, index):
+        if index.column() == 6:  # Coluna de Risco
+            risco = index.data()
+            opt = option
+
+            # Definir cores que combinam com o fundo #181928
+            if risco in ["Muito Alto", "Alto"]:
+                background_color = QColor("#B71C1C")  # Vermelho escuro
+                text_color = Qt.GlobalColor.white
+            elif risco == "Médio":
+                background_color = QColor("#FBC02D")  # Âmbar
+                text_color = Qt.GlobalColor.black
+            elif risco == "Baixo":
+                background_color = QColor("#388E3C")  # Verde escuro
+                text_color = Qt.GlobalColor.white
+            elif risco == "Muito Baixo":
+                background_color = QColor("#2E7D32")  # Verde ainda mais escuro
+                text_color = Qt.GlobalColor.white
+            else:
+                background_color = Qt.GlobalColor.transparent
+                text_color = Qt.GlobalColor.white
+
+            painter.save()
+            painter.fillRect(opt.rect, background_color)
+            painter.setPen(text_color)
+            painter.drawText(
+                opt.rect,
+                Qt.AlignmentFlag.AlignCenter | Qt.AlignmentFlag.AlignVCenter,
+                str(risco)
+            )
+            painter.restore()
+        else:
+            super().paint(painter, option, index)
+
 
 class CustomTableView(QTableView):
     def __init__(self, parent=None):
@@ -20,7 +57,6 @@ class CustomTableView(QTableView):
         self.setEditTriggers(QTableView.EditTrigger.NoEditTriggers)
         self.setSelectionBehavior(QTableView.SelectionBehavior.SelectRows)
         self.setSelectionMode(QTableView.SelectionMode.SingleSelection)
-
 
 def load_config():
     if os.path.exists(CONFIG_PAINT_PATH):
@@ -82,3 +118,4 @@ class ExcelModelManager:
 
     def _show_message(self, message: str):
         QMessageBox.critical(None, "Erro na Importação", message)
+

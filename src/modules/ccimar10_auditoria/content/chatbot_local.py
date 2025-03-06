@@ -6,7 +6,7 @@ import sqlite3
 import logging
 from PyQt6.QtCore import Qt, pyqtSignal
 import re
-from utils.add_button import add_button_func
+from utils.styles.style_add_button import add_button_func
 from .chatbot_utils.flow_layout import FlowLayout
 import ollama
 

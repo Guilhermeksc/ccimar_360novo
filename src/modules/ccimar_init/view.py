@@ -3,7 +3,6 @@ from PyQt6.QtGui import *
 from PyQt6.QtCore import *
 from pathlib import Path
 from paths import ICONS_DIR, CCIMAR360_PATH
-from assets.styles.styles import title_view_stylesheet
 
 class InicioWidget(QWidget):
     def __init__(self, icons, parent=None):

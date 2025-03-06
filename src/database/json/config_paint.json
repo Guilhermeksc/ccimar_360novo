@@ -11,16 +11,16 @@
             },
             "relevancia": {
                 "Vinculação a Ação Estratégica Naval (AEN)": {
-                    "valor": 1,
-                    "texto": "Vinculado a mais de quatro AEN"
+                    "valor": 5,
+                    "texto": "Vinculado a três AEN"
                 },
                 "Vinculação ao Portfólio Estratégico": {
-                    "valor": 0,
-                    "texto": "Não"
+                    "valor": 5,
+                    "texto": "Sim"
                 },
                 "Vinculação à Ação Orçamentária da LOA": {
-                    "valor": 0,
-                    "texto": "Não"
+                    "valor": 5,
+                    "texto": "Sim"
                 }
             },
             "criticidade": {
@@ -37,45 +37,46 @@
                     "texto": "Sem registro"
                 }
             },
-            "total": 370
+            "total": 324
         },
         {
             "nr": 2,
             "descricao": "Processo B",
             "materialidade": {
                 "Vulto Financeiro": {
-                    "valor": 0,
-                    "texto": ""
+                    "valor": 6,
+                    "texto": "De 10% a 20%"
                 }
             },
             "relevancia": {
                 "Vinculação a Ação Estratégica Naval (AEN)": {
-                    "valor": 0,
-                    "texto": ""
+                    "valor": 1,
+                    "texto": "Vinculado a mais de quatro AEN"
                 },
                 "Vinculação ao Portfólio Estratégico": {
-                    "valor": 0,
-                    "texto": "Não"
+                    "valor": 5,
+                    "texto": "Sim"
                 },
                 "Vinculação à Ação Orçamentária da LOA": {
-                    "valor": 0,
-                    "texto": "Não"
+                    "valor": 5,
+                    "texto": "Sim"
                 }
             },
             "criticidade": {
                 "Tempo sem Auditoria": {
-                    "valor": 0,
-                    "texto": ""
+                    "valor": 2,
+                    "texto": "Até 2 anos"
                 },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
-                    "valor": 0,
-                    "texto": ""
+                    "valor": 20,
+                    "texto": "Com registro reincidente até 2 anos"
                 },
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
-                    "valor": 0,
-                    "texto": ""
+                    "valor": 2,
+                    "texto": "Sem registro"
                 }
-            }
+            },
+            "total": 236
         },
         {
             "nr": 3,
@@ -499,9 +500,9 @@
         }
     ],
     "multiplicador": {
-        "materialidade": 7,
-        "relevancia": 5,
-        "criticidade": 5
+        "materialidade": 8,
+        "relevancia": 4,
+        "criticidade": 6
     },
     "pontuacao_criterios": {
         "relevancia": [
@@ -654,7 +655,7 @@
         ]
     },
     "riscos": {
-        "Muito Alto": 225,
+        "Muito Alto": 231,
         "Alto": 200,
         "Médio": 150,
         "Baixo": 110,
