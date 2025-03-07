@@ -8,10 +8,49 @@ import os
 import pandas as pd
 import subprocess
 import sys
-from paths import OBJETIVOS_NAVAIS_PATH
 from .json_utils import load_objetivos_navais_data, save_objetivos_navais_data
 from .objetivos_treeview import CustomTreeView, DraggableListWidget
 from .criterio_widget import CriterioWidget
+from paths import CONFIG_PAINT_PATH
+import re
+
+def create_header_layout(icons):
+    """Cria o layout do cabeçalho com os ícones e títulos alinhados."""
+    pem_label = QLabel("PEM 2040")
+    pem_label.setStyleSheet("font-size: 30px; font-weight: bold; color: #FFFFFF;")
+    # Layout horizontal para Objetivos Auditáveis
+    title_layout = QHBoxLayout()
+    title_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+    separator_label = QLabel("x")
+    separator_label.setStyleSheet("font-size: 30px; font-weight: bold; color: #FFFFFF; padding: 0 15px;")
+
+    objetivos_label = QLabel("Objetivos Auditáveis")
+    objetivos_label.setStyleSheet("font-size: 30px; font-weight: bold; color: #FFFFFF;")
+
+    title_layout.addWidget(pem_label)  # Adicionando PEM 2040 + Plano Estratégico
+    title_layout.addWidget(separator_label)
+    title_layout.addWidget(objetivos_label)
+
+    # Layout para ícones
+    header_layout = QHBoxLayout()
+    header_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+    icon_label = QLabel()
+    icon_label.setPixmap(icons["marinha"].pixmap(60, 60))
+    icon_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+    acanto_label = QLabel()
+    acanto_label.setPixmap(icons["acanto"].pixmap(120, 60))
+    acanto_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+    header_layout.addWidget(icon_label)
+    header_layout.addStretch()
+    header_layout.addLayout(title_layout)  # Adicionando título ao centro
+    header_layout.addStretch()
+    header_layout.addWidget(acanto_label)
+
+    return header_layout
 
 def create_objetivos_navais(title_text, icons, json_file_path=None):
     icons = icons
@@ -21,39 +60,17 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
     main_layout = QVBoxLayout(content_frame)
     main_layout.setContentsMargins(5, 5, 5, 5)
     main_layout.setSpacing(2)
-    title_layout = QHBoxLayout()
-    # Layout vertical para os títulos
-    title_text_layout = QVBoxLayout()
-    pem_label = QLabel("PEM 2040")
-    pem_label.setStyleSheet("font-size: 30px; font-weight: bold; color: #FFFFFF;")
-    plano_label = QLabel("Plano Estratégico da Marinha")
-    plano_label.setStyleSheet("font-size: 18px; color: #FFFFFF;")
-    title_text_layout.addWidget(pem_label)
-    title_text_layout.addWidget(plano_label)
-    title_text_layout.setSpacing(2)
-    title_text_layout.setContentsMargins(0, 0, 0, 0)
-
-    icon_label = QLabel()
-    icon_label.setPixmap(icons["marinha"].pixmap(60, 60))  # Define o ícone com tamanho 50x50
-    icon_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-    acanto_label = QLabel()
-    acanto_label.setPixmap(icons["acanto"].pixmap(120, 60))  # Define o ícone com tamanho 50x50
-    acanto_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-    title_layout.addWidget(icon_label)
-    title_layout.addLayout(title_text_layout)
-    title_layout.addStretch()
-    title_layout.addWidget(acanto_label)
-
-    main_layout.addLayout(title_layout)
-
+    
+    # Adicionando o cabeçalho
+    header_layout = create_header_layout(icons)
+    main_layout.addLayout(header_layout)
 
     content_layout = QHBoxLayout()      
     # Lado esquerdo
     treeview_frame = QFrame()
     treeview_layout = QVBoxLayout(treeview_frame)
     treeview_layout.setContentsMargins(0, 0, 0, 0)
-    treeview_layout.setSpacing(5)
+    treeview_layout.setSpacing(0)
 
     # Criação do TreeView
     tree = CustomTreeView(icons=icons)
@@ -64,6 +81,10 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
     def update_tree_view():
         model.clear()
         data = load_objetivos_navais_data(json_file_path) if json_file_path else None
+        def extract_number(text):
+            """Extrai o número inicial da string, se houver, para ordenação numérica."""
+            match = re.match(r"(\d+)", text)
+            return int(match.group(1)) if match else float('inf')  # Inf coloca strings puras no final
         
         if data:
             # print("[DEBUG] Dados JSON carregados com sucesso")
@@ -91,17 +112,17 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
                             aen_item.setEditable(False)
                             aen_item.setData(aen, Qt.ItemDataRole.UserRole)
                             en_item.appendRow(aen_item)  # Adiciona a AEN imediatamente
-                            
-                            # Adiciona os critérios de auditoria da AEN
-                            for criterio in aen.get('criterios_auditoria', []):
-                                # print(f"[DEBUG] Processando critério: {criterio}")
-                                # Cria o item do critério
+
+                            # Ordenar os critérios antes de adicionar ao TreeView
+                            criterios_ordenados = sorted(aen.get('criterios_auditoria', []), key=extract_number)
+                     
+                            for criterio in criterios_ordenados:
                                 criterio_item = QStandardItem()
                                 criterio_item.setEditable(False)
                                 criterio_item.setData(f"criterio: {criterio}", Qt.ItemDataRole.UserRole)
                                 criterio_item.setText("")  # Define texto vazio para evitar sobreposição
-                                aen_item.insertRow(0, criterio_item)
-                                
+                                aen_item.appendRow(criterio_item)
+
                                 # Cria e define o widget personalizado para o critério
                                 widget = CriterioWidget(
                                     criterio,
@@ -109,35 +130,8 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
                                 )
                                 tree.setIndexWidget(criterio_item.index(), widget)
                                 print(f"[DEBUG] Widget personalizado definido para critério: {criterio}")
-        else:
-            print("[DEBUG] Nenhum dado JSON encontrado, usando estrutura padrão")
-            # Usa a estrutura padrão caso não haja dados do JSON
-            perspectivas = {
-                "Resultados para a Sociedade": list(range(1, 6)),
-                "Processos": list(range(6, 11)),
-                "Institucional": list(range(11, 13))
-            }
-            
-            for perspec, obnavs in perspectivas.items():
-                perspec_item = QStandardItem(perspec)
-                perspec_item.setEditable(False)
-                model.appendRow(perspec_item)  # Adiciona a perspectiva imediatamente
-                
-                for num in obnavs:
-                    obnav_item = QStandardItem(f"OBNAV {num}")
-                    obnav_item.setEditable(False)
-                    perspec_item.appendRow(obnav_item)  # Adiciona o OBNAV imediatamente
-                    
-                    en_item = QStandardItem("EN - Estratégia Naval")
-                    en_item.setEditable(False)
-                    obnav_item.appendRow(en_item)  # Adiciona o EN imediatamente
-                    
-                    aen_item = QStandardItem("AEN - Ação Estratégica Naval")
-                    aen_item.setEditable(False)
-                    en_item.appendRow(aen_item)  # Adiciona a AEN imediatamente
-        
+
         tree.expandAll()
-        # print("[DEBUG] Árvore expandida e atualização concluída")
     
     # Configura os callbacks antes de atualizar a view
     content_frame.remove_criterio = update_tree_view
@@ -228,27 +222,22 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
     # Conecta os botões às funções
     export_button.clicked.connect(export_data)
     import_button.clicked.connect(import_data)
-    
-
-    
+        
     # Lado direito com lista de critérios
     criterio_frame = QFrame()
     criterio_frame.setMaximumWidth(250)
     criterio_layout = QVBoxLayout(criterio_frame)
-    criterio_layout.setContentsMargins(10, 10, 10, 10)
+    criterio_layout.setContentsMargins(5, 5, 5, 5)
         
     # Lista de critérios
     criterios_list = DraggableListWidget()
-    criterios = [
-        "Execução/Licitação",
-        "Pagamento",
-        "Municiamento",
-        "Patrimônio",
-        "Última Auditoria"
-    ]
+    criterios = carregar_criterios_do_json(CONFIG_PAINT_PATH)
     
     for criterio in criterios:
         item = QListWidgetItem(criterio)
+        font = item.font()
+        item.setFlags(item.flags() | Qt.ItemFlag.ItemIsDragEnabled)
+        item.setFont(font)
         criterios_list.addItem(item)
     
     criterio_layout.addWidget(criterios_list)
@@ -257,6 +246,16 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
     main_layout.addLayout(content_layout)
     
     return content_frame
+
+def carregar_criterios_do_json(json_path):
+    with open(json_path, 'r', encoding='utf-8') as file:
+        dados_json = json.load(file)
+
+    objetos = dados_json.get('objetos_auditaveis', [])
+
+    criterios = [f"{objeto['nr']} - {objeto['descricao']}" for objeto in objetos]
+
+    return criterios
 
 def export_to_excel(data, output_path):
     """

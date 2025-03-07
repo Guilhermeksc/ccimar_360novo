@@ -1,72 +1,60 @@
 from PyQt6.QtWidgets import (QTreeView, QListWidget)
-from PyQt6.QtGui import  QStandardItem, QDrag
+from PyQt6.QtGui import  QStandardItem, QDrag, QFont
 from PyQt6.QtCore import Qt, QMimeData
 import json
 from .criterio_widget import CriterioWidget
 from .json_utils import load_objetivos_navais_data, save_objetivos_navais_data
-        
+import re
+def get_treeview_stylesheet():
+    return """
+        QTreeView {
+            background-color: transparent;
+            color: #FFF;
+            font-size: 20px;
+            border: 1px solid #25283D;
+        }
+        /* Perspectivas */
+        QTreeView::item:!has-siblings:!has-children,
+        QTreeView::branch:!has-siblings:!has-children {
+            color: #8AB4F7;  /* Azul principal */
+        }
+        /* OBNAV */
+        QTreeView::item:has-siblings:!has-children,
+        QTreeView::branch:has-siblings:!has-children {
+            font-size: 12px;
+            color: #4C8BF5;  /* Azul mais escuro */
+        }
+        /* EN */
+        QTreeView::item:has-siblings:has-children,
+        QTreeView::branch:has-siblings:has-children {
+            color: #B6D4FF;  /* Azul mais claro */
+        }
+        /* AEN */
+        QTreeView::item:has-children,
+        QTreeView::branch:has-children {
+            color: #63A1FF;  /* Azul médio */
+        }
+        /* Critérios */
+        QTreeView::item,
+        QTreeView::branch {
+            color: #E8F1FF;
+            font-style: italic;
+            font-family: "Courier New";
+        }
+        QTreeView::item:selected {
+            background-color: #3B71CA;  /* Azul escuro para seleção */
+        }
+        QTreeView::item:hover {
+            background-color: #1E3A8A;  /* Azul muito escuro para hover */
+        }
+    """        
 class CustomTreeView(QTreeView):
     def __init__(self, icons=None, parent=None):
         super().__init__(parent)
         self.setAcceptDrops(True)  # Habilita drops
         self.json_file_path = None
         self.update_callback = None
-        
-        # Configuração do estilo para os critérios
-        self.setStyleSheet("""
-            QTreeView {
-                           background-color: transparent;
-                color: #FFF;
-                font-size: 14px;
-            }
-            /* Estilo base para todos os itens */
-            QTreeView::item {
-                color: #FFFFFF;
-                height: 20px;
-            }
-            /* Perspectivas */
-            QTreeView::item:!has-siblings:!has-children,
-            QTreeView::branch:!has-siblings:!has-children {
-                font-size: 16px;
-                font-weight: bold;
-                color: #8AB4F7;  /* Azul principal */
-            }
-            /* OBNAV */
-            QTreeView::item:has-siblings:!has-children,
-            QTreeView::branch:has-siblings:!has-children {
-                font-size: 15px;
-                font-weight: 700;
-                color: #4C8BF5;  /* Azul mais escuro */
-            }
-            /* EN */
-            QTreeView::item:has-siblings:has-children,
-            QTreeView::branch:has-siblings:has-children {
-                font-size: 14px;
-                font-weight: 600;
-                font-style: italic;
-                color: #B6D4FF;  /* Azul mais claro */
-            }
-            /* AEN */
-            QTreeView::item:has-children,
-            QTreeView::branch:has-children {
-                font-size: 13px;
-                font-weight: 500;
-                color: #63A1FF;  /* Azul médio */
-            }
-            /* Critérios */
-            QTreeView::item,
-            QTreeView::branch {
-                font-size: 12px;
-                font-weight: normal;
-                color: #E8F1FF;  /* Azul muito claro */
-            }
-            QTreeView::item:selected {
-                background-color: #3B71CA;  /* Azul escuro para seleção */
-            }
-            QTreeView::item:hover {
-                background-color: #1E3A8A;  /* Azul muito escuro para hover */
-            }
-        """)
+        self.setStyleSheet(get_treeview_stylesheet())  # Aplica o estilo separado
 
     def remove_criterio(self, criterio_item):
         """Remove um critério do TreeView e do arquivo JSON"""
@@ -119,29 +107,36 @@ class CustomTreeView(QTreeView):
                                     break
                 print("[DEBUG] Critério não encontrado no JSON para remoção")
 
-    def add_criterio_to_tree(self, criterio, parent_item, data=None, is_initial_load=False):
-        """Adiciona um critério ao TreeView"""
-        print(f"[DEBUG] Adicionando critério ao TreeView: {criterio}")
-        # Cria o item do critério
-        criterio_item = QStandardItem()
-        criterio_item.setEditable(False)
-        criterio_item.setData(f"criterio: {criterio}", Qt.ItemDataRole.UserRole)
-        criterio_item.setText("")  # Define texto vazio para evitar sobreposição
+    def add_criterios_ordenados(self, parent_item, criterios):
+        """Adiciona critérios ao TreeView, garantindo a ordenação correta."""
         
-        # Cria o widget personalizado com o botão de exclusão
-        widget = CriterioWidget(
-            criterio,
-            lambda item=criterio_item: self.remove_criterio(item)
-        )
-        
-        # Insere o item na árvore como primeiro filho
-        parent_item.insertRow(0, criterio_item)
-        
-        # Define o widget personalizado para o item
-        self.setIndexWidget(criterio_item.index(), widget)
-        print(f"[DEBUG] Widget personalizado definido para critério: {criterio}")
-        
-        return criterio_item
+        def extract_number(text):
+            """Extrai o número inicial da string, se houver, para ordenação numérica."""
+            match = re.match(r"(\d+)", text)
+            return int(match.group(1)) if match else float('inf')  # Inf coloca strings puras no final
+
+        # Ordena os critérios do menor para o maior
+        criterios.sort(key=extract_number)
+
+        # Remove todos os critérios visuais antes de reinseri-los
+        for i in reversed(range(parent_item.rowCount())):
+            parent_item.removeRow(i)
+
+        # Insere os critérios ordenados
+        for criterio in criterios:
+            criterio_item = QStandardItem()
+            criterio_item.setEditable(False)
+            criterio_item.setData(f"criterio: {criterio}", Qt.ItemDataRole.UserRole)
+            criterio_item.setText("")  # Define texto vazio para evitar sobreposição
+            
+            # Cria e define o widget personalizado para o critério
+            widget = CriterioWidget(
+                criterio,
+                lambda item=criterio_item: self.remove_criterio(item)
+            )
+            
+            parent_item.appendRow(criterio_item)
+            self.setIndexWidget(criterio_item.index(), widget)
 
     def dragEnterEvent(self, event):
         if event.mimeData().hasText():
@@ -157,35 +152,42 @@ class CustomTreeView(QTreeView):
     
     def dropEvent(self, event):
         if event.mimeData().hasText():
-            criterio = event.mimeData().text()
+            criterio = event.mimeData().text().strip()
             drop_index = self.indexAt(event.position().toPoint())
-            
+
             if drop_index.isValid():
                 item = self.model().itemFromIndex(drop_index)
-                
+
                 # Se o drop foi em um critério, usa o pai dele como destino
                 if item.data(Qt.ItemDataRole.UserRole) and str(item.data(Qt.ItemDataRole.UserRole)).startswith('criterio:'):
                     item = item.parent()
                     if not item:
                         event.ignore()
                         return
-                
+
                 # Verifica se é uma AEN
                 parent = item.parent()
                 if parent and parent.parent() and parent.parent().parent():  # É uma AEN
                     aen_data = item.data(Qt.ItemDataRole.UserRole)
-                    
+
                     # Adiciona o critério à AEN
                     if 'criterios_auditoria' not in aen_data:
                         aen_data['criterios_auditoria'] = []
-                    
+
+                    # Verifica se o critério já existe na AEN para evitar duplicação
                     if criterio not in aen_data['criterios_auditoria']:
-                        # Adiciona ao modelo de dados
                         aen_data['criterios_auditoria'].append(criterio)
-                        
-                        # Adiciona visualmente ao TreeView usando o método add_criterio_to_tree
-                        self.add_criterio_to_tree(criterio, item, aen_data)
-                        
+
+                        # Ordena os critérios corretamente do menor para o maior
+                        def extract_number(text):
+                            """Extrai o número inicial da string, se houver, para ordenação numérica."""
+                            match = re.match(r"(\d+)", text)
+                            return int(match.group(1)) if match else float('inf')  # Inf garante que texto puro vá para o final
+
+                        aen_data['criterios_auditoria'].sort(key=extract_number)
+
+                        self.add_criterios_ordenados(item, aen_data['criterios_auditoria'])
+
                         # Atualiza o arquivo JSON
                         if self.json_file_path:
                             data = load_objetivos_navais_data(self.json_file_path)
@@ -195,48 +197,65 @@ class CustomTreeView(QTreeView):
                                     for obnav in perspectiva.get('obnavs', []):
                                         for en in obnav.get('estrategias_navais', []):
                                             for aen in en.get('acoes_estrategicas', []):
-                                                if (str(aen.get('numero')) == str(aen_data.get('numero')) and 
-                                                    aen.get('descricao') == aen_data.get('descricao')):
+                                                if (str(aen.get('numero')) == str(aen_data.get('numero')) and
+                                                        aen.get('descricao') == aen_data.get('descricao')):
                                                     if 'criterios_auditoria' not in aen:
                                                         aen['criterios_auditoria'] = []
                                                     if criterio not in aen['criterios_auditoria']:
                                                         aen['criterios_auditoria'].append(criterio)
+                                                        aen['criterios_auditoria'].sort(key=extract_number)
                                                         save_objetivos_navais_data(data, self.json_file_path)
                                                     break
-                        
+
+                        if self.update_callback:
+                            self.update_callback()
                         event.accept()
                         return
-            
+
             event.ignore()
 
 class DraggableListWidget(QListWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setStyleSheet("""
-            QListWidget {
-                background-color: #282a36;
-                color: #f8f8f2;
-                border: 1px solid #6272a4;
-                border-radius: 4px;
-            }
-            QListWidget::item {
-                padding: 5px;
-                border-bottom: 1px solid #44475a;
-            }
-            QListWidget::item:hover {
-                background-color: #44475a;
-            }
-        """)
-    
-    def mousePressEvent(self, event):
-        if event.button() == Qt.MouseButton.LeftButton:
+        self.setCursor(Qt.CursorShape.OpenHandCursor)  # Define o cursor de mão aberta
+        self.setStyleSheet(get_draggable_list_style())  # Aplica o estilo separado
+
+    def mouseMoveEvent(self, event):
+        if event.buttons() == Qt.MouseButton.LeftButton:
             item = self.itemAt(event.position().toPoint())
             if item:
+                self.setCursor(Qt.CursorShape.ClosedHandCursor)  # Mantém o cursor fechado enquanto arrasta
                 drag = QDrag(self)
                 mime_data = QMimeData()
                 mime_data.setText(item.text())
                 drag.setMimeData(mime_data)
                 drag.exec(Qt.DropAction.MoveAction)
+                self.setCursor(Qt.CursorShape.OpenHandCursor)  # Retorna para mão aberta após soltar
         else:
-            super().mousePressEvent(event)
+            super().mouseMoveEvent(event)
+
+
+def get_draggable_list_style():
+    return """
+        QListWidget {
+            background-color: #181928;  /* Fundo similar ao TableView */
+            color: white;  /* Texto branco */
+            border: 1px solid #25283D;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        QListWidget::item {
+            padding: 5px;
+            border-bottom: 1px solid #25283D;  /* Linha separadora sutil */
+        }
+        QListWidget::item:hover {
+            background-color: #5568E8;  /* Azul vibrante ao passar o mouse */
+            color: white;
+        }
+        QListWidget::item:selected {
+            background-color: #3A57D2;  /* Azul escuro da seleção */
+            color: white;
+        }
+    """
 

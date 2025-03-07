@@ -47,6 +47,65 @@ class CriterioWidget(QWidget):
         # Ajusta o tamanho do widget para ser o menor possível
         self.setSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
+def get_treeview_stylesheet():
+    return """
+        QTreeView {
+            background-color: transparent;
+            color: #FFF;
+            font-size: 14px;
+            border: 1px solid #25283D;
+        }
+        /* Estilo base para todos os itens */
+        QTreeView::item {
+            color: #FFFFFF;
+            height: 20px;
+        }
+        /* Perspectivas */
+        QTreeView::item:!has-siblings:!has-children,
+        QTreeView::branch:!has-siblings:!has-children {
+            font-size: 16px;
+            font-weight: bold;
+            color: #8AB4F7;  /* Azul principal */
+        }
+        /* OBNAV */
+        QTreeView::item:has-siblings:!has-children,
+        QTreeView::branch:has-siblings:!has-children {
+            font-size: 15px;
+            font-weight: 700;
+            color: #4C8BF5;  /* Azul mais escuro */
+        }
+        /* EN */
+        QTreeView::item:has-siblings:has-children,
+        QTreeView::branch:has-siblings:has-children {
+            font-size: 14px;
+            font-weight: 600;
+            font-style: italic;
+            color: #B6D4FF;  /* Azul mais claro */
+        }
+        /* AEN */
+        QTreeView::item:has-children,
+        QTreeView::branch:has-children {
+            font-size: 13px;
+            font-weight: 500;
+            color: #63A1FF;  /* Azul médio */
+        }
+        /* Critérios */
+        QTreeView::item,
+        QTreeView::branch {
+            font-size: 12px;
+            font-weight: normal;
+            color: #E8F1FF;
+            font-style: italic;
+            font-family: "Courier New";
+        }
+        QTreeView::item:selected {
+            background-color: #3B71CA;  /* Azul escuro para seleção */
+        }
+        QTreeView::item:hover {
+            background-color: #1E3A8A;  /* Azul muito escuro para hover */
+        }
+    """    
+    
 class CustomTreeView(QTreeView):
     def __init__(self, icons=None, parent=None):
         super().__init__(parent)
@@ -55,59 +114,7 @@ class CustomTreeView(QTreeView):
         self.update_callback = None
         
         # Configuração do estilo para os critérios
-        self.setStyleSheet("""
-            QTreeView {
-                color: #FFF;
-                font-size: 14px;
-            }
-            /* Estilo base para todos os itens */
-            QTreeView::item {
-                color: #FFFFFF;
-                height: 20px;
-            }
-            /* Perspectivas */
-            QTreeView::item:!has-siblings:!has-children,
-            QTreeView::branch:!has-siblings:!has-children {
-                font-size: 16px;
-                font-weight: bold;
-                color: #8AB4F7;  /* Azul principal */
-            }
-            /* OBNAV */
-            QTreeView::item:has-siblings:!has-children,
-            QTreeView::branch:has-siblings:!has-children {
-                font-size: 15px;
-                font-weight: 700;
-                color: #4C8BF5;  /* Azul mais escuro */
-            }
-            /* EN */
-            QTreeView::item:has-siblings:has-children,
-            QTreeView::branch:has-siblings:has-children {
-                font-size: 14px;
-                font-weight: 600;
-                font-style: italic;
-                color: #B6D4FF;  /* Azul mais claro */
-            }
-            /* AEN */
-            QTreeView::item:has-children,
-            QTreeView::branch:has-children {
-                font-size: 13px;
-                font-weight: 500;
-                color: #63A1FF;  /* Azul médio */
-            }
-            /* Critérios */
-            QTreeView::item,
-            QTreeView::branch {
-                font-size: 12px;
-                font-weight: normal;
-                color: #E8F1FF;  /* Azul muito claro */
-            }
-            QTreeView::item:selected {
-                background-color: #3B71CA;  /* Azul escuro para seleção */
-            }
-            QTreeView::item:hover {
-                background-color: #1E3A8A;  /* Azul muito escuro para hover */
-            }
-        """)
+        self.setStyleSheet(get_treeview_stylesheet())
 
     def remove_criterio(self, criterio_item):
         """Remove um critério do TreeView e do arquivo JSON"""

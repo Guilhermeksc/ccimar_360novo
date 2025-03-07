@@ -1,96 +1,97 @@
 {
     "objetos_auditaveis": [
         {
-            "nr": 1,
+            "nr": "1",
             "descricao": "Processo A",
+            "detalhamento": "-",
             "materialidade": {
                 "Vulto Financeiro": {
-                    "valor": 15,
-                    "texto": "Acima de 30%"
+                    "valor": 0,
+                    "texto": ""
                 }
             },
             "relevancia": {
                 "Vinculação a Ação Estratégica Naval (AEN)": {
-                    "valor": 5,
-                    "texto": "Vinculado a três AEN"
+                    "valor": 0,
+                    "texto": ""
                 },
                 "Vinculação ao Portfólio Estratégico": {
-                    "valor": 5,
-                    "texto": "Sim"
+                    "valor": 0,
+                    "texto": "Não"
                 },
                 "Vinculação à Ação Orçamentária da LOA": {
-                    "valor": 5,
-                    "texto": "Sim"
+                    "valor": 0,
+                    "texto": "Não"
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 2,
-                    "texto": "Até 2 anos"
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
-                    "valor": 20,
-                    "texto": "Com registro reincidente até 2 anos"
+                    "valor": 0,
+                    "texto": ""
                 },
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
-                    "valor": 2,
-                    "texto": "Sem registro"
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
+                    "valor": 0,
+                    "texto": ""
                 }
-            },
-            "total": 324
+            }
         },
         {
-            "nr": 2,
+            "nr": "2",
             "descricao": "Processo B",
+            "detalhamento": "-",
             "materialidade": {
                 "Vulto Financeiro": {
-                    "valor": 6,
-                    "texto": "De 10% a 20%"
+                    "valor": 0,
+                    "texto": ""
                 }
             },
             "relevancia": {
                 "Vinculação a Ação Estratégica Naval (AEN)": {
-                    "valor": 1,
-                    "texto": "Vinculado a mais de quatro AEN"
+                    "valor": 0,
+                    "texto": ""
                 },
                 "Vinculação ao Portfólio Estratégico": {
-                    "valor": 5,
-                    "texto": "Sim"
+                    "valor": 0,
+                    "texto": "Não"
                 },
                 "Vinculação à Ação Orçamentária da LOA": {
-                    "valor": 5,
-                    "texto": "Sim"
+                    "valor": 0,
+                    "texto": "Não"
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 2,
-                    "texto": "Até 2 anos"
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
-                    "valor": 20,
-                    "texto": "Com registro reincidente até 2 anos"
+                    "valor": 0,
+                    "texto": ""
                 },
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
-                    "valor": 2,
-                    "texto": "Sem registro"
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
+                    "valor": 0,
+                    "texto": ""
                 }
-            },
-            "total": 236
+            }
         },
         {
-            "nr": 3,
+            "nr": "3",
             "descricao": "Processo C",
+            "detalhamento": "-",
             "materialidade": {
                 "Vulto Financeiro": {
-                    "valor": 8,
-                    "texto": "De 20% a 30%"
+                    "valor": 0,
+                    "texto": ""
                 }
             },
             "relevancia": {
                 "Vinculação a Ação Estratégica Naval (AEN)": {
-                    "valor": 2,
-                    "texto": "Vinculado a uma AEN"
+                    "valor": 0,
+                    "texto": ""
                 },
                 "Vinculação ao Portfólio Estratégico": {
                     "valor": 0,
@@ -102,63 +103,63 @@
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 2,
-                    "texto": "Até 2 anos"
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
-                    "valor": 2,
-                    "texto": "Sem registros nos últimos 5 anos"
+                    "valor": 0,
+                    "texto": ""
                 },
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
-                    "valor": 2,
-                    "texto": "Sem registro"
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
+                    "valor": 0,
+                    "texto": ""
                 }
-            },
-            "total": 75
+            }
         },
         {
-            "nr": 4,
+            "nr": "4",
             "descricao": "Processo D",
+            "detalhamento": "-",
             "materialidade": {
                 "Vulto Financeiro": {
-                    "valor": 15,
-                    "texto": "Acima de 30%"
+                    "valor": 0,
+                    "texto": ""
                 }
             },
             "relevancia": {
                 "Vinculação a Ação Estratégica Naval (AEN)": {
-                    "valor": 5,
-                    "texto": "Vinculado a três AEN"
+                    "valor": 0,
+                    "texto": ""
                 },
                 "Vinculação ao Portfólio Estratégico": {
-                    "valor": 5,
-                    "texto": "Sim"
+                    "valor": 0,
+                    "texto": "Não"
                 },
                 "Vinculação à Ação Orçamentária da LOA": {
-                    "valor": 5,
-                    "texto": "Sim"
+                    "valor": 0,
+                    "texto": "Não"
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 2,
-                    "texto": "Até 2 anos"
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
-                    "valor": 5,
-                    "texto": "Com registro de evento nos últimos 2 anos"
+                    "valor": 0,
+                    "texto": ""
                 },
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
-                    "valor": 4,
-                    "texto": "Registro entre 1 a 2 anos"
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
+                    "valor": 0,
+                    "texto": ""
                 }
-            },
-            "total": 305
+            }
         },
         {
-            "nr": 5,
+            "nr": "5",
             "descricao": "Processo E",
+            "detalhamento": "-",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
@@ -180,10 +181,6 @@
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 0,
-                    "texto": ""
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
                     "valor": 0,
                     "texto": ""
@@ -191,12 +188,17 @@
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
                     "valor": 0,
                     "texto": ""
+                },
+                "Tempo sem Auditoria": {
+                    "valor": 0,
+                    "texto": ""
                 }
             }
         },
         {
-            "nr": 6,
+            "nr": "6",
             "descricao": "Processo F",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
@@ -218,10 +220,6 @@
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 0,
-                    "texto": ""
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
                     "valor": 0,
                     "texto": ""
@@ -229,12 +227,17 @@
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
                     "valor": 0,
                     "texto": ""
+                },
+                "Tempo sem Auditoria": {
+                    "valor": 0,
+                    "texto": ""
                 }
             }
         },
         {
-            "nr": 7,
+            "nr": "7",
             "descricao": "Processo G",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
@@ -256,23 +259,24 @@
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 0,
-                    "texto": ""
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
                     "valor": 0,
                     "texto": ""
                 },
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
                     "valor": 0,
                     "texto": ""
                 }
             }
         },
         {
-            "nr": 8,
-            "descricao": "Teste",
+            "nr": "8",
+            "descricao": "Novo",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
@@ -294,23 +298,24 @@
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 0,
-                    "texto": ""
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
                     "valor": 0,
                     "texto": ""
                 },
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
                     "valor": 0,
                     "texto": ""
                 }
             }
         },
         {
-            "nr": 9,
-            "descricao": "Teste",
+            "nr": "9",
+            "descricao": "teste",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
@@ -332,23 +337,24 @@
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 0,
-                    "texto": ""
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
                     "valor": 0,
                     "texto": ""
                 },
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
                     "valor": 0,
                     "texto": ""
                 }
             }
         },
         {
-            "nr": 10,
-            "descricao": "Teste",
+            "nr": "10",
+            "descricao": "novo",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
@@ -370,23 +376,24 @@
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 0,
-                    "texto": ""
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
                     "valor": 0,
                     "texto": ""
                 },
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
                     "valor": 0,
                     "texto": ""
                 }
             }
         },
         {
-            "nr": 11,
-            "descricao": "Teste",
+            "nr": "11",
+            "descricao": "teste",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
@@ -408,23 +415,24 @@
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 0,
-                    "texto": ""
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
                     "valor": 0,
                     "texto": ""
                 },
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
                     "valor": 0,
                     "texto": ""
                 }
             }
         },
         {
-            "nr": 12,
-            "descricao": "Teste",
+            "nr": "12",
+            "descricao": "novo",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
@@ -446,23 +454,24 @@
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 0,
-                    "texto": ""
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
                     "valor": 0,
                     "texto": ""
                 },
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
                     "valor": 0,
                     "texto": ""
                 }
             }
         },
         {
-            "nr": 13,
-            "descricao": "Teste",
+            "nr": "13",
+            "descricao": "t",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
@@ -484,15 +493,15 @@
                 }
             },
             "criticidade": {
-                "Tempo sem Auditoria": {
-                    "valor": 0,
-                    "texto": ""
-                },
                 "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
                     "valor": 0,
                     "texto": ""
                 },
                 "Repercussão Externa Negativa (Denúncias/Representações)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
                     "valor": 0,
                     "texto": ""
                 }
@@ -500,9 +509,9 @@
         }
     ],
     "multiplicador": {
-        "materialidade": 8,
-        "relevancia": 4,
-        "criticidade": 6
+        "materialidade": 4,
+        "relevancia": 2,
+        "criticidade": 4
     },
     "pontuacao_criterios": {
         "relevancia": [
@@ -655,10 +664,10 @@
         ]
     },
     "riscos": {
-        "Muito Alto": 231,
+        "Muito Alto": 250,
         "Alto": 200,
         "Médio": 150,
-        "Baixo": 110,
+        "Baixo": 100,
         "Muito Baixo": 50
     }
 }

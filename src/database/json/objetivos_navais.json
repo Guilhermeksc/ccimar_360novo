@@ -16,10 +16,16 @@
                                     "numero": "1.1.2",
                                     "descricao": "Expandir a Rede de Estações Navais",
                                     "criterios_auditoria": [
-                                        "Patrimônio",
-                                        "Última Auditoria",
-                                        "Municiamento",
-                                        "Pagamento"
+                                        "1 - Processo A",
+                                        "2 - Processo B",
+                                        "4 - Processo D",
+                                        "7 - Processo G",
+                                        "8 - Novo",
+                                        "9 - teste",
+                                        "10 - novo",
+                                        "11 - teste",
+                                        "12 - novo",
+                                        "13 - t"
                                     ]
                                 }
                             ]
@@ -39,9 +45,17 @@
                                     "numero": "2.1.1",
                                     "descricao": "Expandir a Rede de Estações Navais",
                                     "criterios_auditoria": [
-                                        "Execução/Licitação",
-                                        "Última Auditoria",
-                                        "Municiamento"
+                                        "1 - Processo A",
+                                        "2 - Processo B",
+                                        "5 - Processo E",
+                                        "6 - Processo F",
+                                        "7 - Processo G",
+                                        "8 - Novo",
+                                        "9 - teste",
+                                        "10 - novo",
+                                        "11 - teste",
+                                        "12 - novo",
+                                        "13 - t"
                                     ]
                                 }
                             ]
@@ -65,10 +79,7 @@
                                 {
                                     "numero": "6.1.1",
                                     "descricao": "Implementar Sistema de Gestão Integrada",
-                                    "criterios_auditoria": [
-                                        "Última Auditoria",
-                                        "Patrimônio"
-                                    ]
+                                    "criterios_auditoria": []
                                 }
                             ]
                         }

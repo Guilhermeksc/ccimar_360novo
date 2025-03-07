@@ -17,8 +17,6 @@ from utils.styles.style_add_button import apply_button_style
 from utils.styles.style_table import apply_table_style
 from .edit_dialog import EditDialog
 
-
-
 def create_objetos_auditaveis(title_text):
     main_frame = QFrame()
     main_layout = QVBoxLayout(main_frame)
@@ -780,8 +778,6 @@ def create_objetos_auditaveis(title_text):
         except Exception as e:
             QMessageBox.critical(main_frame, "Erro", f"Falha ao exportar para Excel: {e}")
 
-
-
     def import_from_excel():
         file_path, _ = QFileDialog.getOpenFileName(
             main_frame,
@@ -792,7 +788,7 @@ def create_objetos_auditaveis(title_text):
         if file_path:
             excel_manager = ExcelModelManager(file_path)
             if excel_manager.validate():
-                df_compilado = pd.read_excel(file_path, sheet_name="Compilado")
+                df_compilado = pd.read_excel(file_path, sheet_name="Compilado", dtype=str).fillna("")
                 df_materialidade = pd.read_excel(file_path, sheet_name="Materialidade")
                 df_relevancia = pd.read_excel(file_path, sheet_name="Relevância")
                 df_criticidade = pd.read_excel(file_path, sheet_name="Criticidade")
@@ -824,9 +820,11 @@ def create_objetos_auditaveis(title_text):
                 for _, row in df_compilado.iterrows():
                     nr = row["NR"]
                     descricao = row["Objetos Auditáveis"]
+                    detalhamento = row["Detalhamento"] if "Detalhamento" in df_compilado.columns else ""
                     objetos_auditaveis.append({
                         "nr": nr,
                         "descricao": descricao,
+                        "detalhamento": detalhamento,
                         "materialidade": materialidade_dict.copy(),
                         "relevancia": relevancia_dict.copy(),
                         "criticidade": criticidade_dict.copy()
