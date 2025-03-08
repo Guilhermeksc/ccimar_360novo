@@ -35,13 +35,13 @@ class CriterioWidget(QWidget):
         # Botão de exclusão com tamanho reduzido
         delete_label = ClickableLabel()
         delete_label.setText("❌")  # Emoji X como ícone de exclusão
-        delete_label.setStyleSheet("color: #ff5555; font-size: 10px; background: transparent; padding: 0px;")
-        delete_label.setFixedWidth(15)  # Largura fixa para o botão de exclusão
+        delete_label.setStyleSheet("color: #ff5555; font-size: 12px; background: transparent; padding: 0px;")
+        delete_label.setFixedWidth(16)  # Largura fixa para o botão de exclusão
         delete_label.clicked_callback = delete_callback
         
         # Label do texto do critério
         text_label = QLabel(criterio_text)
-        text_label.setStyleSheet("color: #f8f8f2; background: transparent; padding: 0px;")
+        text_label.setStyleSheet("color: #f8f8f2; font-size: 14px; background: transparent; padding: 0px;")
         
         layout.addWidget(delete_label)
         layout.addWidget(text_label, 1)  # O texto expande para ocupar o espaço disponível

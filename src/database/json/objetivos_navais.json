@@ -1,62 +1,172 @@
 {
     "perspectivas": [
         {
-            "nome": "Resultados para a Sociedade Teste",
+            "nome": "Resultados para a Sociedade",
             "obnavs": [
                 {
-                    "numero": 1,
-                    "descricao": "Garantir a Defesa das Águas Jurisdicionais",
+                    "numero": "1",
+                    "descricao": "CONTRIBUIR PARA A DEFESA DA PÁTRIA",
                     "criterios_auditoria": [],
                     "estrategias_navais": [
                         {
-                            "numero": 1.1,
-                            "descricao": "Ampliar a Presença Naval",
+                            "numero": "1",
+                            "titulo": "SISTEMÁTICA DE PLANEJAMENTO DE FORÇA",
+                            "descricao": "Esta Estratégia visa desenvolver uma Sistemática de Planejamento de Força para a MB, de forma a identificar uma Força crível, realista e em conformidade com as necessidades da sociedade.",
                             "acoes_estrategicas": [
                                 {
-                                    "numero": "1.1.2",
-                                    "descricao": "Expandir a Rede de Estações Navais",
+                                    "numero": "DEFESA 1",
+                                    "titulo": "Implantar a Sistemática de Planejamento de Força no âmbito da MB.",
+                                    "descricao": "Implantar um sistema integrado que permita gerenciar a análise de cenários e a prospecção de ameaças, por meio de uma ferramenta, como por exemplo o SIGSAZ, de suporte à tomada de decisões. Tal sistema deverá permitir a construção de cenários, a definição de hipóteses de emprego, a identificação de ameaças e a proposição de soluções de forças navais, aéreas e de fuzileiros navais.",
+                                    "responsavel": "Estado-Maior da Armada (EMA)",
                                     "criterios_auditoria": [
                                         "1 - Processo A",
                                         "2 - Processo B",
-                                        "4 - Processo D",
-                                        "7 - Processo G",
-                                        "8 - Novo",
-                                        "9 - teste",
-                                        "10 - novo",
-                                        "11 - teste",
-                                        "12 - novo",
-                                        "13 - t"
+                                        "3 - Processo C",
+                                        "5 - Processo E",
+                                        "6 - Processo F",
+                                        "7 - Processo G"
                                     ]
+                                },
+                                {
+                                    "numero": "DEFESA 2",
+                                    "titulo": "Implantar a Defesa Proativa da Amazônia Azul.",
+                                    "descricao": "Implantar um sistema de defesa proativa que permita monitorar e responder a eventuais ameaças à Amazônia Azul, por meio de tecnologia avançada de sensores e de comunicações. Este sistema deverá integrar dados de diversas fontes, possibilitando uma visão situacional ampliada e garantindo a pronta resposta da MB.",
+                                    "responsavel": "Estado-Maior da Armada (EMA)"
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    "numero": 2,
-                    "descricao": "Teste",
+                    "numero": "2",
+                    "descricao": "PROVER A SEGURANÇA MARÍTIMA",
                     "criterios_auditoria": [],
                     "estrategias_navais": [
                         {
-                            "numero": 2.1,
-                            "descricao": "Ampliar a Presença Naval",
+                            "numero": "2",
+                            "titulo": "SEGURANÇA MARÍTIMA",
+                            "descricao": "Esta Estratégia visa reduzir de forma significativa a quantidade absoluta e relativa de incidentes e, principalmente, acidentes de navegação nas AJB. Além disso, visa incrementar a capacidade da MB em termos de operações ou cooperações que promovam a fiscalização das AJB a fim de garantir de forma plena os interesses de Soberania do País.",
                             "acoes_estrategicas": [
                                 {
-                                    "numero": "2.1.1",
-                                    "descricao": "Expandir a Rede de Estações Navais",
-                                    "criterios_auditoria": [
-                                        "1 - Processo A",
-                                        "2 - Processo B",
-                                        "5 - Processo E",
-                                        "6 - Processo F",
-                                        "7 - Processo G",
-                                        "8 - Novo",
-                                        "9 - teste",
-                                        "10 - novo",
-                                        "11 - teste",
-                                        "12 - novo",
-                                        "13 - t"
-                                    ]
+                                    "numero": "MARÍTIMA 1",
+                                    "titulo": "Implementar o Sistema de Segurança do Tráfego Aquaviário (SSTA), nos ambientes fluviais e marítimos.",
+                                    "descricao": "Modernizar e integrar as soluções relacionadas ao SSTA; ampliar as ações de fiscalização e a capacidade de resposta à emergência na navegação.",
+                                    "responsavel": "Comando de Operações Navais (ComOpNav)"
+                                },
+                                {
+                                    "numero": "MARÍTIMA 2",
+                                    "titulo": "Contribuir para a segurança da navegação.",
+                                    "descricao": "Reduzir de maneira significativa o número de acidentes e incidentes de navegação nas AJB.",
+                                    "responsavel": "Diretoria-Geral de Navegação (DGN)"
+                                },
+                                {
+                                    "numero": "MARÍTIMA 3",
+                                    "titulo": "Incrementar a realização de Inspeção Naval (IN); Patrulhamento (PTMTO); e Patrulha Naval (PATNAV).",
+                                    "descricao": "Ampliar a capacidade para executar ações que permitam o emprego do poder naval de forma coercitiva em prol da segurança marítima.",
+                                    "responsavel": "Comando de Operações Navais (ComOpNav)"
+                                },
+                                {
+                                    "numero": "MARÍTIMA 4",
+                                    "titulo": "Incrementar a capacidade da MB na contraposição às ameaças híbridas.",
+                                    "descricao": "A segurança marítima é afetada por ameaças híbridas, cujos objetivos são embarcações e portos comerciais, sistema de navegação, entre outros, daí a necessidade de ampliação de carga, cinemática e suprimento de energia, a fim de aumentar a aplicação da capacidade de contraposição às ameaças híbridas de natureza variável.",
+                                    "responsavel": "Comando de Operações Navais (ComOpNav)"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "numero": "3",
+                    "descricao": "CONTRIBUIR PARA A GARANTIA DOS PODERES CONSTITUCIONAIS E DA LEI E DA ORDEM (GLO)",
+                    "criterios_auditoria": [],
+                    "estrategias_navais": [
+                        {
+                            "numero": "3",
+                            "titulo": "GLO",
+                            "descricao": "Esta estratégia visa a contribuir para a Garantia dos Poderes Constitucionais e da Lei e da Ordem, nos ambientes marítimo, fluvial ou terrestre.",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "GLO-1",
+                                    "titulo": "Garantir o preparo da MB para atuar em apoio aos Órgãos Governamentais para a Garantia dos Poderes Constitucionais e da Lei e da Ordem, nos ambientes marítimo, fluvial ou terrestre.",
+                                    "descricao": "Manter a capacidade de atuar em apoio aos Órgãos Governamentais para a Garantia dos Poderes Constitucionais e da Lei e da Ordem.",
+                                    "responsavel": "Comando de Operações Navais (ComOpNav) / Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "numero": "4",
+                    "descricao": "COOPERAR COM O DESENVOLVIMENTO NACIONAL",
+                    "criterios_auditoria": [],
+                    "estrategias_navais": [
+                        {
+                            "numero": "4",
+                            "titulo": "MENTALIDADE MARÍTIMA",
+                            "descricao": "Esta Estratégia visa ampliar a divulgação da mentalidade marítima na sociedade e nas pessoas diretamente envolvidas com o Poder Marítimo e congrega ações concretas desenvolvidas pela MB em cumprimento às atribuições subsidiárias de competência da Autoridade Marítima.",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "DESENVOLVIMENTO-1",
+                                    "titulo": "Contribuir com os órgãos governamentais e com a comunidade marítima na criação de Clusters Marítimos, estimulando a materialização da Política Marítima Nacional (PMN), por meio da interação com Ministérios, autoridades, entidades de classe, centros de estudos, universidades e institutos de pesquisa, entre outros.",
+                                    "descricao": "Buscar parcerias com diferentes setores extra-MB para a divulgação e valorização do poder marítimo, de modo a desenvolver projetos que incrementem a mentalidade marítima, contribuam para a geração de riqueza e fortaleçam a segurança e a proteção do ambiente aquaviário.",
+                                    "responsavel": "Diretoria-Geral de Navegação (DGN)"
+                                },
+                                {
+                                    "numero": "DESENVOLVIMENTO-2",
+                                    "titulo": "Atuar proativamente junto a instituições de ensino e pesquisa, além do setor industrial, visando ao fortalecimento da mentalidade marítima e da Política Marítima Nacional (PMN).",
+                                    "descricao": "Promover o intercâmbio de conhecimentos e a difusão de tecnologias que fortaleçam a indústria marítima, possibilitem a formação de profissionais qualificados e fomentem a pesquisa voltada às necessidades da MB e do País, contribuindo para o desenvolvimento sustentável do Poder Marítimo.",
+                                    "responsavel": "Diretoria-Geral de Navegação (DGN)"
+                                },
+                                {
+                                    "numero": "DESENVOLVIMENTO-3",
+                                    "titulo": "Aperfeiçoar o Ensino Profissional Marítimo (EPM).",
+                                    "descricao": "Elaborar e implementar projetos educacionais que incentivem o aprendizado sobre a importância do mar para o desenvolvimento nacional, bem como a valorização de tradições e práticas marítimas.",
+                                    "responsavel": "Diretoria-Geral de Navegação (DGN)"
+                                },
+                                {
+                                    "numero": "DESENVOLVIMENTO-4",
+                                    "titulo": "Apoiar a presença brasileira no continente Antártico.",
+                                    "descricao": "Desenvolver o Programa Antártico Brasileiro (PROANTAR): implantar a infraestrutura e a capacidade logística de apoio à pesquisa; restabelecer a operacionalidade da Estação Antártica Comandante Ferraz (EACF); e divulgar as atividades aos públicos interno e externo, especialmente para lideranças políticas.",
+                                    "responsavel": "Secretaria da Comissão Interministerial para os Recursos do Mar (SECIRM)"
+                                },
+                                {
+                                    "numero": "DESENVOLVIMENTO-5",
+                                    "titulo": "Fortalecer a Comissão Interministerial para os Recursos do Mar (CIRM)",
+                                    "descricao": "A CIRM, colegiado composto por representantes de diversos órgãos e ministérios, coordenado pelo Comandante da Marinha, trata dos assuntos relativos à consecução da Política Nacional para os Recursos do Mar (PNRM) e do Programa Nacional para Assuntos Antárticos (POLANTAR), executa Programas e Planos relacionados ao conhecimento e ao aproveitamento sustentável dos recursos do mar e das áreas sob jurisdição brasileira, bem como à manutenção dos interesses do Brasil no Atlântico Sul, no continente antártico e no Oceano Atlântico.\n\nA atualização dessas políticas, a valoração dos recursos do mar (Economia Azul) e a implementação de sistemas de monitoramento e controle na Amazônia Azul (Planejamento Espacial Marinho), fortalecendo a CIRM e seu arcabouço de governança, são atribuições afetas a esse AEN.",
+                                    "responsavel": "Secretaria da Comissão Interministerial para os Recursos do Mar (SECIRM)"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "numero": "5",
+                    "descricao": "APOIAR A POLÍTICA EXTERNA",
+                    "criterios_auditoria": [],
+                    "estrategias_navais": [
+                        {
+                            "numero": "5.1",
+                            "titulo": "ZOPACAS",
+                            "descricao": "Esta Estratégia visa a incrementar o nível de relacionamento com as Marinhas Amigas componentes da Zona de Paz e Cooperação do Atlântico Sul (ZOPACAS).",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "POLÍTICA EXTERNA-1",
+                                    "titulo": "Fomentar e incrementar a participação das Marinhas Amigas na Zona de Paz e Cooperação no Atlântico Sul (ZOPACAS)",
+                                    "descricao": "Realizar ações que visem ao aumento da interação entre as nações que compõem essa Zona de Paz e Cooperação, tornando mais efetiva a parceria em termos de segurança e da atuação no Atlântico Sul.",
+                                    "responsavel": "Estado-Maior da Armada (EMA)"
+                                }
+                            ]
+                        },
+                        {
+                            "numero": "5.2",
+                            "titulo": "Operações de Paz e Humanitárias (OpPazHum)",
+                            "descricao": "Esta estratégia visa a ampliar a participação de Navios e Grupamentos Operativos de Fuzileiros Navais, bem como de Oficiais e Praças da MB, em Operações de Paz e Humanitárias.",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "POLÍTICA EXTERNA-2",
+                                    "titulo": "Ampliar a participação de Navios e Grupamentos Operativos de Fuzileiros Navais, bem como de Oficiais e Praças da MB, em Operações de Paz e Humanitárias.",
+                                    "descricao": "Realizar ações que incrementem a capacitação e a prontidão de meios navais e de Fuzileiros Navais para o emprego da MB em missões de Operações de Paz e Humanitárias.",
+                                    "responsavel": "Comando de Operações Navais (ComOpNav) / Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
                                 }
                             ]
                         }
@@ -68,62 +178,229 @@
             "nome": "Processos",
             "obnavs": [
                 {
-                    "numero": 6,
-                    "descricao": "Otimizar a Gestão de Recursos",
+                    "numero": "6",
+                    "descricao": "MODERNIZAR A FORÇA NAVAL",
                     "criterios_auditoria": [],
                     "estrategias_navais": [
                         {
-                            "numero": 6.1,
-                            "descricao": "Modernizar Processos Administrativos",
+                            "numero": "6.1",
+                            "titulo": "PROGRAMA NUCLEAR DA MARINHA (PNM)",
+                            "descricao": "Visa obter a independência do desenvolvimento tecnológico do Ciclo do Combustível Nuclear e Planta Nuclear Embarcada, fundamentais para a projeção e construção de protótipos de submarino convencional, contribuindo para nova dimensão à Defesa Nacional.",
                             "acoes_estrategicas": [
                                 {
-                                    "numero": "6.1.1",
-                                    "descricao": "Implementar Sistema de Gestão Integrada",
-                                    "criterios_auditoria": []
+                                    "numero": "FORÇA NAVAL-1",
+                                    "titulo": "Desenvolver o Programa Nuclear da Marinha (PNM).",
+                                    "descricao": "Possuir a capacidade de executar de forma autônoma todo o processo do ciclo do combustível nuclear, bem como a projeção e construção de um protótipo de submarino nuclear (SN-BR).",
+                                    "responsavel": "Diretoria-Geral de Desenvolvimento Nuclear e Tecnológico da Marinha (DGDNTM)"
+                                }
+                            ]
+                        },
+                        {
+                            "numero": "6.2",
+                            "titulo": "CONSTRUÇÃO DO NÚCLEO DO PODER NAVAL",
+                            "descricao": "Visa substituir meios navais, aeronaves e de fuzileiros navais que se encontram em estados próximos de ultrapassar sua vida útil, adequando-os às necessidades da MB.",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "FORÇA NAVAL-2",
+                                    "titulo": "Construir e Modernizar Submarinos (PROSUB).",
+                                    "descricao": "Gerar e programar recursos para construção e modernização de submarinos convencionais, bem como do protótipo de submarino nuclear (SN-BR).",
+                                    "responsavel": "Diretoria-Geral de Desenvolvimento Nuclear e Tecnológico da Marinha (DGDNTM)"
+                                },
+                                {
+                                    "numero": "FORÇA NAVAL-3",
+                                    "titulo": "Obter navios de superfície para compor o Poder Naval (PROSUPER e programas específicos).",
+                                    "descricao": "Obter os seguintes meios: Navio com capacidade de Controle de Áreas Marítimas (NCAM) capaz de operar com aeronaves de asa fixa e asas rotativas, Navio de Apoio Logístico, Navios Anfíbios, Navio de Apoio Logístico e de Minagem, Avisos de Instrução para a Escola Naval e Colégio Naval.",
+                                    "responsavel": "Diretoria-Geral do Material da Marinha (DGMM)"
+                                },
+                                {
+                                    "numero": "FORÇA NAVAL-4",
+                                    "titulo": "Obter Navios-Patrulha para compor o Poder Naval (PRONAPA).",
+                                    "descricao": "Navios-Patrulha a serem empregados na proteção da Amazônia Azul.",
+                                    "responsavel": "Diretoria-Geral do Material da Marinha (DGMM)"
+                                },
+                                {
+                                    "numero": "FORÇA NAVAL-5",
+                                    "titulo": "Obter Navios Hidroceanográficos e Navios de Apoio Antártico (PROHIDRO).",
+                                    "descricao": "Obter os navios a serem empregados na Amazônia Azul e em águas internacionais, bem como em apoio às atividades científicas de interesse da Antártica.",
+                                    "responsavel": "Diretoria-Geral do Material da Marinha (DGMM)"
+                                },
+                                {
+                                    "numero": "FORÇA NAVAL-6",
+                                    "titulo": "Obter aeronaves para compor o Poder Naval (PROAERO).",
+                                    "descricao": "Obter aeronaves de asa fixa, rotativa e/ou remotamente pilotadas para missões de combate e de apoio; aeronaves de uso geral para transporte de tropa; aeronaves de uso geral para apoio em operações de superfície e emprego integrado (HI); helicópteros de emprego geral de pequeno porte (HUP).",
+                                    "responsavel": "Diretoria-Geral do Material da Marinha (DGMM)"
+                                },
+                                {
+                                    "numero": "FORÇA NAVAL-7",
+                                    "titulo": "Garantir o poder de combate necessário para compor o Poder Naval por meio da melhoria de material para atendimento da Dotação do Corpo de Fuzileiros Navais (PROADSUMUS).",
+                                    "descricao": "Ampliar e modernizar os equipamentos do CFN, de modo a assegurar as capacidades operativas previstas pela MB.",
+                                    "responsavel": "Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
+                                }
+                            ]
+                        },
+                        {
+                            "numero": "6.3",
+                            "titulo": "PODER NAVAL DO FUTURO",
+                            "descricao": "Visa reduzir o hiato tecnológico existente de forma a permitir não apenas o desenvolvimento de tecnologias chaves, mas principalmente viabilizar sua aplicação no Poder Naval por meio de Conceitos Estratégicos e Doutrinários, de forma a modernizar os meios e modos de emprego das nossas forças, que consigam confrontar os Desafios de Médio e Longo prazos.",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "FORÇA NAVAL-8",
+                                    "titulo": "Obter o Sistema de Aeronaves Remotamente Pilotadas Embarcadas (SARP-E).",
+                                    "descricao": "Obter SARP-E para emprego em caráter contínuo na defesa da Amazônia Azul, no monitoramento das áreas de responsabilidade e no apoio às Operações de Fuzileiros Navais.",
+                                    "responsavel": "Diretoria-Geral do Material da Marinha (DGMM)"
+                                },
+                                {
+                                    "numero": "FORÇA NAVAL-9",
+                                    "titulo": "Desenvolver a capacidade de Defesa Biológica, Nuclear, Química e Radiológica (DefBNQR).",
+                                    "descricao": "Incrementar a capacidade de realizar ações de Defesa BNQR em estreita cooperação com o órgão central do Sistema Nacional de Proteção e Defesa Civil (SINPDEC) e do Sistema de Proteção ao Programa Nuclear Brasileiro (SIPRON).",
+                                    "responsavel": "Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
+                                },
+                                {
+                                    "numero": "FORÇA NAVAL-10",
+                                    "titulo": "Desenvolver no País os produtos aplicados em navios, aeronaves e de equipamentos para os Fuzileiros Navais.",
+                                    "descricao": "Desenvolver projetos de equipamentos e sistemas que possuam alto conteúdo tecnológico, de aquisição restrita no exterior e que contribuirão para o desenvolvimento da Base Industrial e Tecnológica de Defesa.",
+                                    "responsavel": "Diretoria-Geral de Desenvolvimento Nuclear e Tecnológico da Marinha (DGDNTM) / Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
+                                },
+                                {
+                                    "numero": "FORÇA NAVAL-11",
+                                    "titulo": "Promover a sistematização do desenvolvimento de conceitos estratégicos e doutrinários da MB.",
+                                    "descricao": "Realizar a atualização organizacional do Estado-Maior da Armada (EMA) visando à sistematização do desenvolvimento de conceitos estratégicos e doutrinários que possam orientar o desenvolvimento de tecnologias, técnicas e procedimentos para enfrentar os desafios ao Poder Naval até 2040.",
+                                    "responsavel": "Estado-Maior da Armada (EMA)"
+                                },
+                                {
+                                    "numero": "FORÇA NAVAL-12",
+                                    "titulo": "Desenvolver o programa “Esporão”.",
+                                    "descricao": "Executar os projetos do Míssil Antinavio Nacional (MANSUP) e Antinavio Ar-Superfície (MANAER).",
+                                    "responsavel": "Diretoria-Geral do Material da Marinha (DGMM)"
                                 }
                             ]
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "nome": "Institucional",
-            "obnavs": [
+                },
                 {
-                    "numero": 11,
-                    "descricao": "Fortalecer a Imagem Institucional",
+                    "numero": "7",
+                    "descricao": "OBTER A CAPACIDADE OPERACIONAL PLENA (OCOP)",
                     "criterios_auditoria": [],
                     "estrategias_navais": [
                         {
-                            "numero": 11.1,
-                            "descricao": "Aprimorar a Comunicação Social",
+                            "numero": "7.1",
+                            "titulo": "OCOP",
+                            "descricao": "Visa contribuir para a melhora da disponibilidade dos meios navais, aeronavais e de fuzileiros navais existentes por meio de processos de modernização e revitalização exequíveis e com custo adequado à realidade orçamentária da MB e incrementar o poder combatente por meio de modernização dos sistemas de combate.",
                             "acoes_estrategicas": [
                                 {
-                                    "numero": "11.1.1",
-                                    "descricao": "Desenvolver Campanhas de Divulgação"
+                                    "numero": "OCOP-1",
+                                    "titulo": "Manter/modernizar os meios de superfície, submarinos, aeronavais e de Fuzileiros Navais existentes na MB.",
+                                    "descricao": "Manter, no mínimo, a disponibilidade de 65% dos navios, submarinos, aeronaves e material de combate de Fuzileiros Navais de forma a cumprirem a Missão da Marinha.",
+                                    "responsavel": "Diretoria-Geral do Material da Marinha (DGMM) / Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
+                                }
+                            ]
+                        },
+                        {
+                            "numero": "7.2",
+                            "titulo": "AMPLIAÇÃO DA CAPACIDADE DE APOIO LOGÍSTICO PARA OS MEIOS OPERATIVOS",
+                            "descricao": "Visa manter a capacidade operacional dos sistemas e equipamentos dos meios de superfície, submarinos e aeronavais existentes e dos futuros, à luz do processo de Gestão do Ciclo de Vida (GCV); manter a quantidade ideal de munição e armamento para garantir o aprestamento do Poder Naval; incrementar a Gestão Estratégica nas OMPS-I e OMPS-E; executar as etapas preparatórias do Plano de Mobilização Marítima; e incrementar a interoperabilidade da MB com as demais Forças Armadas e Agências relacionadas à Segurança e Defesa.",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "OCOP-2",
+                                    "titulo": "Executar obtenção/modernização de Sistemas de Armas dos navios da MB (PROCOMBATE).",
+                                    "descricao": "Aprestar os sistemas de armas dos navios da MB; manter os níveis de munição convencional; manter os níveis de munição inteligente; modernizar o sistema de combate dos navios e submarinos; e executar, quando necessária, a obtenção/modernização de armas, acessórios, equipamentos bélicos e sensores.",
+                                    "responsavel": "Diretoria-Geral do Material da Marinha (DGMM)"
+                                },
+                                {
+                                    "numero": "OCOP-3",
+                                    "titulo": "Promover o desenvolvimento operacional da MB para a Defesa Nacional, com foco na capacidade de mobilização.",
+                                    "descricao": "Desenvolver, por meio de parcerias estratégicas com o setor industrial marítimo, a elaboração de projetos de construção ou adaptação de Navios para uso dual (comercial e militar). Dessa forma, deverão ser supridas as carências de equipamentos da MB para a defesa dos interesses nacionais com o fortalecimento da capacidade de mobilização marítima.",
+                                    "responsavel": "Estado-Maior da Armada (EMA)"
+                                },
+                                {
+                                    "numero": "OCOP-4",
+                                    "titulo": "Ampliar a capacidade da MB em termos de interoperabilidade e de operações interagências.",
+                                    "descricao": "Ampliar a capacidade de operação com as demais Forças Singulares (FS) e com órgãos governamentais, visando ações sinérgicas nos campos tático, operacional e logístico, respeitando a especificidade da MB, incluindo e fortalecendo a participação do Centro Integrado de Segurança Marítima (CISMAR) nas operações.",
+                                    "responsavel": "Comando de Operações Navais (ComOpNav)"
+                                },
+                                {
+                                    "numero": "OCOP-5",
+                                    "titulo": "Aprimorar a Gestão / Coordenação Estratégica das Organizações Militares Prestadoras de Serviços Industriais (OMPS-I), incluindo o Complexo Naval de Itaguaí (CNI), no sentido de garantir a capacidade operacional dos sistemas e equipamentos dos meios operacionais, em parceria com a Base Industrial de Defesa.",
+                                    "descricao": "Atualizar a gestão/coordenação das atividades das OMPS-I e do CNI, no sentido de capacitar o desenvolvimento de projetos de engenharia e manutenção dos meios operativos, à luz do processo de Gestão do Ciclo de Vida (GCV).",
+                                    "responsavel": "Diretoria-Geral do Material da Marinha (DGMM)"
+                                },
+                                {
+                                    "numero": "OCOP-6",
+                                    "titulo": "Implementar a Gestão do Ciclo de Vida (GCV) na MB.",
+                                    "descricao": "Implementar as atividades sistemáticas afetas à GCV, a fim de assegurar que os requisitos que condicionam a obtenção / manutenção de meios navais e outros sistemas sejam devidamente elaborados, implementados, mantidos e atualizados ao longo de todo o seu ciclo de vida, desde a fase de concepção até a de desfazimento, buscando-se uma efetiva relação entre a máxima operacionalidade x custos envolvidos.",
+                                    "responsavel": "Diretoria-Geral do Material da Marinha (DGMM) / Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
                                 }
                             ]
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "nome": "Teste",
-            "obnavs": [
+                },
                 {
-                    "numero": 11,
-                    "descricao": "Fortalecer a Imagem Institucional",
+                    "numero": "8",
+                    "descricao": "DESENVOLVER A CAPACIDADE CIBERNÉTICA DA MB",
                     "criterios_auditoria": [],
                     "estrategias_navais": [
                         {
-                            "numero": 11.1,
-                            "descricao": "Aprimorar a Comunicação Social",
+                            "numero": "8",
+                            "titulo": "DEFESA CIBERNÉTICA",
+                            "descricao": "Visa garantir que, de forma ideal, todas as OM da MB estejam protegidas contra quaisquer ações de agentes adversos no campo cibernético. No mínimo, esta proteção deverá estar assegurada para todas as OM avaliadas estrategicamente, instalações críticas, ou que sejam responsáveis pela gestão de conhecimento sensível.",
                             "acoes_estrategicas": [
                                 {
-                                    "numero": "11.1.1",
-                                    "descricao": "Desenvolver Campanhas de Divulgação"
+                                    "numero": "CIBER-1",
+                                    "titulo": "Criar o Esquadrão de Guerra Cibernética (EsqdGCiber), com o propósito de coordenar os recursos e as ações de Guerra Cibernética, desenvolver procedimentos e adquirir ferramentas de inteligência cibernética.",
+                                    "descricao": "Criar um Esquadrão com disponibilidade de recursos materiais e humanos adequados, bem como o desenvolvimento de doutrina e regulamentação para o planejamento, a coordenação e o controle das atividades de caráter operacional referentes à Guerra Cibernética.",
+                                    "responsavel": "Comando de Operações Navais (ComOpNav)"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "numero": "9",
+                    "descricao": "APRIMORAR AS INTELIGÊNCIAS ESTRATÉGICA E OPERACIONAL",
+                    "criterios_auditoria": [],
+                    "estrategias_navais": [
+                        {
+                            "numero": "9",
+                            "titulo": "SISTEMA DE INTELIGÊNCIA DA MARINHA (SIMAR)",
+                            "descricao": "Visa realizar a reestruturação do Sistema de Inteligência da Marinha (SIMAR), melhorar a qualidade dos conhecimentos operacionais obtidos e incrementar a participação da Inteligência Estratégica no processo do Planejamento de Força.",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "INTEL-1",
+                                    "titulo": "Desenvolver a capacidade de interceptação de comunicações por satélite e incrementar a produção de conhecimentos operacionais na área de fontes de sinais, principalmente os relativos aos dados obtidos pela Rede de Radiogoniometria de Alta Frequência (RRGAF).",
+                                    "descricao": "Desenvolver a capacidade de interceptação de comunicações por satélite, em virtude do aumento do emprego desse modal por embarcações estrangeiras operando em AJB.",
+                                    "responsavel": "Comando de Operações Navais (ComOpNav)"
+                                },
+                                {
+                                    "numero": "INTEL-2",
+                                    "titulo": "Desenvolver o Sistema de Inteligência da Marinha (SIMAR).",
+                                    "descricao": "Desenvolver o SIMAR, sendo prevista a sua reestruturação, de forma a promover a sinergia dos esforços do órgão central e das agências de inteligência da MB, em função das novas demandas e novas capacidades tecnológicas de informação.",
+                                    "responsavel": "Centro de Inteligência da Marinha (CIM)"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "numero": "10",
+                    "descricao": "AMPLIAR A CONSCIÊNCIA SITUACIONAL MARÍTIMA (CSM) NAS ÁREAS DE INTERESSE DA MB",
+                    "criterios_auditoria": [],
+                    "estrategias_navais": [
+                        {
+                            "numero": "10",
+                            "titulo": "SISTEMA DE GERENCIAMENTO DA AMAZÔNIA AZUL (SisGAAz)",
+                            "descricao": "Visa incrementar a capacidade de detecção, localização, acompanhamento, identificação e interceptação dos contatos que estejam nas AJB.",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "CSM-1",
+                                    "titulo": "Desenvolver o Sistema de Gerenciamento da Amazônia Azul (SisGAAz).",
+                                    "descricao": "Desenvolver a capacidade de monitoramento e o controle das Águas Jurisdicionais Brasileiras (AJB) e as áreas internacionais de responsabilidade para operações de Socorro e Salvamento (SAR), assegurando, ainda, a Consciência Situacional Marítima no entorno estratégico, particularmente no Atlântico Sul. O sistema será composto de centros de comando e controle e sensores que receberão em tempo real as informações de interesse nacional, com objetivo de proteger o patrimônio nacional e as linhas de comunicação marítimas, além de aprimorar a segurança marítima.",
+                                    "responsavel": "Diretoria-Geral do Material da Marinha (DGMM)"
+                                },
+                                {
+                                    "numero": "CSM-2",
+                                    "titulo": "Aprimorar a estrutura do Sistema de coleta, processamento e disseminação de dados ambientais, permitindo a implantação do conceito de e-navigation (navegação aprimorada) nas AJB.",
+                                    "descricao": "Modernizar a capacidade de coleta, de processamento e de elaboração de produtos e serviços de dados ambientais marinhos, de monitoramento e de fiscalização do cumprimento da legislação e das normas da Autoridade Marítima para a segurança da navegação e incidentes de poluição.",
+                                    "responsavel": "Diretoria Geral de Navegação (DGN)"
                                 }
                             ]
                         }

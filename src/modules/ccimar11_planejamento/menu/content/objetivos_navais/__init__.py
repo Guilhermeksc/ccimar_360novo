@@ -7,6 +7,7 @@ from .json_utils import (
     save_objetivos_navais_data
 )
 from .objetivos_treeview import (
+    TreeLevelDelegate,
     CustomTreeView,
     DraggableListWidget
 )
@@ -17,6 +18,7 @@ __all__ = [
     'CriterioWidget',
     'load_objetivos_navais_data',
     'save_objetivos_navais_data',
+    'TreeLevelDelegate',
     'CustomTreeView',
     'DraggableListWidget',
     'create_objetivos_navais'

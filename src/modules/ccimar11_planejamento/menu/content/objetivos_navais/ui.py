@@ -9,49 +9,51 @@ import pandas as pd
 import subprocess
 import sys
 from .json_utils import load_objetivos_navais_data, save_objetivos_navais_data
-from .objetivos_treeview import CustomTreeView, DraggableListWidget
+from .objetivos_treeview import TreeLevelDelegate, CustomTreeView, DraggableListWidget
 from .criterio_widget import CriterioWidget
 from paths import CONFIG_PAINT_PATH
 import re
 
 def create_header_layout(icons):
-    """Cria o layout do cabeçalho com os ícones e títulos alinhados."""
-    pem_label = QLabel("PEM 2040")
-    pem_label.setStyleSheet("font-size: 30px; font-weight: bold; color: #FFFFFF;")
-    # Layout horizontal para Objetivos Auditáveis
-    title_layout = QHBoxLayout()
-    title_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-    separator_label = QLabel("x")
-    separator_label.setStyleSheet("font-size: 30px; font-weight: bold; color: #FFFFFF; padding: 0 15px;")
-
-    objetivos_label = QLabel("Objetivos Auditáveis")
-    objetivos_label.setStyleSheet("font-size: 30px; font-weight: bold; color: #FFFFFF;")
-
-    title_layout.addWidget(pem_label)  # Adicionando PEM 2040 + Plano Estratégico
-    title_layout.addWidget(separator_label)
-    title_layout.addWidget(objetivos_label)
-
     # Layout para ícones
     header_layout = QHBoxLayout()
     header_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
+    
     icon_label = QLabel()
-    icon_label.setPixmap(icons["marinha"].pixmap(60, 60))
+    icon_label.setPixmap(icons["marinha"].pixmap(40, 40))
     icon_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-    acanto_label = QLabel()
-    acanto_label.setPixmap(icons["acanto"].pixmap(120, 60))
-    acanto_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+    """Cria o layout do cabeçalho com os ícones e títulos alinhados."""
+    pem_label = QLabel("PEM 2040    ")
+    pem_label.setStyleSheet("font-size: 28px; font-weight: bold; color: #FFFFFF;")
 
+    header_layout.addStretch()
+    header_layout.addWidget(pem_label)
     header_layout.addWidget(icon_label)
-    header_layout.addStretch()
-    header_layout.addLayout(title_layout)  # Adicionando título ao centro
-    header_layout.addStretch()
-    header_layout.addWidget(acanto_label)
 
     return header_layout
 
+def get_treeview_stylesheet():
+    return """
+        QTreeView {
+            background-color: transparent;
+            font-size: 16px;
+            color: #FFFFFF;
+            border-radius: 4px;
+            border: 1px solid #25283D;
+        }
+        QTreeView::item {
+            /* Tenta forçar a quebra de linha, se suportado */
+            white-space: normal;
+        }
+        QTreeView::item:selected {
+            background-color: #3B71CA;
+        }
+        QTreeView::item:hover {
+            background-color: #1E3A8A;
+        }
+    """
+    
 def create_objetivos_navais(title_text, icons, json_file_path=None):
     icons = icons
     # Frame principal
@@ -74,6 +76,9 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
 
     # Criação do TreeView
     tree = CustomTreeView(icons=icons)
+    tree.setStyleSheet(get_treeview_stylesheet())
+
+    tree.setItemDelegate(TreeLevelDelegate(tree))
     tree.setHeaderHidden(True)
     model = QStandardItemModel()
     tree.setModel(model)  # Definindo o modelo antes de qualquer atualização
@@ -102,13 +107,13 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
                     perspec_item.appendRow(obnav_item)  # Adiciona o OBNAV imediatamente
                     
                     for en in obnav.get('estrategias_navais', []):
-                        en_item = QStandardItem(f"EN {en['numero']} - {en['descricao']}")
+                        en_item = QStandardItem(f"EN {en['numero']} - {en['titulo']}")
                         en_item.setEditable(False)
                         en_item.setData(en, Qt.ItemDataRole.UserRole)
                         obnav_item.appendRow(en_item)  # Adiciona o EN imediatamente
                         
                         for aen in en.get('acoes_estrategicas', []):
-                            aen_item = QStandardItem(f"AEN {aen['numero']} - {aen['descricao']}")
+                            aen_item = QStandardItem(f"AEN {aen['numero']} - {aen['titulo']}")
                             aen_item.setEditable(False)
                             aen_item.setData(aen, Qt.ItemDataRole.UserRole)
                             en_item.appendRow(aen_item)  # Adiciona a AEN imediatamente
@@ -139,21 +144,53 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
     tree.update_callback = update_tree_view
     
     update_tree_view()
+    acao_estrategica_naval_label = QLabel("Ação Estratégica Naval (AEN) vinculada ao PEM 2040")
+    acao_estrategica_naval_label.setStyleSheet("""
+        font-size: 18px;
+        font-weight: bold;
+        color: #FFFFFF;
+        background-color: #25283D;
+        padding: 8px;
+        border-radius: 5px;
+    """)
+
+    treeview_layout.addWidget(acao_estrategica_naval_label)
     treeview_layout.addWidget(tree)
+            
+    # Lado direito com lista de critérios
+    criterio_frame = QFrame()
+    criterio_frame.setMaximumWidth(250)
+    criterio_layout = QVBoxLayout(criterio_frame)
+
+    objetivos_auditaveis_label = QLabel("Objetivos Auditáveis")
+    objetivos_auditaveis_label.setStyleSheet("""
+        font-size: 18px;
+        font-weight: bold;
+        color: #FFFFFF;
+        background-color: #25283D;
+        padding: 8px;
+        border-radius: 5px;
+    """)
+        
+    criterio_layout.setContentsMargins(0, 0, 0, 0)
+    criterio_layout.setSpacing(0)        
+    # Lista de critérios
+    criterios_list = DraggableListWidget()
+    criterios = carregar_criterios_do_json(CONFIG_PAINT_PATH)
     
-    # Botões abaixo da TreeView
-    buttons_layout = QHBoxLayout()
+    for criterio in criterios:
+        item = QListWidgetItem(criterio)
+        font = item.font()
+        item.setFlags(item.flags() | Qt.ItemFlag.ItemIsDragEnabled)
+        item.setFont(font)
+        criterios_list.addItem(item)
     
-    # Botões de Importação/Exportação
-    export_button = QPushButton("Exportar Excel")
-    import_button = QPushButton("Importar Excel")
-    
-    buttons_layout.addWidget(export_button)
-    buttons_layout.addWidget(import_button)
-    buttons_layout.addStretch()
-    
-    treeview_layout.addLayout(buttons_layout)
-    
+    criterio_layout.addWidget(objetivos_auditaveis_label)
+    criterio_layout.addWidget(criterios_list)
+    content_layout.addWidget(criterio_frame)
+    content_layout.addWidget(treeview_frame)
+    main_layout.addLayout(content_layout)
+
     def export_data():
         if not json_file_path:
             QMessageBox.warning(content_frame, "Erro", "É necessário ter um arquivo JSON configurado.")
@@ -218,34 +255,27 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
                         QMessageBox.warning(content_frame, "Erro", "Erro ao salvar os dados importados.")
                 else:
                     QMessageBox.warning(content_frame, "Erro", "Erro ao importar os dados do Excel.")
-    
-    # Conecta os botões às funções
-    export_button.clicked.connect(export_data)
-    import_button.clicked.connect(import_data)
-        
-    # Lado direito com lista de critérios
-    criterio_frame = QFrame()
-    criterio_frame.setMaximumWidth(250)
-    criterio_layout = QVBoxLayout(criterio_frame)
-    criterio_layout.setContentsMargins(5, 5, 5, 5)
-        
-    # Lista de critérios
-    criterios_list = DraggableListWidget()
-    criterios = carregar_criterios_do_json(CONFIG_PAINT_PATH)
-    
-    for criterio in criterios:
-        item = QListWidgetItem(criterio)
-        font = item.font()
-        item.setFlags(item.flags() | Qt.ItemFlag.ItemIsDragEnabled)
-        item.setFont(font)
-        criterios_list.addItem(item)
-    
-    criterio_layout.addWidget(criterios_list)
-    content_layout.addWidget(criterio_frame)
-    content_layout.addWidget(treeview_frame)
-    main_layout.addLayout(content_layout)
-    
+                    
+    # Botões abaixo da TreeView
+    buttons_layout = create_buttons_layout(content_frame, export_data, import_data)
+    main_layout.addLayout(buttons_layout)
+            
     return content_frame
+
+def create_buttons_layout(content_frame, export_callback, import_callback):
+    layout = QHBoxLayout()
+    
+    export_button = QPushButton("Exportar Excel")
+    import_button = QPushButton("Importar Excel")
+    
+    export_button.clicked.connect(export_callback)
+    import_button.clicked.connect(import_callback)
+    
+    layout.addWidget(export_button)
+    layout.addWidget(import_button)
+    layout.addStretch()
+    
+    return layout
 
 def carregar_criterios_do_json(json_path):
     with open(json_path, 'r', encoding='utf-8') as file:
@@ -291,16 +321,26 @@ def export_to_excel(data, output_path):
 
 def import_from_excel(excel_path):
     """
-    Importa dados de uma planilha Excel para a estrutura JSON.
+    Importa dados de uma planilha Excel para a estrutura JSON,
+    garantindo que números inteiros não fiquem com sufixo .0
+    e que valores decimais sejam preservados.
     """
+    def remove_float_zeros(value):
+        """Converte float inteiro (ex: 1.0) para string '1', mantendo decimais quando necessário."""
+        if pd.isna(value):
+            return None
+        if isinstance(value, float) and value.is_integer():
+            return str(int(value))
+        return str(value)
+
     try:
         df = pd.read_excel(excel_path)
         data = {'perspectivas': []}
         perspectivas = {}
-        
+
         for _, row in df.iterrows():
             persp_nome = row['Perspectiva']
-            
+
             # Adiciona nova perspectiva se não existir
             if persp_nome not in perspectivas:
                 perspectivas[persp_nome] = {
@@ -308,52 +348,140 @@ def import_from_excel(excel_path):
                     'obnavs': []
                 }
                 data['perspectivas'].append(perspectivas[persp_nome])
-            
+
             current_persp = perspectivas[persp_nome]
-            
-            # Procura OBNAV existente ou cria novo
+
+            # Localiza ou cria OBNAV
+            obnav_numero = remove_float_zeros(row['OBNAV_Numero'])
             obnav = next(
-                (o for o in current_persp['obnavs'] if str(o['numero']) == str(row['OBNAV_Numero'])),
+                (o for o in current_persp['obnavs']
+                 if o['numero'] == obnav_numero),
                 None
             )
             if not obnav:
                 obnav = {
-                    'numero': row['OBNAV_Numero'],
+                    'numero': obnav_numero,
                     'descricao': row['OBNAV_Descricao'],
                     'criterios_auditoria': [],
                     'estrategias_navais': []
                 }
                 current_persp['obnavs'].append(obnav)
-            
-            # Adiciona critérios de auditoria
+
+            # Adiciona critérios de auditoria ao OBNAV
             if pd.notna(row.get('Criterios_Auditoria')):
                 criterios = [c.strip() for c in str(row['Criterios_Auditoria']).split(',') if c.strip()]
                 for criterio in criterios:
                     if criterio not in obnav['criterios_auditoria']:
                         obnav['criterios_auditoria'].append(criterio)
-            
-            # Procura EN existente ou cria novo
+
+            # Localiza ou cria EN
+            en_numero = remove_float_zeros(row['EN_Numero'])
             en = next(
-                (e for e in obnav['estrategias_navais'] if str(e['numero']) == str(row['EN_Numero'])),
+                (e for e in obnav['estrategias_navais']
+                 if e['numero'] == en_numero),
                 None
             )
             if not en:
                 en = {
-                    'numero': row['EN_Numero'],
+                    'numero': en_numero,
+                    'titulo': row['EN_Titulo'],
                     'descricao': row['EN_Descricao'],
                     'acoes_estrategicas': []
                 }
                 obnav['estrategias_navais'].append(en)
-            
-            # Adiciona AEN
+
+            # Cria a AEN e adiciona em EN
+            aen_numero = remove_float_zeros(row['AEN_Numero'])
             aen = {
-                'numero': row['AEN_Numero'],
-                'descricao': row['AEN_Descricao']
+                'numero': aen_numero,
+                'titulo': row['AEN_Titulo'],
+                'descricao': row['AEN_Descricao'],
+                'responsavel': row['Responsável']
             }
+            # Evita duplicados
             if aen not in en['acoes_estrategicas']:
                 en['acoes_estrategicas'].append(aen)
-        
+
         return data
+
     except Exception as e:
         print(f"Erro ao importar Excel: {e}")
         return None
+
+
+# def import_from_excel(excel_path):
+#     """
+#     Importa dados de uma planilha Excel para a estrutura JSON,
+#     considerando as novas colunas EN_Titulo, AEN_Titulo e Responsável.
+#     """
+#     try:
+#         df = pd.read_excel(excel_path)
+#         data = {'perspectivas': []}
+#         perspectivas = {}
+
+#         for _, row in df.iterrows():
+#             persp_nome = row['Perspectiva']
+
+#             # Adiciona nova perspectiva se não existir
+#             if persp_nome not in perspectivas:
+#                 perspectivas[persp_nome] = {
+#                     'nome': persp_nome,
+#                     'obnavs': []
+#                 }
+#                 data['perspectivas'].append(perspectivas[persp_nome])
+
+#             current_persp = perspectivas[persp_nome]
+
+#             # Localiza ou cria OBNAV
+#             obnav = next(
+#                 (o for o in current_persp['obnavs']
+#                  if str(o['numero']) == str(row['OBNAV_Numero'])),
+#                 None
+#             )
+#             if not obnav:
+#                 obnav = {
+#                     'numero': row['OBNAV_Numero'],
+#                     'descricao': row['OBNAV_Descricao'],
+#                     'criterios_auditoria': [],
+#                     'estrategias_navais': []
+#                 }
+#                 current_persp['obnavs'].append(obnav)
+
+#             # Adiciona critérios de auditoria ao OBNAV
+#             if pd.notna(row.get('Criterios_Auditoria')):
+#                 criterios = [c.strip() for c in str(row['Criterios_Auditoria']).split(',') if c.strip()]
+#                 for criterio in criterios:
+#                     if criterio not in obnav['criterios_auditoria']:
+#                         obnav['criterios_auditoria'].append(criterio)
+
+#             # Localiza ou cria EN
+#             en = next(
+#                 (e for e in obnav['estrategias_navais']
+#                  if str(e['numero']) == str(row['EN_Numero'])),
+#                 None
+#             )
+#             if not en:
+#                 en = {
+#                     'numero': row['EN_Numero'],
+#                     'titulo': row['EN_Titulo'],
+#                     'descricao': row['EN_Descricao'],
+#                     'acoes_estrategicas': []
+#                 }
+#                 obnav['estrategias_navais'].append(en)
+
+#             # Cria a AEN e adiciona em EN
+#             aen = {
+#                 'numero': row['AEN_Numero'],
+#                 'titulo': row['AEN_Titulo'],
+#                 'descricao': row['AEN_Descricao'],
+#                 'responsavel': row['Responsável']
+#             }
+#             # Evita duplicados
+#             if aen not in en['acoes_estrategicas']:
+#                 en['acoes_estrategicas'].append(aen)
+
+#         return data
+
+#     except Exception as e:
+#         print(f"Erro ao importar Excel: {e}")
+#         return None

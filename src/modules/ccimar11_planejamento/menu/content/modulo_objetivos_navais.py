@@ -3,6 +3,7 @@ from .objetivos_navais import (
     CriterioWidget,
     load_objetivos_navais_data,
     save_objetivos_navais_data,
+    TreeLevelDelegate,
     CustomTreeView,
     DraggableListWidget,
     create_objetivos_navais
