@@ -2,17 +2,21 @@ from PyQt6.QtWidgets import (QLabel, QFrame, QHBoxLayout, QVBoxLayout, QTreeView
                           QDialog, QPushButton, QLineEdit, QComboBox, QMessageBox,
                           QFileDialog, QListWidget, QListWidgetItem, QWidget, QSizePolicy)
 from PyQt6.QtGui import QStandardItemModel, QStandardItem, QFont, QIcon, QDrag, QCursor
-from PyQt6.QtCore import Qt, QMimeData
+from PyQt6.QtCore import Qt, QMimeData, QTimer
 import json
-import os
+import time
 import pandas as pd
+import os
 import subprocess
 import sys
 from .json_utils import load_objetivos_navais_data, save_objetivos_navais_data
 from .objetivos_treeview import TreeLevelDelegate, CustomTreeView, DraggableListWidget
 from .criterio_widget import CriterioWidget
-from paths import CONFIG_PAINT_PATH
+from docxtpl import DocxTemplate
+from paths import CONFIG_PAINT_PATH, OBJETIVOS_NAVAIS_PATH, TEMPLATE_RELATORIO_PATH
 import re
+import comtypes.client
+
 
 def create_header_layout(icons):
     # Layout para ícones
@@ -41,10 +45,6 @@ def get_treeview_stylesheet():
             color: #FFFFFF;
             border-radius: 4px;
             border: 1px solid #25283D;
-        }
-        QTreeView::item {
-            /* Tenta forçar a quebra de linha, se suportado */
-            white-space: normal;
         }
         QTreeView::item:selected {
             background-color: #3B71CA;
@@ -84,51 +84,63 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
     tree.setModel(model)  # Definindo o modelo antes de qualquer atualização
     
     def update_tree_view():
+        # Capturar a posição atual do scrollbar vertical
+        scroll_value = tree.verticalScrollBar().value()
+
+        # Salvar o estado de expansão
+        expanded_items = {}
+        def salvar_estado(index, caminho=''):
+            item = model.itemFromIndex(index)
+            if item:
+                novo_caminho = caminho + '/' + item.text()
+                if tree.isExpanded(index):
+                    expanded_items[novo_caminho] = True
+                for i in range(model.rowCount(index)):
+                    salvar_estado(model.index(i, 0, index), novo_caminho)
+        for i in range(model.rowCount()):
+            salvar_estado(model.index(i, 0))
+        
         model.clear()
+        
         data = load_objetivos_navais_data(json_file_path) if json_file_path else None
         def extract_number(text):
-            """Extrai o número inicial da string, se houver, para ordenação numérica."""
             match = re.match(r"(\d+)", text)
-            return int(match.group(1)) if match else float('inf')  # Inf coloca strings puras no final
+            return int(match.group(1)) if match else float('inf')
         
         if data:
-            # print("[DEBUG] Dados JSON carregados com sucesso")
             for perspectiva in data.get('perspectivas', []):
-                # print(f"[DEBUG] Processando perspectiva: {perspectiva['nome']}")
                 perspec_item = QStandardItem(perspectiva['nome'])
                 perspec_item.setEditable(False)
                 perspec_item.setData(perspectiva, Qt.ItemDataRole.UserRole)
-                model.appendRow(perspec_item)  # Adiciona a perspectiva imediatamente
+                model.appendRow(perspec_item)
                 
                 for obnav in perspectiva.get('obnavs', []):
                     obnav_item = QStandardItem(f"OBNAV {obnav['numero']} - {obnav['descricao']}")
                     obnav_item.setEditable(False)
                     obnav_item.setData(obnav, Qt.ItemDataRole.UserRole)
-                    perspec_item.appendRow(obnav_item)  # Adiciona o OBNAV imediatamente
+                    perspec_item.appendRow(obnav_item)
                     
                     for en in obnav.get('estrategias_navais', []):
                         en_item = QStandardItem(f"EN {en['numero']} - {en['titulo']}")
                         en_item.setEditable(False)
                         en_item.setData(en, Qt.ItemDataRole.UserRole)
-                        obnav_item.appendRow(en_item)  # Adiciona o EN imediatamente
+                        obnav_item.appendRow(en_item)
                         
                         for aen in en.get('acoes_estrategicas', []):
                             aen_item = QStandardItem(f"AEN {aen['numero']} - {aen['titulo']}")
                             aen_item.setEditable(False)
                             aen_item.setData(aen, Qt.ItemDataRole.UserRole)
-                            en_item.appendRow(aen_item)  # Adiciona a AEN imediatamente
+                            en_item.appendRow(aen_item)
 
-                            # Ordenar os critérios antes de adicionar ao TreeView
                             criterios_ordenados = sorted(aen.get('criterios_auditoria', []), key=extract_number)
-                     
+                    
                             for criterio in criterios_ordenados:
                                 criterio_item = QStandardItem()
                                 criterio_item.setEditable(False)
                                 criterio_item.setData(f"criterio: {criterio}", Qt.ItemDataRole.UserRole)
-                                criterio_item.setText("")  # Define texto vazio para evitar sobreposição
+                                criterio_item.setText("")
                                 aen_item.appendRow(criterio_item)
 
-                                # Cria e define o widget personalizado para o critério
                                 widget = CriterioWidget(
                                     criterio,
                                     lambda item=criterio_item: tree.remove_criterio(item)
@@ -136,8 +148,21 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
                                 tree.setIndexWidget(criterio_item.index(), widget)
                                 print(f"[DEBUG] Widget personalizado definido para critério: {criterio}")
 
-        tree.expandAll()
-    
+        def restaurar_estado(index, caminho=''):
+            item = model.itemFromIndex(index)
+            if item:
+                novo_caminho = caminho + '/' + item.text()
+                if novo_caminho in expanded_items:
+                    tree.setExpanded(index, True)
+                for i in range(model.rowCount(index)):
+                    restaurar_estado(model.index(i, 0, index), novo_caminho)
+        for i in range(model.rowCount()):
+            restaurar_estado(model.index(i, 0))
+
+        # Restaurar a posição do scrollbar após a atualização completa do widget
+        QTimer.singleShot(0, lambda: tree.verticalScrollBar().setValue(scroll_value))
+
+            
     # Configura os callbacks antes de atualizar a view
     content_frame.remove_criterio = update_tree_view
     tree.json_file_path = json_file_path
@@ -257,22 +282,46 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
                     QMessageBox.warning(content_frame, "Erro", "Erro ao importar os dados do Excel.")
                     
     # Botões abaixo da TreeView
-    buttons_layout = create_buttons_layout(content_frame, export_data, import_data)
+    buttons_layout = create_buttons_layout(content_frame, export_data, import_data, lambda: show_rank_dialog(content_frame), generate_report)
     main_layout.addLayout(buttons_layout)
             
     return content_frame
 
-def create_buttons_layout(content_frame, export_callback, import_callback):
+def create_buttons_layout(content_frame, export_callback, import_callback, rank_callback, report_callback):
     layout = QHBoxLayout()
+    
+    button_style = """
+        QPushButton {
+            background-color: #181928;
+            color: white;
+            border: 1px solid #25283D;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        QPushButton:hover {
+            background-color: #3A57D2;
+            color: white;
+        }
+    """
     
     export_button = QPushButton("Exportar Excel")
     import_button = QPushButton("Importar Excel")
+    rank_button = QPushButton("Rank")
+    report_button = QPushButton("Relatório")
     
+    for button in [export_button, import_button, rank_button, report_button]:
+        button.setStyleSheet(button_style)
+        button.setCursor(Qt.CursorShape.PointingHandCursor) 
+        
     export_button.clicked.connect(export_callback)
     import_button.clicked.connect(import_callback)
+    rank_button.clicked.connect(rank_callback)
+    report_button.clicked.connect(report_callback)
     
     layout.addWidget(export_button)
     layout.addWidget(import_button)
+    layout.addWidget(rank_button)
+    layout.addWidget(report_button)
     layout.addStretch()
     
     return layout
@@ -280,13 +329,105 @@ def create_buttons_layout(content_frame, export_callback, import_callback):
 def carregar_criterios_do_json(json_path):
     with open(json_path, 'r', encoding='utf-8') as file:
         dados_json = json.load(file)
-
+    
     objetos = dados_json.get('objetos_auditaveis', [])
-
+    
     criterios = [f"{objeto['nr']} - {objeto['descricao']}" for objeto in objetos]
-
+    
     return criterios
 
+def contar_acoes_estrategicas_por_criterio():
+    with open(OBJETIVOS_NAVAIS_PATH, 'r', encoding='utf-8') as file:
+        objetivos_navais = json.load(file)
+    
+    contador_criterios = {}
+    detalhes_criterios = {}
+    
+    for perspectiva in objetivos_navais.get("perspectivas", []):
+        for obnav in perspectiva.get("obnavs", []):
+            for estrategia in obnav.get("estrategias_navais", []):
+                for acao in estrategia.get("acoes_estrategicas", []):
+                    for criterio in acao.get("criterios_auditoria", []):
+                        if criterio in contador_criterios:
+                            contador_criterios[criterio] += 1
+                            detalhes_criterios[criterio].append(f"AEN {acao['numero']} - {acao['titulo']}")
+                        else:
+                            contador_criterios[criterio] = 1
+                            detalhes_criterios[criterio] = [f"AEN {acao['numero']} - {acao['titulo']}"]
+    
+    return contador_criterios, detalhes_criterios
+
+def convert_docx_to_pdf(docx_path, pdf_path):
+    if os.name == "nt" and comtypes:
+        try:
+            word = comtypes.client.CreateObject("Word.Application")
+            word.Visible = False
+            time.sleep(2)  # Garante que o arquivo foi salvo antes da conversão
+            docx_path = os.path.abspath(docx_path)  # Converte para caminho absoluto
+            pdf_path = os.path.abspath(pdf_path)
+            
+            if not os.path.exists(docx_path):
+                print(f"Erro: O arquivo {docx_path} não foi encontrado.")
+                return False
+            
+            doc = word.Documents.Open(docx_path)
+            doc.SaveAs(pdf_path, FileFormat=17)
+            doc.Close()
+            word.Quit()
+            return True
+        except Exception as e:
+            print(f"Erro ao converter DOCX para PDF no Word: {e}")
+    return False
+
+def generate_report():
+    folder_path = QFileDialog.getExistingDirectory(None, "Selecionar Pasta")
+    if not folder_path:
+        return
+    
+    report_path = os.path.abspath(os.path.join(folder_path, "relatorio"))
+    os.makedirs(report_path, exist_ok=True)
+    file_docx = os.path.abspath(os.path.join(report_path, "relatorio_objaud_x_aen.docx"))
+    file_pdf = os.path.abspath(os.path.join(report_path, "relatorio_objaud_x_aen.pdf"))
+    
+    criterios_rank, detalhes_criterios = contar_acoes_estrategicas_por_criterio()
+    
+    ranking = []
+    for idx, (criterio, quantidade) in enumerate(sorted(criterios_rank.items(), key=lambda x: x[1], reverse=True), start=1):
+        ranking.append(f"{idx}º colocado - Objetivo Auditável {criterio} [{quantidade}]")
+    
+    criterios = carregar_criterios_do_json(CONFIG_PAINT_PATH)
+    
+    relacao = []
+    for criterio in criterios:
+        acoes = detalhes_criterios.get(criterio, [])
+        if acoes:
+            relacao.append(f"{criterio}\n" + "\n".join(f"- {acao}" for acao in acoes))
+    
+    doc = DocxTemplate(str(TEMPLATE_RELATORIO_PATH))
+    context = {
+        "ranking": "\n\n".join(ranking),
+        "relacao": "\n\n".join(relacao)
+    }
+    doc.render(context)
+    doc.save(file_docx)
+    
+    time.sleep(2)  # Garante que o arquivo foi salvo antes da conversão
+    
+    # Convertendo para PDF
+    converted = convert_docx_to_pdf(file_docx, file_pdf)
+    
+    # Abrindo o arquivo correto
+    if converted and os.path.exists(file_pdf):
+        subprocess.run(["xdg-open", file_pdf] if os.name != "nt" else ["start", "", file_pdf], shell=True)
+    else:
+        subprocess.run(["xdg-open", file_docx] if os.name != "nt" else ["start", "", file_docx], shell=True)
+    
+    # Abrir a pasta criada para o relatório
+    subprocess.run(["xdg-open", report_path] if os.name != "nt" else ["explorer", report_path], shell=True)
+    
+    print(f"Relatório salvo em: {file_docx}")
+
+    
 def export_to_excel(data, output_path):
     """
     Exporta os dados do JSON para uma planilha Excel estruturada.
@@ -408,80 +549,56 @@ def import_from_excel(excel_path):
         print(f"Erro ao importar Excel: {e}")
         return None
 
-
-# def import_from_excel(excel_path):
-#     """
-#     Importa dados de uma planilha Excel para a estrutura JSON,
-#     considerando as novas colunas EN_Titulo, AEN_Titulo e Responsável.
-#     """
-#     try:
-#         df = pd.read_excel(excel_path)
-#         data = {'perspectivas': []}
-#         perspectivas = {}
-
-#         for _, row in df.iterrows():
-#             persp_nome = row['Perspectiva']
-
-#             # Adiciona nova perspectiva se não existir
-#             if persp_nome not in perspectivas:
-#                 perspectivas[persp_nome] = {
-#                     'nome': persp_nome,
-#                     'obnavs': []
-#                 }
-#                 data['perspectivas'].append(perspectivas[persp_nome])
-
-#             current_persp = perspectivas[persp_nome]
-
-#             # Localiza ou cria OBNAV
-#             obnav = next(
-#                 (o for o in current_persp['obnavs']
-#                  if str(o['numero']) == str(row['OBNAV_Numero'])),
-#                 None
-#             )
-#             if not obnav:
-#                 obnav = {
-#                     'numero': row['OBNAV_Numero'],
-#                     'descricao': row['OBNAV_Descricao'],
-#                     'criterios_auditoria': [],
-#                     'estrategias_navais': []
-#                 }
-#                 current_persp['obnavs'].append(obnav)
-
-#             # Adiciona critérios de auditoria ao OBNAV
-#             if pd.notna(row.get('Criterios_Auditoria')):
-#                 criterios = [c.strip() for c in str(row['Criterios_Auditoria']).split(',') if c.strip()]
-#                 for criterio in criterios:
-#                     if criterio not in obnav['criterios_auditoria']:
-#                         obnav['criterios_auditoria'].append(criterio)
-
-#             # Localiza ou cria EN
-#             en = next(
-#                 (e for e in obnav['estrategias_navais']
-#                  if str(e['numero']) == str(row['EN_Numero'])),
-#                 None
-#             )
-#             if not en:
-#                 en = {
-#                     'numero': row['EN_Numero'],
-#                     'titulo': row['EN_Titulo'],
-#                     'descricao': row['EN_Descricao'],
-#                     'acoes_estrategicas': []
-#                 }
-#                 obnav['estrategias_navais'].append(en)
-
-#             # Cria a AEN e adiciona em EN
-#             aen = {
-#                 'numero': row['AEN_Numero'],
-#                 'titulo': row['AEN_Titulo'],
-#                 'descricao': row['AEN_Descricao'],
-#                 'responsavel': row['Responsável']
-#             }
-#             # Evita duplicados
-#             if aen not in en['acoes_estrategicas']:
-#                 en['acoes_estrategicas'].append(aen)
-
-#         return data
-
-#     except Exception as e:
-#         print(f"Erro ao importar Excel: {e}")
-#         return None
+def show_rank_dialog(parent):
+    criterios = carregar_criterios_do_json(CONFIG_PAINT_PATH)
+    criterios_rank, detalhes_criterios = contar_acoes_estrategicas_por_criterio()
+    
+    dialog = QDialog(parent)
+    dialog.setWindowTitle("Ranking de Objetivos Auditáveis")
+    dialog.setStyleSheet("""
+        QDialog {
+            background-color: #1E1E2E;
+            color: #FFFFFF;
+            border-radius: 8px;
+        }
+        QLabel {
+            color: #FFFFFF;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    """)
+    
+    layout = QVBoxLayout()
+    title_label = QLabel("Objetivos Auditáveis Rankeados")
+    title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+    
+    tree_view = QTreeView()
+    model = QStandardItemModel()
+    model.setHorizontalHeaderLabels(["Objetivos Auditáveis Rankeados"])
+    
+    sorted_criterios = sorted(criterios_rank.items(), key=lambda x: x[1], reverse=True)
+    
+    for criterio, rank_count in sorted_criterios:
+        parent_item = QStandardItem(f"{criterio} [ {rank_count} ]")
+        parent_item.setEditable(False)
+        
+        for detalhe in detalhes_criterios.get(criterio, []):
+            child_item = QStandardItem(detalhe)
+            child_item.setEditable(False)
+            parent_item.appendRow(child_item)
+        
+        model.appendRow(parent_item)
+    
+    tree_view.setModel(model)
+    tree_view.expandAll()
+    tree_view.setHeaderHidden(False)
+    
+    close_button = QPushButton("Fechar")
+    close_button.clicked.connect(dialog.close)
+    
+    layout.addWidget(title_label)
+    layout.addWidget(tree_view)
+    layout.addWidget(close_button)
+    
+    dialog.setLayout(layout)
+    dialog.exec()

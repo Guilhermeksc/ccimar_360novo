@@ -1,6 +1,6 @@
-from PyQt6.QtWidgets import (QTreeView, QListWidget, QStyledItemDelegate, QStyleOptionViewItem, QProxyStyle, QStyle)
-from PyQt6.QtGui import  QStandardItem, QDrag, QPainter, QColor, QPalette, QPolygon, QBrush
-from PyQt6.QtCore import Qt, QMimeData, QPoint
+from PyQt6.QtWidgets import (QTreeView, QToolTip, QListWidget, QStyledItemDelegate, QStyleOptionViewItem, QProxyStyle, QStyle, QAbstractScrollArea, QAbstractItemView)
+from PyQt6.QtGui import  QStandardItem, QDrag, QPainter, QColor, QPalette, QPolygon, QBrush, QTextOption
+from PyQt6.QtCore import Qt, QMimeData, QEvent
 from .criterio_widget import CriterioWidget
 from .json_utils import load_objetivos_navais_data, save_objetivos_navais_data
 import re
@@ -33,7 +33,7 @@ import re
 #         /* AEN */
 #         QTreeView::item:has-children,
 #         QTreeView::branch:has-children {
-#             color: #63A1FF;  /* Azul médio */
+#             color: #B6D4FF #63A1FF;  /* Azul médio */
 #         }
 #         /* Critérios */
 #         QTreeView::item,
@@ -69,7 +69,6 @@ def get_treeview_stylesheet():
             background-color: #1E3A8A;  /* Azul muito escuro para hover */
         }
     """      
-
 class TreeLevelDelegate(QStyledItemDelegate):
     def paint(self, painter, option, index):
         level = self.get_level(index)
@@ -77,25 +76,30 @@ class TreeLevelDelegate(QStyledItemDelegate):
         
         # Ajusta cores e estilo conforme o nível
         if level == 0:
-            # Nível 1 (raiz): cor vibrante, negrito e fonte maior
-            new_option.palette.setColor(QPalette.ColorRole.Text, QColor("#B6D4FF"))  # DeepSkyBlue
+            new_option.palette.setColor(QPalette.ColorRole.Text, QColor("#B6D4FF"))
             new_option.font.setBold(True)
             new_option.font.setUnderline(True)
-        elif level == 1:
-            # Nível 2: cor vibrante
-            new_option.palette.setColor(QPalette.ColorRole.Text, QColor("#FFF"))  # LimeGreen
-        elif level == 2:
-            # Nível 3: cor vibrante
-            new_option.palette.setColor(QPalette.ColorRole.Text, QColor("#FFF"))  # Gold
+        elif level in (1, 2):
+            new_option.palette.setColor(QPalette.ColorRole.Text, QColor("#B6D4FF"))
         elif level == 3:
-            # Nível 4 (caso exista): destaque especial com fonte em negrito e itálico
-            new_option.palette.setColor(QPalette.ColorRole.Text, QColor("#FFD700"))  # Gold
+            new_option.palette.setColor(QPalette.ColorRole.Text, QColor("#63A1FF"))
             new_option.font.setBold(True)
-            new_option.font.setItalic(True)
+            text = index.data(Qt.ItemDataRole.DisplayRole)
+            if text and len(text) > 200:
+                text = text[:200] + "\n" + text[200:]
+            new_option.text = text
         else:
             new_option.palette.setColor(QPalette.ColorRole.Text, option.palette.color(QPalette.ColorRole.Text))
         
         super().paint(painter, new_option, index)
+
+    def helpEvent(self, event, view, option, index):
+        if event.type() == QEvent.Type.ToolTip and self.get_level(index) == 3:
+            text = index.data(Qt.ItemDataRole.DisplayRole)
+            tooltip_text = f"<div style='max-width:300px;'>{text}</div>"
+            QToolTip.showText(event.globalPos(), tooltip_text, view)
+            return True
+        return super().helpEvent(event, view, option, index)
 
     def get_level(self, index):
         level = 0
@@ -103,14 +107,44 @@ class TreeLevelDelegate(QStyledItemDelegate):
             level += 1
             index = index.parent()
         return level
-         
+
 class CustomTreeView(QTreeView):
     def __init__(self, icons=None, parent=None):
         super().__init__(parent)
         self.setAcceptDrops(True)  # Habilita drops
         self.json_file_path = None
         self.update_callback = None
-        
+
+    def mousePressEvent(self, event):
+        index = self.indexAt(event.pos())
+        if index.isValid():
+            if self.isExpanded(index):
+                self.collapse_recursively(index)
+            else:
+                # Se for item top-level, expande recursivamente até o nível 3
+                if not index.parent().isValid():
+                    self.expand_recursively(index, current_level=0, max_level=3)
+                else:
+                    self.expand(index)
+        super().mousePressEvent(event)
+
+    def expand_recursively(self, index, current_level, max_level):
+        if current_level > max_level:
+            return
+        self.expand(index)
+        model = self.model()
+        for row in range(model.rowCount(index)):
+            child_index = model.index(row, 0, index)
+            self.expand_recursively(child_index, current_level + 1, max_level)
+
+    def collapse_recursively(self, index):
+        model = self.model()
+        # Colapsa os filhos primeiro
+        for row in range(model.rowCount(index)):
+            child_index = model.index(row, 0, index)
+            self.collapse_recursively(child_index)
+        self.collapse(index)
+                    
     def remove_criterio(self, criterio_item):
         """Remove um critério do TreeView e do arquivo JSON"""
         try:

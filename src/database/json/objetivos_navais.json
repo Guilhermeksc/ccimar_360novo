@@ -21,17 +21,18 @@
                                     "criterios_auditoria": [
                                         "1 - Processo A",
                                         "2 - Processo B",
-                                        "3 - Processo C",
-                                        "5 - Processo E",
-                                        "6 - Processo F",
-                                        "7 - Processo G"
+                                        "5 - Processo E"
                                     ]
                                 },
                                 {
                                     "numero": "DEFESA 2",
                                     "titulo": "Implantar a Defesa Proativa da Amazônia Azul.",
                                     "descricao": "Implantar um sistema de defesa proativa que permita monitorar e responder a eventuais ameaças à Amazônia Azul, por meio de tecnologia avançada de sensores e de comunicações. Este sistema deverá integrar dados de diversas fontes, possibilitando uma visão situacional ampliada e garantindo a pronta resposta da MB.",
-                                    "responsavel": "Estado-Maior da Armada (EMA)"
+                                    "responsavel": "Estado-Maior da Armada (EMA)",
+                                    "criterios_auditoria": [
+                                        "2 - Processo B",
+                                        "7 - Processo G"
+                                    ]
                                 }
                             ]
                         }
@@ -51,25 +52,39 @@
                                     "numero": "MARÍTIMA 1",
                                     "titulo": "Implementar o Sistema de Segurança do Tráfego Aquaviário (SSTA), nos ambientes fluviais e marítimos.",
                                     "descricao": "Modernizar e integrar as soluções relacionadas ao SSTA; ampliar as ações de fiscalização e a capacidade de resposta à emergência na navegação.",
-                                    "responsavel": "Comando de Operações Navais (ComOpNav)"
+                                    "responsavel": "Comando de Operações Navais (ComOpNav)",
+                                    "criterios_auditoria": [
+                                        "2 - Processo B"
+                                    ]
                                 },
                                 {
                                     "numero": "MARÍTIMA 2",
                                     "titulo": "Contribuir para a segurança da navegação.",
                                     "descricao": "Reduzir de maneira significativa o número de acidentes e incidentes de navegação nas AJB.",
-                                    "responsavel": "Diretoria-Geral de Navegação (DGN)"
+                                    "responsavel": "Diretoria-Geral de Navegação (DGN)",
+                                    "criterios_auditoria": [
+                                        "2 - Processo B",
+                                        "3 - Processo C"
+                                    ]
                                 },
                                 {
                                     "numero": "MARÍTIMA 3",
                                     "titulo": "Incrementar a realização de Inspeção Naval (IN); Patrulhamento (PTMTO); e Patrulha Naval (PATNAV).",
                                     "descricao": "Ampliar a capacidade para executar ações que permitam o emprego do poder naval de forma coercitiva em prol da segurança marítima.",
-                                    "responsavel": "Comando de Operações Navais (ComOpNav)"
+                                    "responsavel": "Comando de Operações Navais (ComOpNav)",
+                                    "criterios_auditoria": [
+                                        "1 - Processo A",
+                                        "2 - Processo B"
+                                    ]
                                 },
                                 {
                                     "numero": "MARÍTIMA 4",
                                     "titulo": "Incrementar a capacidade da MB na contraposição às ameaças híbridas.",
                                     "descricao": "A segurança marítima é afetada por ameaças híbridas, cujos objetivos são embarcações e portos comerciais, sistema de navegação, entre outros, daí a necessidade de ampliação de carga, cinemática e suprimento de energia, a fim de aumentar a aplicação da capacidade de contraposição às ameaças híbridas de natureza variável.",
-                                    "responsavel": "Comando de Operações Navais (ComOpNav)"
+                                    "responsavel": "Comando de Operações Navais (ComOpNav)",
+                                    "criterios_auditoria": [
+                                        "7 - Processo G"
+                                    ]
                                 }
                             ]
                         }
@@ -89,7 +104,10 @@
                                     "numero": "GLO-1",
                                     "titulo": "Garantir o preparo da MB para atuar em apoio aos Órgãos Governamentais para a Garantia dos Poderes Constitucionais e da Lei e da Ordem, nos ambientes marítimo, fluvial ou terrestre.",
                                     "descricao": "Manter a capacidade de atuar em apoio aos Órgãos Governamentais para a Garantia dos Poderes Constitucionais e da Lei e da Ordem.",
-                                    "responsavel": "Comando de Operações Navais (ComOpNav) / Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
+                                    "responsavel": "Comando de Operações Navais (ComOpNav) / Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)",
+                                    "criterios_auditoria": [
+                                        "11 - teste"
+                                    ]
                                 }
                             ]
                         }
@@ -109,31 +127,49 @@
                                     "numero": "DESENVOLVIMENTO-1",
                                     "titulo": "Contribuir com os órgãos governamentais e com a comunidade marítima na criação de Clusters Marítimos, estimulando a materialização da Política Marítima Nacional (PMN), por meio da interação com Ministérios, autoridades, entidades de classe, centros de estudos, universidades e institutos de pesquisa, entre outros.",
                                     "descricao": "Buscar parcerias com diferentes setores extra-MB para a divulgação e valorização do poder marítimo, de modo a desenvolver projetos que incrementem a mentalidade marítima, contribuam para a geração de riqueza e fortaleçam a segurança e a proteção do ambiente aquaviário.",
-                                    "responsavel": "Diretoria-Geral de Navegação (DGN)"
+                                    "responsavel": "Diretoria-Geral de Navegação (DGN)",
+                                    "criterios_auditoria": [
+                                        "2 - Processo B",
+                                        "6 - Processo F",
+                                        "12 - novo"
+                                    ]
                                 },
                                 {
                                     "numero": "DESENVOLVIMENTO-2",
                                     "titulo": "Atuar proativamente junto a instituições de ensino e pesquisa, além do setor industrial, visando ao fortalecimento da mentalidade marítima e da Política Marítima Nacional (PMN).",
                                     "descricao": "Promover o intercâmbio de conhecimentos e a difusão de tecnologias que fortaleçam a indústria marítima, possibilitem a formação de profissionais qualificados e fomentem a pesquisa voltada às necessidades da MB e do País, contribuindo para o desenvolvimento sustentável do Poder Marítimo.",
-                                    "responsavel": "Diretoria-Geral de Navegação (DGN)"
+                                    "responsavel": "Diretoria-Geral de Navegação (DGN)",
+                                    "criterios_auditoria": [
+                                        "2 - Processo B"
+                                    ]
                                 },
                                 {
                                     "numero": "DESENVOLVIMENTO-3",
                                     "titulo": "Aperfeiçoar o Ensino Profissional Marítimo (EPM).",
                                     "descricao": "Elaborar e implementar projetos educacionais que incentivem o aprendizado sobre a importância do mar para o desenvolvimento nacional, bem como a valorização de tradições e práticas marítimas.",
-                                    "responsavel": "Diretoria-Geral de Navegação (DGN)"
+                                    "responsavel": "Diretoria-Geral de Navegação (DGN)",
+                                    "criterios_auditoria": [
+                                        "1 - Processo A",
+                                        "2 - Processo B"
+                                    ]
                                 },
                                 {
                                     "numero": "DESENVOLVIMENTO-4",
                                     "titulo": "Apoiar a presença brasileira no continente Antártico.",
                                     "descricao": "Desenvolver o Programa Antártico Brasileiro (PROANTAR): implantar a infraestrutura e a capacidade logística de apoio à pesquisa; restabelecer a operacionalidade da Estação Antártica Comandante Ferraz (EACF); e divulgar as atividades aos públicos interno e externo, especialmente para lideranças políticas.",
-                                    "responsavel": "Secretaria da Comissão Interministerial para os Recursos do Mar (SECIRM)"
+                                    "responsavel": "Secretaria da Comissão Interministerial para os Recursos do Mar (SECIRM)",
+                                    "criterios_auditoria": [
+                                        "2 - Processo B"
+                                    ]
                                 },
                                 {
                                     "numero": "DESENVOLVIMENTO-5",
                                     "titulo": "Fortalecer a Comissão Interministerial para os Recursos do Mar (CIRM)",
                                     "descricao": "A CIRM, colegiado composto por representantes de diversos órgãos e ministérios, coordenado pelo Comandante da Marinha, trata dos assuntos relativos à consecução da Política Nacional para os Recursos do Mar (PNRM) e do Programa Nacional para Assuntos Antárticos (POLANTAR), executa Programas e Planos relacionados ao conhecimento e ao aproveitamento sustentável dos recursos do mar e das áreas sob jurisdição brasileira, bem como à manutenção dos interesses do Brasil no Atlântico Sul, no continente antártico e no Oceano Atlântico.\n\nA atualização dessas políticas, a valoração dos recursos do mar (Economia Azul) e a implementação de sistemas de monitoramento e controle na Amazônia Azul (Planejamento Espacial Marinho), fortalecendo a CIRM e seu arcabouço de governança, são atribuições afetas a esse AEN.",
-                                    "responsavel": "Secretaria da Comissão Interministerial para os Recursos do Mar (SECIRM)"
+                                    "responsavel": "Secretaria da Comissão Interministerial para os Recursos do Mar (SECIRM)",
+                                    "criterios_auditoria": [
+                                        "3 - Processo C"
+                                    ]
                                 }
                             ]
                         }
@@ -401,6 +437,123 @@
                                     "titulo": "Aprimorar a estrutura do Sistema de coleta, processamento e disseminação de dados ambientais, permitindo a implantação do conceito de e-navigation (navegação aprimorada) nas AJB.",
                                     "descricao": "Modernizar a capacidade de coleta, de processamento e de elaboração de produtos e serviços de dados ambientais marinhos, de monitoramento e de fiscalização do cumprimento da legislação e das normas da Autoridade Marítima para a segurança da navegação e incidentes de poluição.",
                                     "responsavel": "Diretoria Geral de Navegação (DGN)"
+                                },
+                                {
+                                    "numero": "CSM-3",
+                                    "titulo": "Aprimorar a base de dados ambientais integrada para produtos e serviços cartográficos e meteoceanográficos.",
+                                    "descricao": "Integrar os bancos de dados cartográficos, hidrográficos, meteoceanográficos e de auxílios à navegação.",
+                                    "responsavel": "Diretoria Geral de Navegação (DGN)"
+                                },
+                                {
+                                    "numero": "CSM-4",
+                                    "titulo": "Pesquisar elementos de interesse estratégico nas AJB e no Atlântico Sul.",
+                                    "descricao": "Realizar levantamentos hidrográficos, oceanográficos, meteorológicos, geológicos e geofísicos em áreas estratégicas de interesse do País, inclusive aquelas além da Plataforma Continental; ampliar as atividades científicas nas ilhas oceânicas; atuar no fomento à pesquisa marinha, por meio da articulação com órgãos governamentais, socioeconômicos, comunidade acadêmica e científica.",
+                                    "responsavel": "Diretoria Geral de Navegação (DGN) / Secretaria da Comissão Interministerial para os Recursos do Mar (SECIRM)"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "nome": "Institucional",
+            "obnavs": [
+                {
+                    "numero": "11",
+                    "descricao": "APRIMORAR A GESTÃO DE PESSOAS",
+                    "criterios_auditoria": [],
+                    "estrategias_navais": [
+                        {
+                            "numero": "11",
+                            "titulo": "“PESSOAL - NOSSO MAIOR PATRIMÔNIO”",
+                            "descricao": "Visa aperfeiçoar os sistemas e os procedimentos relacionados à gestão de pessoal, a fim de prover à Força a pessoa certa, com a capacitação adequada, no lugar e no momento certos, visando ao cumprimento da Missão da MB. Sua execução permitirá desenvolver as competências intelectual e militar-naval, bem como a higidez física e psicossocial de nossa Força de Trabalho.",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "PESSOAL-1",
+                                    "titulo": "Incorporar a Gestão por competências na administração de recursos humanos da MB.",
+                                    "descricao": "Incorporar novos processos e técnicas de gerenciamento de pessoas e carreiras, em especial a Gestão por Competências, buscando aprimorar a aplicação dos recursos humanos na MB.",
+                                    "responsavel": "Diretoria-Geral do Pessoal da Marinha (DGPM) / Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
+                                },
+                                {
+                                    "numero": "PESSOAL-2",
+                                    "titulo": "Aprimorar a capacitação de pessoal da MB.",
+                                    "descricao": "Capacitar o pessoal da MB no processo de Gestão do Ciclo de Vida (GCV), operação e manutenção dos meios de superfície, submarinos, aeronavais e de equipamentos de combate dos Fuzileiros Navais que serão empregados no futuro. Envolve a infraestrutura e os processos utilizados pelo Sistema de Ensino Naval (SEN) e pela Rede de Ensino de Pós-graduação e Qualificação Especial da MB na formação, na capacitação física, no exercício da liderança e aperfeiçoamento contínuo do nosso pessoal para o enfrentamento dos desafios impostos pela Era do Conhecimento.",
+                                    "responsavel": "Diretoria-Geral do Pessoal da Marinha (DGPM) / Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
+                                },
+                                {
+                                    "numero": "PESSOAL-3",
+                                    "titulo": "Aprimorar a saúde integrada da MB.",
+                                    "descricao": "Aprimorar os serviços de saúde e infraestrutura associadas para permitir que os recursos humanos da Força desempenhem suas tarefas ao máximo de eficiência física e psicológica e assegurem a eficiência no apoio à operação, por meio da criação de uma Coordenação Logística que contemple a implementação de estruturas de apoio do Centro Médico Assistencial da Marinha e do Núcleo de Coordenação de Atendimento à Terceira Idade.",
+                                    "responsavel": "Diretoria-Geral do Pessoal da Marinha (DGPM)"
+                                },
+                                {
+                                    "numero": "PESSOAL-4",
+                                    "titulo": "Aprimorar o apoio à Família Naval.",
+                                    "descricao": "Executar ações de apoio ao núcleo familiar de militares e servidores civis, buscando mecanismos de incentivo e suporte às necessidades individuais e coletivas, com ênfase na promoção de serviços de bem-estar e programas de recursos humanos da MB com foco na melhoria do desempenho das tarefas institucionais.",
+                                    "responsavel": "Diretoria-Geral do Pessoal da Marinha (DGPM)"
+                                },
+                                {
+                                    "numero": "PESSOAL-5",
+                                    "titulo": "Aprimorar o Programa Olímpico da Marinha (PROLIM).",
+                                    "descricao": "Promover o desenvolvimento do desporto náutico e do esporte militar e incentivar a formação de atletas, com foco na representatividade do Brasil numa plataforma mundial, visando o incremento da imagem da Força.",
+                                    "responsavel": "Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "numero": "12",
+                    "descricao": "APERFEIÇOAR A GESTÃO ORÇAMENTÁRIA, FINANCEIRA E ADMINISTRATIVA",
+                    "criterios_auditoria": [],
+                    "estrategias_navais": [
+                        {
+                            "numero": "12",
+                            "titulo": "GESTÃO ADMINISTRATIVA",
+                            "descricao": "Visa garantir os recursos orçamentários fixados em Lei e a sua eventual ampliação com objetivo de atender às despesas discricionárias, relativas às Ações Estratégicas Navais contidas neste Plano; evoluir a gestão das OM com foco em resultados e maior integração sistêmica de processos; bem como pelo robustecimento das estruturas de apoio e governança da Força; implantando as ações de custeio na MB; promover o desenvolvimento adequado da Logística da MB; e aprimorar o parque social da MB como um todo e irredutível.",
+                            "acoes_estrategicas": [
+                                {
+                                    "numero": "ADM-1",
+                                    "titulo": "Obter recursos orçamentários visando a consecução dos programas da Marinha.",
+                                    "descricao": "Atuar permanentemente junto aos Poderes Legislativo e Executivo, buscando aderência aos valores da proposta orçamentária aos gastos associados às ações orçamentárias da Marinha. Fomentar os ajustes necessários para manter o fluxo de recursos financeiros de acordo com as necessidades, priorizando gastos com pessoal, contratos, projetos e outros investimentos.",
+                                    "responsavel": "Secretaria-Geral da Marinha (SGM)"
+                                },
+                                {
+                                    "numero": "ADM-2",
+                                    "titulo": "Otimizar os recursos humanos, materiais e financeiros, com foco na melhoria da gestão da MB.",
+                                    "descricao": "Incrementar a eficiência dos processos, por meio da efetiva aplicação dos instrumentos de gestão (contratos de gestão, contabilidade gerencial de custos, planejamento estratégico, governança corporativa) e de gestão por competências, bem como pela fortificação dos mecanismos de governança corporativa (transparência, prestação de contas e responsabilidade corporativa).",
+                                    "responsavel": "Secretaria-Geral da Marinha (SGM)"
+                                },
+                                {
+                                    "numero": "ADM-3",
+                                    "titulo": "Aprimorar a gestão de custos na Marinha do Brasil.",
+                                    "descricao": "Aprimorar a gestão de custos no âmbito da MB, de forma a consolidar as informações e subsidiar a tomada de decisão, em todas as esferas e níveis de planejamento, e para todos os investimentos e despesas constantes deste Plano.",
+                                    "responsavel": "Secretaria-Geral da Marinha (SGM)"
+                                },
+                                {
+                                    "numero": "ADM-4",
+                                    "titulo": "Aprimorar a interação do PPA ao Planejamento Estratégico da Marinha.",
+                                    "descricao": "Atuar para que o PPA contemple, na base de programação orçamentária, as prioridades e os Planos de Direção Setorial de forma a manter o alinhamento estratégico entre os instrumentos de planejamento.",
+                                    "responsavel": "Secretaria-Geral da Marinha (SGM)"
+                                },
+                                {
+                                    "numero": "ADM-5",
+                                    "titulo": "Aprimorar a gestão das Organizações Militares (OM) do CFN.",
+                                    "descricao": "Criar, modernizar e aprimorar as OM do CFN.",
+                                    "responsavel": "Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
+                                },
+                                {
+                                    "numero": "ADM-6",
+                                    "titulo": "Aperfeiçoar o desempenho da Logística da MB.",
+                                    "descricao": "Estabelecer níveis de serviço do Sistema de Abastecimento da Marinha (SaBM), em patamares adequados e compatíveis com as disponibilidades orçamentárias e consolidar um Plano de Concentração Logística, no setor operativo, que contemple a ampliação e aperfeiçoamento dos Centros de Intendência, contribuindo para a sua prontidão operativa.",
+                                    "responsavel": "Secretaria-Geral da Marinha (SGM)"
+                                },
+                                {
+                                    "numero": "ADM-7",
+                                    "titulo": "Aprimorar a comunicação da MB com os públicos de interesse.",
+                                    "descricao": "Aperfeiçoar os processos comunicacionais, a fim de efetivar a interação com o público externo. Fortalecer a convicção e a coesão do público interno. Reposicionar a Comunicação Social na MB, tendo em vista o caráter estratégico da atividade.",
+                                    "responsavel": "Centro de Comunicação Social da Marinha (CCSM)."
                                 }
                             ]
                         }
