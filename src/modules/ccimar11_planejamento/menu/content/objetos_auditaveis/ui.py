@@ -6,7 +6,7 @@ from PyQt6.QtWidgets import (
     QPushButton, QFileDialog, QMessageBox, QStyledItemDelegate,
     QGroupBox, QTableWidget, QTableWidgetItem, QScrollArea, QWidget,
     QSizePolicy, QDialog, QComboBox, QFormLayout, QTabWidget, QDialogButtonBox,
-    QSpinBox, QLineEdit
+    QSpinBox, QLineEdit, QDoubleSpinBox
 )
 from PyQt6.QtGui import QStandardItemModel, QStandardItem, QFont
 from PyQt6.QtCore import Qt
@@ -336,6 +336,9 @@ def create_objetos_auditaveis(title_text):
     table_view.verticalHeader().setDefaultSectionSize(30)
     main_layout.addWidget(table_view)
 
+    def format_value(value):
+        return str(int(value)) if value == int(value) else str(value)
+
     def load_model_from_config():
         config = load_config()
         model.clear()
@@ -404,10 +407,10 @@ def create_objetos_auditaveis(title_text):
             row = [
                 QStandardItem(str(nr)),
                 QStandardItem(str(descricao)),
-                QStandardItem(str(mat_val)),
-                QStandardItem(str(rel_val)),
-                QStandardItem(str(crit_val)),
-                QStandardItem(str(total)),
+                QStandardItem(format_value(mat_val)),
+                QStandardItem(format_value(rel_val)),
+                QStandardItem(format_value(crit_val)),
+                QStandardItem(format_value(total)),
                 QStandardItem(str(risco))
             ]
             
@@ -950,6 +953,23 @@ def create_objetos_auditaveis(title_text):
 
     return main_frame
 
+class CustomDoubleSpinBox(QDoubleSpinBox):
+    def textFromValue(self, value: float) -> str:
+        # Exibe sem casas decimais se não houver dígitos significativos após o separador
+        if value == int(value):
+            return str(int(value))
+        return super().textFromValue(value)
+
+    def valueFromText(self, text: str) -> float:
+        # Remove espaços, substitui vírgula por ponto e, se iniciar com separador, adiciona '0'
+        text = text.strip().replace(',', '.')
+        if text.startswith('.'):
+            text = '0' + text
+        try:
+            return float(text)
+        except ValueError:
+            return 0.0
+
 class EditablePtsDelegate(QStyledItemDelegate):
     def __init__(self, table_widget, category: str, crit_title: str, update_callback, *args, **kwargs):
         super().__init__(table_widget, *args, **kwargs)
@@ -959,30 +979,39 @@ class EditablePtsDelegate(QStyledItemDelegate):
 
     def createEditor(self, parent, option, index):
         if index.column() == 1:
-            editor = QSpinBox(parent)
+            editor = CustomDoubleSpinBox(parent)
             editor.setMinimum(0)
             editor.setMaximum(1000)  # ajuste conforme necessário
+            editor.setDecimals(2)    # permite valores com casas decimais
             editor.lineEdit().setAlignment(Qt.AlignmentFlag.AlignCenter)
             editor.setStyleSheet("color: white; background-color: #181928;")
             return editor
         return super().createEditor(parent, option, index)
 
-
     def setEditorData(self, editor, index):
         value = index.model().data(index, Qt.ItemDataRole.EditRole)
         try:
-            editor.setValue(int(value))
+            value = float(value)
         except Exception:
-            editor.setValue(0)
+            value = 0.0
+        # Armazena o valor original para o caso de o usuário não alterar o valor
+        editor._initial_value = value
+        editor.setValue(value)
 
     def setModelData(self, editor, model, index):
-        new_value = editor.value()
+        if editor.lineEdit().text().strip() == "":
+            new_value = editor._initial_value
+        else:
+            new_value = editor.value()
+        # Converte para inteiro apenas se não houver casas decimais significativas
+        if new_value == int(new_value):
+            new_value = int(new_value)
         model.setData(index, new_value, Qt.ItemDataRole.EditRole)
         option_index = index.row()
         update_json_config(self.category, self.crit_title, option_index, new_value)
-        # Chama a função de callback para atualizar o table view
         if self.update_callback:
             self.update_callback()
+
 
 def update_json_config(category: str, crit_title: str, option_index: int, new_value: int):
     try:

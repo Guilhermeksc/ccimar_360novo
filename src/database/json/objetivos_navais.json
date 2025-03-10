@@ -18,7 +18,12 @@
                                     "titulo": "Implantar a Sistemática de Planejamento de Força no âmbito da MB.",
                                     "descricao": "Implantar um sistema integrado que permita gerenciar a análise de cenários e a prospecção de ameaças, por meio de uma ferramenta, como por exemplo o SIGSAZ, de suporte à tomada de decisões. Tal sistema deverá permitir a construção de cenários, a definição de hipóteses de emprego, a identificação de ameaças e a proposição de soluções de forças navais, aéreas e de fuzileiros navais.",
                                     "responsavel": "Estado-Maior da Armada (EMA)",
-                                    "criterios_auditoria": []
+                                    "criterios_auditoria": [
+                                        "1 - Treinamento",
+                                        "2 - Facilitação - Adestramentos e instruções",
+                                        "3 - Facilitação - apoio de VISITEC",
+                                        "5 - Transparência e Prestação de Contas - AMAZUL"
+                                    ]
                                 },
                                 {
                                     "numero": "DEFESA 2",

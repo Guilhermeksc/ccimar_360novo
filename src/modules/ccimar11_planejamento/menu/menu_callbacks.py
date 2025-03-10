@@ -10,6 +10,7 @@ from .content.criterio6_em_foco_externo import create_criterio6_foco_externo
 from .content.criteriox_omps import create_x
 from .content.chatbot import create_chatbot
 from .content.criterios_pesos import create_criterios_pesos
+from .content.cadastro_objetos_auditaveis import create_cadastro_objetos_auditaveis
 from .content.objetivos_navais import create_objetivos_navais
 from .content.objetos_auditaveis import create_objetos_auditaveis
 from .content.om_representativas import create_om_representativas
@@ -31,7 +32,7 @@ def create_content(title_text):
 
 def show_criterios_pesos(view, icons):
     view.clear_content()
-    view.content_layout.addWidget(create_criterios_pesos("Critérios e Pesos", view.database_model))
+    view.content_layout.addWidget(create_criterios_pesos("Planejamento", view.database_model))
 
 def show_objetivos_navais(view):
     view.clear_content()
@@ -39,11 +40,15 @@ def show_objetivos_navais(view):
 
 def show_objetos_auditaveis(view):
     view.clear_content()
-    view.content_layout.addWidget(create_objetos_auditaveis("Objetos Auditáveis"))
+    view.content_layout.addWidget(create_objetos_auditaveis("Anexo A - Obj.Auditáveis"))
+
+def show_cadastro_objetivos_navais(view):
+    view.clear_content()
+    view.content_layout.addWidget(create_cadastro_objetos_auditaveis("Anexo A - Obj.Auditáveis"))
 
 def show_om_representativas(view):
     view.clear_content()
-    view.content_layout.addWidget(create_om_representativas("OM Representativas"))
+    view.content_layout.addWidget(create_om_representativas("Anexo B - OM Represent."))
 
 def show_criterio1_execucao_licitacao(view):
     view.clear_content()

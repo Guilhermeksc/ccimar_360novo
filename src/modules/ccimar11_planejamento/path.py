@@ -11,5 +11,5 @@ TEMPLATE_RELATORIO_PATH = CCIMAR11_DIR / "templates" / "template_relatorio.docx"
 OBJETIVOS_NAVAIS_PATH = JSON_DIR / "objetivos_navais.json"
 OM_REPRESENTATIVAS_PATH = JSON_DIR / "om_representativas.json"
 CONFIG_PAINT_PATH = JSON_DIR / "config_paint.json"
-
+CADASTRO_OBJETOS_AUDITAVEIS_PATH = JSON_DIR / "cadastro_objetos_auditaveis.json"
 

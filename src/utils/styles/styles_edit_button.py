@@ -29,9 +29,6 @@ def apply_edit_dialog_style(dialog):
         QComboBox {
             background-color: #FFFFFF;
             color: #000000;
-            padding: 5px;
-            border-radius: 3px;
-            min-height: 25px;
         }
         QPushButton {
             background-color: #4CAF50;

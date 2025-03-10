@@ -4,7 +4,7 @@ from PyQt6.QtWidgets import QTreeView, QAbstractItemView
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 from PyQt6.QtCore import Qt
 from .menu_callbacks import (
-    show_criterios_pesos, show_objetivos_navais, show_objetos_auditaveis, show_om_representativas,  
+    show_criterios_pesos, show_cadastro_objetivos_navais, show_objetivos_navais, show_objetos_auditaveis, show_om_representativas,  
     show_criterio1_execucao_licitacao, show_criterio2_pagamento,
     show_criterio3_munic, show_criteriox_omps, show_criterio4_patrimonio,
     show_oficio_ccimar20_widget, show_gerar_notas_widget, show_chat_bot
@@ -61,10 +61,11 @@ class TreeMenu(QTreeView):
             return item
 
         # Parent items with icons
-        item_criterios_pesos = add_parent("Critérios e Pesos", self.icons["criteria"], show_criterios_pesos)
+        item_criterios_pesos = add_parent("Planejamento", self.icons["prioridade"], show_criterios_pesos)
+        add_item(item_criterios_pesos, "Cadastro - Obj.Auditáveis", show_cadastro_objetivos_navais)
         add_item(item_criterios_pesos, "Objetivos Navais", show_objetivos_navais)
-        add_item(item_criterios_pesos, "Objetos Auditáveis", show_objetos_auditaveis)
-        add_item(item_criterios_pesos, "OM Representativas", show_om_representativas)
+        add_item(item_criterios_pesos, "Anexo A - Obj.Auditáveis", show_objetos_auditaveis)
+        add_item(item_criterios_pesos, "Anexo B - OM Represent.", show_om_representativas)
 
         item_paint = add_parent("PAINT", self.icons["analytics"])
         item_raint = add_parent("RAINT", self.icons["report"])
