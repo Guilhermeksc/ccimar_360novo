@@ -25,7 +25,7 @@ def create_objetos_auditaveis(title_text):
 
     # Barra de título e botões
     title_layout = QHBoxLayout()
-    title_label = QLabel("Mapa de Critérios e Pesos")
+    title_label = QLabel("ANEXO 'A' CCIMAR 10-02")
     title_label.setStyleSheet("font-size: 20px; font-weight: bold; color: #FFFFFF;")
     title_layout.addWidget(title_label)
     title_layout.addStretch()

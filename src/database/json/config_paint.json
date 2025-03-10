@@ -2,12 +2,12 @@
     "objetos_auditaveis": [
         {
             "nr": "1",
-            "descricao": "Processo A",
-            "detalhamento": "-",
+            "descricao": "Treinamento",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
-                    "texto": ""
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -41,12 +41,12 @@
         },
         {
             "nr": "2",
-            "descricao": "Processo B",
-            "detalhamento": "-",
+            "descricao": "Facilitação - Adestramentos e instruções",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
-                    "texto": ""
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -80,12 +80,12 @@
         },
         {
             "nr": "3",
-            "descricao": "Processo C",
-            "detalhamento": "-",
+            "descricao": "Facilitação - apoio de VISITEC",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
-                    "texto": ""
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -119,12 +119,12 @@
         },
         {
             "nr": "4",
-            "descricao": "Processo D",
-            "detalhamento": "-",
+            "descricao": "Transparência e Prestação de Contas - CM",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
-                    "texto": ""
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -158,12 +158,12 @@
         },
         {
             "nr": "5",
-            "descricao": "Processo E",
-            "detalhamento": "-",
+            "descricao": "Transparência e Prestação de Contas - AMAZUL",
+            "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
-                    "texto": ""
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -197,12 +197,12 @@
         },
         {
             "nr": "6",
-            "descricao": "Processo F",
+            "descricao": "Transparência e Prestação de Contas - EMGEPRON",
             "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
-                    "texto": ""
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -236,12 +236,12 @@
         },
         {
             "nr": "7",
-            "descricao": "Processo G",
+            "descricao": "Transparência e Prestação de Contas - CCCPM",
             "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
-                    "texto": ""
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -275,12 +275,12 @@
         },
         {
             "nr": "8",
-            "descricao": "Novo",
+            "descricao": "Capacitação / Qaulificação de RH - EN",
             "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
-                    "texto": ""
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -314,12 +314,12 @@
         },
         {
             "nr": "9",
-            "descricao": "teste",
+            "descricao": "Gestão Compras - EAMES",
             "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
-                    "texto": ""
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -353,12 +353,12 @@
         },
         {
             "nr": "10",
-            "descricao": "novo",
+            "descricao": "Defesa das AJB e Gestão do Patrimônio Imobiliário da MB  - Findependência",
             "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
-                    "texto": ""
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -392,12 +392,12 @@
         },
         {
             "nr": "11",
-            "descricao": "teste",
+            "descricao": "Gestão do Sistema OMPS-I  - ENRN",
             "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
-                    "texto": ""
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -431,12 +431,12 @@
         },
         {
             "nr": "12",
-            "descricao": "novo",
+            "descricao": "Gestão Orçamentária - CeIMPL",
             "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
-                    "texto": ""
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -470,12 +470,207 @@
         },
         {
             "nr": "13",
-            "descricao": "t",
+            "descricao": "Compras e Contratações no Exterior - CNBW",
             "detalhamento": "",
             "materialidade": {
                 "Vulto Financeiro": {
                     "valor": 0,
+                    "texto": "Até 50 milhões"
+                }
+            },
+            "relevancia": {
+                "Vinculação a Ação Estratégica Naval (AEN)": {
+                    "valor": 0,
                     "texto": ""
+                },
+                "Vinculação ao Portfólio Estratégico": {
+                    "valor": 0,
+                    "texto": "Não"
+                },
+                "Vinculação à Ação Orçamentária da LOA": {
+                    "valor": 0,
+                    "texto": "Não"
+                }
+            },
+            "criticidade": {
+                "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Repercussão Externa Negativa (Denúncias/Representações)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
+                    "valor": 0,
+                    "texto": ""
+                }
+            }
+        },
+        {
+            "nr": "14",
+            "descricao": "Defesa das Aguas Juridicionais - BHMN",
+            "detalhamento": "",
+            "materialidade": {
+                "Vulto Financeiro": {
+                    "valor": 0,
+                    "texto": "Até 50 milhões"
+                }
+            },
+            "relevancia": {
+                "Vinculação a Ação Estratégica Naval (AEN)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Vinculação ao Portfólio Estratégico": {
+                    "valor": 0,
+                    "texto": "Não"
+                },
+                "Vinculação à Ação Orçamentária da LOA": {
+                    "valor": 0,
+                    "texto": "Não"
+                }
+            },
+            "criticidade": {
+                "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Repercussão Externa Negativa (Denúncias/Representações)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
+                    "valor": 0,
+                    "texto": ""
+                }
+            }
+        },
+        {
+            "nr": "15",
+            "descricao": "Gestão do Programa de Ensino Profissional Marítimo - PREPOM / FDPEM - CPAL",
+            "detalhamento": "",
+            "materialidade": {
+                "Vulto Financeiro": {
+                    "valor": 0,
+                    "texto": "Até 50 milhões"
+                }
+            },
+            "relevancia": {
+                "Vinculação a Ação Estratégica Naval (AEN)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Vinculação ao Portfólio Estratégico": {
+                    "valor": 0,
+                    "texto": "Não"
+                },
+                "Vinculação à Ação Orçamentária da LOA": {
+                    "valor": 0,
+                    "texto": "Não"
+                }
+            },
+            "criticidade": {
+                "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Repercussão Externa Negativa (Denúncias/Representações)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
+                    "valor": 0,
+                    "texto": ""
+                }
+            }
+        },
+        {
+            "nr": "16",
+            "descricao": "Gestão do Municiamento - Com1ºDN",
+            "detalhamento": "",
+            "materialidade": {
+                "Vulto Financeiro": {
+                    "valor": 0,
+                    "texto": "Até 50 milhões"
+                }
+            },
+            "relevancia": {
+                "Vinculação a Ação Estratégica Naval (AEN)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Vinculação ao Portfólio Estratégico": {
+                    "valor": 0,
+                    "texto": "Não"
+                },
+                "Vinculação à Ação Orçamentária da LOA": {
+                    "valor": 0,
+                    "texto": "Não"
+                }
+            },
+            "criticidade": {
+                "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Repercussão Externa Negativa (Denúncias/Representações)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
+                    "valor": 0,
+                    "texto": ""
+                }
+            }
+        },
+        {
+            "nr": "17",
+            "descricao": "Compras e Contratações no Exterior - AdiNavParaguai",
+            "detalhamento": "",
+            "materialidade": {
+                "Vulto Financeiro": {
+                    "valor": 0,
+                    "texto": "Até 50 milhões"
+                }
+            },
+            "relevancia": {
+                "Vinculação a Ação Estratégica Naval (AEN)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Vinculação ao Portfólio Estratégico": {
+                    "valor": 0,
+                    "texto": "Não"
+                },
+                "Vinculação à Ação Orçamentária da LOA": {
+                    "valor": 0,
+                    "texto": "Não"
+                }
+            },
+            "criticidade": {
+                "Eventos Apuratórios Internos (TCE/IPM/Sindicância)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Repercussão Externa Negativa (Denúncias/Representações)": {
+                    "valor": 0,
+                    "texto": ""
+                },
+                "Tempo sem Auditoria": {
+                    "valor": 0,
+                    "texto": ""
+                }
+            }
+        },
+        {
+            "nr": "18",
+            "descricao": "Auditoria Contínua",
+            "detalhamento": "",
+            "materialidade": {
+                "Vulto Financeiro": {
+                    "valor": 0,
+                    "texto": "Até 50 milhões"
                 }
             },
             "relevancia": {
@@ -521,23 +716,23 @@
                 "opcoes": [
                     {
                         "Descrição": "Vinculado a uma AEN",
-                        "Pontuação": 2
+                        "Pontuação": 0.25
                     },
                     {
                         "Descrição": "Vinculado a duas AEN",
-                        "Pontuação": 3
+                        "Pontuação": 0.5
                     },
                     {
                         "Descrição": "Vinculado a três AEN",
-                        "Pontuação": 5
+                        "Pontuação": 0.75
                     },
                     {
                         "Descrição": "Vinculado a quatro AEN",
-                        "Pontuação": 15
+                        "Pontuação": 0.8
                     },
                     {
                         "Descrição": "Vinculado a mais de quatro AEN",
-                        "Pontuação": 1
+                        "Pontuação": 1.0
                     }
                 ]
             },
@@ -547,11 +742,11 @@
                 "opcoes": [
                     {
                         "Descrição": "Não",
-                        "Pontuação": 0
+                        "Pontuação": 0.0
                     },
                     {
                         "Descrição": "Sim",
-                        "Pontuação": 5
+                        "Pontuação": 5.0
                     }
                 ]
             },
@@ -561,11 +756,11 @@
                 "opcoes": [
                     {
                         "Descrição": "Não",
-                        "Pontuação": 0
+                        "Pontuação": 0.0
                     },
                     {
                         "Descrição": "Sim",
-                        "Pontuação": 5
+                        "Pontuação": 5.0
                     }
                 ]
             }
@@ -576,20 +771,24 @@
                 "Tipo": "Escala",
                 "opcoes": [
                     {
-                        "Descrição": "Até 10%",
+                        "Descrição": "Até 50 milhões",
+                        "Pontuação": 0
+                    },
+                    {
+                        "Descrição": "De 50 a 200 milhões",
+                        "Pontuação": 1
+                    },
+                    {
+                        "Descrição": "De 200 a 500 milhões",
+                        "Pontuação": 2
+                    },
+                    {
+                        "Descrição": "De 500 a 1000 milhões",
+                        "Pontuação": 3
+                    },
+                    {
+                        "Descrição": "Acima de 1 bilhão",
                         "Pontuação": 4
-                    },
-                    {
-                        "Descrição": "De 10% a 20%",
-                        "Pontuação": 6
-                    },
-                    {
-                        "Descrição": "De 20% a 30%",
-                        "Pontuação": 8
-                    },
-                    {
-                        "Descrição": "Acima de 30%",
-                        "Pontuação": 15
                     }
                 ]
             }

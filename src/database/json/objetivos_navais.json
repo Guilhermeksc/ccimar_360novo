@@ -18,21 +18,13 @@
                                     "titulo": "Implantar a Sistemática de Planejamento de Força no âmbito da MB.",
                                     "descricao": "Implantar um sistema integrado que permita gerenciar a análise de cenários e a prospecção de ameaças, por meio de uma ferramenta, como por exemplo o SIGSAZ, de suporte à tomada de decisões. Tal sistema deverá permitir a construção de cenários, a definição de hipóteses de emprego, a identificação de ameaças e a proposição de soluções de forças navais, aéreas e de fuzileiros navais.",
                                     "responsavel": "Estado-Maior da Armada (EMA)",
-                                    "criterios_auditoria": [
-                                        "1 - Processo A",
-                                        "2 - Processo B",
-                                        "5 - Processo E"
-                                    ]
+                                    "criterios_auditoria": []
                                 },
                                 {
                                     "numero": "DEFESA 2",
                                     "titulo": "Implantar a Defesa Proativa da Amazônia Azul.",
                                     "descricao": "Implantar um sistema de defesa proativa que permita monitorar e responder a eventuais ameaças à Amazônia Azul, por meio de tecnologia avançada de sensores e de comunicações. Este sistema deverá integrar dados de diversas fontes, possibilitando uma visão situacional ampliada e garantindo a pronta resposta da MB.",
-                                    "responsavel": "Estado-Maior da Armada (EMA)",
-                                    "criterios_auditoria": [
-                                        "2 - Processo B",
-                                        "7 - Processo G"
-                                    ]
+                                    "responsavel": "Estado-Maior da Armada (EMA)"
                                 }
                             ]
                         }
@@ -52,39 +44,25 @@
                                     "numero": "MARÍTIMA 1",
                                     "titulo": "Implementar o Sistema de Segurança do Tráfego Aquaviário (SSTA), nos ambientes fluviais e marítimos.",
                                     "descricao": "Modernizar e integrar as soluções relacionadas ao SSTA; ampliar as ações de fiscalização e a capacidade de resposta à emergência na navegação.",
-                                    "responsavel": "Comando de Operações Navais (ComOpNav)",
-                                    "criterios_auditoria": [
-                                        "2 - Processo B"
-                                    ]
+                                    "responsavel": "Comando de Operações Navais (ComOpNav)"
                                 },
                                 {
                                     "numero": "MARÍTIMA 2",
                                     "titulo": "Contribuir para a segurança da navegação.",
                                     "descricao": "Reduzir de maneira significativa o número de acidentes e incidentes de navegação nas AJB.",
-                                    "responsavel": "Diretoria-Geral de Navegação (DGN)",
-                                    "criterios_auditoria": [
-                                        "2 - Processo B",
-                                        "3 - Processo C"
-                                    ]
+                                    "responsavel": "Diretoria-Geral de Navegação (DGN)"
                                 },
                                 {
                                     "numero": "MARÍTIMA 3",
                                     "titulo": "Incrementar a realização de Inspeção Naval (IN); Patrulhamento (PTMTO); e Patrulha Naval (PATNAV).",
                                     "descricao": "Ampliar a capacidade para executar ações que permitam o emprego do poder naval de forma coercitiva em prol da segurança marítima.",
-                                    "responsavel": "Comando de Operações Navais (ComOpNav)",
-                                    "criterios_auditoria": [
-                                        "1 - Processo A",
-                                        "2 - Processo B"
-                                    ]
+                                    "responsavel": "Comando de Operações Navais (ComOpNav)"
                                 },
                                 {
                                     "numero": "MARÍTIMA 4",
                                     "titulo": "Incrementar a capacidade da MB na contraposição às ameaças híbridas.",
                                     "descricao": "A segurança marítima é afetada por ameaças híbridas, cujos objetivos são embarcações e portos comerciais, sistema de navegação, entre outros, daí a necessidade de ampliação de carga, cinemática e suprimento de energia, a fim de aumentar a aplicação da capacidade de contraposição às ameaças híbridas de natureza variável.",
-                                    "responsavel": "Comando de Operações Navais (ComOpNav)",
-                                    "criterios_auditoria": [
-                                        "7 - Processo G"
-                                    ]
+                                    "responsavel": "Comando de Operações Navais (ComOpNav)"
                                 }
                             ]
                         }
@@ -104,10 +82,7 @@
                                     "numero": "GLO-1",
                                     "titulo": "Garantir o preparo da MB para atuar em apoio aos Órgãos Governamentais para a Garantia dos Poderes Constitucionais e da Lei e da Ordem, nos ambientes marítimo, fluvial ou terrestre.",
                                     "descricao": "Manter a capacidade de atuar em apoio aos Órgãos Governamentais para a Garantia dos Poderes Constitucionais e da Lei e da Ordem.",
-                                    "responsavel": "Comando de Operações Navais (ComOpNav) / Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)",
-                                    "criterios_auditoria": [
-                                        "11 - teste"
-                                    ]
+                                    "responsavel": "Comando de Operações Navais (ComOpNav) / Comando-Geral do Corpo de Fuzileiros Navais (CGCFN)"
                                 }
                             ]
                         }
@@ -127,49 +102,31 @@
                                     "numero": "DESENVOLVIMENTO-1",
                                     "titulo": "Contribuir com os órgãos governamentais e com a comunidade marítima na criação de Clusters Marítimos, estimulando a materialização da Política Marítima Nacional (PMN), por meio da interação com Ministérios, autoridades, entidades de classe, centros de estudos, universidades e institutos de pesquisa, entre outros.",
                                     "descricao": "Buscar parcerias com diferentes setores extra-MB para a divulgação e valorização do poder marítimo, de modo a desenvolver projetos que incrementem a mentalidade marítima, contribuam para a geração de riqueza e fortaleçam a segurança e a proteção do ambiente aquaviário.",
-                                    "responsavel": "Diretoria-Geral de Navegação (DGN)",
-                                    "criterios_auditoria": [
-                                        "2 - Processo B",
-                                        "6 - Processo F",
-                                        "12 - novo"
-                                    ]
+                                    "responsavel": "Diretoria-Geral de Navegação (DGN)"
                                 },
                                 {
                                     "numero": "DESENVOLVIMENTO-2",
                                     "titulo": "Atuar proativamente junto a instituições de ensino e pesquisa, além do setor industrial, visando ao fortalecimento da mentalidade marítima e da Política Marítima Nacional (PMN).",
                                     "descricao": "Promover o intercâmbio de conhecimentos e a difusão de tecnologias que fortaleçam a indústria marítima, possibilitem a formação de profissionais qualificados e fomentem a pesquisa voltada às necessidades da MB e do País, contribuindo para o desenvolvimento sustentável do Poder Marítimo.",
-                                    "responsavel": "Diretoria-Geral de Navegação (DGN)",
-                                    "criterios_auditoria": [
-                                        "2 - Processo B"
-                                    ]
+                                    "responsavel": "Diretoria-Geral de Navegação (DGN)"
                                 },
                                 {
                                     "numero": "DESENVOLVIMENTO-3",
                                     "titulo": "Aperfeiçoar o Ensino Profissional Marítimo (EPM).",
                                     "descricao": "Elaborar e implementar projetos educacionais que incentivem o aprendizado sobre a importância do mar para o desenvolvimento nacional, bem como a valorização de tradições e práticas marítimas.",
-                                    "responsavel": "Diretoria-Geral de Navegação (DGN)",
-                                    "criterios_auditoria": [
-                                        "1 - Processo A",
-                                        "2 - Processo B"
-                                    ]
+                                    "responsavel": "Diretoria-Geral de Navegação (DGN)"
                                 },
                                 {
                                     "numero": "DESENVOLVIMENTO-4",
                                     "titulo": "Apoiar a presença brasileira no continente Antártico.",
                                     "descricao": "Desenvolver o Programa Antártico Brasileiro (PROANTAR): implantar a infraestrutura e a capacidade logística de apoio à pesquisa; restabelecer a operacionalidade da Estação Antártica Comandante Ferraz (EACF); e divulgar as atividades aos públicos interno e externo, especialmente para lideranças políticas.",
-                                    "responsavel": "Secretaria da Comissão Interministerial para os Recursos do Mar (SECIRM)",
-                                    "criterios_auditoria": [
-                                        "2 - Processo B"
-                                    ]
+                                    "responsavel": "Secretaria da Comissão Interministerial para os Recursos do Mar (SECIRM)"
                                 },
                                 {
                                     "numero": "DESENVOLVIMENTO-5",
                                     "titulo": "Fortalecer a Comissão Interministerial para os Recursos do Mar (CIRM)",
                                     "descricao": "A CIRM, colegiado composto por representantes de diversos órgãos e ministérios, coordenado pelo Comandante da Marinha, trata dos assuntos relativos à consecução da Política Nacional para os Recursos do Mar (PNRM) e do Programa Nacional para Assuntos Antárticos (POLANTAR), executa Programas e Planos relacionados ao conhecimento e ao aproveitamento sustentável dos recursos do mar e das áreas sob jurisdição brasileira, bem como à manutenção dos interesses do Brasil no Atlântico Sul, no continente antártico e no Oceano Atlântico.\n\nA atualização dessas políticas, a valoração dos recursos do mar (Economia Azul) e a implementação de sistemas de monitoramento e controle na Amazônia Azul (Planejamento Espacial Marinho), fortalecendo a CIRM e seu arcabouço de governança, são atribuições afetas a esse AEN.",
-                                    "responsavel": "Secretaria da Comissão Interministerial para os Recursos do Mar (SECIRM)",
-                                    "criterios_auditoria": [
-                                        "3 - Processo C"
-                                    ]
+                                    "responsavel": "Secretaria da Comissão Interministerial para os Recursos do Mar (SECIRM)"
                                 }
                             ]
                         }

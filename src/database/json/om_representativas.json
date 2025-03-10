@@ -1,6 +1,36 @@
 {
     "mapa_om_representativas": [
         {
+            "Critério": "EM FOCO",
+            "Peso": 5,
+            "itens": [
+                {
+                    "Descrição": "OM nas quais tenha ocorrido Auditoria Especial; OM envolvida em processo de Tomada de Contas do TCU; OM com restrição na aprovação das contas anuais; e OM historicamente visada pelo TCU.",
+                    "Percentual": 0.4,
+                    "Parâmetro": "A",
+                    "Pontos": 10
+                },
+                {
+                    "Descrição": "OM nas quais tenha ocorrido Auditoria Especial; OM envolvida em processo de Tomada de Contas do TCU; OM com restrição na aprovação das contas anuais; e OM historicamente visada pelo TCU.",
+                    "Percentual": 0.3,
+                    "Parâmetro": "B",
+                    "Pontos": 7
+                },
+                {
+                    "Descrição": "OM nas quais tenha ocorrido Auditoria Especial; OM envolvida em processo de Tomada de Contas do TCU; OM com restrição na aprovação das contas anuais; e OM historicamente visada pelo TCU.",
+                    "Percentual": 0.3,
+                    "Parâmetro": "C",
+                    "Pontos": 4
+                },
+                {
+                    "Descrição": "Sem ocorrência",
+                    "Percentual": 0.0,
+                    "Parâmetro": "N/A",
+                    "Pontos": 0
+                }
+            ]
+        },
+        {
             "Critério": "EXECFIN",
             "Peso": 6,
             "itens": [
@@ -31,7 +61,133 @@
             ]
         },
         {
-            "Critério": "PAGMED",
+            "Critério": "MATERIAL/PATRIMÔNIO",
+            "Peso": 2,
+            "itens": [
+                {
+                    "Descrição": "OM que utilizam até determinado percentual dos recursos para bens patrimoniais da MB",
+                    "Percentual": 0.7,
+                    "Parâmetro": "A",
+                    "Pontos": 10
+                },
+                {
+                    "Descrição": "OM que utilizam até determinado percentual dos recursos para bens patrimoniais da MB",
+                    "Percentual": 0.2,
+                    "Parâmetro": "B",
+                    "Pontos": 7
+                },
+                {
+                    "Descrição": "OM que utilizam até determinado percentual dos recursos para bens patrimoniais da MB",
+                    "Percentual": 0.1,
+                    "Parâmetro": "C ",
+                    "Pontos": 4
+                },
+                {
+                    "Descrição": "Organizações que não possuem bens patrimoriais sob sua responsabilidade",
+                    "Percentual": 0.0,
+                    "Parâmetro": "N/A",
+                    "Pontos": 0
+                }
+            ]
+        },
+        {
+            "Critério": "MUNICIAMENTO",
+            "Peso": 2,
+            "itens": [
+                {
+                    "Descrição": "OM que utilizam até determinado percentual dos recursos para Municiamento da MB",
+                    "Percentual": 0.7,
+                    "Parâmetro": "A",
+                    "Pontos": 10
+                },
+                {
+                    "Descrição": "OM que utilizam até determinado percentual dos recursos para Municiamento da MB",
+                    "Percentual": 0.2,
+                    "Parâmetro": "B",
+                    "Pontos": 7
+                },
+                {
+                    "Descrição": "OM que utilizam até determinado percentual dos recursos para Municiamento da MB",
+                    "Percentual": 0.1,
+                    "Parâmetro": "C ",
+                    "Pontos": 4
+                },
+                {
+                    "Descrição": "OM apoiada",
+                    "Percentual": 0.0,
+                    "Parâmetro": "N/A",
+                    "Pontos": 0
+                }
+            ]
+        },
+        {
+            "Critério": "OMPS",
+            "Peso": 1,
+            "itens": [
+                {
+                    "Descrição": "OMPS Industrial",
+                    "Percentual": 0.0,
+                    "Parâmetro": "I",
+                    "Pontos": 10
+                },
+                {
+                    "Descrição": "OMPS Hospitalar",
+                    "Percentual": 0.0,
+                    "Parâmetro": "H",
+                    "Pontos": 8
+                },
+                {
+                    "Descrição": "OMPS Científica",
+                    "Percentual": 0.0,
+                    "Parâmetro": "C",
+                    "Pontos": 6
+                },
+                {
+                    "Descrição": "OMPS Especial ou de Abastecimento",
+                    "Percentual": 0.0,
+                    "Parâmetro": "E/A",
+                    "Pontos": 4
+                },
+                {
+                    "Descrição": "Não OMPS",
+                    "Percentual": 0.0,
+                    "Parâmetro": "N/A",
+                    "Pontos": 0
+                }
+            ]
+        },
+        {
+            "Critério": "Organização Centralizadora (OC) / Orgão de Formação (OF)",
+            "Peso": 1,
+            "itens": [
+                {
+                    "Descrição": "Executa as duas atividades",
+                    "Percentual": 0.0,
+                    "Parâmetro": "OC/OF",
+                    "Pontos": 10
+                },
+                {
+                    "Descrição": "Organização Centralizadora",
+                    "Percentual": 0.0,
+                    "Parâmetro": "OC",
+                    "Pontos": 5
+                },
+                {
+                    "Descrição": "Orgão de Formação",
+                    "Percentual": 0.0,
+                    "Parâmetro": "OF",
+                    "Pontos": 5
+                },
+                {
+                    "Descrição": "OM apoiada",
+                    "Percentual": 0.0,
+                    "Parâmetro": "N/A",
+                    "Pontos": 0
+                }
+            ]
+        },
+        {
+            "Critério": "PAGPES ",
             "Peso": 5,
             "itens": [
                 {

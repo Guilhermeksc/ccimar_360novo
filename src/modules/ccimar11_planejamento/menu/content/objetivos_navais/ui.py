@@ -28,7 +28,7 @@ def create_header_layout(icons):
     icon_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
     """Cria o layout do cabeçalho com os ícones e títulos alinhados."""
-    pem_label = QLabel("PEM 2040    ")
+    pem_label = QLabel("PEM 2040 - Plano Estratégico da Marinha   ")
     pem_label.setStyleSheet("font-size: 28px; font-weight: bold; color: #FFFFFF;")
 
     header_layout.addStretch()
@@ -184,10 +184,10 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
             
     # Lado direito com lista de critérios
     criterio_frame = QFrame()
-    criterio_frame.setMaximumWidth(250)
+    criterio_frame.setMaximumWidth(280)
     criterio_layout = QVBoxLayout(criterio_frame)
 
-    objetivos_auditaveis_label = QLabel("Objetivos Auditáveis")
+    objetivos_auditaveis_label = QLabel("Objetos Auditáveis")
     objetivos_auditaveis_label.setStyleSheet("""
         font-size: 18px;
         font-weight: bold;
@@ -198,7 +198,7 @@ def create_objetivos_navais(title_text, icons, json_file_path=None):
     """)
         
     criterio_layout.setContentsMargins(0, 0, 0, 0)
-    criterio_layout.setSpacing(0)        
+    criterio_layout.setSpacing(5)        
     # Lista de critérios
     criterios_list = DraggableListWidget()
     criterios = carregar_criterios_do_json(CONFIG_PAINT_PATH)
@@ -554,7 +554,7 @@ def show_rank_dialog(parent):
     criterios_rank, detalhes_criterios = contar_acoes_estrategicas_por_criterio()
     
     dialog = QDialog(parent)
-    dialog.setWindowTitle("Ranking de Objetivos Auditáveis")
+    dialog.setWindowTitle("Ranking de Objetos Auditáveis")
     dialog.setStyleSheet("""
         QDialog {
             background-color: #1E1E2E;
@@ -569,12 +569,12 @@ def show_rank_dialog(parent):
     """)
     
     layout = QVBoxLayout()
-    title_label = QLabel("Objetivos Auditáveis Rankeados")
+    title_label = QLabel("Objetos Auditáveis Rankeados")
     title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
     
     tree_view = QTreeView()
     model = QStandardItemModel()
-    model.setHorizontalHeaderLabels(["Objetivos Auditáveis Rankeados"])
+    model.setHorizontalHeaderLabels(["Objetos Auditáveis Rankeados"])
     
     sorted_criterios = sorted(criterios_rank.items(), key=lambda x: x[1], reverse=True)
     

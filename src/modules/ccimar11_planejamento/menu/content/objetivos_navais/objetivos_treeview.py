@@ -1,6 +1,6 @@
-from PyQt6.QtWidgets import (QTreeView, QToolTip, QListWidget, QStyledItemDelegate, QStyleOptionViewItem, QProxyStyle, QStyle, QAbstractScrollArea, QAbstractItemView)
-from PyQt6.QtGui import  QStandardItem, QDrag, QPainter, QColor, QPalette, QPolygon, QBrush, QTextOption
-from PyQt6.QtCore import Qt, QMimeData, QEvent
+from PyQt6.QtWidgets import (QTreeView, QToolTip, QListWidget, QStyledItemDelegate, QStyleOptionViewItem, QProxyStyle, QStyle, QAbstractScrollArea, QAbstractItemView, QListWidgetItem)
+from PyQt6.QtGui import  QStandardItem, QDrag, QPainter, QColor, QPalette, QPolygon, QBrush, QTextOption, QFontMetrics
+from PyQt6.QtCore import Qt, QMimeData, QEvent, QSize
 from .criterio_widget import CriterioWidget
 from .json_utils import load_objetivos_navais_data, save_objetivos_navais_data
 import re
@@ -313,6 +313,8 @@ class DraggableListWidget(QListWidget):
         super().__init__(parent)
         self.setCursor(Qt.CursorShape.OpenHandCursor)  # Define o cursor de mão aberta
         self.setStyleSheet(get_draggable_list_style())  # Aplica o estilo separado
+        self.setWordWrap(True)  # Habilita a quebra de linha
+        # self.setSpacing(3)  # Adiciona espaçamento entre os itens
 
     def mouseMoveEvent(self, event):
         if event.buttons() == Qt.MouseButton.LeftButton:
@@ -328,12 +330,11 @@ class DraggableListWidget(QListWidget):
         else:
             super().mouseMoveEvent(event)
 
-
 def get_draggable_list_style():
     return """
         QListWidget {
             background-color: #181928;  /* Fundo similar ao TableView */
-            color: white;  /* Texto branco */
+            color: white;
             border: 1px solid #25283D;
             border-radius: 4px;
             font-size: 14px;

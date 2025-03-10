@@ -24,7 +24,7 @@ def create_om_representativas(title_text):
 
     # Barra de título e botões
     title_layout = QHBoxLayout()
-    title_label = QLabel("Mapa de Critérios e Pesos - OM Representativas")
+    title_label = QLabel("ANEXO 'B' CCIMAR 10-02")
     title_label.setStyleSheet("font-size: 20px; font-weight: bold; color: #FFFFFF;")
     title_layout.addWidget(title_label)
     title_layout.addStretch()
