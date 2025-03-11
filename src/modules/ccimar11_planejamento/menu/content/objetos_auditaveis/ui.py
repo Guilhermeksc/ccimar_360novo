@@ -17,7 +17,8 @@ from utils.styles.style_add_button import apply_button_style
 from utils.styles.style_table import apply_table_style
 from .edit_dialog import EditDialog
 
-def create_objetos_auditaveis(title_text):
+def create_objetos_auditaveis(title_text, icons):
+    icons = icons
     main_frame = QFrame()
     main_layout = QVBoxLayout(main_frame)
     main_layout.setContentsMargins(10, 10, 10, 10)

@@ -81,7 +81,7 @@ def export_servicos_auditoria(folder, model, headers, main_frame):
     import pandas as pd
     from datetime import datetime
     from PyQt6.QtWidgets import QMessageBox
-    
+
     # Cria a estrutura de pastas: folder/PAINT/Objetos Auditáveis
     paint_dir = os.path.join(folder, "PAINT")
     objetos_dir = os.path.join(paint_dir, "Objetos Auditáveis")
@@ -103,14 +103,23 @@ def export_servicos_auditoria(folder, model, headers, main_frame):
 
     df = pd.DataFrame(data, columns=headers)
 
-    # Montagem manual da planilha para ter controle sobre formatação
+    # Caso queira que a coluna HH seja numérica para a soma:
+    try:
+        df[headers[7]] = pd.to_numeric(df[headers[7]], errors='coerce')
+    except:
+        pass
+
+    # Usaremos xlsxwriter para formatação detalhada
     try:
         import xlsxwriter
 
         with pd.ExcelWriter(file_path, engine="xlsxwriter") as writer:
+            # Cria a planilha manualmente para ter controle sobre formatação
             workbook = writer.book
             worksheet = workbook.add_worksheet("Compilado")
             writer.sheets["Compilado"] = worksheet
+            worksheet.set_row(0, 30)  # Linha 1
+            worksheet.set_row(1, 30)  # Linha 2            
 
             # ---------------------------
             # 1) Definição de formatos
@@ -130,7 +139,7 @@ def export_servicos_auditoria(folder, model, headers, main_frame):
                 'align': 'center',
                 'valign': 'vcenter',
                 'text_wrap': True,
-                'bg_color': '#D9D9D9'
+                'bg_color': '#CCCCCC'
             })
 
             # Linhas pares (fundo branco)
@@ -153,11 +162,30 @@ def export_servicos_auditoria(folder, model, headers, main_frame):
                 'bg_color': '#F9F9F9'
             })
 
+            # Formato para a célula "Total de HH"
+            sum_title_format = workbook.add_format({
+                'bold': True,
+                'border': 1,
+                'border_color': 'black',
+                'align': 'center',
+                'valign': 'vcenter',
+                'text_wrap': True,
+                'bg_color': '#D9D9D9'
+            })
+
+            # Formato para a célula do valor somado
+            sum_value_format = workbook.add_format({
+                'bold': True,
+                'border': 1,
+                'border_color': 'black',
+                'align': 'center',
+                'valign': 'vcenter'
+            })
+
             # ---------------------------
-            # 2) Título mesclado
+            # 2) Título mesclado (duas linhas)
             # ---------------------------
-            # Duas linhas (0 e 1) para o título
-            # "PAINT-2026" e "Serviços de Auditoria" separados por \n
+            # Vamos usar as duas primeiras linhas (0 e 1) para o título
             title_text = "PAINT-2026\nServiços de Auditoria"
             worksheet.merge_range(0, 0, 1, len(headers) - 1, title_text, title_format)
 
@@ -168,9 +196,9 @@ def export_servicos_auditoria(folder, model, headers, main_frame):
                 worksheet.write(2, col_num, col_name, header_format)
 
             # ---------------------------
-            # 4) Dados da tabela
+            # 4) Dados da tabela (linhas zebradas)
             # ---------------------------
-            start_data_row = 3  # a partir da linha 3
+            start_data_row = 3  # dados a partir da linha 3 (0-based no xlsxwriter)
             for i in range(df.shape[0]):
                 # Alterna a cor de fundo entre par/ímpar
                 row_format = even_row_format if i % 2 == 0 else odd_row_format
@@ -178,10 +206,48 @@ def export_servicos_auditoria(folder, model, headers, main_frame):
                     worksheet.write(start_data_row + i, col_num, df.iloc[i, col_num], row_format)
 
             # ---------------------------
-            # 5) Ajustes de colunas e página
+            # 5) Linha de soma de HH
+            # ---------------------------
+            # A linha de soma fica logo após o último registro
+            sum_row = start_data_row + df.shape[0]
+            # Mescla colunas 5 (F) e 6 (G) para exibir "Total de HH"
+            worksheet.merge_range(sum_row, 5, sum_row, 6, "Total de HH", sum_title_format)
+
+            # Fórmula SOMA para coluna 7 (H em Excel),
+            # lembrando que, em Excel, as linhas começam em 1.
+            # Se start_data_row=3, a primeira linha de dados em Excel é linha 4.
+            first_data_row_excel = start_data_row + 1
+            last_data_row_excel = start_data_row + df.shape[0]
+            # Ex: =SOMA(H4:H10)
+            worksheet.write_formula(
+                sum_row,
+                7,
+                f"=SOMA(H{first_data_row_excel}:H{last_data_row_excel})",
+                sum_value_format
+            )
+            # Criação de um formato centralizado
+            center_format = workbook.add_format({
+                'align': 'center',
+                'valign': 'vcenter'
+            })
+
+            # Considerando que a linha imediatamente após (sum_row + 1) ficará em branco:
+            # Segunda linha após: "Guilherme" na coluna E (índice 4)
+            worksheet.write(sum_row + 2, 4, "Guilherme", center_format)
+            # Terceira linha após: "Capitão de Corveta (IM)" na coluna E
+            worksheet.write(sum_row + 3, 4, "Capitão de Corveta (IM)", center_format)
+            # Quarta linha após: "Encarregado da divisão de planejamento" na coluna E
+            worksheet.write(sum_row + 4, 4, "Encarregado da divisão de planejamento", center_format)
+            # Quinta linha após: Na coluna E (índice 4), insere "ASSINADO DIGITALMENTE" com borda simples e centralizado
+            sign_format = workbook.add_format({
+                'border': 1,
+                'align': 'center',
+                'valign': 'vcenter'
+            })
+            worksheet.write(sum_row + 5, 4, "ASSINADO DIGITALMENTE", sign_format)
             # ---------------------------
             # Exemplo de larguras (ajuste conforme necessário)
-            col_widths = [10, 15, 30, 30, 20, 15, 15, 10, 15, 30]
+            col_widths = [4, 13, 20, 40, 22, 10, 10, 7, 10, 30]
             for col_idx, width in enumerate(col_widths):
                 worksheet.set_column(col_idx, col_idx, width)
 
@@ -192,4 +258,3 @@ def export_servicos_auditoria(folder, model, headers, main_frame):
         QMessageBox.information(main_frame, "Sucesso", f"Arquivo exportado:\n{file_path}")
     except Exception as e:
         QMessageBox.critical(main_frame, "Erro", f"Erro ao exportar:\n{e}")
-

@@ -1,56 +1,52 @@
 {
-    "ordenador_de_despesa": [
+    "imported_data": [
         {
             "Nome": "TESTE",
+            "Nome de Guerra": "",
             "Posto": "Capitão de Mar e Guerra (IM)",
             "Abreviacao": "CMG (IM)",
-            "Funcao": "Ordenador de Despesa"
-        }
-    ],
-    "agente_fiscal": [
-        {
-            "Nome": "TESTE",
-            "Posto": "Capitão de Mar e Guerra (IM)",
-            "Abreviacao": "CMG (IM)",
+            "NIP": "",
             "Funcao": "Agente Fiscal"
         },
         {
-            "Nome": "TESTE1",
-            "Posto": "Capitão de Fragata (IM)",
-            "Abreviacao": "CF (IM)",
-            "Funcao": "Agente Fiscal"
-        }
-    ],
-    "gerente_de_crédito": [
-        {
-            "Nome": "JOÃO",
+            "Nome": "TESTE",
+            "Nome de Guerra": "",
             "Posto": "Primeiro-Tenente",
             "Abreviacao": "1ºTEN",
-            "Funcao": "Gerente de Crédito"
-        }
-    ],
-    "responsável_pela_demanda": [
+            "NIP": "",
+            "Funcao": "Encarregado da Divisão de Planejamento"
+        },
         {
-            "Nome": "CARLOS",
+            "Nome": "TESTE",
+            "Nome de Guerra": "",
             "Posto": "Primeiro-Tenente",
             "Abreviacao": "1ºTEN",
-            "Funcao": "Responsável pela Demanda"
-        }
-    ],
-    "operador_da_contratação": [
+            "NIP": "",
+            "Funcao": "Diretor"
+        },
         {
-            "Nome": "MATHES",
+            "Nome": "TESTE",
+            "Nome de Guerra": "",
             "Posto": "Primeiro-Tenente",
             "Abreviacao": "1ºTEN",
-            "Funcao": "Operador da Contratação"
-        }
-    ],
-    "pregoeiro": [
+            "NIP": "",
+            "Funcao": "Auditor de Controle Interno"
+        },
         {
-            "Nome": "ROBERTA",
-            "Posto": "Primeiro-Tenente",
-            "Abreviacao": "1ºTEN",
-            "Funcao": "Pregoeiro"
+            "Nome": "GUILHERME KIRSCHNER DE SIQUEIRA CAMPOS",
+            "Nome de Guerra": "SIQUEIRA CAMPOS",
+            "Posto": "CAPITÃO DE CORVETA (IM)",
+            "Abreviacao": "CC (IM)",
+            "NIP": "12077879",
+            "Funcao": "Encaregado da Divisão de Ciência de Dados Aplicada à Auditoria"
+        },
+        {
+            "Nome": "teste BOTELHO",
+            "Nome de Guerra": "BOTELHO",
+            "Posto": "Capitão de Corveta (IM)",
+            "Abreviacao": "CC (IM)",
+            "NIP": "5050505",
+            "Funcao": "Encarregado da Divisão de Execução"
         }
     ]
 }

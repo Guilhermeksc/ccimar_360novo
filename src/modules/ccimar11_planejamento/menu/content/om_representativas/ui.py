@@ -16,7 +16,8 @@ from .multiplicadores import MultiplicadoresDialog
 from .percentual import PercentualDialog
 from utils.styles import apply_table_style, apply_button_style
 
-def create_om_representativas(title_text):
+def create_om_representativas(title_text, icons):
+    icons = icons
     main_frame = QFrame()
     main_layout = QVBoxLayout(main_frame)
     main_layout.setContentsMargins(10, 10, 10, 10)

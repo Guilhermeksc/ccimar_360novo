@@ -10,6 +10,18 @@ from .menu_callbacks import (
     show_oficio_ccimar20_widget, show_gerar_notas_widget, show_chat_bot
 )
 
+class CustomStandardItem(QStandardItem):
+    def __init__(self, icons, text, icon_key=None):
+        """
+        :param icons: Dicionário completo de ícones.
+        :param text: Texto do item.
+        :param icon_key: (Opcional) Chave para definir um ícone específico.
+        """
+        super().__init__(text)
+        self.icons = icons  # Armazena o dicionário completo
+        if icon_key is not None and icon_key in icons:
+            self.setIcon(icons[icon_key])
+            
 class TreeMenu(QTreeView):
     def __init__(self, icons, owner, parent=None):
         """
@@ -45,10 +57,9 @@ class TreeMenu(QTreeView):
         """)
 
     def populate_tree(self):
-        def add_item(parent, text, callback):
-            """Adds a child item with a callback."""
-            item = QStandardItem(text)
-            item.setData(lambda: callback(self.owner), Qt.ItemDataRole.UserRole)
+        def add_item(parent, text, icons, callback, icon_key=None):
+            item = CustomStandardItem(icons, text, icon_key)
+            item.setData(lambda: callback(self.owner, icons), Qt.ItemDataRole.UserRole)
             parent.appendRow(item)
 
         def add_parent(text, icon, callback=None):
@@ -62,10 +73,10 @@ class TreeMenu(QTreeView):
 
         # Parent items with icons
         item_criterios_pesos = add_parent("Planejamento", self.icons["prioridade"], show_criterios_pesos)
-        add_item(item_criterios_pesos, "Cadastro - Obj.Auditáveis", show_cadastro_objetivos_navais)
-        add_item(item_criterios_pesos, "Objetivos Navais", show_objetivos_navais)
-        add_item(item_criterios_pesos, "Anexo A - Obj.Auditáveis", show_objetos_auditaveis)
-        add_item(item_criterios_pesos, "Anexo B - OM Represent.", show_om_representativas)
+        add_item(item_criterios_pesos, "Cadastro - Obj.Auditáveis", self.icons, show_cadastro_objetivos_navais)
+        add_item(item_criterios_pesos, "Objetivos Navais", self.icons, show_objetivos_navais)
+        add_item(item_criterios_pesos, "Anexo A - Obj.Auditáveis", self.icons, show_objetos_auditaveis)
+        add_item(item_criterios_pesos, "Anexo B - OM Represent.", self.icons, show_om_representativas)
 
         item_paint = add_parent("PAINT", self.icons["analytics"])
         item_raint = add_parent("RAINT", self.icons["report"])
@@ -75,20 +86,20 @@ class TreeMenu(QTreeView):
         item_chat = add_parent("Chat", self.icons["chat"], show_chat_bot)
 
         # Adding child items with their respective callbacks
-        add_item(item_paint, "Execução/Licitação", show_criterio1_execucao_licitacao)
-        add_item(item_paint, "Pagamento", show_criterio2_pagamento)
-        add_item(item_paint, "Municiamento", show_criterio3_munic)
-        add_item(item_paint, "Patrimônio", show_criterio4_patrimonio)
-        add_item(item_paint, "Última Auditoria", show_criterio3_munic)
-        add_item(item_paint, "Notas de Auditoria", show_criterio3_munic)
-        add_item(item_paint, "Foco Externo", show_criterio3_munic)
-        add_item(item_paint, "OC", show_criterio3_munic)
-        add_item(item_paint, "OMPS", show_criteriox_omps)
-        add_item(item_processo, "Plano de Auditoria", show_criteriox_omps)
-        add_item(item_processo, "Mensagem", show_criteriox_omps)
-        add_item(item_processo, "OS de Designação", show_criteriox_omps)
-        add_item(item_processo, "Ofício de Apresentação", show_criteriox_omps)
-        add_item(item_processo, "Solicitação de Auditoria (SA)", show_criteriox_omps)
+        add_item(item_paint, "Execução/Licitação", self.icons, show_criterio1_execucao_licitacao)
+        add_item(item_paint, "Pagamento", self.icons, show_criterio2_pagamento)
+        add_item(item_paint, "Municiamento", self.icons, show_criterio3_munic)
+        add_item(item_paint, "Patrimônio", self.icons, show_criterio4_patrimonio)
+        add_item(item_paint, "Última Auditoria", self.icons, show_criterio3_munic)
+        add_item(item_paint, "Notas de Auditoria", self.icons, show_criterio3_munic)
+        add_item(item_paint, "Foco Externo", self.icons, show_criterio3_munic)
+        add_item(item_paint, "OC", self.icons, show_criterio3_munic)
+        add_item(item_paint, "OMPS", self.icons, show_criteriox_omps)
+        add_item(item_processo, "Plano de Auditoria", self.icons, show_criteriox_omps)
+        add_item(item_processo, "Mensagem", self.icons, show_criteriox_omps)
+        add_item(item_processo, "OS de Designação", self.icons, show_criteriox_omps)
+        add_item(item_processo, "Ofício de Apresentação", self.icons, show_criteriox_omps)
+        add_item(item_processo, "Solicitação de Auditoria (SA)", self.icons, show_criteriox_omps)
 
     def handle_item_click(self, index):
         """Handles item click events and executes the associated callback."""

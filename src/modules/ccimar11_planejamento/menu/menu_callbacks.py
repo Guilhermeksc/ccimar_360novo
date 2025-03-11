@@ -30,25 +30,25 @@ def create_content(title_text):
 
     return content_frame
 
-def show_criterios_pesos(view, icons):
+def show_criterios_pesos(view):
     view.clear_content()
     view.content_layout.addWidget(create_criterios_pesos("Planejamento", view.database_model))
 
-def show_objetivos_navais(view):
+def show_objetivos_navais(view, icons):
     view.clear_content()
-    view.content_layout.addWidget(create_objetivos_navais("PEM 2040", icons=view.icons, json_file_path=OBJETIVOS_NAVAIS_PATH))
+    view.content_layout.addWidget(create_objetivos_navais("PEM 2040", icons, json_file_path=OBJETIVOS_NAVAIS_PATH))
 
-def show_objetos_auditaveis(view):
+def show_objetos_auditaveis(view, icons):
     view.clear_content()
-    view.content_layout.addWidget(create_objetos_auditaveis("Anexo A - Obj.Auditáveis"))
+    view.content_layout.addWidget(create_objetos_auditaveis("Anexo A - Obj.Auditáveis", icons))
 
-def show_cadastro_objetivos_navais(view):
+def show_cadastro_objetivos_navais(view, icons):
     view.clear_content()
-    view.content_layout.addWidget(create_cadastro_objetos_auditaveis("Anexo A - Obj.Auditáveis"))
+    view.content_layout.addWidget(create_cadastro_objetos_auditaveis("Anexo A - Obj.Auditáveis", icons))
 
-def show_om_representativas(view):
+def show_om_representativas(view, icons):
     view.clear_content()
-    view.content_layout.addWidget(create_om_representativas("Anexo B - OM Represent."))
+    view.content_layout.addWidget(create_om_representativas("Anexo B - OM Represent.", icons))
 
 def show_criterio1_execucao_licitacao(view):
     view.clear_content()

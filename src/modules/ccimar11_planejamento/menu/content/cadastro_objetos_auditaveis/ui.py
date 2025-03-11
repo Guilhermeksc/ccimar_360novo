@@ -15,8 +15,10 @@ from .edit_dialog import EditDialog
 from .add_dialog import AddAuditavelDialog, save_new_entry
 from .relatorio_dialog import open_relatorio_dialog
 from datetime import datetime
+from utils.styles.style_add_button import add_button_func
 
-def create_cadastro_objetos_auditaveis(title_text):
+def create_cadastro_objetos_auditaveis(title_text, icons):
+    icons = icons
     main_frame = QFrame()
     main_layout = QVBoxLayout(main_frame)
     main_layout.setContentsMargins(10, 10, 10, 10)
@@ -29,23 +31,6 @@ def create_cadastro_objetos_auditaveis(title_text):
     title_layout.addWidget(title_label)
     title_layout.addStretch()
 
-    # Adiciona o botão "Adicionar" na barra de título
-    btn_adicionar = QPushButton("Adicionar")
-    apply_button_style(btn_adicionar)
-    title_layout.addWidget(btn_adicionar)
-
-    btn_export = QPushButton("Exportar")
-    apply_button_style(btn_export)
-    title_layout.addWidget(btn_export)
-
-    btn_import = QPushButton("Importar")
-    apply_button_style(btn_import)
-    title_layout.addWidget(btn_import)
-
-    btn_relatorio = QPushButton("Relatório")
-    apply_button_style(btn_relatorio)
-    title_layout.addWidget(btn_relatorio)
-    
     def open_add_dialog_indep(parent):
         dialog = AddAuditavelDialog(parent)
         if dialog.exec() == QDialog.DialogCode.Accepted:
@@ -53,112 +38,6 @@ def create_cadastro_objetos_auditaveis(title_text):
             save_new_entry(new_entry)
             load_model_from_json()
 
-
-    main_layout.addLayout(title_layout)
-
-    # Tabela principal (CustomTableView)
-    table_view = CustomTableView()
-    table_view.setFont(QFont("Arial", 12))  # Define fonte maior para melhor visibilidade
-
-
-    apply_table_style(table_view)
-
-    model = QStandardItemModel()
-    table_view.setModel(model)
-    headers = ["NR", "Tipo", "Objetos Auditáveis", "Objetivo da Auditoria", "Origem da Demanda", "Início", "Conclusão", "HH", "Situação", "Observações/Justificativas"]
-    model.setHorizontalHeaderLabels(headers)
-        
-    # Centraliza os cabeçalhos da tabela principal
-    for col in range(len(headers)):
-        header_item = model.horizontalHeaderItem(col)
-        if header_item:
-            header_item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
-
-    table_view.verticalHeader().setDefaultSectionSize(30)
-
-
-    main_layout.addWidget(table_view)
-
-    def format_value(value):
-        return str(int(value)) if value == int(value) else str(value)
-    
-    def load_model_from_json():
-        config = load_config()
-        model.clear()
-        
-        if not config:
-            return
-        
-        model.setHorizontalHeaderLabels(headers)
-        
-        for item in config.get("objetos_auditaveis", []):
-            nr = item.get("nr", "")
-            tipo_de_servico = item.get("tipo_de_servico", "")
-            descricao = item.get("descricao", "")
-            objetivo_auditoria = item.get("objetivo_auditoria", "")
-            origem_demanda = item.get("origem_demanda", "")
-            inicio = item.get("inicio", "")
-            conclusao = item.get("conclusao", "")
-            hh = item.get("hh", "")
-            situacao = item.get("situacao", "")
-            observacoes = item.get("observacoes", "")
-            
-            # Converter datas de YYYY-MM-DD para DD/MM/YYYY
-            if inicio:
-                try:
-                    inicio = datetime.strptime(inicio, '%Y-%m-%d').strftime('%d/%m/%Y')
-                except Exception:
-                    pass
-            if conclusao:
-                try:
-                    conclusao = datetime.strptime(conclusao, '%Y-%m-%d').strftime('%d/%m/%Y')
-                except Exception:
-                    pass
-
-            row = [
-                QStandardItem(str(nr)),
-                QStandardItem(str(tipo_de_servico)),
-                QStandardItem(str(descricao)),
-                QStandardItem(str(objetivo_auditoria)),
-                QStandardItem(str(origem_demanda)),
-                QStandardItem(str(inicio)),
-                QStandardItem(str(conclusao)),
-                QStandardItem(str(hh)),
-                QStandardItem(str(situacao)),
-                QStandardItem(str(observacoes))
-            ]
-            
-            for cell in row:
-                cell.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
-            
-            model.appendRow(row)
-        
-        adjust_columns()
-
-    def adjust_columns():
-        table_view.setColumnWidth(0, 40)
-        table_view.setColumnWidth(1, 100)
-        table_view.setColumnWidth(4, 200)
-        table_view.setColumnWidth(5, 100)
-        table_view.setColumnWidth(6, 100)
-        table_view.setColumnWidth(7, 70)
-        table_view.setColumnWidth(8, 120)
-        
-        header = table_view.horizontalHeader()
-        for col in range(model.columnCount()):
-            if col == 2:  # Coluna que deve ocupar o espaço restante
-                header.setSectionResizeMode(col, QHeaderView.ResizeMode.Stretch)
-            else:
-                header.setSectionResizeMode(col, QHeaderView.ResizeMode.Fixed)
-        
-        # Esconde as colunas "Objetivo da Auditoria" e "Observações"
-        table_view.hideColumn(3)
-        table_view.hideColumn(9)
-
-
-    load_model_from_json()
-    # table_view.hideColumn(3) # Esconde a coluna Objetivo da Auditoria e Observações
-    # table_view.hideColumn(9) # Esconde a coluna Objetivo da Auditoria e Observações
 
     def export_to_excel():
         from datetime import datetime
@@ -311,6 +190,115 @@ def create_cadastro_objetos_auditaveis(title_text):
                     load_model_from_json()
                 except Exception as e:
                     QMessageBox.critical(main_frame, "Erro", f"Falha ao salvar a configuração: {e}")
+                                
+    btn_adicionar = add_button_func("Adicionar", "brasil", open_add_dialog_indep, title_layout, icons, tooltip="Adicionar novo item")
+    btn_export = add_button_func("Exportar", "excel", export_to_excel, title_layout, icons, tooltip="Exportar dados")
+    btn_import = add_button_func("Importar", "pdf", import_from_excel, title_layout, icons, tooltip="Importar dados")
+    btn_relatorio = add_button_func("Relatório", "word", open_relatorio_dialog, title_layout, icons, tooltip="Visualizar relatório")
+
+    main_layout.addLayout(title_layout)
+
+    # Tabela principal (CustomTableView)
+    table_view = CustomTableView()
+    table_view.setFont(QFont("Arial", 12))  # Define fonte maior para melhor visibilidade
+
+
+    apply_table_style(table_view)
+
+    model = QStandardItemModel()
+    table_view.setModel(model)
+    headers = ["NR", "Tipo", "Objetos Auditáveis", "Objetivo da Auditoria", "Origem da Demanda", "Início", "Conclusão", "HH", "Situação", "Observações/Justificativas"]
+    model.setHorizontalHeaderLabels(headers)
+        
+    # Centraliza os cabeçalhos da tabela principal
+    for col in range(len(headers)):
+        header_item = model.horizontalHeaderItem(col)
+        if header_item:
+            header_item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+
+    table_view.verticalHeader().setDefaultSectionSize(30)
+
+
+    main_layout.addWidget(table_view)
+
+    def format_value(value):
+        return str(int(value)) if value == int(value) else str(value)
+    
+    def load_model_from_json():
+        config = load_config()
+        model.clear()
+        
+        if not config:
+            return
+        
+        model.setHorizontalHeaderLabels(headers)
+        
+        for item in config.get("objetos_auditaveis", []):
+            nr = item.get("nr", "")
+            tipo_de_servico = item.get("tipo_de_servico", "")
+            descricao = item.get("descricao", "")
+            objetivo_auditoria = item.get("objetivo_auditoria", "")
+            origem_demanda = item.get("origem_demanda", "")
+            inicio = item.get("inicio", "")
+            conclusao = item.get("conclusao", "")
+            hh = item.get("hh", "")
+            situacao = item.get("situacao", "")
+            observacoes = item.get("observacoes", "")
+            
+            # Converter datas de YYYY-MM-DD para DD/MM/YYYY
+            if inicio:
+                try:
+                    inicio = datetime.strptime(inicio, '%Y-%m-%d').strftime('%d/%m/%Y')
+                except Exception:
+                    pass
+            if conclusao:
+                try:
+                    conclusao = datetime.strptime(conclusao, '%Y-%m-%d').strftime('%d/%m/%Y')
+                except Exception:
+                    pass
+
+            row = [
+                QStandardItem(str(nr)),
+                QStandardItem(str(tipo_de_servico)),
+                QStandardItem(str(descricao)),
+                QStandardItem(str(objetivo_auditoria)),
+                QStandardItem(str(origem_demanda)),
+                QStandardItem(str(inicio)),
+                QStandardItem(str(conclusao)),
+                QStandardItem(str(hh)),
+                QStandardItem(str(situacao)),
+                QStandardItem(str(observacoes))
+            ]
+            
+            for cell in row:
+                cell.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+            
+            model.appendRow(row)
+        
+        adjust_columns()
+
+    def adjust_columns():
+        table_view.setColumnWidth(0, 40)
+        table_view.setColumnWidth(1, 100)
+        table_view.setColumnWidth(4, 200)
+        table_view.setColumnWidth(5, 100)
+        table_view.setColumnWidth(6, 100)
+        table_view.setColumnWidth(7, 70)
+        table_view.setColumnWidth(8, 120)
+        
+        header = table_view.horizontalHeader()
+        for col in range(model.columnCount()):
+            if col == 2:  # Coluna que deve ocupar o espaço restante
+                header.setSectionResizeMode(col, QHeaderView.ResizeMode.Stretch)
+            else:
+                header.setSectionResizeMode(col, QHeaderView.ResizeMode.Fixed)
+        
+        # Esconde as colunas "Objetivo da Auditoria" e "Observações"
+        table_view.hideColumn(3)
+        table_view.hideColumn(9)
+
+
+    load_model_from_json()
 
     def on_table_double_clicked(index):
         """Função chamada quando o usuário clica duas vezes em uma linha da tabela"""
