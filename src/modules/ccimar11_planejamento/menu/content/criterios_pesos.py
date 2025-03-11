@@ -1,7 +1,9 @@
 import pandas as pd
 from PyQt6.QtWidgets import QLabel, QFrame, QVBoxLayout, QPushButton, QLineEdit, QFileDialog, QMessageBox
 
-def create_criterios_pesos(title_text, database_model):
+def create_criterios_pesos(title_text, database_model, icons):
+
+    icons = icons
     """Cria a página inicial do programa PAINT com título, descrição e botões de ação."""
     # Criação do frame com estilo
     content_frame = QFrame()

@@ -12,6 +12,7 @@ from .content.chatbot import create_chatbot
 from .content.criterios_pesos import create_criterios_pesos
 from .content.cadastro_objetos_auditaveis import create_cadastro_objetos_auditaveis
 from .content.objetivos_navais import create_objetivos_navais
+from .content.acoes_orcamentarias import create_acoes_orcamentarias
 from .content.objetos_auditaveis import create_objetos_auditaveis
 from .content.om_representativas import create_om_representativas
 from paths import OBJETIVOS_NAVAIS_PATH
@@ -30,13 +31,17 @@ def create_content(title_text):
 
     return content_frame
 
-def show_criterios_pesos(view):
+def show_criterios_pesos(view, icons):
     view.clear_content()
-    view.content_layout.addWidget(create_criterios_pesos("Planejamento", view.database_model))
+    view.content_layout.addWidget(create_criterios_pesos("Planejamento", view.database_model, icons))
 
 def show_objetivos_navais(view, icons):
     view.clear_content()
     view.content_layout.addWidget(create_objetivos_navais("PEM 2040", icons, json_file_path=OBJETIVOS_NAVAIS_PATH))
+
+def show_acoes_orcamentarias(view, icons):
+    view.clear_content()
+    view.content_layout.addWidget(create_acoes_orcamentarias("Ações Orçamentárias", icons))
 
 def show_objetos_auditaveis(view, icons):
     view.clear_content()

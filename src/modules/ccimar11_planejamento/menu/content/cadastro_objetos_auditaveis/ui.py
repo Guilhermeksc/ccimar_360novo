@@ -191,10 +191,10 @@ def create_cadastro_objetos_auditaveis(title_text, icons):
                 except Exception as e:
                     QMessageBox.critical(main_frame, "Erro", f"Falha ao salvar a configuração: {e}")
                                 
-    btn_adicionar = add_button_func("Adicionar", "brasil", open_add_dialog_indep, title_layout, icons, tooltip="Adicionar novo item")
-    btn_export = add_button_func("Exportar", "excel", export_to_excel, title_layout, icons, tooltip="Exportar dados")
-    btn_import = add_button_func("Importar", "pdf", import_from_excel, title_layout, icons, tooltip="Importar dados")
-    btn_relatorio = add_button_func("Relatório", "word", open_relatorio_dialog, title_layout, icons, tooltip="Visualizar relatório")
+    btn_export = add_button_func("Exportar", "export", export_to_excel, title_layout, icons, tooltip="Exportar dados")
+    btn_import = add_button_func("Importar", "import", import_from_excel, title_layout, icons, tooltip="Importar dados")
+    btn_adicionar = add_button_func("Adicionar", "add", open_add_dialog_indep, title_layout, icons, tooltip="Adicionar novo item")
+    btn_relatorio = add_button_func("Relatório", "report", open_relatorio_dialog, title_layout, icons, tooltip="Visualizar relatório")
 
     main_layout.addLayout(title_layout)
 

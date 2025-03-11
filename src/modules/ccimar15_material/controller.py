@@ -1,7 +1,7 @@
 from PyQt6.QtWidgets import *
 from PyQt6.QtCore import *
 import pandas as pd
-from paths import CONTROLE_DADOS
+
 import sqlite3
 
 class CCIMAR15Controller(QObject): 
@@ -12,7 +12,7 @@ class CCIMAR15Controller(QObject):
         self.edit_data_dialog = None
         self.model_add = model
         self.model = model.setup_model("controle_planejamento")
-        self.controle_om = CONTROLE_DADOS  # Atribui o caminho diretamente ao controle_om                
+          # Atribui o caminho diretamente ao controle_om                
         self.setup_connections()
 
     def setup_connections(self):

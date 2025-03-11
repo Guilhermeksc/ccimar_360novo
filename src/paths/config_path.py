@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import *
 from PyQt6.QtCore import *
-from .base_path import JSON_DIR, DATABASE_DIR, CONFIG_FILE
+from .base_path import DEFAULT_JSON_DIR, DEFAULT_DATABASE_DIR, CONFIG_FILE
 from pathlib import Path
 import json
 
@@ -36,30 +36,28 @@ def update_dir(title, key, default_value, parent=None):
         return Path(new_dir)
     return default_value
 
-PRE_DEFINICOES_JSON = JSON_DIR / "pre_definicioes.json"
-AGENTES_RESPONSAVEIS_FILE = JSON_DIR / "agentes_responsaveis.json"
-ORGANIZACOES_FILE = JSON_DIR / "organizacoes.json"
+AGENTES_RESPONSAVEIS_FILE = DEFAULT_JSON_DIR / "agentes_responsaveis.json"
 
-PDF_DIR = Path(load_config("PDF_DIR", DATABASE_DIR / "pdf"))
+PDF_DIR = Path(load_config("PDF_DIR", DEFAULT_DATABASE_DIR / "pdf"))
 
 class ConfigManager(QObject):
     config_updated = pyqtSignal(str, Path)  # sinal emitido quando uma configuração é atualizada
 
-    def __init__(self, config_file):
+    def __init__(self, CONFIG_FILE):
         super().__init__()
-        self.config_file = config_file
+        self.CONFIG_FILE = CONFIG_FILE
         self.config = self.load_config()
 
     def load_config(self):
         try:
-            with open(self.config_file, 'r') as f:
+            with open(self.CONFIG_FILE, 'r') as f:
                 return json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             return {}
 
     def save_config(self, key, value):
         self.config[key] = value
-        with open(self.config_file, 'w') as f:
+        with open(self.CONFIG_FILE, 'w') as f:
             json.dump(self.config, f)
         self.config_updated.emit(key, Path(value))
         

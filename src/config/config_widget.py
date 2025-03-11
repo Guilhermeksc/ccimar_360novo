@@ -2,18 +2,21 @@ from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
 from PyQt6.QtCore import *
 from utils.styles.style_add_button import add_button_func
-from utils.linha_layout import linha_divisoria_sem_spacer_layout
-from .config_Responsaveis.edit_responsaveis import EditPredefinicoesDialog
 from paths import *
 import os
 import json
 import pandas as pd
 import subprocess
-from .config_OM.edit_OM import show_organizacoes_widget
-from .config_Setores.edit_Setores import show_setores_widget
 from utils.styles.style_add_button import apply_button_style
 from utils.styles.style_table import apply_table_style
 from utils.styles.styles_edit_button import apply_edit_dialog_style
+from .edit_dialog import EditDialog
+from .add_dialog import AddDialog
+from pathlib import Path
+from paths import (
+    update_dir, save_config, get_config_value,
+    DEFAULT_DATABASE_DIR, DEFAULT_JSON_DIR, DEFAULT_TEMPLATE_DIR, reload_paths
+)
 
 class ConfigManager(QWidget):
     def __init__(self, icons, parent=None):
@@ -53,7 +56,7 @@ class ConfigManager(QWidget):
         """
         buttons = [
             ("Agentes Responsáveis", self.show_agentes_responsaveis_widget),
-            ("Organizações Militares", self.show_organizacoes_widget),
+            ("Local de Salvamento", self.show_local_de_salvamento_widget),
         ]
 
         self.config_menu_buttons = []
@@ -113,16 +116,129 @@ class ConfigManager(QWidget):
         self.clear_content()  # Limpa o conteúdo atual
 
         # Instancia o widget com a barra de título e a tabela
-        agentes_widget = AgentesResponsaveisWidget(self)
+        agentes_widget = AgentesResponsaveisWidget(self.icons, self)
 
         # Adiciona o widget à área de conteúdo (por exemplo, a um layout ou scroll area)
         self.content_layout.addWidget(agentes_widget)
 
-    def show_organizacoes_widget(self):
-        show_organizacoes_widget(self.content_layout, self.icons, self)
+    def show_local_de_salvamento_widget(self):
+        """Exibe o widget para Alteração dos Agentes Responsáveis."""
+        self.clear_content()  # Limpa o conteúdo atual
 
-    def show_setores_requisitantes_widget(self):
-        show_setores_widget(self.content_layout, self.icons, self)
+        # Instancia o widget com a barra de título e a tabela
+        local_de_salvamento_widget = AlterarLocalSalvamentoWidget(self.icons, self)
+
+        # Adiciona o widget à área de conteúdo (por exemplo, a um layout ou scroll area)
+        self.content_layout.addWidget(local_de_salvamento_widget)
+
+class AlterarLocalSalvamentoWidget(QWidget):
+    def __init__(self, icons, parent=None):
+        super().__init__(parent)
+        self.icons = icons
+        self.setup_ui()
+
+    def setup_ui(self):
+        layout = QVBoxLayout(self)
+
+        title_label = QLabel("Alterar Diretórios Base")
+        title_label.setStyleSheet("font-size: 20px; font-weight: bold; color: #FFFFFF;")
+        layout.addWidget(title_label)
+        layout.addStretch()
+
+        # Ler os valores atualizados do arquivo de configuração
+        db_config = get_config_value("DATABASE_DIR", str(DEFAULT_DATABASE_DIR))
+        json_config = get_config_value("JSON_DIR", str(DEFAULT_JSON_DIR))
+        template_config = get_config_value("TEMPLATE_DIR", str(DEFAULT_TEMPLATE_DIR))
+        print("Carregando DATABASE_DIR:", db_config)
+        print("Carregando JSON_DIR:", json_config)
+        print("Carregando TEMPLATE_DIR:", template_config)
+
+        # Linha para DATABASE_DIR
+        self.db_label = QLabel(f"DATABASE_DIR: {db_config}")
+        self.db_label.setStyleSheet("font-size: 16px; color: #FFFFFF;")
+
+        db_layout = QVBoxLayout()
+        db_layout.addWidget(self.db_label)
+
+        btn_db = add_button_func(
+            "Alterar DATABASE_DIR", 
+            "export", 
+            self.alterar_database_dir, 
+            db_layout, 
+            self.icons, 
+            tooltip="Alterar o diretório padrão de DATABASE_DIR", 
+            button_size=(250, 40)
+        )
+
+        # Linha para JSON_DIR
+        self.json_label = QLabel(f"JSON_DIR: {json_config}")
+        self.json_label.setStyleSheet("font-size: 16px; color: #FFFFFF;")
+
+        json_layout = QVBoxLayout()
+        json_layout.addWidget(self.json_label)
+        btn_json = add_button_func(
+            "Alterar JSON_DIR", 
+            "export", 
+            self.alterar_json_dir, 
+            json_layout, 
+            self.icons, 
+            tooltip="Alterar o diretório padrão de JSON_DIR", 
+            button_size=(250, 40) 
+        )
+
+        # Linha para JSON_DIR
+        self.template_label = QLabel(f"TEMPLATE_DIR: {template_config}")
+        self.template_label.setStyleSheet("font-size: 16px; color: #FFFFFF;")
+
+        template_layout = QVBoxLayout()
+        template_layout.addWidget(self.template_label)
+        btn_template = add_button_func(
+            "Alterar TEMPLATE_DIR", 
+            "export", 
+            self.alterar_template_dir, 
+            template_layout, 
+            self.icons, 
+            tooltip="Alterar o diretório padrão de JSON_DIR", 
+            button_size=(250, 40) 
+        )
+
+        layout.addLayout(db_layout)
+        layout.addLayout(json_layout)
+        layout.addLayout(template_layout)
+        layout.addStretch()
+        self.setLayout(layout)
+
+    def alterar_database_dir(self):
+        # Utiliza o valor atual lido do arquivo de configuração
+        new_db = update_dir("Selecione o novo diretório para DATABASE_DIR", "DATABASE_DIR", Path(get_config_value("DATABASE_DIR", str(DEFAULT_DATABASE_DIR))), self)
+        if new_db:
+            save_config("DATABASE_DIR", str(new_db))
+            # Após salvar, recarrega os caminhos
+            reload_paths()
+            self.db_label.setText(f"DATABASE_DIR: {str(new_db)}")
+            print("Novo DATABASE_DIR definido:", new_db)
+            # Atualiza automaticamente o JSON_DIR como padrão derivado
+            new_json = new_db / "json"
+            save_config("JSON_DIR", str(new_json))
+            reload_paths()
+            self.json_label.setText(f"JSON_DIR: {str(new_json)}")
+            print("Novo JSON_DIR derivado:", new_json)
+
+    def alterar_json_dir(self):
+        new_json = update_dir("Selecione o novo diretório para JSON_DIR", "JSON_DIR", Path(get_config_value("JSON_DIR", str(DEFAULT_JSON_DIR))), self)
+        if new_json:
+            save_config("JSON_DIR", str(new_json))
+            reload_paths()
+            self.json_label.setText(f"JSON_DIR: {str(new_json)}")
+            print("Novo JSON_DIR definido:", new_json)
+
+    def alterar_template_dir(self):
+        new_json = update_dir("Selecione o novo diretório para TEMPLATE_DIR", "TEMPLATE_DIR", Path(get_config_value("TEMPLATE_DIR", str(DEFAULT_TEMPLATE_DIR))), self)
+        if new_json:
+            save_config("TEMPLATE_DIR", str(new_json))
+            reload_paths()
+            self.template_label.setText(f"TEMPLATE_DIR: {str(new_json)}")
+            print("Novo TEMPLATE_DIR definido:", new_json)
 
 class CenteredDelegate(QStyledItemDelegate):
     def initStyleOption(self, option, index):
@@ -152,15 +268,16 @@ class CustomTableView(QTableView):
 
                 
 class AgentesResponsaveisWidget(QWidget):
-    def __init__(self, parent=None):
+    def __init__(self, icons, parent=None):
         super().__init__(parent)
+        self.icons = icons
         self.setup_ui()
 
     def setup_ui(self):
         main_layout = QVBoxLayout(self)
 
         # Criação da barra de título e botões
-        title_widget, self.btn_export, self.btn_import, self.btn_delete = self.create_title_bar()
+        title_widget, self.btn_export, self.btn_import, self.btn_add, self.btn_delete = self.create_title_bar()
         main_layout.addWidget(title_widget)
 
         # Criação da tabela utilizando CustomTableView
@@ -185,12 +302,8 @@ class AgentesResponsaveisWidget(QWidget):
         # Carregar dados do JSON
         self.load_data()
 
-        # Conectar botões
-        self.btn_export.clicked.connect(self.export_table_data)
-        self.btn_import.clicked.connect(self.import_table_data)
-        self.btn_delete.clicked.connect(self.delete_selected_rows)
-        self.table.doubleClicked.connect(self.open_edit_dialog)
-        
+        self.table.doubleClicked.connect(self.open_edit_dialog)  
+
         self.setLayout(main_layout)
 
     def open_edit_dialog(self, index):
@@ -206,7 +319,7 @@ class AgentesResponsaveisWidget(QWidget):
             "NIP": model.item(row, 5).text() if model.item(row, 5) else "",
             "Função": model.item(row, 6).text() if model.item(row, 6) else ""
         }
-        dialog = EditDialog(data, parent=self)
+        dialog = EditDialog(data, self.icons, parent=self)
         if dialog.exec() == QDialog.DialogCode.Accepted:
             new_data = dialog.get_data()
             model.setItem(row, 1, QStandardItem(new_data["Nome"]))
@@ -225,19 +338,12 @@ class AgentesResponsaveisWidget(QWidget):
         layout.addWidget(title_label)
         layout.addStretch()
 
-        btn_export = QPushButton("Exportar")
-        apply_button_style(btn_export)
-        layout.addWidget(btn_export)
-
-        btn_import = QPushButton("Importar")
-        apply_button_style(btn_import)
-        layout.addWidget(btn_import)
-
-        btn_delete = QPushButton("Excluir")
-        apply_button_style(btn_delete)
-        layout.addWidget(btn_delete)
-
-        return title_widget, btn_export, btn_import, btn_delete
+        btn_export = add_button_func("Exportar", "export", self.export_table_data, layout, self.icons, tooltip="Exportar dados")
+        btn_import = add_button_func("Importar", "import", self.import_table_data, layout, self.icons, tooltip="Importar dados")
+        btn_add = add_button_func("Adicionar", "add", self.open_add_dialog, layout, self.icons, tooltip="Adicionar novo agente")
+        btn_delete = add_button_func("Excluir", "delete", self.delete_selected_rows, layout, self.icons, tooltip="Excluir itens selecionados")
+      
+        return title_widget, btn_export, btn_import, btn_add, btn_delete
 
     def adjust_columns(self):
         # Define larguras fixas para algumas colunas
@@ -256,6 +362,49 @@ class AgentesResponsaveisWidget(QWidget):
         self.table.hideColumn(2)
         self.table.hideColumn(4)
         self.table.hideColumn(5)
+
+    def open_add_dialog(self):
+        # Dados iniciais vazios para um novo agente
+        data = {"Nome": "", "Nome de Guerra": "", "Posto": "", "Abreviação": "", "NIP": "", "Função": ""}
+        dialog = AddDialog(data, self.icons, parent=self)
+        dialog.setWindowTitle("Adicionar Responsáveis")
+        if dialog.exec() == QDialog.DialogCode.Accepted:
+            new_data = dialog.get_data()
+            model = self.table.model()
+            row = model.rowCount()
+            model.insertRow(row)
+            # Cria o item checkbox
+            check_item = QStandardItem()
+            check_item.setCheckable(True)
+            check_item.setCheckState(Qt.CheckState.Unchecked)
+            model.setItem(row, 0, check_item)
+            # Insere os dados
+            model.setItem(row, 1, QStandardItem(new_data["Nome"]))
+            model.setItem(row, 2, QStandardItem(new_data["Nome de Guerra"]))
+            model.setItem(row, 3, QStandardItem(new_data["Posto"]))
+            model.setItem(row, 4, QStandardItem(new_data["Abreviação"]))
+            model.setItem(row, 5, QStandardItem(new_data["NIP"]))
+            model.setItem(row, 6, QStandardItem(new_data["Função"]))
+            self.save_data_to_json()
+
+    def save_data_to_json(self):
+        model = self.table.model()
+        new_data = []
+        for row_idx in range(model.rowCount()):
+            agent = {
+                "Nome": model.item(row_idx, 1).text() if model.item(row_idx, 1) else "",
+                "Nome de Guerra": model.item(row_idx, 2).text() if model.item(row_idx, 2) else "",
+                "Posto": model.item(row_idx, 3).text() if model.item(row_idx, 3) else "",
+                "Abreviação": model.item(row_idx, 4).text() if model.item(row_idx, 4) else "",
+                "NIP": model.item(row_idx, 5).text() if model.item(row_idx, 5) else "",
+                "Funcao": model.item(row_idx, 6).text() if model.item(row_idx, 6) else ""
+            }
+            new_data.append(agent)
+        try:
+            with open(AGENTES_RESPONSAVEIS_FILE, 'w', encoding='utf-8') as file:
+                json.dump({"imported_data": new_data}, file, indent=4, ensure_ascii=False)
+        except Exception as e:
+            print(f"Erro ao escrever no arquivo JSON: {e}")
 
     def load_data(self):
         """Carrega os dados do arquivo JSON e popula o modelo."""
@@ -441,131 +590,3 @@ class AgentesResponsaveisWidget(QWidget):
         except Exception as e:
             print(f"Erro ao escrever no arquivo JSON: {e}")
 
-class EditDialog(QDialog):
-    def __init__(self, data, categoria="geral", parent=None):
-        super().__init__(parent)
-        self.categoria = categoria
-        apply_edit_dialog_style(self)
-        self.setWindowTitle("Editar Agente")
-        self.setup_ui(data)
-
-    def setup_ui(self, data):
-        layout = QVBoxLayout(self)
-
-        # Nome
-        layout.addWidget(QLabel("Nome:"))
-        self.nome_input = QLineEdit(data.get("Nome", ""))
-        self.nome_input.setPlaceholderText("Digite o nome")
-        self.nome_input.textChanged.connect(self.forcar_caixa_alta)
-        layout.addWidget(self.nome_input)
-
-        # Nome de Guerra
-        layout.addWidget(QLabel("Nome de Guerra:"))
-        self.nome_guerra_input = QLineEdit(data.get("Nome de Guerra", ""))
-        self.nome_guerra_input.setPlaceholderText("Digite o nome de guerra")
-        layout.addWidget(self.nome_guerra_input)
-
-        # Posto
-        layout.addWidget(QLabel("Posto:"))
-        self.posto_input = QComboBox()
-        self.posto_input.setEditable(True)
-        self.posto_input.currentTextChanged.connect(self.atualizar_abreviacao)
-        layout.addWidget(self.posto_input)
-
-        # Abreviação do Posto
-        layout.addWidget(QLabel("Abreviação do Posto:"))
-        self.abrev_posto_input = QComboBox()
-        self.abrev_posto_input.setEditable(True)
-        layout.addWidget(self.abrev_posto_input)
-
-        # Preencher os ComboBox
-        self.atualizar_posto()
-        self.posto_input.setCurrentText(data.get("Posto", ""))
-        self.atualizar_abreviacao(self.posto_input.currentText())
-        self.abrev_posto_input.setCurrentText(data.get("Abreviação", ""))
-
-        # NIP
-        layout.addWidget(QLabel("NIP:"))
-        self.nip_input = QLineEdit(data.get("NIP", ""))
-        self.nip_input.setPlaceholderText("Digite o NIP")
-        layout.addWidget(self.nip_input)
-
-        # Função
-        layout.addWidget(QLabel("Função:"))
-        self.funcao_input = QComboBox()
-        self.funcao_input.setEditable(True)
-        self.inicializar_funcoes()
-        self.funcao_input.setCurrentText(data.get("Função", ""))
-        layout.addWidget(self.funcao_input)
-
-        # Botões de confirmação
-        button_box = QDialogButtonBox()
-        salvar_button = QPushButton("Salvar")
-        cancelar_button = QPushButton("Cancelar")
-        button_box.addButton(salvar_button, QDialogButtonBox.ButtonRole.AcceptRole)
-        button_box.addButton(cancelar_button, QDialogButtonBox.ButtonRole.RejectRole)
-        salvar_button.clicked.connect(self.accept)
-        cancelar_button.clicked.connect(self.reject)
-        layout.addWidget(button_box)
-
-
-    def forcar_caixa_alta(self, text):
-        self.nome_input.blockSignals(True)
-        self.nome_input.setText(text.upper())
-        self.nome_input.blockSignals(False)
-
-    def atualizar_posto(self):
-        postos_ord = [
-            "Capitão de Mar e Guerra (IM)", "Capitão de Fragata (IM)",
-            "Capitão de Corveta (IM)", "Capitão Tenente (IM)", "Outro"
-        ]
-        postos_geral = [
-            "Primeiro-Tenente", "Segundo-Tenente", "Suboficial",
-            "Primeiro-Sargento", "Segundo-Sargento", "Terceiro-Sargento", "Cabo", "Outro"
-        ]
-        postos = postos_ord if self.categoria in ["ordenador_de_despesa", "agente_fiscal"] else postos_geral
-        self.posto_input.clear()
-        self.posto_input.addItems(postos)
-
-    def atualizar_abreviacao(self, posto):
-        abrev_ord = {
-            "Capitão de Mar e Guerra (IM)": ["CMG (IM)", "Outro"],
-            "Capitão de Fragata (IM)": ["CF (IM)", "Outro"],
-            "Capitão de Corveta (IM)": ["CC (IM)", "Outro"],
-            "Capitão Tenente (IM)": ["CT (IM)", "Outro"],
-            "Outro": ["Outro"]
-        }
-        abrev_geral = {
-            "Capitão de Mar e Guerra(IM)": ["CMG(IM)", "Outro"],
-            "Capitão de Fragata(IM)": ["CF(IM)", "Outro"],
-            "Capitão de Corveta(IM)": ["CC(IM)", "Outro"],
-            "Capitão Tenente(IM)": ["CT(IM)", "Outro"],            
-            "Primeiro-Tenente(IM)": ["1ºTEN(IM)", "Outro"],
-            "Primeiro-Tenente(RM2-T)": ["1ºTEN(RM2-T)", "Outro"],
-            "Segundo-Tenente(IM)": ["2ºTEN(IM)", "Outro"],
-            "Segundo-Tenente(RM2-T)": ["2ºTEN(RM2-T)", "Outro"],
-            "Suboficial": ["SO", "Outro"],
-            "Primeiro-Sargento": ["1º SG", "Outro"],
-            "Segundo-Sargento": ["2º SG", "Outro"],
-            "Terceiro-Sargento": ["3º SG", "Outro"],
-            "Cabo": ["CB", "Outro"],
-            "Outro": ["Outro"]
-        }
-        abrev_map = abrev_ord if self.categoria in ["ordenador_de_despesa", "agente_fiscal"] else abrev_geral
-        self.abrev_posto_input.clear()
-        self.abrev_posto_input.addItems(abrev_map.get(posto, ["Outro"]))
-
-    def inicializar_funcoes(self):
-        funcoes = ["Função 1", "Função 2", "Função 3", "Outro"]
-        self.funcao_input.clear()
-        self.funcao_input.addItems(funcoes)
-
-    def get_data(self):
-        return {
-            "Nome": self.nome_input.text(),
-            "Nome de Guerra": self.nome_guerra_input.text(),
-            "Posto": self.posto_input.currentText(),
-            "Abreviação": self.abrev_posto_input.currentText(),
-            "NIP": self.nip_input.text(),
-            "Função": self.funcao_input.currentText()
-        }

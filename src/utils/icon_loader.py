@@ -60,6 +60,7 @@ def load_icons():
         "criteria": load_icon("criteria.png"),   
 
         "doc": load_icon("doc.png"),
+        "edit": load_icon("edit.png"),
         "chat": load_icon("chat.png"),
         "mail": load_icon("mail.png"),
         "prioridade": load_icon("prioridade.png"),
@@ -73,6 +74,8 @@ def load_icons():
         "delete": load_icon("delete.png"),
         "acanto": load_icon("acanto.png"),
         "marinha": load_icon("marinha.png"),
+        "export": load_icon("export.png"),
+        "import": load_icon("import.png"),
 
         # "pdf_button": load_icon("pdf_button.png"),
         # "pdf_button_blue": load_icon("pdf_button_blue.png"),
@@ -80,6 +83,7 @@ def load_icons():
         # "info": load_icon("info.png"),
         "360-degrees": load_icon("360-degrees.png"),
         "data-science": load_icon("data-science.png"),
+        "add": load_icon("add.png"),
 
         "brasil": load_icon("brasil.png"),
         "mensagem": load_icon("mensagem.png"),

@@ -4,11 +4,18 @@ def apply_edit_dialog_style(dialog):
         QDialog {
             background-color: #1E1E2E;
             color: #FFFFFF;
+            font-size: 16px;
+
         }
         QLabel {
             color: #FFFFFF;
-            font-size: 12px;
+            font-size: 16px;
+            
         }
+        QLineEdit {
+            background-color: #FFFFFF;
+            font-size: 16px;            
+        }            
         QTabWidget::pane {
             border: 1px solid #3D3D5C;
             background-color: #2D2D44;
@@ -29,24 +36,25 @@ def apply_edit_dialog_style(dialog):
         QComboBox {
             background-color: #FFFFFF;
             color: #000000;
+            font-size: 16px;
         }
         QPushButton {
-            background-color: #4CAF50;
+            background-color: #3CB500;
             color: white;
             font-weight: bold;
             padding: 8px 16px;
             border-radius: 4px;
         }
         QPushButton:hover {
-            background-color: #45a049;
+            background-color: #60DE65;
         }
         QPushButton:pressed {
-            background-color: #3d8b40;
+            background-color: #60DE65;
         }
-        QPushButton[text="Cancel"] {
+        QPushButton[text="Cancelar"] {
             background-color: #f44336;
         }
-        QPushButton[text="Cancel"]:hover {
-            background-color: #e53935;
+        QPushButton[text="Cancelar"]:hover {
+            background-color: #F56E6E;
         }
     """)

@@ -7,7 +7,7 @@ from PyInstaller.utils.hooks import collect_all
 
 # Defina o caminho do diretório base diretamente
 BASE_DIR = Path("/home/samsung/Projetos/ccimar360/default_ui/src")
-DATABASE_DIR = BASE_DIR / "database"
+DEFAULT_DATABASE_DIR = BASE_DIR / "database"
 ASSETS_DIR = BASE_DIR / "assets"
 ICONS_DIR = ASSETS_DIR / "icons"
 ICON_PATH = ICONS_DIR / "brasil.png"
@@ -30,7 +30,7 @@ a = Analysis(
 )
 
 # Inclua os diretórios database e resources inteiros
-a.datas += Tree(str(DATABASE_DIR), prefix='src/database/')
+a.datas += Tree(str(DEFAULT_DATABASE_DIR), prefix='src/database/')
 a.datas += Tree(str(ASSETS_DIR), prefix='src/assets/')
 
 pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)

@@ -38,7 +38,7 @@ class UtilsView(QMainWindow):
         menu_layout.setContentsMargins(0, 0, 0, 0)
         menu_layout.setSpacing(0)
 
-        self.tree_menu = TreeMenu(owner=self)
+        self.tree_menu = TreeMenu(owner=self, icons=self.icons)
         menu_layout.addWidget(self.tree_menu)
 
         spacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
