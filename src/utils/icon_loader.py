@@ -76,6 +76,8 @@ def load_icons():
         "marinha": load_icon("marinha.png"),
         "export": load_icon("export.png"),
         "import": load_icon("import.png"),
+        "zip": load_icon("zip.png"),
+        "graficos": load_icon("graficos.png"),
 
         # "pdf_button": load_icon("pdf_button.png"),
         # "pdf_button_blue": load_icon("pdf_button_blue.png"),

@@ -43,63 +43,11 @@ def load_config():
             QMessageBox.critical(None, "Erro", f"Erro ao criar arquivo de configuração: {e}")
         return default_config
 
-class ExcelModelManager:
+class CSVModelManager:
     def __init__(self, file_path, file_type='excel'):
         self.file_path = file_path
         self.sheets = {}
-        try:
-            if file_type == 'csv' or file_path.lower().endswith('.csv'):
-                sheet_name = Path(file_path).stem
-                try:
-                    # Tenta ler usando UTF-8, assumindo CSV com vírgula e aspas
-                    df = pd.read_csv(
-                        file_path, 
-                        encoding='utf-8', 
-                        sep=',', 
-                        quotechar='"'
-                    )
-                except UnicodeDecodeError:
-                    # Se UTF-8 falhar, tenta Latin-1
-                    df = pd.read_csv(
-                        file_path, 
-                        encoding='latin1', 
-                        sep=',', 
-                        quotechar='"'
-                    )
-                self.sheets[sheet_name] = df
-            else:
-                # Se for Excel (xlsx), carrega todas as abas
-                self.sheets = pd.read_excel(file_path, sheet_name=None)
-        except Exception as e:
-            logging.error(f"Erro ao ler o arquivo: {e}")
 
-
-    def validate(self):
-        # Validação simples: verifica se há alguma aba e os cabeçalhos esperados na primeira aba
-        if not self.sheets:
-            logging.error("Nenhuma aba encontrada no arquivo.")
-            return False
-
-        required_headers = [
-            "EXERCÍCIO", "CÓDIGO ÓRGÃO SUPERIOR", "NOME ÓRGÃO SUPERIOR",
-            "CÓDIGO ÓRGÃO SUBORDINADO", "NOME ÓRGÃO SUBORDINADO",
-            "CÓDIGO UNIDADE ORÇAMENTÁRIA", "NOME UNIDADE ORÇAMENTÁRIA",
-            "CÓDIGO FUNÇÃO", "NOME FUNÇÃO", "CÓDIGO SUBFUNÇÃO", "NOME SUBFUNÇÃO",
-            "CÓDIGO PROGRAMA ORÇAMENTÁRIO", "NOME PROGRAMA ORÇAMENTÁRIO",
-            "CÓDIGO AÇÃO", "NOME AÇÃO", "CÓDIGO CATEGORIA ECONÔMICA",
-            "NOME CATEGORIA ECONÔMICA", "CÓDIGO GRUPO DE DESPESA",
-            "NOME GRUPO DE DESPESA", "CÓDIGO ELEMENTO DE DESPESA",
-            "NOME ELEMENTO DE DESPESA", "ORÇAMENTO INICIAL (R$)",
-            "ORÇAMENTO ATUALIZADO (R$)", "ORÇAMENTO EMPENHADO (R$)",
-            "ORÇAMENTO REALIZADO (R$)",
-            "% REALIZADO DO ORÇAMENTO (COM RELAÇÃO AO ORÇAMENTO ATUALIZADO)"
-        ]
-        sheet_name, df = list(self.sheets.items())[0]
-        for header in required_headers:
-            if header not in df.columns:
-                logging.error(f"Header ausente: {header}")
-                return False
-        return True
 
     def import_data(self, db_manager):
         sheet_name, df = list(self.sheets.items())[0]

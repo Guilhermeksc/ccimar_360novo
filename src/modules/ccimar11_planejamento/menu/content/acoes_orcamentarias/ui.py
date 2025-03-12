@@ -1,16 +1,18 @@
-import os
-import json
 import pandas as pd
 from PyQt6.QtWidgets import (
     QFrame, QVBoxLayout, QHBoxLayout, QLabel, QHeaderView,
-    QPushButton, QFileDialog, QMessageBox, QDialog
+    QPushButton, QFileDialog, QMessageBox, QDialog,
+    QFileDialog, QDialog, QProgressBar
 )
 from PyQt6.QtGui import QStandardItemModel, QStandardItem, QFont
-from PyQt6.QtCore import Qt
-from .tableview import CustomTableView, ExcelModelManager, load_config
+from PyQt6.QtCore import Qt, QThread, pyqtSignal
+from .tableview import CustomTableView, CSVModelManager, load_config
+from .dashboard import DashboardDialog
 from utils.styles import apply_table_style, apply_button_style
 from database.db_manager import DatabaseManager
 from paths import ACOES_ORCAMENTARIAS_SQL_PATH
+import chardet
+from utils.styles.style_add_button import add_button_func
 
 def create_acoes_orcamentarias(title_text, icons):
     icons = icons
@@ -25,20 +27,12 @@ def create_acoes_orcamentarias(title_text, icons):
     title_label.setStyleSheet("font-size: 20px; font-weight: bold; color: #FFFFFF;")
     title_layout.addWidget(title_label)
     title_layout.addStretch()
-
-    btn_export = QPushButton("Exportar")
-    apply_button_style(btn_export)
-    title_layout.addWidget(btn_export)
-
-    btn_import = QPushButton("Importar")
-    apply_button_style(btn_import)
-    title_layout.addWidget(btn_import)
-
-    # Botão de full screen para o mapa (table_view)
-    btn_fullscreen = QPushButton("Mapa Full Screen")
-    apply_button_style(btn_fullscreen)
-    title_layout.addWidget(btn_fullscreen)
-
+    
+    def dashboard():
+        db_manager = DatabaseManager(ACOES_ORCAMENTARIAS_SQL_PATH)
+        dlg = DashboardDialog(parent=main_frame, db_manager=db_manager)
+        dlg.exec()
+    
     def open_fullscreen_tableview():
         main_layout.removeWidget(table_view)
         table_view.setParent(None)
@@ -87,7 +81,7 @@ def create_acoes_orcamentarias(title_text, icons):
         
         fullscreen_dialog.showFullScreen()
 
-    btn_fullscreen.clicked.connect(open_fullscreen_tableview)
+    # btn_fullscreen.clicked.connect(open_fullscreen_tableview)
    
     main_layout.addLayout(title_layout)
 
@@ -206,54 +200,43 @@ def create_acoes_orcamentarias(title_text, icons):
             model.appendRow(items)
 
         adjust_columns()
-
     def adjust_columns():
+        # Define larguras iniciais para as colunas fixas
+        table_view.setColumnWidth(0, 85)
+        table_view.setColumnWidth(22, 200)
+        table_view.setColumnWidth(23, 200)
+        table_view.setColumnWidth(24, 200)
 
-        table_view.setColumnWidth(0, 130)
-        table_view.setColumnWidth(3, 100)
-        table_view.setColumnWidth(4, 65)
-        table_view.setColumnWidth(5, 60)
-        table_view.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
-
+        # Ajusta o modo de redimensionamento
         header = table_view.horizontalHeader()
         for col in range(model.columnCount()):
-            if col == 2:  # Coluna que deve ocupar o espaço restante
+            if col in (4, 14):
                 header.setSectionResizeMode(col, QHeaderView.ResizeMode.Stretch)
             else:
+                # Use Interactive ou ResizeToContents no lugar de Fixed
                 header.setSectionResizeMode(col, QHeaderView.ResizeMode.Fixed)
 
-        # Define os índices das colunas que devem permanecer visíveis
-        visible_columns = {0, 2, 3, 4, 5}
-
-        # Oculta todas as colunas que não estão no conjunto 'visible_columns'
-        for i in range(model.columnCount()):
-            if i not in visible_columns:
-                table_view.setColumnHidden(i, True)
+        # Exibe apenas as colunas necessárias
+        visible_columns = {0, 4, 14, 22, 23, 24}
+        for col in range(model.columnCount()):
+            table_view.setColumnHidden(col, col not in visible_columns)
+            
 
     load_model_from_config()
 
-    def import_from_excel():
-        file_path, _ = QFileDialog.getOpenFileName(
-            main_frame,
-            "Importar do Excel/CSV",
-            "",
-            "Arquivos Excel (*.xlsx);;Arquivos CSV (*.csv)"
-        )
+    def import_from_csv():
+        file_path, _ = QFileDialog.getOpenFileName(None, "Importar do ZIP", "", "Arquivos ZIP (*.zip)")
         if not file_path:
             return
 
-        # Define o tipo de arquivo com base na extensão
-        if file_path.lower().endswith('.csv'):
-            excel_manager = ExcelModelManager(file_path, file_type='csv')
-        else:
-            excel_manager = ExcelModelManager(file_path)
+        progress_dialog = ProgressDialog()
+        thread = ImportThread(file_path)
 
-        if not excel_manager.validate():
-            return
+        thread.progress_signal.connect(progress_dialog.update_progress)
+        thread.finished_signal.connect(lambda msg: (progress_dialog.accept(), print(msg)))
 
-        db_manager = DatabaseManager(ACOES_ORCAMENTARIAS_SQL_PATH)
-        excel_manager.import_data(db_manager)
-
+        thread.start()
+        progress_dialog.exec()
 
     def export_to_excel():
         from datetime import datetime
@@ -300,7 +283,268 @@ def create_acoes_orcamentarias(title_text, icons):
         except Exception as e:
             QMessageBox.critical(main_frame, "Erro", f"Falha ao exportar para Excel: {e}")
 
-    btn_import.clicked.connect(import_from_excel)
+    btn_export = add_button_func("Exportar", "export", export_to_excel, title_layout, icons, tooltip="Exportar dados")
+    btn_import = add_button_func("Importar", "zip", import_from_csv, title_layout, icons, tooltip="Importar dados")
+    btn_adicionar = add_button_func("Gráficos", "graficos", dashboard, title_layout, icons, tooltip="Adicionar novo item")
+    btn_relatorio = add_button_func("Full Screen", "report", open_fullscreen_tableview, title_layout, icons, tooltip="Visualizar relatório")
+
+    btn_import.clicked.connect(import_from_csv)
     btn_export.clicked.connect(export_to_excel)
 
     return main_frame
+
+db_columns = [
+    "exercicio",
+    "codigo_orgao_superior",
+    "nome_orgao_superior",
+    "codigo_orgao_subordinado",
+    "nome_orgao_subordinado",
+    "codigo_unidade_orcamentaria",
+    "nome_unidade_orcamentaria",
+    "codigo_funcao",
+    "nome_funcao",
+    "codigo_subfuncao",
+    "nome_subfuncao",
+    "codigo_programa_orcamentario",
+    "nome_programa_orcamentario",
+    "codigo_acao",
+    "nome_acao",
+    "codigo_categoria_economica",
+    "nome_categoria_economica",
+    "codigo_grupo_despesa",
+    "nome_grupo_despesa",
+    "codigo_elemento_despesa",
+    "nome_elemento_despesa",
+    "orcamento_inicial",
+    "orcamento_atualizado",
+    "orcamento_empenhado",
+    "orcamento_realizado",
+    "percentual_realizado"
+]
+
+class ImportThread(QThread):
+    progress_signal = pyqtSignal(int, int)
+    finished_signal = pyqtSignal(str)
+
+    def __init__(self, file_path):
+        super().__init__()
+        self.file_path = file_path
+
+    def detect_encoding_for_bytes(self, data: bytes) -> str:
+        """Detecta encoding de um arquivo em bytes usando chardet."""
+        result = chardet.detect(data)
+        return result['encoding']
+
+    def run(self):
+        try:
+            import zipfile
+            from io import BytesIO
+
+            # Abre o ZIP
+            with zipfile.ZipFile(self.file_path, 'r') as zf:
+                # Localiza o primeiro CSV no ZIP
+                csv_files = [name for name in zf.namelist() if name.lower().endswith('.csv')]
+                if not csv_files:
+                    raise ValueError("Nenhum arquivo CSV encontrado dentro do .zip.")
+
+                # Lê todo o conteúdo do primeiro CSV em memória
+                csv_data = zf.read(csv_files[0])
+
+            # Detecta encoding em memória
+            encoding = self.detect_encoding_for_bytes(csv_data)
+
+            # Converte para BytesIO e lê com pandas
+            csv_buffer = BytesIO(csv_data)
+            df = pd.read_csv(csv_buffer, sep=';', encoding=encoding, decimal=',')
+
+            print("Colunas do CSV carregado:", df.columns.tolist())
+
+            # Filtra os códigos desejados
+            codigos_permitidos = {"52233", "52131", "52132"}
+            df = df[df["CÓDIGO ÓRGÃO SUBORDINADO"].astype(str).isin(codigos_permitidos)]
+
+            # Mapeamento completo
+            column_mapping = {
+                "EXERCÍCIO": "exercicio",
+                "CÓDIGO ÓRGÃO SUPERIOR": "codigo_orgao_superior",
+                "NOME ÓRGÃO SUPERIOR": "nome_orgao_superior",
+                "CÓDIGO ÓRGÃO SUBORDINADO": "codigo_orgao_subordinado",
+                "NOME ÓRGÃO SUBORDINADO": "nome_orgao_subordinado",
+                "CÓDIGO UNIDADE ORÇAMENTÁRIA": "codigo_unidade_orcamentaria",
+                "NOME UNIDADE ORÇAMENTÁRIA": "nome_unidade_orcamentaria",
+                "CÓDIGO FUNÇÃO": "codigo_funcao",
+                "NOME FUNÇÃO": "nome_funcao",
+                "CÓDIGO SUBFUNÇÃO": "codigo_subfuncao",
+                "NOME SUBFUNÇÃO": "nome_subfuncao",
+                "CÓDIGO PROGRAMA ORÇAMENTÁRIO": "codigo_programa_orcamentario",
+                "NOME PROGRAMA ORÇAMENTÁRIO": "nome_programa_orcamentario",
+                "CÓDIGO AÇÃO": "codigo_acao",
+                "NOME AÇÃO": "nome_acao",
+                "CÓDIGO CATEGORIA ECONÔMICA": "codigo_categoria_economica",
+                "NOME CATEGORIA ECONÔMICA": "nome_categoria_economica",
+                "CÓDIGO GRUPO DE DESPESA": "codigo_grupo_despesa",
+                "NOME GRUPO DE DESPESA": "nome_grupo_despesa",
+                "CÓDIGO ELEMENTO DE DESPESA": "codigo_elemento_despesa",
+                "NOME ELEMENTO DE DESPESA": "nome_elemento_despesa",
+                "ORÇAMENTO INICIAL (R$)": "orcamento_inicial",
+                "ORÇAMENTO ATUALIZADO (R$)": "orcamento_atualizado",
+                "ORÇAMENTO EMPENHADO (R$)": "orcamento_empenhado",
+                "ORÇAMENTO REALIZADO (R$)": "orcamento_realizado",
+                "% REALIZADO DO ORÇAMENTO (COM RELAÇÃO AO ORÇAMENTO ATUALIZADO)": "percentual_realizado"
+            }
+
+            # Renomeia colunas no DataFrame
+            df.rename(columns=column_mapping, inplace=True)
+
+            # Verifica se todas as colunas mapeadas estão presentes
+            missing_cols = [col for col in column_mapping.values() if col not in df.columns]
+            if missing_cols:
+                raise ValueError(f"Colunas ausentes no CSV após renomeação: {missing_cols}")
+
+            # Converte colunas numéricas
+            numeric_cols = ["orcamento_inicial", "orcamento_atualizado", "orcamento_empenhado", "orcamento_realizado", "percentual_realizado"]
+            for col in numeric_cols:
+                df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+
+            db_manager = DatabaseManager(ACOES_ORCAMENTARIAS_SQL_PATH)
+            table_name = "orcamento_despesa"
+            inserted = 0
+            updated = 0
+
+            for _, row in df.iterrows():
+                # Preparando para ver se já existe a linha
+                # A PK será exercicio+codigo_orgao_superior+...+nome_elemento_despesa+orcamento_inicial
+                key_cols = [
+                    "exercicio",
+                    "codigo_orgao_superior",
+                    "nome_orgao_superior",
+                    "codigo_orgao_subordinado",
+                    "nome_orgao_subordinado",
+                    "codigo_unidade_orcamentaria",
+                    "nome_unidade_orcamentaria",
+                    "codigo_funcao",
+                    "nome_funcao",
+                    "codigo_subfuncao",
+                    "nome_subfuncao",
+                    "codigo_programa_orcamentario",
+                    "nome_programa_orcamentario",
+                    "codigo_acao",
+                    "nome_acao",
+                    "codigo_categoria_economica",
+                    "nome_categoria_economica",
+                    "codigo_grupo_despesa",
+                    "nome_grupo_despesa",
+                    "codigo_elemento_despesa",
+                    "nome_elemento_despesa",
+                    "orcamento_inicial"  # adicionado como chave
+                ]
+
+                # Monta a tupla de chaves
+                key_values = tuple(row[k] for k in key_cols)
+
+                # Monta query de SELECT (listando TODAS as colunas) para exibir valores anteriores
+                select_query = f"""
+                    SELECT {', '.join(db_columns)}
+                    FROM {table_name}
+                    WHERE exercicio = ?
+                      AND codigo_orgao_superior = ?
+                      AND nome_orgao_superior = ?
+                      AND codigo_orgao_subordinado = ?
+                      AND nome_orgao_subordinado = ?
+                      AND codigo_unidade_orcamentaria = ?
+                      AND nome_unidade_orcamentaria = ?
+                      AND codigo_funcao = ?
+                      AND nome_funcao = ?
+                      AND codigo_subfuncao = ?
+                      AND nome_subfuncao = ?
+                      AND codigo_programa_orcamentario = ?
+                      AND nome_programa_orcamentario = ?
+                      AND codigo_acao = ?
+                      AND nome_acao = ?
+                      AND codigo_categoria_economica = ?
+                      AND nome_categoria_economica = ?
+                      AND codigo_grupo_despesa = ?
+                      AND nome_grupo_despesa = ?
+                      AND codigo_elemento_despesa = ?
+                      AND nome_elemento_despesa = ?
+                      AND orcamento_inicial = ?
+                """
+
+                old_data = db_manager.execute_query(select_query, key_values)
+
+                # Monta dicionário com novos valores
+                new_data_dict = {col: row[col] for col in db_columns}
+
+                if old_data:
+                    # Converte a primeira linha retornada em dicionário
+                    old_data_dict = dict(zip(db_columns, old_data[0]))
+                    print("---")
+                    print("Valores anteriores:", old_data_dict)
+                    print("Valores atualizados:", new_data_dict)
+
+                    # Monta a query de UPDATE (lista todas as colunas do DB)
+                    # Precisamos adicionar orcamento_inicial no WHERE final
+                    update_set = ", ".join([f"{col} = ?" for col in db_columns if col not in key_cols])
+                    update_query = f"""
+                        UPDATE {table_name}
+                        SET {update_set}
+                        WHERE exercicio = ?
+                          AND codigo_orgao_superior = ?
+                          AND nome_orgao_superior = ?
+                          AND codigo_orgao_subordinado = ?
+                          AND nome_orgao_subordinado = ?
+                          AND codigo_unidade_orcamentaria = ?
+                          AND nome_unidade_orcamentaria = ?
+                          AND codigo_funcao = ?
+                          AND nome_funcao = ?
+                          AND codigo_subfuncao = ?
+                          AND nome_subfuncao = ?
+                          AND codigo_programa_orcamentario = ?
+                          AND nome_programa_orcamentario = ?
+                          AND codigo_acao = ?
+                          AND nome_acao = ?
+                          AND codigo_categoria_economica = ?
+                          AND nome_categoria_economica = ?
+                          AND codigo_grupo_despesa = ?
+                          AND nome_grupo_despesa = ?
+                          AND codigo_elemento_despesa = ?
+                          AND nome_elemento_despesa = ?
+                          AND orcamento_inicial = ?
+                    """
+
+                    # Parametros de UPDATE: todos os col do DB que nao sao chaves + as chaves
+                    update_params = [new_data_dict[col] for col in db_columns if col not in key_cols] + list(key_values)
+                    db_manager.execute_update(update_query, tuple(update_params))
+                    updated += 1
+                else:
+                    # Monta query de INSERT
+                    insert_cols = ", ".join(db_columns)
+                    insert_placeholders = ", ".join(["?"] * len(db_columns))
+                    insert_query = f"INSERT INTO {table_name} ({insert_cols}) VALUES ({insert_placeholders})"
+                    insert_params = [new_data_dict[col] for col in db_columns]
+                    db_manager.execute_update(insert_query, tuple(insert_params))
+                    inserted += 1
+
+                self.progress_signal.emit(inserted, updated)
+
+            self.finished_signal.emit(f"Importação concluída. Inseridos: {inserted}, Atualizados: {updated}")
+        except Exception as e:
+            self.finished_signal.emit(f"Erro ao importar ZIP: {e}")
+
+class ProgressDialog(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Importando Dados")
+        self.setFixedSize(300, 100)
+
+        layout = QVBoxLayout()
+        self.label = QLabel("Registros inseridos: 0 | Atualizados: 0")
+        self.progress_bar = QProgressBar()
+        self.progress_bar.setMinimum(0)
+        layout.addWidget(self.label)
+        layout.addWidget(self.progress_bar)
+        self.setLayout(layout)
+
+    def update_progress(self, inserted, updated):
+        self.label.setText(f"Registros inseridos: {inserted} | Atualizados: {updated}")
+        self.progress_bar.setValue(inserted + updated)
