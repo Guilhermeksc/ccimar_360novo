@@ -20,17 +20,19 @@ def apply_edit_dialog_style(dialog):
             border: 1px solid #3D3D5C;
             background-color: #2D2D44;
             border-radius: 5px;
+            font-size: 14px; 
         }
         QTabBar::tab {
-            background-color: #3D3D5C;
+            background-color: #2D2D44;
             color: #FFFFFF;
             padding: 8px 16px;
             margin-right: 2px;
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
+            font-size: 14px; 
         }
         QTabBar::tab:selected {
-            background-color: #5D5D8C;
+            background-color: #3D3D5C;
             font-weight: bold;
         }
         QComboBox {

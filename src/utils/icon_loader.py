@@ -58,6 +58,7 @@ def load_icons():
         "analytics": load_icon("analytics.png"),   
         "report": load_icon("report.png"),   
         "criteria": load_icon("criteria.png"),   
+        "route": load_icon("route.png"),   
 
         "doc": load_icon("doc.png"),
         "edit": load_icon("edit.png"),

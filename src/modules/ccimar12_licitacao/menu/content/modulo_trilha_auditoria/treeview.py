@@ -280,17 +280,17 @@ def load_atas_detalhes(model, parent_item, icons):
             for detalhe in detalhes:
                 detalhes_item.appendRow(QStandardItem(detalhe))
 
-            # 🔗 Criar item do link para o PDF
-            pdf_url = fetch_pdf_link(numeroControlePNCPAta)
-            if pdf_url:
-                pdf_link_item = QStandardItem("🔗 Documento PDF (Clique para abrir)")
-                pdf_link_item.setData(pdf_url, Qt.ItemDataRole.UserRole)  # Armazena a URL do PDF
-                pdf_link_item.setToolTip("Clique para abrir o documento PDF")  # Tooltip
-                pdf_link_item.setFlags(Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable)  # Habilita seleção e clique
-                pdf_link_item.setForeground(QBrush(QColor(0, 0, 255)))  # Define a cor azul para parecer um hiperlink
+            # # 🔗 Criar item do link para o PDF
+            # pdf_url = fetch_pdf_link(numeroControlePNCPAta)
+            # if pdf_url:
+            #     pdf_link_item = QStandardItem("🔗 Documento PDF (Clique para abrir)")
+            #     pdf_link_item.setData(pdf_url, Qt.ItemDataRole.UserRole)  # Armazena a URL do PDF
+            #     pdf_link_item.setToolTip("Clique para abrir o documento PDF")  # Tooltip
+            #     pdf_link_item.setFlags(Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable)  # Habilita seleção e clique
+            #     pdf_link_item.setForeground(QBrush(QColor(0, 0, 255)))  # Define a cor azul para parecer um hiperlink
 
-                # Adiciona o link como filho dos detalhes
-                detalhes_item.appendRow(pdf_link_item)
+            #     # Adiciona o link como filho dos detalhes
+            #     detalhes_item.appendRow(pdf_link_item)
 
             # Adicionar os detalhes como filho da ata
             ata_item.appendRow([detalhes_item])

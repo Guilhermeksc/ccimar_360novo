@@ -4,9 +4,7 @@ from PyQt6.QtWidgets import QTreeView, QAbstractItemView
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 from PyQt6.QtCore import Qt
 from .menu_callbacks import (  
-    show_nota_auditoria_teste1, show_nota_auditoria_teste2,
-    show_nota_auditoria_teste3,
-    show_oficio_ccimar20_widget, show_gerar_notas_widget,
+    show_trilha_auditoria, show_oficio_ccimar20_widget, show_gerar_notas_widget,
     show_relatorio_consultas_airflow_widget, show_relatorio_sgm_widget,
     show_relatorio_ccimar11_widget, show_relatorio_cofamar_widget,
     show_relatorio_calculo_total_widget, show_relatorio_notas_monitoradas_widget,
@@ -76,6 +74,7 @@ class TreeMenu(QTreeView):
             return item
 
         # Parent items with icons
+        add_parent("Trilha de Auditoria", self.icons["route"], show_trilha_auditoria)
         item_nota   = QStandardItem(self.icons["prioridade"], "Nota de Auditoria")
         item_evidencias   = QStandardItem(self.icons["statistics"], "Evidências")
         item_mensagem      = QStandardItem(self.icons["mensagem"], "Mensagens")
@@ -85,9 +84,6 @@ class TreeMenu(QTreeView):
         item_api          = QStandardItem(self.icons["api"], "API")
 
         # Adding child items with their respective callbacks
-        add_item(item_nota, "NA - Teste1", self.icons, show_nota_auditoria_teste1)
-        add_item(item_nota, "NA - Teste2", self.icons, show_nota_auditoria_teste2)
-        add_item(item_nota, "NA - Teste3", self.icons, show_nota_auditoria_teste3)
         add_item(item_oficio, "Ofício 1", self.icons, show_oficio_ccimar20_widget)
         add_item(item_evidencias, "Empresas inidôneas", self.icons, show_relatorio_sgm_widget)
         add_item(item_evidencias, "Controle PDM", self.icons, show_relatorio_ccimar11_widget)

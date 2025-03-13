@@ -6,10 +6,15 @@ from .content.nota_auditoria_teste2 import create_content_nota_auditoria_test2
 from .content.nota_auditoria_teste3 import create_content_nota_auditoria_test3
 from .content.modulo_contratos import create_vigencia_contratos
 from .content.modulo_atas import create_atas
+from .content.modulo_trilha_auditoria import create_trilha_auditoria
 
 def show_vigencia_contratos(view, icons):
     view.clear_content()
     view.content_layout.addWidget(create_vigencia_contratos("Contratos teste", icons))
+
+def show_trilha_auditoria(view, icons):
+    view.clear_content()
+    view.content_layout.addWidget(create_trilha_auditoria("Trilha de Auditoria", icons))
     
 def show_atas(view, icons):
     view.clear_content()
