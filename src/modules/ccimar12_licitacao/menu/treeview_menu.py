@@ -10,9 +10,22 @@ from .menu_callbacks import (
     show_relatorio_consultas_airflow_widget, show_relatorio_sgm_widget,
     show_relatorio_ccimar11_widget, show_relatorio_cofamar_widget,
     show_relatorio_calculo_total_widget, show_relatorio_notas_monitoradas_widget,
-    show_cartao_corporativo, show_teste_widget
+    show_cartao_corporativo, show_teste_widget, show_vigencia_contratos,
+    show_atas, show_limites_governanca
 )
 
+class CustomStandardItem(QStandardItem):
+    def __init__(self, icons, text, icon_key=None):
+        """
+        :param icons: Dicionário completo de ícones.
+        :param text: Texto do item.
+        :param icon_key: (Opcional) Chave para definir um ícone específico.
+        """
+        super().__init__(text)
+        self.icons = icons  # Armazena o dicionário completo
+        if icon_key is not None and icon_key in icons:
+            self.setIcon(icons[icon_key])
+            
 class TreeMenu(QTreeView):
     def __init__(self, icons, owner, parent=None):
         """
@@ -48,14 +61,23 @@ class TreeMenu(QTreeView):
         """)
 
     def populate_tree(self):
-        def add_item(parent, text, callback):
-            item = QStandardItem(text)
-            item.setData(lambda: callback(self.owner), Qt.ItemDataRole.UserRole)
+        def add_item(parent, text, icons, callback, icon_key=None):
+            item = CustomStandardItem(icons, text, icon_key)
+            item.setData(lambda: callback(self.owner, icons), Qt.ItemDataRole.UserRole)
             parent.appendRow(item)
+
+        def add_parent(text, icon, callback=None):
+            """Adds a parent item with an optional callback."""
+            item = QStandardItem(icon, text)
+            if callback:
+                # Passa tanto o owner quanto os icons para o callback
+                item.setData(lambda: callback(self.owner, self.icons), Qt.ItemDataRole.UserRole)
+            self.model.appendRow(item)
+            return item
 
         # Parent items with icons
         item_nota   = QStandardItem(self.icons["prioridade"], "Nota de Auditoria")
-        item_relatorio   = QStandardItem(self.icons["statistics"], "Relatórios")
+        item_evidencias   = QStandardItem(self.icons["statistics"], "Evidências")
         item_mensagem      = QStandardItem(self.icons["mensagem"], "Mensagens")
         item_email      = QStandardItem(self.icons["mail"], "E-mail")
         item_oficio      = QStandardItem(self.icons["doc"], "Ofícios")
@@ -63,22 +85,21 @@ class TreeMenu(QTreeView):
         item_api          = QStandardItem(self.icons["api"], "API")
 
         # Adding child items with their respective callbacks
-        add_item(item_nota, "NA - Teste1", show_nota_auditoria_teste1)
-        add_item(item_nota, "NA - Teste2", show_nota_auditoria_teste2)
-        add_item(item_nota, "NA - Teste3", show_nota_auditoria_teste3)
-        add_item(item_nota, "Teste1", show_teste_widget)
-        add_item(item_oficio, "Ofício 1", show_oficio_ccimar20_widget)
-        add_item(item_api, "Teste 1", show_gerar_notas_widget)
-        add_item(item_relatorio, "Relatório 1", show_relatorio_sgm_widget)
-        add_item(item_relatorio, "Relatório 2", show_relatorio_ccimar11_widget)
-        add_item(item_relatorio, "Cartão Corporativo", show_cartao_corporativo)
-        add_item(item_mensagem, "Teste", show_teste_widget)
-        add_item(item_email, "Teste", show_teste_widget)
-        add_item(item_webscrapping, "Teste", show_teste_widget)
+        add_item(item_nota, "NA - Teste1", self.icons, show_nota_auditoria_teste1)
+        add_item(item_nota, "NA - Teste2", self.icons, show_nota_auditoria_teste2)
+        add_item(item_nota, "NA - Teste3", self.icons, show_nota_auditoria_teste3)
+        add_item(item_oficio, "Ofício 1", self.icons, show_oficio_ccimar20_widget)
+        add_item(item_evidencias, "Empresas inidôneas", self.icons, show_relatorio_sgm_widget)
+        add_item(item_evidencias, "Controle PDM", self.icons, show_relatorio_ccimar11_widget)
+        add_item(item_evidencias, "Valores Homologados", self.icons, show_cartao_corporativo)
+        add_item(item_evidencias, "Dados Pessoais", self.icons, show_cartao_corporativo)
+        add_item(item_evidencias, "Limites de Governança", self.icons, show_limites_governanca)
+        add_item(item_evidencias, "Contratos", self.icons, show_vigencia_contratos)
+        add_item(item_evidencias, "Atas", self.icons, show_atas)
 
         # Add parent items to the model
         self.model.appendRow(item_nota)
-        self.model.appendRow(item_relatorio)
+        self.model.appendRow(item_evidencias)
         self.model.appendRow(item_mensagem)
         self.model.appendRow(item_email)
         self.model.appendRow(item_oficio)

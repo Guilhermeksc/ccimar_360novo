@@ -72,3 +72,13 @@ class DatabaseManager:
         """Exclui um registro da tabela 'controle_planejamento' pelo id_processo."""
         query = "DELETE FROM controle_planejamento WHERE id_processo = ?"
         return self.execute_update(query, (id_processo,))
+    
+# def check_table_structure():
+#     db = DatabaseManager("ccimar12.db")
+#     table_info = db.execute_query("PRAGMA table_info(atas_detalhes);")
+
+#     print("📌 Estrutura da tabela atas_detalhes:")
+#     for col in table_info:
+#         print(f" - {col[1]} ({col[2]})")  # Nome e tipo da coluna
+
+# check_table_structure()    

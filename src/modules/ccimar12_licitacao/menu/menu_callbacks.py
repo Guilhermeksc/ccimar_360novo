@@ -1,9 +1,23 @@
-# src/modules/ccimar11_planejamento/menu/menu_callbacks.py
+# src/modules/ccimar12_planejamento/menu/menu_callbacks.py
 
 from PyQt6.QtWidgets import QLabel, QFrame, QVBoxLayout
 from .content.nota_auditoria_teste1 import create_content_nota_auditoria_test1
 from .content.nota_auditoria_teste2 import create_content_nota_auditoria_test2
 from .content.nota_auditoria_teste3 import create_content_nota_auditoria_test3
+from .content.modulo_contratos import create_vigencia_contratos
+from .content.modulo_atas import create_atas
+
+def show_vigencia_contratos(view, icons):
+    view.clear_content()
+    view.content_layout.addWidget(create_vigencia_contratos("Contratos teste", icons))
+    
+def show_atas(view, icons):
+    view.clear_content()
+    view.content_layout.addWidget(create_atas("Atas", icons))
+    
+def show_limites_governanca(view, icons):
+    view.clear_content()
+    view.content_layout.addWidget(create_vigencia_contratos("Limites de Governança", icons))
 
 def create_content(title_text):
     """Creates a content layout inside a styled QFrame."""
@@ -66,6 +80,7 @@ def show_relatorio_notas_monitoradas_widget(view):
 def show_cartao_corporativo(view):
     view.clear_content()
     view.content_layout.addWidget(create_content("AUDCONT - Notas Vencidas"))
+
 
 def show_oficio_apresentacao_widget(view):
     view.clear_content()
