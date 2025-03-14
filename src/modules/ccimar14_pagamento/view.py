@@ -1,215 +1,111 @@
-from PyQt6.QtWidgets import *
-from PyQt6.QtGui import *
-from PyQt6.QtCore import *
-from utils.search_bar import setup_search_bar, MultiColumnFilterProxyModel
-from utils.styles.style_add_button import add_button
-from utils.styles import table_view_stylesheet, title_view_stylesheet
-import pandas as pd
+# src/modules/ccimar11_planejamento/view.py
+
+from PyQt6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QSpacerItem, QSizePolicy
+from PyQt6.QtCore import pyqtSignal, Qt
+from .menu.treeview_menu import TreeMenu
+from .menu.menu_callbacks import *
 
 class CCIMAR14View(QMainWindow):
-    # Sinais para comunicação com o controlador
-    messageAlert = pyqtSignal()
-    apiCheck = pyqtSignal()
-    openTable = pyqtSignal()
-    loadData = pyqtSignal(str)
-    rowDoubleClicked = pyqtSignal(dict)
-    request_consulta_api = pyqtSignal(str, str, str, str, str)
-    
+    teste = pyqtSignal()
+
     def __init__(self, icons, model, database_path, parent=None):
         super().__init__(parent)
         self.icons = icons
         self.model = model
         self.database_path = database_path
-        self.selected_row_data = None
-        
-        # Inicializa o proxy_model e configura o filtro
-        self.proxy_model = MultiColumnFilterProxyModel(self)
-        self.proxy_model.setSourceModel(self.model)
-        self.proxy_model.setFilterCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+        self.document = None
+        self.current_content_layout = None
 
-        # Configura a interface de usuário
         self.setup_ui()
+        self.load_initial_content() 
 
     def setup_ui(self):
-        # Cria o widget principal e layout principal
-        self.main_widget = QWidget(self)
-        self.setCentralWidget(self.main_widget)
-        self.main_layout = QVBoxLayout(self.main_widget)
-        title_layout = QHBoxLayout()
-        label_contratos = QLabel("Planejamento", self)
-        label_contratos.setStyleSheet(title_view_stylesheet())
-        title_layout.addWidget(label_contratos)
-        title_layout.addStretch()
-        label_select_om = QLabel("Selecione a OM:", self)
-        title_layout.addWidget(label_select_om)
-        combobox_select_om = QComboBox(self)    
-        title_layout.addWidget(combobox_select_om)
+        """Configures the layout with a sidebar menu using TreeMenu."""
+        central_widget = QWidget(self)
+        self.setCentralWidget(central_widget)
+        main_layout = QHBoxLayout(central_widget)
+        main_layout.setSpacing(0)
+        main_layout.setContentsMargins(0, 0, 0, 0)
 
-        self.main_layout.addLayout(title_layout)
+        # Sidebar menu using TreeMenu
+        self.menu_layout = QVBoxLayout()  # Armazena como atributo
+        self.menu_layout.setContentsMargins(0, 0, 0, 0)
+        self.menu_layout.setSpacing(0)
 
-        # Layout para a barra de ferramentas
-        top_layout = QHBoxLayout()
-        self.search_bar = setup_search_bar(self.icons, top_layout, self.proxy_model)
-        self.setup_buttons(top_layout)
-        self.main_layout.addLayout(top_layout)
+        self.label = QLabel("CCIMAR14", self)
+        self.label.setStyleSheet("color: #FFF; font-size: 24px;")
+        self.label.setCursor(Qt.CursorShape.PointingHandCursor)  # 🔹 Define o cursor correto
+        self.label.mousePressEvent = self.reload_content  # 🔹 Conectar clique ao recarregar conteúdo
+
+        sub_label = QLabel("Licitação", self)
+        sub_label.setStyleSheet("color: #FFF; font-size: 12px")
+
+        self.menu_layout.addWidget(self.label)
+        self.menu_layout.addWidget(sub_label)
         
-        self.setup_table_view()
-        self.configure_table_model()
-        self.adjust_columns()
-
-    def connect_editar_dados_window(self, editar_dados_window):
-        # Conecta o sinal do EditarDadosWindow ao próprio widget
-        editar_dados_window.request_consulta_api.connect(self.request_consulta_api.emit)
+        line = QFrame(self)
+        line.setFrameShape(QFrame.Shape.HLine)
+        line.setStyleSheet("color: #FFF;")
+        self.menu_layout.addWidget(line)
         
-    def on_table_double_click(self, index):
-        row = self.proxy_model.mapToSource(index).row()
-        id_processo = self.model.index(row, self.model.fieldIndex("id_processo")).data()
+        spacer = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.menu_layout.addItem(spacer)
 
-        # Carrega os dados e redefine `selected_row_data` a cada clique duplo
-        self.selected_row_data = self.carregar_dados_por_id(id_processo)
-        print (self.selected_row_data)
-        print (id_processo)
-        if self.selected_row_data:
-            self.rowDoubleClicked.emit(self.selected_row_data)
-        else:
-            QMessageBox.warning(self, "Erro", "Falha ao carregar dados para o ID do processo selecionado.")
+        self.tree_menu = TreeMenu(self.icons, owner=self)
+        self.menu_layout.addWidget(self.tree_menu)
 
-    def carregar_dados_por_id(self, id_processo):
-        """Carrega os dados da linha selecionada a partir do banco de dados usando `id_processo`."""
-        query = f"SELECT * FROM controle_contratos WHERE id_processo = '{id_processo}'"
-        try:
-            # Obtenha os dados do banco de dados
-            dados = self.model.database_manager.fetch_all(query)
-            
-            # Converte para DataFrame caso dados seja uma lista
-            if isinstance(dados, list):
-                dados = pd.DataFrame(dados, columns=self.model.column_names)  # Substitua `self.model.column_names` pela lista de nomes de colunas correta
-            
-            # Verifica se o DataFrame não está vazio
-            return dados.iloc[0].to_dict() if not dados.empty else None
-        except Exception as e:
-            print(f"Erro ao carregar dados: {e}")
-            return None
-        
-    def setup_buttons(self, layout):
-        add_button("Mensagem", "mensagem", self.messageAlert, layout, self.icons, tooltip="Adicionar um novo item")  # Alteração aqui
-        add_button("API", "api", self.apiCheck, layout, self.icons, tooltip="Excluir o item selecionado")
-        add_button("Abrir Tabela", "excel", self.openTable, layout, self.icons, tooltip="Salva o dataframe em um arquivo Excel")
+        # Criando um widget para o menu lateral e armazenando como atributo
+        self.menu_widget = QWidget()
+        self.menu_widget.setLayout(self.menu_layout)
+        self.menu_widget.setStyleSheet("background-color: #181928;")
+        self.menu_widget.setFixedWidth(250)  # Largura fixa para o menu
 
-    def refresh_model(self):
-        """Atualiza a tabela com os dados mais recentes do banco de dados."""
-        self.model.select()
+        main_layout.addWidget(self.menu_widget, stretch=0)
 
-    def setup_table_view(self):
-        self.table_view = QTableView(self)
-        self.table_view.setModel(self.proxy_model)  # Usa o proxy_model corretamente
-        self.table_view.verticalHeader().setVisible(False)
-        self.table_view.doubleClicked.connect(self.on_table_double_click)
-        
-        # Configurações adicionais de estilo e comportamento
-        self.table_view.setSelectionBehavior(QTableView.SelectionBehavior.SelectRows)
-        self.table_view.setSelectionMode(QTableView.SelectionMode.SingleSelection)
+        # Área de conteúdo com QFrame para fundo
+        self.content_widget = QFrame()
+        self.content_layout = QVBoxLayout(self.content_widget)
+        self.content_layout.setContentsMargins(0, 0, 0, 0)
+        self.content_layout.setSpacing(0)
 
-        self.table_view.setStyleSheet(table_view_stylesheet())
-        
-        # Define CenterAlignDelegate para centralizar o conteúdo em todas as colunas
-        center_delegate = CenterAlignDelegate(self.table_view)
-        for column in range(self.model.columnCount()):
-            self.table_view.setItemDelegateForColumn(column, center_delegate)
+        main_layout.addWidget(self.content_widget, stretch=1)
 
-        # Configuração do delegate para a coluna 'situação' (ícones)
-        status_icons = self.model.fieldIndex('status')
-        self.table_view.setItemDelegateForColumn(status_icons, CustomStatusItemDelegate(self.icons, self.table_view, self.model))
 
-        self.main_layout.addWidget(self.table_view)
+    def load_initial_content(self):
+        """Carrega o conteúdo inicial dentro do content_widget."""
+        self.clear_content()
 
-    def configure_table_model(self):
-        self.proxy_model.setSortRole(Qt.ItemDataRole.UserRole)
-        self.update_column_headers()
-        self.hide_unwanted_columns()
+        initial_label = QLabel(" CCIMAR14", self.content_widget)
+        initial_label.setStyleSheet("font-size: 18px; color: #333; font-weight: bold;")
+        initial_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-    def update_column_headers(self):
-        titles = {
-            0: "Status", 1: "Dias", 2: "Renova?",
-            4: "Contrato", 5: "Tipo", 7: "Empresa", 
-            8: "Objeto", 9: "Valor", 14: "OM", 
-            }
-        for column, title in titles.items():
-            self.model.setHeaderData(column, Qt.Orientation.Horizontal, title)
+        self.content_layout.addWidget(initial_label)
 
-    def hide_unwanted_columns(self):
-        visible_columns = {0, 1, 2, 4, 5, 7, 8, 9, 14}
-        for column in range(self.model.columnCount()):
-            if column not in visible_columns:
-                self.table_view.hideColumn(column)
+    def reload_content(self, event=None):
+        """Recarrega o conteúdo inicial ao clicar no QLabel."""
+        self.load_initial_content()
 
-    def adjust_columns(self):
-        # Ajustar automaticamente as larguras das colunas ao conteúdo
-        self.table_view.resizeColumnsToContents()
-        QTimer.singleShot(1, self.apply_custom_column_sizes) 
+    def toggle_menu(self):
+        """Exibe ou oculta o menu lateral dentro da View."""
+        menu_visible = self.menu_widget.isVisible()
+        self.menu_widget.setVisible(not menu_visible)
 
-    def apply_custom_column_sizes(self):
-        header = self.table_view.horizontalHeader()
-        header.setSectionResizeMode(0, QHeaderView.ResizeMode.Fixed)
-        header.setSectionResizeMode(1, QHeaderView.ResizeMode.Fixed)
-        header.setSectionResizeMode(5, QHeaderView.ResizeMode.Fixed)
-        header.setSectionResizeMode(7, QHeaderView.ResizeMode.Stretch)
-        header.setSectionResizeMode(8, QHeaderView.ResizeMode.Fixed)
-        header.setSectionResizeMode(17, QHeaderView.ResizeMode.Fixed)
+    def clear_content(self):
+        """Clears the current content inside the content widget."""
+        while self.content_layout.count():
+            item = self.content_layout.takeAt(0)
+            widget = item.widget()
+            if widget:
+                widget.deleteLater()
+            elif item.layout():
+                self.clear_layout(item.layout())
 
-        header.resizeSection(0, 150)        
-        header.resizeSection(1, 50)
-        header.resizeSection(5, 70)
-        header.resizeSection(8, 200)
-        header.resizeSection(17, 100)
-
-class CenterAlignDelegate(QStyledItemDelegate):
-    def initStyleOption(self, option, index):
-        super().initStyleOption(option, index)
-        option.displayAlignment = Qt.AlignmentFlag.AlignCenter
-
-class CustomStatusItemDelegate(QStyledItemDelegate):
-    def __init__(self, icons, parent=None, model=None):
-        super().__init__(parent)
-        self.icons = icons
-        self.model = model
-
-    def paint(self, painter, option, index):
-        # Verifica se estamos na coluna de status
-        if index.column() == self.model.fieldIndex('status'):
-            status = index.data(Qt.ItemDataRole.DisplayRole)
-            
-            # Define o mapeamento de ícones
-            icon_key = {
-                'Planejamento': 'assinatura',
-                'Reajuste': 'economy',
-                'Prioritário': 'prioridade',
-                'MSG Enviada': 'delivered',
-                'Tá Safo!': 'like',
-                'Vai garrar!': 'head_skull',
-                'Nota Técnica': 'deal',
-            }.get(status)
-
-            # Desenha o ícone, se disponível
-            if icon_key and icon_key in self.icons:
-                icon = self.icons[icon_key]
-                icon_size = 24
-                icon_rect = QRect(option.rect.left() + 5,
-                                  option.rect.top() + (option.rect.height() - icon_size) // 2,
-                                  icon_size, icon_size)
-                painter.drawPixmap(icon_rect, icon.pixmap(icon_size, icon_size))
-
-                # Ajusta o retângulo de texto para não sobrepor o ícone
-                text_rect = QRect(icon_rect.right() + 5, option.rect.top(),
-                                  option.rect.width() - icon_size - 10, option.rect.height())
-            else:
-                # Usa o espaço completo se não houver ícone
-                text_rect = option.rect
-
-            # Configura o pincel para o texto
-            # painter.setPen(text_color)
-            painter.drawText(text_rect, Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter, status)
-
-        else:
-            # Desenha normalmente nas outras colunas
-            super().paint(painter, option, index)
+    def clear_layout(self, layout):
+        """Recursively clears a layout."""
+        while layout.count():
+            item = layout.takeAt(0)
+            widget = item.widget()
+            if widget:
+                widget.deleteLater()
+            elif item.layout():
+                self.clear_layout(item.layout())
