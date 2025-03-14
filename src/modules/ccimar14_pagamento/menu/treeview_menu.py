@@ -5,7 +5,7 @@ from PyQt6.QtGui import QStandardItemModel, QStandardItem
 from PyQt6.QtCore import Qt
 from .menu_callbacks import (  
     show_trilha_auditoria, show_teste_widget, show_vigencia_contratos,
-    show_atas, show_limites_governanca, show_webscraping
+    show_atas, show_limites_governanca, show_webscraping, show_excel_layout
 )
 
 class CustomStandardItem(QStandardItem):
@@ -76,7 +76,6 @@ class TreeMenu(QTreeView):
         item_mensagem      = QStandardItem(self.icons["mensagem"], "Mensagens")
         item_email      = QStandardItem(self.icons["mail"], "E-mail")
         item_oficio      = QStandardItem(self.icons["doc"], "Ofícios")
-        item_api          = QStandardItem(self.icons["api"], "API")
 
         # Adding child items with their respective callbacks
         add_item(item_evidencias, "Empresas inidôneas", self.icons, show_teste_widget)
@@ -94,7 +93,7 @@ class TreeMenu(QTreeView):
         self.model.appendRow(item_email)
         self.model.appendRow(item_oficio)
         add_parent("Webscrapping", self.icons["magnifying-glass"], show_webscraping)
-        self.model.appendRow(item_api)
+        add_parent("Excel", self.icons["excel"], show_excel_layout)
 
     def handle_item_click(self, index):
         """Handles item click events and executes the associated callback."""

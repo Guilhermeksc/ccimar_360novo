@@ -5,7 +5,12 @@ from .content.modulo_contratos import create_vigencia_contratos
 from .content.modulo_atas import create_atas
 from .content.modulo_trilha_auditoria import create_trilha_auditoria
 from .content.modulo_webscraping import create_webscrapping
+from .content.modulo_excel import create_excel_layout
 
+def show_excel_layout(view, icons):
+    view.clear_content()
+    view.content_layout.addWidget(create_excel_layout("Excel Teste", icons))
+    
 def show_teste_widget(view, icons):
     view.clear_content()
     view.content_layout.addWidget(create_vigencia_contratos("Contratos teste", icons))
