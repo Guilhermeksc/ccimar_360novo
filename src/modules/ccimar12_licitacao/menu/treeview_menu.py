@@ -4,12 +4,8 @@ from PyQt6.QtWidgets import QTreeView, QAbstractItemView
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 from PyQt6.QtCore import Qt
 from .menu_callbacks import (  
-    show_trilha_auditoria, show_oficio_ccimar20_widget, show_gerar_notas_widget,
-    show_relatorio_consultas_airflow_widget, show_relatorio_sgm_widget,
-    show_relatorio_ccimar11_widget, show_relatorio_cofamar_widget,
-    show_relatorio_calculo_total_widget, show_relatorio_notas_monitoradas_widget,
-    show_cartao_corporativo, show_teste_widget, show_vigencia_contratos,
-    show_atas, show_limites_governanca
+    show_trilha_auditoria, show_teste_widget, show_vigencia_contratos,
+    show_atas, show_limites_governanca, show_webscraping
 )
 
 class CustomStandardItem(QStandardItem):
@@ -80,15 +76,13 @@ class TreeMenu(QTreeView):
         item_mensagem      = QStandardItem(self.icons["mensagem"], "Mensagens")
         item_email      = QStandardItem(self.icons["mail"], "E-mail")
         item_oficio      = QStandardItem(self.icons["doc"], "Ofícios")
-        item_webscrapping = QStandardItem(self.icons["magnifying-glass"], "Webscrapping")
         item_api          = QStandardItem(self.icons["api"], "API")
 
         # Adding child items with their respective callbacks
-        add_item(item_oficio, "Ofício 1", self.icons, show_oficio_ccimar20_widget)
-        add_item(item_evidencias, "Empresas inidôneas", self.icons, show_relatorio_sgm_widget)
-        add_item(item_evidencias, "Controle PDM", self.icons, show_relatorio_ccimar11_widget)
-        add_item(item_evidencias, "Valores Homologados", self.icons, show_cartao_corporativo)
-        add_item(item_evidencias, "Dados Pessoais", self.icons, show_cartao_corporativo)
+        add_item(item_evidencias, "Empresas inidôneas", self.icons, show_teste_widget)
+        add_item(item_evidencias, "Controle PDM", self.icons, show_teste_widget)
+        add_item(item_evidencias, "Valores Homologados", self.icons, show_teste_widget)
+        add_item(item_evidencias, "Dados Pessoais", self.icons, show_teste_widget)
         add_item(item_evidencias, "Limites de Governança", self.icons, show_limites_governanca)
         add_item(item_evidencias, "Contratos", self.icons, show_vigencia_contratos)
         add_item(item_evidencias, "Atas", self.icons, show_atas)
@@ -99,7 +93,7 @@ class TreeMenu(QTreeView):
         self.model.appendRow(item_mensagem)
         self.model.appendRow(item_email)
         self.model.appendRow(item_oficio)
-        self.model.appendRow(item_webscrapping)
+        add_parent("Webscrapping", self.icons["magnifying-glass"], show_webscraping)
         self.model.appendRow(item_api)
 
     def handle_item_click(self, index):

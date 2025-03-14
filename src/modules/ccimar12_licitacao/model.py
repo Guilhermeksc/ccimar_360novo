@@ -28,35 +28,28 @@ class CCIMAR12Model(QObject):
             self.adjust_table_structure()  # Ajusta a estrutura da tabela, se necessário
 
     def adjust_table_structure(self):
-        """Verifica e cria a tabela 'ccimar11_db' se não existir."""
+        """Verifica e cria a tabela 'ccimar12_db' se não existir."""
         query = QSqlQuery(self.db)
-        if not query.exec("SELECT name FROM sqlite_master WHERE type='table' AND name='ccimar11_db'"):
+        if not query.exec("SELECT name FROM sqlite_master WHERE type='table' AND name='ccimar12_db'"):
             print("Erro ao verificar existência da tabela:", query.lastError().text())
         if not query.next():
-            print("Tabela 'ccimar11_db' não existe. Criando tabela...")
+            print("Tabela 'ccimar12_db' não existe. Criando tabela...")
             self.create_table_if_not_exists()
         else:
             pass
-            # print("Tabela 'ccimar11_db' existe. Verificando estrutura da coluna...")
+            # print("Tabela 'ccimar12_db' existe. Verificando estrutura da coluna...")
 
     def create_table_if_not_exists(self):
-        """Cria a tabela 'ccimar11_db' com a estrutura definida, caso ainda não exista."""
+        """Cria a tabela 'ccimar12_db' com a estrutura definida, caso ainda não exista."""
         query = QSqlQuery(self.db)
         if not query.exec("""
-            CREATE TABLE IF NOT EXISTS ccimar11_db (
-                status TEXT, dias TEXT, prorrogavel TEXT, custeio TEXT, numero_contrato TEXT,
-                tipo TEXT, id TEXT PRIMARY KEY, nome_fornecedor TEXT, objeto TEXT, valor_global TEXT,
-                codigo_uasg TEXT, processo_nup TEXT, cnpj_cpf_idgener TEXT, natureza_continuada TEXT, orgao_contratante_resumido TEXT, 
-                orgao_contratante TEXT, material_servico TEXT, link_pncp TEXT, vigencia_inicial TEXT, vigencia_final TEXT, 
-                termo_aditivo TEXT, atualizacao_comprasnet TEXT, instancia_governanca TEXT, comprasnet_contratos TEXT, licitacao_numero TEXT, 
-                data_assinatura TEXT, data_publicacao TEXT, categoria TEXT, subtipo TEXT, amparo_legal TEXT, 
-                modalidade TEXT, assinatura_contrato TEXT, situacao TEXT
-                               
+            CREATE TABLE IF NOT EXISTS ccimar12_db (
+                status TEXT, dias TEXT, prorrogavel TEXT, custeio TEXT                               
             )
         """):
-            print("Falha ao criar a tabela 'ccimar11_db':", query.lastError().text())
+            print("Falha ao criar a tabela 'ccimar12_db':", query.lastError().text())
         else:
-            print("Tabela 'ccimar11_db' criada com sucesso.")
+            print("Tabela 'ccimar12_db' criada com sucesso.")
 
     def setup_model(self, table_name, editable=False):
         """Configura o modelo SQL para a tabela especificada."""
@@ -83,31 +76,12 @@ class CCIMAR12Model(QObject):
             data['status'] = 'Planejamento'
             
         upsert_sql = '''
-        INSERT INTO ccimar11_db (
-            status, dias, prorrogavel, custeio, numero_contrato, 
-            tipo, id, nome_fornecedor, objeto, valor_global, 
-            codigo_uasg, processo_nup, cnpj_cpf_idgener, natureza_continuada, orgao_contratante_resumido, 
-            orgao_contratante, material_servico, link_pncp, vigencia_inicial, vigencia_final, 
-            termo_aditivo, atualizacao_comprasnet, instancia_governanca, comprasnet_contratos, licitacao_numero, 
-            data_assinatura, data_publicacao, categoria, subtipo, amparo_legal, 
-            modalidade, assinatura_contrato, situacao
+        INSERT INTO ccimar12_db (
+            status, dias, prorrogavel, custeio
         ) VALUES (
-            ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, 
-            ?, ?, ?)
+            ?, ?, ?, ?)
         ON CONFLICT(id) DO UPDATE SET
-                status=excluded.status, dias=excluded.dias, prorrogavel=excluded.prorrogavel, custeio=excluded.custeio, numero_contrato=excluded.numero_contrato,
-                tipo=excluded.tipo, nome_fornecedor=excluded.nome_fornecedor, objeto=excluded.objeto, valor_global=excluded.valor_global,    
-                codigo_uasg=excluded.codigo_uasg, processo_nup=excluded.processo_nup, cnpj_cpf_idgener=excluded.cnpj_cpf_idgener, natureza_continuada=excluded.natureza_continuada,
-                orgao_contratante_resumido=excluded.orgao_contratante_resumido, orgao_contratante=excluded.orgao_contratante, material_servico=excluded.material_servico, link_pncp=excluded.link_pncp,
-                vigencia_inicial=excluded.vigencia_inicial, vigencia_final=excluded.vigencia_final, termo_aditivo=excluded.termo_aditivo, atualizacao_comprasnet=excluded.atualizacao_comprasnet,
-                instancia_governanca=excluded.instancia_governanca, comprasnet_contratos=excluded.comprasnet_contratos, licitacao_numero=excluded.licitacao_numero, data_assinatura=excluded.data_assinatura,
-                data_publicacao=excluded.data_publicacao, categoria=excluded.categoria, subtipo=excluded.subtipo, amparo_legal=excluded.amparo_legal, 
-                modalidade=excluded.modalidade, assinatura_contrato=excluded.assinatura_contrato, situacao=excluded.situacao
+                status=excluded.status, dias=excluded.dias, prorrogavel=excluded.prorrogavel, custeio=excluded.custeio
         '''
 
         # Verifica se 'situacao' está dentro dos valores válidos
@@ -121,19 +95,12 @@ class CCIMAR12Model(QObject):
             with self.database_manager as conn:
                 cursor = conn.cursor()
                 cursor.execute(upsert_sql, (
-                    data.get('status'), data.get('dias'), data.get('prorrogavel'), data.get('custeio'), data.get('numero_contrato'),
-                    data.get('tipo'), data.get('id'), data.get('nome_fornecedor'), data.get('objeto'), data.get('valor_global'),
-                    data.get('codigo_uasg'), data.get('processo_nup'), data.get('cnpj_cpf_idgener'), data.get('natureza_continuada'), data.get('orgao_contratante_resumido'),
-                    data.get('orgao_contratante'), data.get('material_servico'), data.get('link_pncp'), data.get('vigencia_inicial'), data.get('vigencia_final'),
-                    data.get('termo_aditivo'), data.get('atualizacao_comprasnet'), data.get('instancia_governanca'), data.get('comprasnet_contratos'), data.get('licitacao_numero'),
-                    data.get('data_assinatura'), data.get('data_publicacao'), data.get('categoria'), data.get('subtipo'), data.get('amparo_legal'),
-                    data.get('modalidade'), data.get('assinatura_contrato'), data.get('situacao')
-                    )) 
+                    data.get('status'), data.get('dias'), data.get('prorrogavel'), data.get('custeio'))) 
                 conn.commit()
 
         except sqlite3.OperationalError as e:
             if "no such table" in str(e):
-                QMessageBox.warning(None, "Erro", "A tabela 'ccimar11_db' não existe. Por favor, crie a tabela primeiro.")
+                QMessageBox.warning(None, "Erro", "A tabela 'ccimar12_db' não existe. Por favor, crie a tabela primeiro.")
                 return
             else:
                 QMessageBox.warning(None, "Erro", f"Ocorreu um erro ao tentar salvar os dados: {str(e)}")
@@ -146,13 +113,7 @@ class CustomSqlTableModel(QSqlTableModel):
         
         # Define os nomes das colunas
         self.column_names = [
-            "status", "dias", "prorrogavel", "custeio", "numero_contrato",
-            "tipo", "id", "nome_fornecedor", "objeto", "valor_global",
-            "codigo_uasg", "processo_nup", "cnpj_cpf_idgener", "natureza_continuada", "orgao_contratante_resumido",
-            "orgao_contratante", "material_servico", "link_pncp", "vigencia_inicial", "vigencia_final",
-            "termo_aditivo", "atualizacao_comprasnet", "instancia_governanca", "comprasnet_contratos", "licitacao_numero",
-            "data_assinatura", "data_publicacao", "categoria", "subtipo", "amparo_legal",
-            "modalidade", "assinatura_contrato", "situacao"                
+            "status", "dias", "prorrogavel", "custeio"              
         ]
 
     def flags(self, index):

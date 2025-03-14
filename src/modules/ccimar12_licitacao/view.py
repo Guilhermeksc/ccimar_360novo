@@ -32,7 +32,7 @@ class CCIMAR12View(QMainWindow):
         self.menu_layout.setContentsMargins(0, 0, 0, 0)
         self.menu_layout.setSpacing(0)
 
-        self.label = QLabel("CCIMAR12", self)
+        self.label = QLabel("CCIMAR12 xx ", self)
         self.label.setStyleSheet("color: #FFF; font-size: 24px;")
         self.label.setCursor(Qt.CursorShape.PointingHandCursor)  # 🔹 Define o cursor correto
         self.label.mousePressEvent = self.reload_content  # 🔹 Conectar clique ao recarregar conteúdo
