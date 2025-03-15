@@ -33,11 +33,6 @@ from modules.ccimar16_data_science.view import CCIMAR16View
 from modules.ccimar16_data_science.model import CCIMAR16Model
 from modules.ccimar16_data_science.controller import CCIMAR16Controller
 
-from modules.ccimar_utils.view import UtilsView
-from modules.ccimar_utils.model import UtilsModel
-from modules.ccimar_utils.controller import UtilsController
-
-
 __all__ = [
     "InicioWidget",
 
@@ -68,11 +63,7 @@ __all__ = [
     "CCIMAR16View",
     "CCIMAR16Model",
     "CCIMAR16Controller",
-    
-    "UtilsView",
-    "UtilsModel",
-    "UtilsController",
-        
+            
     # Utils
     "load_icons"
     ]

@@ -12,26 +12,21 @@ else:  # Ambiente de desenvolvimento
   
 DEFAULT_DATABASE_DIR = BASE_DIR / "database"
 DEFAULT_JSON_DIR = DEFAULT_DATABASE_DIR / "json"
+DEFAULT_SQL_DIR = DEFAULT_DATABASE_DIR / "sql"
 ASSETS_DIR = BASE_DIR / "assets"
 DEFAULT_TEMPLATE_DIR = ASSETS_DIR / "templates"
 
 CONFIG_FILE = BASE_DIR / "config.json"
 
-
-def load_config(key, default_value):
-    try:
-        with open(CONFIG_FILE, 'r') as f:
-            config = json.load(f)
-            return config.get(key, default_value)
-    except (FileNotFoundError, json.JSONDecodeError):
-        return default_value
-
+# def load_config(key, default_value):
+#     try:
+#         with open(CONFIG_FILE, 'r') as f:
+#             config = json.load(f)
+#             return config.get(key, default_value)
+#     except (FileNotFoundError, json.JSONDecodeError):
+#         return default_value
 
 MODULES_DIR = BASE_DIR / "modules"
-
-JSON_COMPRASNET_CONTRATOS = DEFAULT_JSON_DIR / "consulta_comprasnet"
-
-CONFIG_API_KEY_FILE = DEFAULT_JSON_DIR / "config_api_key.json"  
 
 def get_config_value(key, default_value):
     try:
@@ -45,20 +40,12 @@ def get_config_value(key, default_value):
 DATABASE_DIR = Path(get_config_value("DATABASE_DIR", str(DEFAULT_DATABASE_DIR)))
 JSON_DIR = Path(get_config_value("JSON_DIR", str(DEFAULT_JSON_DIR)))
 TEMPLATE_DIR = Path(get_config_value("TEMPLATE_DIR", str(DEFAULT_TEMPLATE_DIR)))
+SQL_DIR = Path(get_config_value("SQL_DIR", str(DEFAULT_SQL_DIR)))
 
-# DATABASE_DIR = Path(load_config("DATABASE_DIR", str(DEFAULT_DATABASE_DIR)))
-# JSON_DIR = Path(load_config("JSON_DIR", str(DEFAULT_JSON_DIR)))
-
-
-SQL_DIR = DEFAULT_DATABASE_DIR / "sql"
 
 # Assets
-ASSETS_DIR = BASE_DIR / "assets"
 TEMPLATE_DIR = ASSETS_DIR / "templates"
-STYLE_PATH = ASSETS_DIR / "style.css" 
 ICONS_DIR = ASSETS_DIR / "icons"
-IMAGE_DIR = ASSETS_DIR / "image"
-CCIMAR360_PATH = IMAGE_DIR / "CCIMAR-360.png"
 ICONS_MENU_DIR = ICONS_DIR / "menu"
 
 def load_global_config():
@@ -74,20 +61,16 @@ global_config = load_global_config()
 custom_base_path = global_config.get("BASE_PATH")
 USER_BASE_PATH = Path(custom_base_path) if custom_base_path else BASE_DIR
 
-CONFIG_FILE = JSON_DIR / "config.json"
-
-
 def reload_paths():
     """Recarrega os diretórios a partir do arquivo de configuração e atualiza as variáveis globais."""
     global DATABASE_DIR, JSON_DIR, TEMPLATE_DIR, CONFIG_FILE
     DATABASE_DIR = Path(get_config_value("DATABASE_DIR", str(DEFAULT_DATABASE_DIR)))
     JSON_DIR = Path(get_config_value("JSON_DIR", str(DEFAULT_JSON_DIR)))
     TEMPLATE_DIR = Path(get_config_value("TEMPLATE_DIR", str(DEFAULT_TEMPLATE_DIR)))
-    # Caso CONFIG_FILE seja definido com base no JSON_DIR, descomente a linha a seguir:
-    # CONFIG_FILE = JSON_DIR / "config.json"
-    print("reload_paths() => DATABASE_DIR:", DATABASE_DIR)
-    print("reload_paths() => JSON_DIR:", JSON_DIR)
-    print("reload_paths() => TEMPLATE_DIR:", TEMPLATE_DIR)
+
+    # print("reload_paths() => DATABASE_DIR:", DATABASE_DIR)
+    # print("reload_paths() => JSON_DIR:", JSON_DIR)
+    # print("reload_paths() => TEMPLATE_DIR:", TEMPLATE_DIR)
 
 # Garante que os diretórios existam
 os.makedirs(JSON_DIR, exist_ok=True)
@@ -113,6 +96,3 @@ def update_base_paths(new_base_path):
     # Atualiza a configuração persistente
     save_config("BASE_PATH", new_base_path)
 
-
-    
-API_KEY = "teste"

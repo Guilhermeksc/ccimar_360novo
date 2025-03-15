@@ -38,8 +38,6 @@ def update_dir(title, key, default_value, parent=None):
 
 AGENTES_RESPONSAVEIS_FILE = DEFAULT_JSON_DIR / "agentes_responsaveis.json"
 
-PDF_DIR = Path(load_config("PDF_DIR", DEFAULT_DATABASE_DIR / "pdf"))
-
 class ConfigManager(QObject):
     config_updated = pyqtSignal(str, Path)  # sinal emitido quando uma configuração é atualizada
 

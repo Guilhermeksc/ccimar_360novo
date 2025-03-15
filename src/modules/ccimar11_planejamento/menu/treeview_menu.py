@@ -8,7 +8,7 @@ from .menu_callbacks import (
     show_acoes_orcamentarias, show_objetos_auditaveis, show_om_representativas,  
     show_criterio1_execucao_licitacao, show_criterio2_pagamento,
     show_criterio3_munic, show_criteriox_omps, show_criterio4_patrimonio,
-    show_oficio_ccimar20_widget, show_gerar_notas_widget, show_chat_bot
+    show_oficio_ccimar20_widget, show_gerar_notas_widget
 )
 
 class CustomStandardItem(QStandardItem):
@@ -85,7 +85,6 @@ class TreeMenu(QTreeView):
         item_cronograma = add_parent("Cronograma", self.icons["timeline"])
         item_processo = add_parent("Processo de Auditoria", self.icons["process"])
         item_monitoramento = add_parent("Monitoramento", self.icons["statistics"], show_oficio_ccimar20_widget)
-        item_chat = add_parent("Chat", self.icons["chat"], show_chat_bot)
 
         # Adding child items with their respective callbacks
         add_item(item_paint, "Execução/Licitação", self.icons, show_criterio1_execucao_licitacao)

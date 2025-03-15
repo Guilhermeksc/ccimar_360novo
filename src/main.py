@@ -6,7 +6,10 @@ from pathlib import Path
 from utils.icon_loader import load_icons
 from utils.styles import get_menu_button_style, get_menu_button_activated_style
 from modules.widgets import *
-from config.config_widget import ConfigManager
+from config.view import ConfigView
+from config.controller import ConfigController
+from config.model import ConfigModel
+from config.path import CONFIG_DATA_PATH
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -20,16 +23,20 @@ class MainWindow(QMainWindow):
 
     # ====== SETUP DA INTERFACE ======
     def setup_ui(self):
-        """Configura a interface principal da aplicação."""
         self.configure_window()
         self.setup_central_widget()
         self.setup_menu()
         self.setup_toggle_button()
+        self.setup_fullscreen_button()
         self.setup_content_area()
+
+        # Instalar filtro de evento para mostrar tooltips personalizados
+        self.toggle_button.installEventFilter(self)
+        self.toggle_fullscreen_button.installEventFilter(self)
 
     def configure_window(self):
         """Configurações básicas da janela principal."""
-        self.setWindowTitle("CCIMAR360 - Ciência de Dados Aplicada à Auditoria")
+        self.setWindowTitle("DATA-SCIENCEMAR - Ciência de Dados Aplicada à Auditoria da Marinha do Brasil")
         self.setWindowIcon(self.icons["data-science"])        
         # Posiciona a janela no canto superior esquerdo
         screen_geometry = self.screen().geometry()
@@ -65,7 +72,7 @@ class MainWindow(QMainWindow):
 
         # Definindo os botões do menu e seus contextos
         self.menu_buttons = [
-            ("init", "init_hover", "Página Inicial", self.show_inicio),
+            ("data_blue", "data", "Página Inicial", self.show_inicio),
             ("number-10-b", "number-10", "Departamento de Auditoria Interna (CCIMAR-10)", self.show_ccimar10),
             ("number-11-b", "number-11", "Divisão de Planejamento e Monitoramento (CCIMAR-11)", self.show_ccimar11),
             ("number-12-b", "number-12", "Divisão de Licitações (CCIMAR-12)", self.show_ccimar12),
@@ -73,7 +80,6 @@ class MainWindow(QMainWindow):
             ("number-14-b", "number-14", "Divisão de Pagamento (CCIMAR-14)", self.show_ccimar14),
             ("number-15-b", "number-15", "Divisão de Material (CCIMAR-15)", self.show_ccimar15),
             ("number-16-b", "number-16", "Divisão de Ciência de Dados Aplicada à Auditoria (CCIMAR-16)", self.show_ccimar16),
-            ("data_blue", "data", "Utilidades", self.show_ccimar_utils),
             ("config", "config_hover", "Configurações", self.show_config),
         ]
 
@@ -89,10 +95,9 @@ class MainWindow(QMainWindow):
         # Adiciona um espaço flexível para empurrar o ícone para o final
         self.menu_layout.addSpacerItem(QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding))
 
-        # Adiciona o ícone 360-degrees.png na parte inferior
-
+        # Adiciona o ícone na parte inferior
         icon_label = QLabel(self)
-        icon_label.setPixmap(self.icons["360-degrees"].pixmap(40, 40))  # Define o ícone com tamanho 50x50
+        icon_label.setPixmap(self.icons["360-degrees"].pixmap(35, 35))  # Define o ícone com tamanho 50x50
         icon_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.menu_layout.addWidget(icon_label)
 
@@ -146,12 +151,12 @@ class MainWindow(QMainWindow):
         return super().eventFilter(obj, event)        
 
     def setup_toggle_button(self):
-        """Cria um botão sobreposto para ocultar/exibir o menu lateral, posicionado acima do canto inferior esquerdo."""
+        """Cria um botão para ocultar/exibir o menu lateral."""
         self.toggle_button = QPushButton(self)
-        self.toggle_button.setIcon(self.icons["menu"])  # Ícone do menu
+        self.toggle_button.setIcon(self.icons["menu"])  
         self.toggle_button.setIconSize(QSize(30, 30))
         self.toggle_button.setFixedSize(40, 40)
-        self.toggle_button.setCursor(Qt.CursorShape.PointingHandCursor) 
+        self.toggle_button.setCursor(Qt.CursorShape.PointingHandCursor)
 
         self.toggle_button.setStyleSheet("""
             QPushButton {
@@ -162,10 +167,12 @@ class MainWindow(QMainWindow):
                 background-color: rgba(255, 255, 255, 50);
             }
         """)
+        self.toggle_button.setProperty("tooltipText", "Expandir/Recolher Menu")  # Tooltip
         self.toggle_button.clicked.connect(self.toggle_menu)
 
         # Posicionar o botão dinamicamente ao iniciar e ao redimensionar a janela
         self.update_toggle_button_position()
+
 
     def update_toggle_button_position(self):
         """Atualiza a posição do botão para mantê-lo acima do canto inferior esquerdo."""
@@ -178,8 +185,12 @@ class MainWindow(QMainWindow):
         self.toggle_button.move(new_x, new_y)
 
     def resizeEvent(self, event):
-        """Recalcula a posição do botão ao redimensionar a janela."""
+        """Update button positions when the window is resized."""
         self.update_toggle_button_position()
+        
+        if hasattr(self, "toggle_fullscreen_button"):  # Check before calling the update function
+            self.update_fullscreen_button_position()
+        
         super().resizeEvent(event)
 
     def create_icon_button(self, icon_key, hover_icon_key, selected_icon_key):
@@ -279,24 +290,15 @@ class MainWindow(QMainWindow):
     def show_ccimar16(self) -> None:
         self._show_module(CCIMAR16Model, CCIMAR16View, CCIMAR16Controller, CCIMAR16_PATH, "ccimar16", "number-16-b")
 
-    def show_ccimar_utils(self) -> None:
-        self._show_module(UtilsModel, UtilsView, UtilsController, CCIMAR_UTIL_PATH, "ccimar_utils", "number-16-b")
-
-    def show_config(self):
-        self.clear_content_area()
-        # Instanciar o ConfigManager com os ícones
-        self.config_manager = ConfigManager(self.icons, self)
-        # Adicionar o ConfigManager à área de conteúdo
-        self.content_layout.addWidget(self.config_manager)
-        # Define o botão correspondente como ativo
-        self.set_active_button(self.buttons["config"])
-
+    def show_config(self) -> None:
+        self._show_module(ConfigModel, ConfigView, ConfigController, CONFIG_DATA_PATH, "config", "config") 
+               
     def show_inicio(self):
         self.clear_content_area()
         self.inicio_widget = InicioWidget(self.icons)
         self.content_layout.addWidget(self.inicio_widget)
         # Define o botão "init" como o ativo (correspondente ao botão inicial)
-        self.set_active_button(self.buttons["init"])    
+        self.set_active_button(self.buttons["data_blue"])    
         
     def open_initial_page(self):
         """Abre a página inicial da aplicação."""
@@ -308,7 +310,7 @@ class MainWindow(QMainWindow):
             self.content_layout.addWidget(self.inicio_widget )
 
         # Define o botão "init" como ativo
-        self.set_active_button(self.buttons["init"]) 
+        self.set_active_button(self.buttons["data_blue"]) 
         
     # ====== ÁREA DE CONTEÚDO ======
     def setup_content_area(self) -> None:
@@ -349,6 +351,49 @@ class MainWindow(QMainWindow):
             QMessageBox.StandardButton.No
         )
         event.accept() if reply == QMessageBox.StandardButton.Yes else event.ignore()
+
+    def setup_fullscreen_button(self):
+        """Cria um botão acima do toggle_menu para alternar entre tela cheia e normal."""
+        self.toggle_fullscreen_button = QPushButton(self)
+        self.toggle_fullscreen_button.setIcon(self.icons["minimize"])  
+        self.toggle_fullscreen_button.setIconSize(QSize(30, 30))
+        self.toggle_fullscreen_button.setFixedSize(40, 40)
+        self.toggle_fullscreen_button.setCursor(Qt.CursorShape.PointingHandCursor)
+
+        self.toggle_fullscreen_button.setStyleSheet("""
+            QPushButton {
+                background-color: rgba(0, 0, 0, 100);
+                border-radius: 5px;
+            }
+            QPushButton:hover {
+                background-color: rgba(255, 255, 255, 50);
+            }
+        """)
+        
+        self.toggle_fullscreen_button.setProperty("tooltipText", "Maximizar/Minimizar Tela")  # Tooltip
+        self.toggle_fullscreen_button.clicked.connect(self.toggle_fullscreen)
+
+        # Posicionar o botão acima do toggle_menu
+        self.update_fullscreen_button_position()
+
+    def update_fullscreen_button_position(self):
+        """Updates the position of the fullscreen button above the toggle menu button."""
+        margin_bottom = 110  # Adjusted to place it above the toggle menu
+        margin_left = 5  # Align with the toggle menu button
+
+        new_x = margin_left
+        new_y = self.height() - self.toggle_fullscreen_button.height() - margin_bottom
+
+        self.toggle_fullscreen_button.move(new_x, new_y)
+
+    def toggle_fullscreen(self):
+        """Toggles between fullscreen and normal window mode."""
+        if self.isFullScreen():
+            self.showNormal()
+            self.toggle_fullscreen_button.setIcon(self.icons["minimize"])  # Restore fullscreen icon
+        else:
+            self.showFullScreen()
+            self.toggle_fullscreen_button.setIcon(self.icons["maximize"])  # Show exit fullscreen icon
                     
 if __name__ == "__main__":
     import sys

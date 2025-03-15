@@ -45,6 +45,11 @@ def load_icons():
         "number-15-b": load_icon("number-15-b.png"),
         "number-16": load_icon("number-16.png"),
         "number-16-b": load_icon("number-16-b.png"),
+
+        "datasciencemar": load_icon("datasciencemar.png"),
+        "maximize": load_icon("maximize.png"),
+        "minimize": load_icon("minimize.png"),
+        
         
         "initdataprocessing": load_icon("initdataprocessing.png"),    
         "initdatacollection": load_icon("initdatacollection.png"),    

@@ -8,7 +8,6 @@ from .content.criterio4_patrimonio import create_criterio4_patrimonio
 from .content.criterio5_periodo_sem_auditoria import create_criterio5_anos_sem_audit
 from .content.criterio6_em_foco_externo import create_criterio6_foco_externo
 from .content.criteriox_omps import create_x
-from .content.chatbot import create_chatbot
 from .content.criterios_pesos import create_criterios_pesos
 from .content.cadastro_objetos_auditaveis import create_cadastro_objetos_auditaveis
 from .content.objetivos_navais import create_objetivos_navais
@@ -126,9 +125,3 @@ def show_oficio_apresentacao_widget(view):
 def show_teste_widget(view):
     view.clear_content()
     view.content_layout.addWidget(create_content("Teste"))
-
-def show_chat_bot(view, icons):
-    view.clear_content()
-    # Se necessário, passe os ícones para create_chatbot ou armazene-os em view
-    view.content_layout.addWidget(create_chatbot("CCIMAR360 CHAT", view.database_model, icons))
-
