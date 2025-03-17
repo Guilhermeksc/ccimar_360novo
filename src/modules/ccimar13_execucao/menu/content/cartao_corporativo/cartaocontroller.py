@@ -7,6 +7,11 @@ import webbrowser
 from .dashboard.dash_popup import DashboardPopup
 import zipfile
 import os
+import sys
+import subprocess
+import pandas as pd
+from openpyxl import load_workbook
+from openpyxl.utils import get_column_letter
 from io import BytesIO
 
 class CartaoCorporativoController(QObject): 
@@ -47,41 +52,70 @@ class CartaoCorporativoController(QObject):
         webbrowser.open(url)  # 🔹 Abre o link no navegador padrão
     
     def export_table(self):
-        """Export filtered table data to an Excel file."""
+        """Export all table data, including hidden columns, to an Excel file."""
         file_dialog = QFileDialog()
-        file_path, _ = file_dialog.getSaveFileName(self.view, "Save as Excel", "", "Excel Files (*.xlsx)")
+        file_path, _ = file_dialog.getSaveFileName(
+            self.view, "Save as Excel", "", "Excel Files (*.xlsx)"
+        )
 
         if not file_path:
             return  # If the user cancels, do nothing
 
+        # Ensure the file has the correct extension
+        if not file_path.lower().endswith(".xlsx"):
+            file_path += ".xlsx"
+
         try:
             headers = []
             data = []
-            
-            # Get column headers
-            for col in range(self.view.table_view.model().columnCount()):
-                header_text = self.view.table_view.model().headerData(col, Qt.Orientation.Horizontal)
-                if self.view.table_view.isColumnHidden(col):
-                    continue  # Ignore hidden columns
+
+            # Get column headers, including hidden columns
+            for col in range(self.view.model.columnCount()):
+                header_text = self.view.model.headerData(col, Qt.Orientation.Horizontal)
                 headers.append(header_text)
-            
-            # Get filtered data
+
+            # Get all data from the model, including hidden columns
             for row in range(self.view.proxy_model.rowCount()):
                 row_data = []
-                for col in range(self.view.proxy_model.columnCount()):
-                    if self.view.table_view.isColumnHidden(col):
-                        continue  # Ignore hidden columns
-                    index = self.view.proxy_model.index(row, col)
+                source_index = self.view.proxy_model.mapToSource(self.view.proxy_model.index(row, 0)).row()
+                for col in range(self.view.model.columnCount()):
+                    index = self.view.model.index(source_index, col)
                     row_data.append(index.data(Qt.ItemDataRole.DisplayRole))
                 data.append(row_data)
-            
+
             # Create DataFrame and export
             df = pd.DataFrame(data, columns=headers)
             df.to_excel(file_path, index=False)
-            
+
+            # Adjust column widths
+            column_widths = {
+                0: 50, 1: 50, 2: 50, 3: 50, 4: 70, 5: 100, 6: 70, 7: 100
+            }
+            default_width = 80
+
+            wb = load_workbook(file_path)
+            ws = wb.active
+
+            for col_num, column_cells in enumerate(ws.iter_cols(), start=1):
+                col_index = col_num - 1  # Convert to zero-based index
+                width = column_widths.get(col_index, default_width)
+                ws.column_dimensions[get_column_letter(col_num)].width = width
+
+            wb.save(file_path)
+
             QMessageBox.information(self.view, "Sucesso", f"Dados exportados com sucesso para: {file_path}")
+            
+            # Open the exported file
+            if sys.platform.startswith("win"):  # Windows
+                os.startfile(file_path)
+            elif sys.platform.startswith("linux"):  # Linux
+                subprocess.run(["xdg-open", file_path])
+            
         except Exception as e:
             QMessageBox.critical(self.view, "Erro", f"Falha ao exportar dados: {str(e)}")
+
+
+            print(f"Falha ao exportar dados: {str(e)}")
     
     def import_xlsx_to_db(self):
         """Abre um arquivo XLSX, CSV ou ZIP e importa os dados para o banco de dados."""
