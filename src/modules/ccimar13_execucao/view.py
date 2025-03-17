@@ -33,9 +33,10 @@ class CCIMAR13View(QMainWindow):
 
         label = QLabel("CCIMAR13", self)
         label.setStyleSheet("color: #FFF; font-size: 24px")
-        sub_label = QLabel("Execução Financeira", self)
+        sub_label = QLabel("Orçamentária, Financeira e em Programas Estratégicos", self)
         sub_label.setStyleSheet("color: #FFF; font-size: 12px")
-
+        sub_label.setWordWrap(True)
+        
         self.menu_layout.addWidget(label)
         self.menu_layout.addWidget(sub_label)
         

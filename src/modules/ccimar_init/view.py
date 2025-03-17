@@ -1,12 +1,13 @@
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
 from PyQt6.QtCore import *
+from paths import APP_NAME
 
 class InicioWidget(QWidget):
     def __init__(self, icons, parent=None):
         super().__init__(parent)
         self.icons = icons
-        self.title = "DATA-SCIENCEMAR"
+        self.title = APP_NAME
         self.setup_ui()
         
     def setup_ui(self):
@@ -26,7 +27,7 @@ class InicioWidget(QWidget):
 
         # --- Title Label ---
         title_label = QLabel(self.title)
-        title_label.setStyleSheet("font-size: 60px; font-weight: bold; color: #FFFFFF")
+        title_label.setStyleSheet("font-size: 90px; font-weight: bold; color: #FFFFFF")
         title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         datascience_title_layout.addWidget(title_label)
         datascience_title_layout.addStretch()

@@ -1,0 +1,12 @@
+SELECT 
+    t.tril_cd_id, 
+    t.tril_cd_trilha, 
+    t.tril_nm_completo, 
+    t.tril_ds_trilha,
+    trt.niex_nm_completo,
+    trt.niex_nr_nivel_exposicao
+FROM public.trilha t
+LEFT JOIN public.nivel_exposicao trt ON t.niex_cd_id = trt.niex_cd_id
+WHERE t.area_cd_id = 11
+AND t.tril_in_ativo = B'1'
+ORDER BY trt.niex_nr_nivel_exposicao DESC;

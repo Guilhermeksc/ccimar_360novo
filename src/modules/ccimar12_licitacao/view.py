@@ -1,6 +1,8 @@
 # src/modules/ccimar11_planejamento/view.py
 
-from PyQt6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QSpacerItem, QSizePolicy
+from PyQt6.QtWidgets import (
+    QLabel, QFrame, QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QSpacerItem, QSizePolicy
+)
 from PyQt6.QtCore import pyqtSignal, Qt
 from .menu.treeview_menu import TreeMenu
 from .menu.menu_callbacks import *
@@ -37,8 +39,9 @@ class CCIMAR12View(QMainWindow):
         self.label.setCursor(Qt.CursorShape.PointingHandCursor)  # 🔹 Define o cursor correto
         self.label.mousePressEvent = self.reload_content  # 🔹 Conectar clique ao recarregar conteúdo
 
-        sub_label = QLabel("Licitação", self)
+        sub_label = QLabel("Compras, Contratações e Acordos Administrativos", self)
         sub_label.setStyleSheet("color: #FFF; font-size: 12px")
+        sub_label.setWordWrap(True)
 
         self.menu_layout.addWidget(self.label)
         self.menu_layout.addWidget(sub_label)

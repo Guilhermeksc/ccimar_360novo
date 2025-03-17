@@ -46,6 +46,7 @@ class CCIMAR11View(QMainWindow):
 
         sub_label = QLabel("Planejamento e Monitoramento", self)
         sub_label.setStyleSheet("color: #FFF; font-size: 12px")
+        sub_label.setWordWrap(True)
 
         self.menu_layout.addWidget(self.label)
         self.menu_layout.addWidget(sub_label)

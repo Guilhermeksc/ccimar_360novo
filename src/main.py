@@ -10,11 +10,13 @@ from config.view import ConfigView
 from config.controller import ConfigController
 from config.model import ConfigModel
 from config.path import CONFIG_DATA_PATH
+from paths import APP_NAME
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.icons = load_icons()
+        self.title = APP_NAME
         self.buttons = {}
         self.active_button = None
         self.inicio_widget = None
@@ -36,7 +38,7 @@ class MainWindow(QMainWindow):
 
     def configure_window(self):
         """Configurações básicas da janela principal."""
-        self.setWindowTitle("DATA-SCIENCEMAR - Ciência de Dados Aplicada à Auditoria da Marinha do Brasil")
+        self.setWindowTitle(f"{self.title} - Ciência de Dados Aplicada à Auditoria da Marinha do Brasil")
         self.setWindowIcon(self.icons["data-science"])        
         # Posiciona a janela no canto superior esquerdo
         screen_geometry = self.screen().geometry()
@@ -75,10 +77,10 @@ class MainWindow(QMainWindow):
             ("data_blue", "data", "Página Inicial", self.show_inicio),
             ("number-10-b", "number-10", "Departamento de Auditoria Interna (CCIMAR-10)", self.show_ccimar10),
             ("number-11-b", "number-11", "Divisão de Planejamento e Monitoramento (CCIMAR-11)", self.show_ccimar11),
-            ("number-12-b", "number-12", "Divisão de Licitações (CCIMAR-12)", self.show_ccimar12),
-            ("number-13-b", "number-13", "Divisão de Execução (CCIMAR-13)", self.show_ccimar13),
-            ("number-14-b", "number-14", "Divisão de Pagamento (CCIMAR-14)", self.show_ccimar14),
-            ("number-15-b", "number-15", "Divisão de Material (CCIMAR-15)", self.show_ccimar15),
+            ("number-12-b", "number-12", "Divisão de Auditoria em Compras, Contratações e Acordos Administrativos (CCIMAR-12)", self.show_ccimar12),
+            ("number-13-b", "number-13", "Divisão de Auditoria em Orçamentária, Financeira e em Programas Estratégicos (CCIMAR-13)", self.show_ccimar13),
+            ("number-14-b", "number-14", "Divisão de Auditoria em Recursos Humanos (CCIMAR-14)", self.show_ccimar14),
+            ("number-15-b", "number-15", "Divisão de Auditoria Patrimonial e de Atividades Especiais (CCIMAR-15)", self.show_ccimar15),
             ("number-16-b", "number-16", "Divisão de Ciência de Dados Aplicada à Auditoria (CCIMAR-16)", self.show_ccimar16),
             ("config", "config_hover", "Configurações", self.show_config),
         ]

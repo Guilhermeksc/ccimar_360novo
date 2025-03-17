@@ -40,9 +40,10 @@ class CCIMAR15View(QMainWindow):
         self.label.setCursor(Qt.CursorShape.PointingHandCursor)  # 🔹 Define o cursor correto
         self.label.mousePressEvent = self.reload_content  # 🔹 Conectar clique ao recarregar conteúdo
 
-        sub_label = QLabel("Material", self)
+        sub_label = QLabel("Patrimonial e de Atividades Especiais", self)
         sub_label.setStyleSheet("color: #FFF; font-size: 12px")
-
+        sub_label.setWordWrap(True)
+        
         self.menu_layout.addWidget(self.label)
         self.menu_layout.addWidget(sub_label)
         

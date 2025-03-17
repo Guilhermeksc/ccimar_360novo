@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 import os
 
+APP_NAME = "Audita"
+
 if getattr(sys, 'frozen', False):  # Executável compilado
     BASE_DIR = Path(sys._MEIPASS) / "src"  # Diretório temporário + 'src'
 else:  # Ambiente de desenvolvimento
