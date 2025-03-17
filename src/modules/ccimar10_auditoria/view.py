@@ -1,4 +1,9 @@
-from PyQt6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QSpacerItem, QSizePolicy, QLabel, QFrame
+# src/modules/ccimar11_planejamento/view.py
+
+from PyQt6.QtWidgets import (
+    QLabel, QFrame, QMainWindow, QWidget, QHBoxLayout, 
+    QVBoxLayout, QSpacerItem, QSizePolicy
+)
 from PyQt6.QtCore import pyqtSignal, Qt
 from .menu.treeview_menu import TreeMenu
 from .menu.menu_callbacks import *
@@ -6,13 +11,14 @@ from .menu.menu_callbacks import *
 class CCIMAR10View(QMainWindow):
     teste = pyqtSignal()
 
-    def __init__(self, icons, model, database_model, parent=None):
+    def __init__(self, icons, model, database_path, parent=None):
         super().__init__(parent)
         self.icons = icons
         self.model = model
-        self.database_model = database_model
+        self.database_path = database_path
         self.document = None
         self.current_content_layout = None
+
         self.setup_ui()
         self.load_initial_content() 
 
@@ -29,23 +35,12 @@ class CCIMAR10View(QMainWindow):
         self.menu_layout.setContentsMargins(0, 0, 0, 0)
         self.menu_layout.setSpacing(0)
 
-        self.label = QLabel("CCIMAR10", self)
-        self.label.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.label.setAttribute(Qt.WidgetAttribute.WA_Hover, True)  # Ativa o hover
-        self.label.setStyleSheet("""
-            QLabel {
-                color: #FFF;
-                font-size: 24px;
-            }
-            QLabel:hover {
-                color: #FFD700;
-            }
-        """)
-
+        self.label = QLabel("CCIMAR10 ", self)
+        self.label.setStyleSheet("color: #FFF; font-size: 24px;")
+        self.label.setCursor(Qt.CursorShape.PointingHandCursor)  # 🔹 Define o cursor correto
         self.label.mousePressEvent = self.reload_content  # 🔹 Conectar clique ao recarregar conteúdo
 
         sub_label = QLabel("Departamento de Auditoria Interna", self)
-
         sub_label.setStyleSheet("color: #FFF; font-size: 12px")
 
         self.menu_layout.addWidget(self.label)
@@ -78,11 +73,12 @@ class CCIMAR10View(QMainWindow):
 
         main_layout.addWidget(self.content_widget, stretch=1)
 
+
     def load_initial_content(self):
         """Carrega o conteúdo inicial dentro do content_widget."""
         self.clear_content()
 
-        initial_label = QLabel(" CCIMAR11", self.content_widget)
+        initial_label = QLabel(" CCIMAR10", self.content_widget)
         initial_label.setStyleSheet("font-size: 18px; color: #333; font-weight: bold;")
         initial_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 

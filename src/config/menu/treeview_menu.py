@@ -72,12 +72,6 @@ class TreeMenu(QTreeView):
         add_parent("Agentes Responsáveis", self.icons["route"], show_agentes_responsaveis)
         add_parent("Local de Salvamento", self.icons["magnifying-glass"], show_local_salvamento)
         
-        item_evidencias   = QStandardItem(self.icons["statistics"], "Evidências")
-
-        add_item(item_evidencias, "Empresas inidôneas", self.icons, show_agentes_responsaveis)
-        add_item(item_evidencias, "Controle PDM", self.icons, show_agentes_responsaveis)
-
-
     def handle_item_click(self, index):
         """Handles item click events and executes the associated callback."""
         item = self.model.itemFromIndex(index)

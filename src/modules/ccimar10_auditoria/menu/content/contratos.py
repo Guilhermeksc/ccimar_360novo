@@ -1,15 +1,11 @@
-"""
-Módulo principal para objetos auditáveis (versão modularizada).
-
-Este módulo serve como ponto de entrada para a funcionalidade de objetos auditáveis,
-utilizando a estrutura modularizada implementada no pacote objetos_auditaveis.
-"""
-
-from .modulo_local_salvamento.ui import (
-    create_local_salvamento
+from .modulo_contratos import (    
+    CustomTableView,
+    ExcelModelManager,
+    load_config
 )
+from .modulo_contratos.ui import create_vigencia_contratos
 
-def create_local_salvamento(title_text, icons) :
+def create_vigencia_contratos(title_text):
     """
     Cria a interface para objetos auditáveis usando a versão modularizada.
     
@@ -23,4 +19,4 @@ def create_local_salvamento(title_text, icons) :
     Returns:
         QFrame: Frame contendo a interface de objetos auditáveis
     """
-    return create_local_salvamento(title_text, icons) 
+    return create_vigencia_contratos(title_text) 

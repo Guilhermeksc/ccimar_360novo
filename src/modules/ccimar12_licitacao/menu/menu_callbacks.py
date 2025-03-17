@@ -1,6 +1,5 @@
 # src/modules/ccimar12_planejamento/menu/menu_callbacks.py
 
-from PyQt6.QtWidgets import QLabel, QFrame, QVBoxLayout
 from .content.modulo_contratos import create_vigencia_contratos
 from .content.modulo_atas import create_atas
 from .content.modulo_trilha_auditoria import create_trilha_auditoria

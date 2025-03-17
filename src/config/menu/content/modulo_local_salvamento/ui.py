@@ -23,8 +23,8 @@ def create_local_salvamento(title_text, icons):
     main_layout.setSpacing(15)
 
     # Criando e adicionando o widget AgentesResponsaveisWidget
-    agentes_widget = AgentesResponsaveisWidget(icons)
-    main_layout.addWidget(agentes_widget)
+    local_salvamento_widget = AlterarLocalSalvamentoWidget(icons)
+    main_layout.addWidget(local_salvamento_widget)
     
     return main_frame
 
@@ -53,80 +53,6 @@ class CustomTableView(QTableView):
                     new_state = Qt.CheckState.Unchecked if check_item.checkState() == Qt.CheckState.Checked else Qt.CheckState.Checked
                     check_item.setCheckState(new_state)
         super().mousePressEvent(event)
-
-                
-class AgentesResponsaveisWidget(QWidget):
-    def __init__(self, icons, parent=None):
-        super().__init__(parent)
-        self.icons = icons
-        self.setup_ui()
-
-    def setup_ui(self):
-        main_layout = QVBoxLayout(self)
-
-        # Criação da barra de título e botões
-        title_widget, self.btn_export, self.btn_import, self.btn_add, self.btn_delete = self.create_title_bar()
-        main_layout.addWidget(title_widget)
-
-        # Criação da tabela utilizando CustomTableView
-        # Caso não tenha uma classe CustomTableView, use QTableView diretamente
-        self.table = CustomTableView()
-        self.table.setFont(QFont("Arial", 12))
-        apply_table_style(self.table)
-
-        # Criação do modelo e definição dos cabeçalhos
-        # Agora temos 7 colunas: 1 de checkbox + 6 de dados
-        model = QStandardItemModel(0, 7, self)
-        model.setHorizontalHeaderLabels([
-            "", "Nome", "Nome de Guerra", "Posto", "Abreviação", "NIP", "Função"
-        ])
-        self.table.setModel(model)
-
-        # Ajuste das colunas (opcional; adapte se precisar ocultar colunas)
-        self.adjust_columns()
-
-        main_layout.addWidget(self.table)
-
-        # Carregar dados do JSON
-        self.load_data()
-
-        self.table.doubleClicked.connect(self.open_edit_dialog)  
-
-        self.setLayout(main_layout)
-            
-    def create_title_bar(self):
-        title_widget = QWidget()
-        layout = QHBoxLayout(title_widget)
-
-        title_label = QLabel("Inclusão / Exclusão de Agentes Responsáveis")
-        title_label.setStyleSheet("font-size: 20px; font-weight: bold; color: #FFFFFF;")
-        layout.addWidget(title_label)
-        layout.addStretch()
-
-        btn_export = add_button_func("Exportar", "export", self.export_table_data, layout, self.icons, tooltip="Exportar dados")
-        btn_import = add_button_func("Importar", "import", self.import_table_data, layout, self.icons, tooltip="Importar dados")
-        btn_add = add_button_func("Adicionar", "add", self.open_add_dialog, layout, self.icons, tooltip="Adicionar novo agente")
-        btn_delete = add_button_func("Excluir", "delete", self.delete_selected_rows, layout, self.icons, tooltip="Excluir itens selecionados")
-      
-        return title_widget, btn_export, btn_import, btn_add, btn_delete
-
-    def adjust_columns(self):
-        # Define larguras fixas para algumas colunas
-        self.table.setColumnWidth(0, 30)
-        self.table.setColumnWidth(3, 250)
-        self.table.setColumnWidth(6, 400)
-
-        header = self.table.horizontalHeader()
-        model = self.table.model()
-        for col in range(model.columnCount()):
-            if col == 1:  # Coluna que deve ocupar o espaço restante
-                header.setSectionResizeMode(col, QHeaderView.ResizeMode.Stretch)
-            else:
-                header.setSectionResizeMode(col, QHeaderView.ResizeMode.Fixed)
-                    
-        self.table.hideColumn(2)
-        self.table.hideColumn(4)
-        self.table.hideColumn(5)
 
 class AlterarLocalSalvamentoWidget(QWidget):
     def __init__(self, icons, parent=None):

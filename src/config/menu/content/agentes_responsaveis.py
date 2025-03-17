@@ -1,9 +1,8 @@
-from .modulo_agentes_responsaveis import (
+from .modulo_agentes_responsaveis.ui import (
     create_agentes_responsaveis
 )
 
-
-def create_agentes_responsaveis(title_text):
+def create_agentes_responsaveis(title_text, icons):
     """
     Cria a interface para objetos auditáveis usando a versão modularizada.
     
@@ -17,4 +16,4 @@ def create_agentes_responsaveis(title_text):
     Returns:
         QFrame: Frame contendo a interface de objetos auditáveis
     """
-    return create_agentes_responsaveis(title_text) 
+    return create_agentes_responsaveis(title_text, icons) 

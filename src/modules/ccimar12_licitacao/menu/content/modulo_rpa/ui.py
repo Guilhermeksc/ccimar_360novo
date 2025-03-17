@@ -11,7 +11,7 @@ from PyQt6.QtWidgets import (
 )
 
 # URLS das opções
-URL_BASE = "https://licitacoescontratos.marinha.mil.br/"
+URL_BASE = "https://www.google.com.br"
 URLS = {
     "Licitações": "https://licitacoescontratos.marinha.mil.br/licitacoes",
     "Adesões": "https://licitacoescontratos.marinha.mil.br/licitacao/OMParticipanteeAdesao",

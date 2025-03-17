@@ -15,8 +15,6 @@ from .criterio_widget import CriterioWidget
 from docxtpl import DocxTemplate
 from paths import CONFIG_PAINT_PATH, OBJETIVOS_NAVAIS_PATH, TEMPLATE_RELATORIO_PATH
 import re
-import comtypes.client
-
 
 def create_header_layout(icons):
     # Layout para ícones
@@ -357,28 +355,6 @@ def contar_acoes_estrategicas_por_criterio():
     
     return contador_criterios, detalhes_criterios
 
-def convert_docx_to_pdf(docx_path, pdf_path):
-    if os.name == "nt" and comtypes:
-        try:
-            word = comtypes.client.CreateObject("Word.Application")
-            word.Visible = False
-            time.sleep(2)  # Garante que o arquivo foi salvo antes da conversão
-            docx_path = os.path.abspath(docx_path)  # Converte para caminho absoluto
-            pdf_path = os.path.abspath(pdf_path)
-            
-            if not os.path.exists(docx_path):
-                print(f"Erro: O arquivo {docx_path} não foi encontrado.")
-                return False
-            
-            doc = word.Documents.Open(docx_path)
-            doc.SaveAs(pdf_path, FileFormat=17)
-            doc.Close()
-            word.Quit()
-            return True
-        except Exception as e:
-            print(f"Erro ao converter DOCX para PDF no Word: {e}")
-    return False
-
 def generate_report():
     folder_path = QFileDialog.getExistingDirectory(None, "Selecionar Pasta")
     if not folder_path:
@@ -410,22 +386,7 @@ def generate_report():
     }
     doc.render(context)
     doc.save(file_docx)
-    
-    time.sleep(2)  # Garante que o arquivo foi salvo antes da conversão
-    
-    # Convertendo para PDF
-    converted = convert_docx_to_pdf(file_docx, file_pdf)
-    
-    # Abrindo o arquivo correto
-    if converted and os.path.exists(file_pdf):
-        subprocess.run(["xdg-open", file_pdf] if os.name != "nt" else ["start", "", file_pdf], shell=True)
-    else:
-        subprocess.run(["xdg-open", file_docx] if os.name != "nt" else ["start", "", file_docx], shell=True)
-    
-    # Abrir a pasta criada para o relatório
-    subprocess.run(["xdg-open", report_path] if os.name != "nt" else ["explorer", report_path], shell=True)
-    
-    print(f"Relatório salvo em: {file_docx}")
+
 
     
 def export_to_excel(data, output_path):

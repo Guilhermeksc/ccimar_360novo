@@ -35,12 +35,12 @@ class ConfigView(QMainWindow):
         self.menu_layout.setContentsMargins(0, 0, 0, 0)
         self.menu_layout.setSpacing(0)
 
-        self.label = QLabel("Configura ", self)
+        self.label = QLabel("Configurações", self)
         self.label.setStyleSheet("color: #FFF; font-size: 24px;")
         self.label.setCursor(Qt.CursorShape.PointingHandCursor)  # 🔹 Define o cursor correto
         self.label.mousePressEvent = self.reload_content  # 🔹 Conectar clique ao recarregar conteúdo
 
-        sub_label = QLabel("Pagamento", self)
+        sub_label = QLabel("", self)
         sub_label.setStyleSheet("color: #FFF; font-size: 12px")
 
         self.menu_layout.addWidget(self.label)
@@ -77,7 +77,7 @@ class ConfigView(QMainWindow):
         """Carrega o conteúdo inicial dentro do content_widget."""
         self.clear_content()
 
-        initial_label = QLabel(" CONFIGURAÇÕES", self.content_widget)
+        initial_label = QLabel("Configurações", self.content_widget)
         initial_label.setStyleSheet("font-size: 18px; color: #333; font-weight: bold;")
         initial_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 

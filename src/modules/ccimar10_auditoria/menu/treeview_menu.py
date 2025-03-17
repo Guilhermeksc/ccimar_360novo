@@ -4,11 +4,21 @@ from PyQt6.QtWidgets import QTreeView, QAbstractItemView
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 from PyQt6.QtCore import Qt
 from .menu_callbacks import (  
-    show_criterio1_execucao_licitacao, show_criterio2_pagamento, show_chat_bot_local,
-    show_criterio3_munic, show_criteriox_omps, show_criterio4_patrimonio,
-    show_conselho_de_gestao, show_gerar_notas_widget, show_chat_bot
+    show_teste
 )
 
+class CustomStandardItem(QStandardItem):
+    def __init__(self, icons, text, icon_key=None):
+        """
+        :param icons: Dicionário completo de ícones.
+        :param text: Texto do item.
+        :param icon_key: (Opcional) Chave para definir um ícone específico.
+        """
+        super().__init__(text)
+        self.icons = icons  # Armazena o dicionário completo
+        if icon_key is not None and icon_key in icons:
+            self.setIcon(icons[icon_key])
+            
 class TreeMenu(QTreeView):
     def __init__(self, icons, owner, parent=None):
         """
@@ -44,10 +54,9 @@ class TreeMenu(QTreeView):
         """)
 
     def populate_tree(self):
-        def add_item(parent, text, callback):
-            """Adds a child item with a callback."""
-            item = QStandardItem(text)
-            item.setData(lambda: callback(self.owner), Qt.ItemDataRole.UserRole)
+        def add_item(parent, text, icons, callback, icon_key=None):
+            item = CustomStandardItem(icons, text, icon_key)
+            item.setData(lambda: callback(self.owner, icons), Qt.ItemDataRole.UserRole)
             parent.appendRow(item)
 
         def add_parent(text, icon, callback=None):
@@ -60,29 +69,26 @@ class TreeMenu(QTreeView):
             return item
 
         # Parent items with icons
-        item_paint = add_parent("Auditores", self.icons["auditor"])
-        item_relatorio = add_parent("Ordem de Serviço", self.icons["report"])
-        item_monitoramento = add_parent("Conselho de Gestão", self.icons["meeting"], show_conselho_de_gestao)
-
-        # Adding child items with their respective callbacks
-        add_item(item_paint, "Escalação", show_criterio1_execucao_licitacao)
-        add_item(item_relatorio, "Modelo 1", show_criteriox_omps)
-        add_item(item_relatorio, "Modelo 2", show_criteriox_omps)
-        add_item(item_monitoramento, "Slide", show_conselho_de_gestao)
-        add_item(item_monitoramento, "Monitoramento 2", show_gerar_notas_widget)
-
+        add_parent("Auditorias Realizadas", self.icons["auditor"], show_teste)
+        add_parent("Escalação de Auditores", self.icons["auditor"], show_teste)
+        item_ordem_servico = add_parent("Ordem de Serviço", self.icons["report"], show_teste)
+        item_conselho_gestao = add_parent("Conselho de Gestão", self.icons["meeting"], show_teste)
+        
+        # Adding child items with their respective callbacks        
+        add_item(item_ordem_servico, "Modelo 1", self.icons, show_teste)
+        add_item(item_ordem_servico, "Modelo 2", self.icons, show_teste)
+        add_item(item_conselho_gestao, "Slide", self.icons, show_teste)
+        add_item(item_conselho_gestao, "Monitoramento 2", self.icons, show_teste)
 
     def handle_item_click(self, index):
         """Handles item click events and executes the associated callback."""
         item = self.model.itemFromIndex(index)
-        callback = item.data(Qt.ItemDataRole.UserRole)
-
         if item.hasChildren():
             if self.isExpanded(index):
                 self.collapse(index)
             else:
                 self.expand(index)
-        
-        # Execute the callback if the item has one
-        if callable(callback):
-            callback()
+        else:
+            callback = item.data(Qt.ItemDataRole.UserRole)
+            if callable(callback):
+                callback()  # Executes the function, now passing the view instance

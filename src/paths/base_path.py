@@ -18,14 +18,6 @@ DEFAULT_TEMPLATE_DIR = ASSETS_DIR / "templates"
 
 CONFIG_FILE = BASE_DIR / "config.json"
 
-# def load_config(key, default_value):
-#     try:
-#         with open(CONFIG_FILE, 'r') as f:
-#             config = json.load(f)
-#             return config.get(key, default_value)
-#     except (FileNotFoundError, json.JSONDecodeError):
-#         return default_value
-
 MODULES_DIR = BASE_DIR / "modules"
 
 def get_config_value(key, default_value):
