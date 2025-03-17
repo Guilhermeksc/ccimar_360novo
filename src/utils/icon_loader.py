@@ -49,6 +49,7 @@ def load_icons():
         "datasciencemar": load_icon("datasciencemar.png"),
         "maximize": load_icon("maximize.png"),
         "minimize": load_icon("minimize.png"),
+        "rpa": load_icon("rpa.png"),
         
         
         "initdataprocessing": load_icon("initdataprocessing.png"),    

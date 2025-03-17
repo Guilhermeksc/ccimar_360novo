@@ -37,7 +37,7 @@ class CCIMAR12View(QMainWindow):
         self.label.setCursor(Qt.CursorShape.PointingHandCursor)  # 🔹 Define o cursor correto
         self.label.mousePressEvent = self.reload_content  # 🔹 Conectar clique ao recarregar conteúdo
 
-        sub_label = QLabel("Pagamento", self)
+        sub_label = QLabel("Licitação", self)
         sub_label.setStyleSheet("color: #FFF; font-size: 12px")
 
         self.menu_layout.addWidget(self.label)
