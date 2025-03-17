@@ -176,8 +176,8 @@ def add_button(label, icon_name, signal, layout, icons=None, tooltip=None, butto
     # Estilo do botão
     button.setStyleSheet(f"""
         QPushButton {{
-            background-color: #F3F3F3;
-            color: #333333;
+            background-color: #1E1E2E;
+            color: #FFFFFF;
             font-size: 14px;
             font-weight: bold;
             border: 1px solid #CCCCCC;
@@ -185,12 +185,12 @@ def add_button(label, icon_name, signal, layout, icons=None, tooltip=None, butto
             border-radius: 5px;
         }}
         QPushButton:hover {{
-            background-color: #E0E0E0;
-            color: #000000;
+            background-color: #A17B00;
+            color: #FFFFFF;
         }}
         QPushButton:pressed {{
-            background-color: #D6D6D6;
-            color: #000000;
+            background-color: #252536;
+            color: #FFFFFF;
         }}
     """)
     

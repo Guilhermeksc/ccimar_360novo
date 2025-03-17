@@ -6,12 +6,14 @@ from utils.search_bar import setup_search_bar, MultiColumnFilterProxyModel
 from utils.styles.style_add_button import add_button
 from utils.styles import table_view_stylesheet, title_view_stylesheet
 import pandas as pd
+from utils.styles.style_table import apply_table_style
 
 class CartaoCorporativoView(QMainWindow):
     # Signals for communication with the controller
     refreshRequested = pyqtSignal()
     rowDoubleClicked = pyqtSignal(dict)
     linkDataCartaoPagamentoGov = pyqtSignal()
+    exportTable = pyqtSignal()
     open_dashboard = pyqtSignal() 
 
     def __init__(self, icons, model, database_path, parent=None):
@@ -58,14 +60,14 @@ class CartaoCorporativoView(QMainWindow):
     def setup_buttons(self, layout):
         """Adiciona botões de ação."""
         add_button("URL", "link", self.linkDataCartaoPagamentoGov, layout, self.icons, tooltip="Abrir site de dados")
-        add_button("Refresh", "excel", self.refreshRequested, layout, self.icons, tooltip="Atualizar dados")
-        add_button("Export", "word", self.refreshRequested, layout, self.icons, tooltip="Exportar para Excel")
+        add_button("Importar", "zip", self.refreshRequested, layout, self.icons, tooltip="Atualizar dados")
+        add_button("Exportar", "excel", self.exportTable, layout, self.icons, tooltip="Exportar para Excel")
         add_button("Dashboard", "dashboard", self.open_dashboard, layout, self.icons, tooltip="Abrir dashboard")  # 🔹 Novo botão
-
 
     def setup_table_view(self):
         """Setup the table for displaying corporate card transactions."""
         self.table_view = QTableView(self)
+        
         self.table_view.setModel(self.proxy_model)
         self.table_view.verticalHeader().setVisible(False)
         self.table_view.doubleClicked.connect(self.on_table_double_click)
@@ -74,6 +76,8 @@ class CartaoCorporativoView(QMainWindow):
         self.table_view.setSelectionBehavior(QTableView.SelectionBehavior.SelectRows)
         self.table_view.setSelectionMode(QTableView.SelectionMode.SingleSelection)
         self.table_view.setStyleSheet(table_view_stylesheet())
+
+        apply_table_style(self.table_view)
 
         # Center align delegate for cells
         center_delegate = CenterAlignDelegate(self.table_view)
@@ -95,7 +99,7 @@ class CartaoCorporativoView(QMainWindow):
     def update_column_headers(self):
         """Set readable column names."""
         titles = {
-            0: "ID", 1: "Órgão Superior", 3: "Órgão", 5: "Unidade Gestora",
+            0: "ID", 1: "Órgão Superior", 3: "Órgão", 5: "UASG",
             7: "Ano", 8: "Mês", 9: "CPF Portador", 10: "Nome Portador",
             11: "CNPJ/CPF Favorecido", 12: "Favorecido", 13: "Transação",
             14: "Data", 15: "Valor"
@@ -105,7 +109,7 @@ class CartaoCorporativoView(QMainWindow):
 
     def hide_unwanted_columns(self):
         """Hide non-relevant columns."""
-        visible_columns = {0, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15}
+        visible_columns = {0, 5, 7, 8, 10, 12, 13, 14, 15}
         for column in range(self.model.columnCount()):
             if column not in visible_columns:
                 self.table_view.hideColumn(column)
@@ -121,13 +125,15 @@ class CartaoCorporativoView(QMainWindow):
         header.setSectionResizeMode(0, QHeaderView.ResizeMode.Fixed)
         header.setSectionResizeMode(5, QHeaderView.ResizeMode.Fixed)
         header.setSectionResizeMode(7, QHeaderView.ResizeMode.Fixed)
+        header.setSectionResizeMode(10, QHeaderView.ResizeMode.Stretch)
         header.setSectionResizeMode(12, QHeaderView.ResizeMode.Stretch)
+        header.setSectionResizeMode(14, QHeaderView.ResizeMode.Fixed)
         header.setSectionResizeMode(15, QHeaderView.ResizeMode.Fixed)
 
-        header.resizeSection(0, 50)
-        header.resizeSection(5, 100)
-        header.resizeSection(7, 70)
-        header.resizeSection(12, 200)
+        header.resizeSection(0, 30)
+        header.resizeSection(5, 60)
+        header.resizeSection(7, 50)        
+        header.resizeSection(14, 90)
         header.resizeSection(15, 100)
 
     def on_table_double_click(self, index):

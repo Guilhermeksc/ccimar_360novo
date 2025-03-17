@@ -5,6 +5,9 @@ import pandas as pd
 import chardet
 import webbrowser
 from .dashboard.dash_popup import DashboardPopup
+import zipfile
+import os
+from io import BytesIO
 
 class CartaoCorporativoController(QObject): 
     def __init__(self, icons, view, model):
@@ -19,7 +22,8 @@ class CartaoCorporativoController(QObject):
         """Conecta os sinais da View ao Controller"""
         self.view.refreshRequested.connect(self.import_xlsx_to_db)
         self.view.rowDoubleClicked.connect(self.row_double_clicked)
-        self.view.linkDataCartaoPagamentoGov.connect(self.open_link)  # 🔹 Conecta o botão ao método
+        self.view.linkDataCartaoPagamentoGov.connect(self.open_link)
+        self.view.exportTable.connect(self.export_table)
         self.view.open_dashboard.connect(self.open_dashboard)  # 🔹 Conecta o botão ao métod
         
     def open_dashboard(self):
@@ -42,29 +46,92 @@ class CartaoCorporativoController(QObject):
         url = "https://portaldatransparencia.gov.br/download-de-dados/cpgf"
         webbrowser.open(url)  # 🔹 Abre o link no navegador padrão
     
+    def export_table(self):
+        """Export filtered table data to an Excel file."""
+        file_dialog = QFileDialog()
+        file_path, _ = file_dialog.getSaveFileName(self.view, "Save as Excel", "", "Excel Files (*.xlsx)")
+
+        if not file_path:
+            return  # If the user cancels, do nothing
+
+        try:
+            headers = []
+            data = []
+            
+            # Get column headers
+            for col in range(self.view.table_view.model().columnCount()):
+                header_text = self.view.table_view.model().headerData(col, Qt.Orientation.Horizontal)
+                if self.view.table_view.isColumnHidden(col):
+                    continue  # Ignore hidden columns
+                headers.append(header_text)
+            
+            # Get filtered data
+            for row in range(self.view.proxy_model.rowCount()):
+                row_data = []
+                for col in range(self.view.proxy_model.columnCount()):
+                    if self.view.table_view.isColumnHidden(col):
+                        continue  # Ignore hidden columns
+                    index = self.view.proxy_model.index(row, col)
+                    row_data.append(index.data(Qt.ItemDataRole.DisplayRole))
+                data.append(row_data)
+            
+            # Create DataFrame and export
+            df = pd.DataFrame(data, columns=headers)
+            df.to_excel(file_path, index=False)
+            
+            QMessageBox.information(self.view, "Sucesso", f"Dados exportados com sucesso para: {file_path}")
+        except Exception as e:
+            QMessageBox.critical(self.view, "Erro", f"Falha ao exportar dados: {str(e)}")
+    
     def import_xlsx_to_db(self):
-        """Abre um arquivo XLSX ou CSV e importa os dados para o banco de dados."""
+        """Abre um arquivo XLSX, CSV ou ZIP e importa os dados para o banco de dados."""
         file_dialog = QFileDialog()
         file_path, _ = file_dialog.getOpenFileName(
             self.view, 
-            "Selecionar Arquivo XLSX ou CSV", 
+            "Selecionar Arquivo XLSX, CSV ou ZIP", 
             "", 
-            "Arquivos Suportados (*.xlsx *.csv);;Excel Files (*.xlsx);;CSV Files (*.csv)"
+            "Arquivos Suportados (*.xlsx *.csv *.zip);;Excel Files (*.xlsx);;CSV Files (*.csv);;ZIP Files (*.zip)"
         )
 
         if not file_path:
             return  # Se o usuário cancelar, não faz nada.
 
         try:
-            # 🔹 **Detecta o formato do arquivo**
-            if file_path.endswith(".csv"):
-                # 🔹 **Detecta automaticamente a codificação do arquivo**
+            if file_path.endswith(".zip"):
+                # 🔹 **Extrai o primeiro arquivo CSV dentro do ZIP**
+                with zipfile.ZipFile(file_path, "r") as zip_ref:
+                    csv_files = [f for f in zip_ref.namelist() if f.endswith(".csv")]
+
+                    if not csv_files:
+                        QMessageBox.warning(self.view, "Erro", "Nenhum arquivo CSV encontrado no ZIP.")
+                        return
+
+                    csv_filename = csv_files[0]  # Pegamos o primeiro arquivo CSV encontrado
+                    with zip_ref.open(csv_filename) as csv_file:
+                        csv_data = BytesIO(csv_file.read())  # Lê o arquivo extraído para um buffer de memória
+
+                        # 🔹 **Detecta automaticamente a codificação do CSV extraído**
+                        csv_data.seek(0)
+                        result = chardet.detect(csv_data.read(100000))  # Lê os primeiros 100kB para detectar a codificação
+                        encoding_detected = result["encoding"] if result["encoding"] else "utf-8"
+
+                        # 🔹 **Lê o CSV extraído**
+                        csv_data.seek(0)
+                        df = pd.read_csv(
+                            csv_data, 
+                            dtype=str, 
+                            sep=None,  # Detecta automaticamente o separador
+                            engine="python", 
+                            encoding=encoding_detected
+                        )
+            elif file_path.endswith(".csv"):
+                # 🔹 **Detecta automaticamente a codificação do CSV**
                 with open(file_path, "rb") as f:
                     result = chardet.detect(f.read(100000))  # Lê os primeiros 100kB para detectar a codificação
                 
                 encoding_detected = result["encoding"] if result["encoding"] else "utf-8"
                 
-                # 🔹 **Lê o CSV com a codificação detectada**
+                # 🔹 **Lê o CSV**
                 df = pd.read_csv(
                     file_path, 
                     dtype=str, 
@@ -116,6 +183,7 @@ class CartaoCorporativoController(QObject):
 
         except Exception as e:
             QMessageBox.warning(self.view, "Erro", f"Falha ao importar o arquivo: {e}")
+
             
     def row_double_clicked(self, row_data):
         """Handles row double-click event."""
