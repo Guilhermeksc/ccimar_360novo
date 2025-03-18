@@ -16,6 +16,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import os
+import calendar
+
 
 class ScraperThread(QThread):
     update_signal = pyqtSignal(str)
@@ -24,36 +26,37 @@ class ScraperThread(QThread):
     def __init__(self, url, selected_date, parent=None):
         super().__init__(parent)
         self.url = url
-        self.selected_date = selected_date
+        self.selected_date = selected_date  # Data da consulta (DD-MM-YYYY)
 
     def run(self):
         self.update_signal.emit("Iniciando scraping com Selenium...")
         options = Options()
-        options.add_argument("--headless")
+        options.add_argument("--headless")  # Executa sem abrir janela
         options.add_argument("--disable-gpu")
         driver = webdriver.Firefox(options=options)
         driver.get(self.url)
-        
-        # Aguarda o carregamento do elemento principal
+
+        # Aguarda o carregamento da seção principal do conteúdo
         wait = WebDriverWait(driver, 20)
         wait.until(EC.presence_of_element_located((By.ID, "hierarchy_content")))
-        
+
         all_endpoints = []
-        
+
         while True:
             time.sleep(2)
             page_source = driver.page_source
             soup = BeautifulSoup(page_source, 'html.parser')
             hierarchy_content = soup.find("div", {"id": "hierarchy_content"})
-            
+
             if hierarchy_content:
                 h5_tags = hierarchy_content.find_all("h5", class_="title-marker")
                 for h5 in h5_tags:
                     a_tag = h5.find("a")
                     if a_tag and a_tag.get("href"):
                         endpoint = a_tag["href"]
-                        print("Encontrado:", endpoint)
-                        all_endpoints.append(endpoint)
+                        full_url = f"https://www.in.gov.br{endpoint}"  # Formata corretamente a URL
+                        print(f"Encontrado: {full_url}")  # Debug para conferir os links
+                        all_endpoints.append(full_url)
             else:
                 self.update_signal.emit("Elemento principal não encontrado!")
                 break
@@ -70,12 +73,17 @@ class ScraperThread(QThread):
                 self.update_signal.emit("Botão 'Próximo »' não encontrado. Encerrando scraping.")
                 break
 
-        driver.quit()
+        # Identifica o ano e mês da consulta
+        day, month, year = self.selected_date.split("-")
+        year = int(year)
+        month_name = calendar.month_abbr[int(month)].upper()  # Obtém o nome do mês em maiúsculas
 
-        # Carrega os dados existentes (se houver) e atualiza com a nova data e total de registros
-        file_path = 'endpoints.json'
-        if os.path.exists(file_path):
-            with open(file_path, 'r', encoding='utf-8') as f:
+        # Nome do arquivo JSON
+        json_filename = f"controle_dou_{year}.json"
+
+        # Carrega os dados existentes no arquivo, se houver
+        if os.path.exists(json_filename):
+            with open(json_filename, 'r', encoding='utf-8') as f:
                 try:
                     json_data = json.load(f)
                 except json.JSONDecodeError:
@@ -83,12 +91,73 @@ class ScraperThread(QThread):
         else:
             json_data = {}
 
-        json_data[self.selected_date] = {
-            "data": all_endpoints,
-            "total": len(all_endpoints)
-        }
+        # Se o ano não estiver no JSON, inicializa com meses vazios
+        if str(year) not in json_data:
+            json_data[str(year)] = {m.upper(): [] for m in calendar.month_abbr if m}  # Cria meses vazios
 
-        with open(file_path, 'w', encoding='utf-8') as f:
+        # Acessar cada endpoint e salvar os dados no JSON
+        for idx, endpoint in enumerate(all_endpoints):
+            try:
+                print(f"\n[Acessando] {endpoint}")  # Confirma que estamos acessando a URL
+                driver.get(endpoint)
+
+                # Esperar que o conteúdo dinâmico seja carregado
+                wait.until(EC.presence_of_element_located((By.ID, "materia")))
+
+                time.sleep(3)  # Pequeno delay extra para garantir o carregamento completo
+
+                # Captura do HTML atualizado com JavaScript ativado
+                page_source = driver.page_source
+                soup = BeautifulSoup(page_source, "html.parser")
+
+                # Extraindo informações da publicação
+                article = soup.find("article", {"id": "materia"})
+
+                if article:
+                    # Extraindo detalhes do cabeçalho
+                    data_publicacao = article.find("span", class_="publicado-dou-data").text.strip() if article.find("span", class_="publicado-dou-data") else "Data não encontrada"
+                    secao = article.find("span", class_="secao-dou-data").text.strip() if article.find("span", class_="secao-dou-data") else "Seção não encontrada"
+                    pagina = article.find("span", class_="secao-dou-data").text.strip() if article.find("span", class_="secao-dou-data") else "Página não encontrada"
+                    orgao = article.find("span", class_="orgao-dou-data").text.strip() if article.find("span", class_="orgao-dou-data") else "Órgão não encontrado"
+
+                    # Extraindo o conteúdo principal da matéria
+                    texto_dou = article.find("div", class_="texto-dou")
+                    if texto_dou:
+                        texto_conteudo = "\n".join([p.get_text(strip=True) for p in texto_dou.find_all("p")])
+                        titulo = texto_dou.find("p", class_="identifica").get_text(strip=True) if texto_dou.find("p", class_="identifica") else "Título não encontrado"
+                    else:
+                        texto_conteudo = "Conteúdo não encontrado!"
+                        titulo = "Título não encontrado"
+
+                    # Extraindo a URL da versão certificada
+                    versao_certificada_tag = soup.find("a", id="versao-certificada")
+                    versao_certificada_url = versao_certificada_tag["href"] if versao_certificada_tag else "Não disponível"
+
+                    # Aplicar regra para omitir conteúdo de concurso público
+                    if "CONCURSO PÚBLICO" in texto_conteudo.upper() and "SERVIÇO DE SELEÇÃO DO PESSOAL" in orgao.upper() and "EDITAL" in titulo.upper():
+                        texto_conteudo = "Matéria referente à concurso público, conteúdo resumido. A omissão do conteúdo foi proposital para otimizar espaço."
+
+                    # Adicionar os dados ao JSON
+                    json_data[str(year)][month_name].append({
+                        "data": self.selected_date,
+                        "orgao": orgao,
+                        "secao": secao,
+                        "pagina": pagina,
+                        "titulo": titulo,
+                        "conteudo": texto_conteudo,
+                        "versao_certificada": versao_certificada_url
+                    })
+
+                    print(f"[SALVO] Consulta {idx + 1} adicionada ao JSON.")
+
+            except Exception as e:
+                self.update_signal.emit(f"Erro ao acessar {endpoint}: {str(e)}")
+                print(f"[ERRO] {endpoint}: {str(e)}")  # Debug para erros
+
+        driver.quit()
+
+        # Salvar os dados no arquivo JSON
+        with open(json_filename, 'w', encoding='utf-8') as f:
             json.dump(json_data, f, ensure_ascii=False, indent=4)
 
         self.update_signal.emit(f"Scraping finalizado. {len(all_endpoints)} endpoints encontrados.")
