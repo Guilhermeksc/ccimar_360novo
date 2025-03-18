@@ -8,6 +8,7 @@ def apply_table_style(table_view):
             selection-background-color: #3A57D2;  /* Fundo da linha selecionada (azul vibrante) */
             selection-color: white;
             border: 1px solid #25283D;
+            font-size: 14px;
             alternate-background-color: #1F2133; /* Linhas alternadas */
         }
 
