@@ -1,0 +1,89 @@
+Todos
+Ata
+Ato
+Autorização
+Aviso
+Aviso de Adiamento
+Aviso de Adjudicação
+Aviso de Alteração
+Aviso de Anulação
+Aviso de Chamamento Público
+Aviso de Coleta de Preços
+Aviso de Consulta Pública
+Aviso de Credenciamento
+Aviso de Dispensa de Licitação
+Aviso de Habilitação
+Aviso de Homologação
+Aviso de Homologação e Adjudicação
+Aviso de Inexigibilidade de Licitação
+Aviso de Julgamento
+Aviso de Licença
+Aviso de Licitação
+Aviso de Licitação-Concorrência
+Aviso de Licitação-Leilão
+Aviso de Licitação-Pregão
+Aviso de Licitação-RDC Eletrônico
+Aviso de Licitação-Registro de Preços
+Aviso de Penalidade
+Aviso de Prorrogação
+Aviso de Pré-Qualificação
+Aviso de Reabertura de Prazo
+Aviso de Registro de Diplomas
+Aviso de Registro de Preços
+Aviso de Rescisão
+Aviso de Retificação
+Aviso de Revogação
+Aviso de Seleção
+Aviso de Suspensão
+Comunicado
+Despacho
+Edital
+Edital de Citação
+Edital de Concurso Público
+Edital de Convocação
+Edital de Intimação
+Edital de Notificação
+Edital de Processo Seletivo
+Extrato
+Extrato Prévio
+Extrato da Ata
+Extrato de Acordo de Cooperação
+Extrato de Acordo de Cooperação Técnica
+Extrato de Adesão
+Extrato de Ajuste
+Extrato de Apostilamento
+Extrato de Autorização de Fornecimento de Material
+Extrato de Cessão
+Extrato de Cessão de Uso
+Extrato de Comodato
+Extrato de Compromisso
+Extrato de Concessão de Uso
+Extrato de Contrato
+Extrato de Convênio
+Extrato de Credenciamento
+Extrato de Dispensa de Licitação
+Extrato de Distrato
+Extrato de Doação
+Extrato de Inexigibilidade de Licitação
+Extrato de Instrumentos Contratuais
+Extrato de Nota de Empenho
+Extrato de Ordem de Compra
+Extrato de Parceria
+Extrato de Permissão de Uso
+Extrato de Prorrogação de Ofício
+Extrato de Registro de Preços
+Extrato de Rescisão
+Extrato de Rescisão Contratual
+Extrato de Termo Aditivo
+Extrato de Termo de Cooperação Técnica
+Extrato de Termo de Entrega
+Extrato de Termo de Fomento
+Extrato de Termo de Parceria
+Ratificação
+Resultado de Concurso Público
+Resultado de Habilitação
+Resultado de Julgamento
+Resultado de Julgamento de Licitação
+Retificação
+Retificação (de Edital)
+Termo de Autorização
