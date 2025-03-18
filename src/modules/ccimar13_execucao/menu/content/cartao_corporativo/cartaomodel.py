@@ -145,7 +145,7 @@ class CartaoCorporativoModel(QObject):
     def get_data_for_orgao(self, cod_orgao):
         """Retorna os dados filtrados para um determinado órgão."""
         query = """
-            SELECT nome_unidade_gestora, valor_transacao, nome_favorecido 
+            SELECT cod_unidade_gestora, valor_transacao, nome_favorecido 
             FROM tabela_cartao_corporativo 
             WHERE cod_orgao = ?
         """

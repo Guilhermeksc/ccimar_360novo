@@ -10,6 +10,7 @@ from utils.styles.style_table import apply_table_style
 from utils.styles.styles_edit_button import apply_edit_dialog_style
 import sys
 import requests
+from datetime import datetime, timedelta
 import locale
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
@@ -59,43 +60,11 @@ class APIView(QMainWindow):
         tab_functions = {
             "PCA": lambda: create_tab_pca(self.icons),
             "Publicação": lambda: create_publicacao(self.icons),
-            "2.13": lambda: create_tab_2_13(self.icons),
-            "2.20": lambda: create_tab_2_20(self.icons),
-            "2.21": lambda: create_tab_2_21(self.icons),
-            "2.22": lambda: create_tab_2_22(self.icons),
-            "2.22.1": lambda: create_tab_2_22_1(self.icons),
-            "2.22.2": lambda: create_tab_2_22_2(self.icons),
-            "2.22.3": lambda: create_tab_2_22_3(self.icons),
-            "2.22.4": lambda: create_tab_2_22_4(self.icons),
-            "2.28": lambda: create_tab_2_28(self.icons),
-            "2.29": lambda: create_tab_2_29(self.icons),
-            "2.3": lambda: create_tab_2_3(self.icons),
-            "2.30": lambda: create_tab_2_30(self.icons),
-            "2.31": lambda: create_tab_2_31(self.icons),
-            "2.32": lambda: create_tab_2_32(self.icons),
-            "2.33": lambda: create_tab_2_33(self.icons),
-            "2.5": lambda: create_tab_2_5(self.icons),
         }
 
         full_titles = {
             "PCA": "Plano de Contratações Anual (PCA)",	
             "Publicação": "Consultar Contratações por Data de Publicação",
-            "2.13": "2.13 Limite de Dispensa de Licitação (PDM)",
-            "2.20": "2.20 Registro de Penalidade no SICAF",
-            "2.21": "2.21 Ausência de negociação do valor da proposta.",
-            "2.22": "2.22 Ausência de publicação do aviso do edital no Portal de Licitações",
-            "2.22.1": "2.22.1 Ausência de divulgação no Portal de Licitações (Publicação de Inexigibilidade/Dispensa)",
-            "2.22.2": "2.22.2 Ausência de divulgação no Portal de Licitações (Publicação de extrato do contrato)",
-            "2.22.3": "2.22.3 Ausência de divulgação no Portal de Licitações (Publicação de extrato de ata de registro de preços)",
-            "2.22.4": "2.22.4 Divulgação, no Portal de Licitações de documentos que não permite a pesquisa de conteúdos",
-            "2.28": "2.28 Fragilidade na Estimativa da Demanda",
-            "2.29": "2.29 Assinatura de documento nato-digital",
-            "2.3": "2.3 Análise de Publicação de Matérias da Seção 3 do DOU",
-            "2.30": "2.30 Aplicação de Sanções Administrativas",
-            "2.31": "2.31 Fornecedor com restrição para contratação",
-            "2.32": "2.32 Aplicabilidade da Lei Geral de Proteção de Dados (LGPD) aos Contratos",
-            "2.33": "2.33 Dispensa Eletrônica",
-            "2.5": "2.5 Análise Processual de Alta Materialidade",
         }
 
         for key, func in tab_functions.items():
@@ -119,107 +88,9 @@ class CenterAlignDelegate(QStyledItemDelegate):
 def create_publicacao(icons):
     return PublicacaoWidget(icons)
 
-
-def create_tab_2_13(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.13"))
-    return widget
-
-def create_tab_2_20(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.20"))
-    return widget
-
-def create_tab_2_21(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.21"))
-    return widget
-
-def create_tab_2_22(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.22"))
-    return widget
-
-def create_tab_2_22_1(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.22.1"))
-    return widget
-
-def create_tab_2_22_2(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.22.2"))
-    return widget
-
-def create_tab_2_22_3(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.22.3"))
-    return widget
-
-def create_tab_2_22_4(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.22.4"))
-    return widget
-
-def create_tab_2_28(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.28"))
-    return widget
-
-def create_tab_2_29(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.29"))
-    return widget
-
-def create_tab_2_3(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.3"))
-    return widget
-
-def create_tab_2_30(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.30"))
-    return widget
-
-def create_tab_2_31(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.31"))
-    return widget
-
-def create_tab_2_32(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.32"))
-    return widget
-
-def create_tab_2_33(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.33"))
-    return widget
-
-def create_tab_2_5(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.5"))
-    return widget
-
 def get_available_years():
     current_year = QDate.currentDate().year()
     return [str(year) for year in range(2025, current_year + 2)]
-
 
 def download_and_read_csv(year):
     url = f"https://pncp.gov.br/api/pncp/v1/orgaos/00394502000144/pca/{year}/csv"
@@ -353,16 +224,6 @@ def create_tab_pca(icons):
     
     return widget
 
-
-from PyQt6.QtWidgets import (
-    QWidget, QVBoxLayout, QLabel, QPushButton, QComboBox, QTableView, QMessageBox
-)
-from PyQt6.QtCore import Qt, QAbstractTableModel
-import requests
-import pandas as pd
-from datetime import datetime, timedelta
-
-
 class PublicacaoTableModel(QAbstractTableModel):
     """ Model for displaying API data in QTableView. """
 
@@ -407,7 +268,8 @@ class PublicacaoWidget(QWidget):
 
     def setup_ui(self):
         layout = QVBoxLayout(self)
-        layout.addWidget(QLabel("Consultar Contratações por Data de Publicação"))
+
+        top_layout = QHBoxLayout()
 
         # Dropdown for Modalidade
         self.modalidade_combobox = QComboBox()
@@ -420,13 +282,14 @@ class PublicacaoWidget(QWidget):
             "14 - Inaplicabilidade da Licitação"
         ]
         self.modalidade_combobox.addItems(modalidades)
-        layout.addWidget(QLabel("Modalidade de Contratação:"))
-        layout.addWidget(self.modalidade_combobox)
+        top_layout.addWidget(QLabel("Selecione a modalidade de contratação:"))
+        top_layout.addWidget(self.modalidade_combobox)
 
         # Search Button
         self.search_button = QPushButton("Consultar")
         self.search_button.clicked.connect(self.fetch_data)
-        layout.addWidget(self.search_button)
+        top_layout.addWidget(self.search_button)
+        layout.addLayout(top_layout)
 
         # Table View
         self.table_view = QTableView()

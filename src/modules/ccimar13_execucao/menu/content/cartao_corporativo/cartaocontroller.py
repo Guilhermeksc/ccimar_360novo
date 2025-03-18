@@ -1,5 +1,5 @@
 from PyQt6.QtCore import QObject
-from PyQt6.QtWidgets import QFileDialog, QMessageBox
+from PyQt6.QtWidgets import QFileDialog, QMessageBox, QInputDialog
 from PyQt6.QtCore import Qt
 import pandas as pd
 import chardet
@@ -12,7 +12,11 @@ import subprocess
 import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
+import chardet
+import zipfile
+import requests
 from io import BytesIO
+from datetime import datetime
 
 class CartaoCorporativoController(QObject): 
     def __init__(self, icons, view, model):
@@ -25,7 +29,7 @@ class CartaoCorporativoController(QObject):
 
     def setup_connections(self):
         """Conecta os sinais da View ao Controller"""
-        self.view.refreshRequested.connect(self.import_xlsx_to_db)
+        self.view.refreshRequested.connect(self.import_zip_to_db)
         self.view.rowDoubleClicked.connect(self.row_double_clicked)
         self.view.linkDataCartaoPagamentoGov.connect(self.open_link)
         self.view.exportTable.connect(self.export_table)
@@ -117,66 +121,41 @@ class CartaoCorporativoController(QObject):
 
             print(f"Falha ao exportar dados: {str(e)}")
     
-    def import_xlsx_to_db(self):
-        """Abre um arquivo XLSX, CSV ou ZIP e importa os dados para o banco de dados."""
-        file_dialog = QFileDialog()
-        file_path, _ = file_dialog.getOpenFileName(
-            self.view, 
-            "Selecionar Arquivo XLSX, CSV ou ZIP", 
-            "", 
-            "Arquivos Suportados (*.xlsx *.csv *.zip);;Excel Files (*.xlsx);;CSV Files (*.csv);;ZIP Files (*.zip)"
-        )
+    def import_zip_to_db(self):
+        """Baixa e importa os dados do ZIP do Portal da Transparência baseado no YYYYMM fornecido pelo usuário."""
+        # Obter YYYYMM do usuário
+        current_yyyymm = datetime.now().strftime("%Y%m")
+        yyyymm, ok = QInputDialog.getText(self.view, "Informe o Período", "Digite YYYYMM:", text=current_yyyymm)
 
-        if not file_path:
-            return  # Se o usuário cancelar, não faz nada.
+        if not ok or not yyyymm.isdigit() or len(yyyymm) != 6:
+            QMessageBox.warning(self.view, "Erro", "Entrada inválida! O formato deve ser YYYYMM.")
+            return
+
+        # Construir URL do arquivo ZIP
+        zip_url = f"https://portaldatransparencia.gov.br/download-de-dados/cpgf/{yyyymm}"
 
         try:
-            if file_path.endswith(".zip"):
-                # 🔹 **Extrai o primeiro arquivo CSV dentro do ZIP**
-                with zipfile.ZipFile(file_path, "r") as zip_ref:
-                    csv_files = [f for f in zip_ref.namelist() if f.endswith(".csv")]
+            # Baixar o arquivo ZIP
+            response = requests.get(zip_url, stream=True)
+            response.raise_for_status()
+            zip_data = BytesIO(response.content)
+            
+            with zipfile.ZipFile(zip_data, "r") as zip_ref:
+                csv_files = [f for f in zip_ref.namelist() if f.endswith(".csv")]
+                if not csv_files:
+                    QMessageBox.warning(self.view, "Erro", "Nenhum arquivo CSV encontrado no ZIP.")
+                    return
 
-                    if not csv_files:
-                        QMessageBox.warning(self.view, "Erro", "Nenhum arquivo CSV encontrado no ZIP.")
-                        return
+                csv_filename = csv_files[0]  # Pegamos o primeiro arquivo CSV encontrado
+                with zip_ref.open(csv_filename) as csv_file:
+                    csv_data = BytesIO(csv_file.read())  # Lê o arquivo extraído para um buffer de memória
+                    csv_data.seek(0)
+                    result = chardet.detect(csv_data.read(100000))
+                    encoding_detected = result["encoding"] if result["encoding"] else "utf-8"
+                    csv_data.seek(0)
+                    df = pd.read_csv(csv_data, dtype=str, sep=None, engine="python", encoding=encoding_detected)
 
-                    csv_filename = csv_files[0]  # Pegamos o primeiro arquivo CSV encontrado
-                    with zip_ref.open(csv_filename) as csv_file:
-                        csv_data = BytesIO(csv_file.read())  # Lê o arquivo extraído para um buffer de memória
-
-                        # 🔹 **Detecta automaticamente a codificação do CSV extraído**
-                        csv_data.seek(0)
-                        result = chardet.detect(csv_data.read(100000))  # Lê os primeiros 100kB para detectar a codificação
-                        encoding_detected = result["encoding"] if result["encoding"] else "utf-8"
-
-                        # 🔹 **Lê o CSV extraído**
-                        csv_data.seek(0)
-                        df = pd.read_csv(
-                            csv_data, 
-                            dtype=str, 
-                            sep=None,  # Detecta automaticamente o separador
-                            engine="python", 
-                            encoding=encoding_detected
-                        )
-            elif file_path.endswith(".csv"):
-                # 🔹 **Detecta automaticamente a codificação do CSV**
-                with open(file_path, "rb") as f:
-                    result = chardet.detect(f.read(100000))  # Lê os primeiros 100kB para detectar a codificação
-                
-                encoding_detected = result["encoding"] if result["encoding"] else "utf-8"
-                
-                # 🔹 **Lê o CSV**
-                df = pd.read_csv(
-                    file_path, 
-                    dtype=str, 
-                    sep=None,  # Detecta automaticamente o separador
-                    engine="python", 
-                    encoding=encoding_detected
-                )
-            else:  # XLSX
-                df = pd.read_excel(file_path, dtype=str)
-
-            # 🔹 **Mapeamento de colunas do arquivo para o banco**
+            # Mapeamento de colunas
             column_mapping = {
                 "CÓDIGO ÓRGÃO SUPERIOR": "cod_orgao_superior",
                 "NOME ÓRGÃO SUPERIOR": "nome_orgao_superior",
@@ -194,29 +173,34 @@ class CartaoCorporativoController(QObject):
                 "DATA TRANSAÇÃO": "data_transacao",
                 "VALOR TRANSAÇÃO": "valor_transacao",
             }
-
             df.rename(columns=column_mapping, inplace=True)
 
-            # 🔹 **Corrige valores monetários e converte para float**
+            # Filtrar apenas os códigos de órgão desejados
+            df = df[df["cod_orgao"].isin(["52131", "52132"])]
+
+            if df.empty:
+                QMessageBox.warning(self.view, "Aviso", "Nenhum dado relevante encontrado para os órgãos 52131 e 52132.")
+                return
+
+            # Corrige valores monetários e converte para float
             if "valor_transacao" in df.columns:
                 df["valor_transacao"] = (
-                    df["valor_transacao"]
-                    .str.replace(",", ".", regex=True)  # Troca vírgula por ponto
-                    .str.replace("[^0-9.]", "", regex=True)  # Remove caracteres não numéricos
-                    .astype(float)  # Converte para float
+                    df["valor_transacao"].str.replace(",", ".", regex=True)
+                    .str.replace("[^0-9.]", "", regex=True)
+                    .astype(float)
                 )
 
-            # 🔹 **Insere os dados no banco de dados**
+            # Inserir dados no banco de dados
             with self.model.database_manager as conn:
                 df.to_sql("tabela_cartao_corporativo", conn, if_exists="append", index=False)
 
             QMessageBox.information(self.view, "Sucesso", "Dados importados com sucesso!")
-
-            # 🔹 **Agora chama a atualização da tabela**
             self.view.model.select()
 
+        except requests.exceptions.RequestException as e:
+            QMessageBox.critical(self.view, "Erro", f"Falha ao baixar o arquivo ZIP: {e}")
         except Exception as e:
-            QMessageBox.warning(self.view, "Erro", f"Falha ao importar o arquivo: {e}")
+            QMessageBox.critical(self.view, "Erro", f"Falha ao importar os dados: {e}")
 
             
     def row_double_clicked(self, row_data):

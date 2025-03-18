@@ -76,8 +76,6 @@ class TreeMenu(QTreeView):
         item_mensagem      = QStandardItem(self.icons["mensagem"], "Mensagens")
         item_email      = QStandardItem(self.icons["mail"], "E-mail")
         item_oficio      = QStandardItem(self.icons["doc"], "Ofícios")
-        item_api          = QStandardItem(self.icons["api"], "API")
-
         # Adding child items with their respective callbacks
         add_item(item_evidencias, "Empresas inidôneas", self.icons, show_teste_widget)
         add_item(item_evidencias, "Controle PDM", self.icons, show_teste_widget)
@@ -95,7 +93,7 @@ class TreeMenu(QTreeView):
         self.model.appendRow(item_oficio)
         add_parent("Webscrapping", self.icons["magnifying-glass"], show_webscraping)
         add_parent("Robotic Process Aut.(RPA)", self.icons["rpa"], show_rpa)
-        add_parent("API", self.icons["rpa"], show_api)
+        add_parent("API", self.icons["api"], show_api)
 
     def handle_item_click(self, index):
         """Handles item click events and executes the associated callback."""

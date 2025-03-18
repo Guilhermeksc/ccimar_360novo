@@ -10,6 +10,7 @@ from config.view import ConfigView
 from config.controller import ConfigController
 from config.model import ConfigModel
 from config.path import CONFIG_DATA_PATH
+from paths import APP_NAME
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -36,7 +37,7 @@ class MainWindow(QMainWindow):
 
     def configure_window(self):
         """Configurações básicas da janela principal."""
-        self.setWindowTitle("DATA-SCIENCEMAR - Ciência de Dados Aplicada à Auditoria da Marinha do Brasil")
+        self.setWindowTitle(f"{APP_NAME} - Ciência de Dados Aplicada à Auditoria da Marinha do Brasil")
         self.setWindowIcon(self.icons["data-science"])        
         # Posiciona a janela no canto superior esquerdo
         screen_geometry = self.screen().geometry()
