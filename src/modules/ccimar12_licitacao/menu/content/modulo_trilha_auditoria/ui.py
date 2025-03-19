@@ -8,7 +8,7 @@ from utils.styles.styles_edit_button import apply_edit_dialog_style
 from .trilhas.trilha_2_5.trilha import widget_trilha
 from .trilhas.homologado_x_estimado.trilha import widget_homologado_x_estimado
 
-def widget_homologado_x_estimado(icons):
+def widget_homologado_x_estimado(text, icons):
     widget = QWidget()
     layout = QVBoxLayout(widget)
     layout.addWidget(QLabel("2.12 Preço Homologado acima do Estimado"))
@@ -52,23 +52,6 @@ def create_trilha_auditoria(title_text, icons):
         "2.28 Estimativa de Demanda": "2.28 Fragilidade na Estimativa da Demanda",
         "2.31": "2.31 Fornecedor com restrição para contratação",
         "2.32": "2.31 Fornecedor com restrição para contratação",
-        #"2.13": "2.13 Limite de Dispensa de Licitação (PDM)",
-        #"2.2": "2.2 Análise de Pregões Abandonados",
-        #"2.20": "2.20 Registro de Penalidade no SICAF",
-        #"2.21": "2.21 Ausência de negociação do valor da proposta.",
-        #"2.22": "2.22 Ausência de publicação do aviso do edital no Portal de Licitações",
-        #"2.22.1": "2.22.1 Ausência de divulgação no Portal de Licitações (Publicação de Inexigibilidade/Dispensa)",
-        #"2.22.2": "2.22.2 Ausência de divulgação no Portal de Licitações (Publicação de extrato do contrato)",
-        #"2.22.3": "2.22.3 Ausência de divulgação no Portal de Licitações (Publicação de extrato de ata de registro de preços)",
-        #"2.22.4": "2.22.4 Divulgação, no Portal de Licitações de documentos que não permite a pesquisa de conteúdos",
-        #"2.28": "2.28 Fragilidade na Estimativa da Demanda",
-        #"2.29": "2.29 Assinatura de documento nato-digital",
-        #"2.3": "2.3 Análise de Publicação de Matérias da Seção 3 do DOU",
-        #"2.30": "2.30 Aplicação de Sações Administrativas",
-        #"2.31": "2.31 Fornecedor com restrição para contratação",
-        #"2.32": "2.32 Aplicabilidade da Lei Geral de Proteção de Dados (LGPD) aos Contratos",
-        #"2.33": "2.33 Dispensa Eletrônica",
-        #"2.5": "2.5 Análise Processual de Alta Materialidade",
     }
 
     # Criação das abas com o rótulo reduzido
