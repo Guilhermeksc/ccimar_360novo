@@ -173,8 +173,7 @@ class MainWindow(QMainWindow):
 
         # Posicionar o botão dinamicamente ao iniciar e ao redimensionar a janela
         self.update_toggle_button_position()
-
-
+        
     def update_toggle_button_position(self):
         """Atualiza a posição do botão para mantê-lo acima do canto inferior esquerdo."""
         margin_bottom = 60  # Distância do canto inferior
