@@ -6,23 +6,12 @@ from PyQt6.QtCore import Qt
 from utils.styles.style_add_button import add_button_func
 from utils.styles.styles_edit_button import apply_edit_dialog_style
 from .trilhas.trilha_2_5.trilha import widget_trilha
+from .trilhas.homologado_x_estimado.trilha import widget_homologado_x_estimado
 
-def create_tab_2_12(icons):
+def widget_homologado_x_estimado(icons):
     widget = QWidget()
     layout = QVBoxLayout(widget)
     layout.addWidget(QLabel("2.12 Preço Homologado acima do Estimado"))
-    return widget
-
-def create_tab_2_28(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.28"))
-    return widget
-
-def create_tab_2_31(icons):
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
-    layout.addWidget(QLabel("Conteúdo customizado para 2.31"))
     return widget
 
 def create_trilha_auditoria(title_text, icons):
@@ -50,9 +39,10 @@ def create_trilha_auditoria(title_text, icons):
     # Mapeamento dos valores (rótulo reduzido) para as funções customizadas
     tab_functions = {
         "2.5 Alta Materialidade": lambda: widget_trilha("text", icons),
-        "2.12 Homologado x Estimado": lambda: create_tab_2_12(icons),
+        "2.12 Homologado x Estimado": lambda: widget_homologado_x_estimado("text1", icons),
         "2.28 Estimativa de Demanda": lambda: create_tab_2_28(icons),
         "2.31 Restrição de Fornecedores": lambda: create_tab_2_31(icons),
+        "2.32 teste": lambda: create_tab_2_31(icons),
     }
 
     # Dicionário para mapear o rótulo reduzido para o título completo da aba
@@ -61,6 +51,7 @@ def create_trilha_auditoria(title_text, icons):
         "2.12 Homologado x Estimado": "2.12 Preço Homologado acima do Estimado",
         "2.28 Estimativa de Demanda": "2.28 Fragilidade na Estimativa da Demanda",
         "2.31": "2.31 Fornecedor com restrição para contratação",
+        "2.32": "2.31 Fornecedor com restrição para contratação",
         #"2.13": "2.13 Limite de Dispensa de Licitação (PDM)",
         #"2.2": "2.2 Análise de Pregões Abandonados",
         #"2.20": "2.20 Registro de Penalidade no SICAF",
@@ -96,3 +87,17 @@ def create_trilha_auditoria(title_text, icons):
 
     main_layout.addWidget(tab_frame)
     return main_frame
+
+
+def create_tab_2_28(icons):
+    widget = QWidget()
+    layout = QVBoxLayout(widget)
+    layout.addWidget(QLabel("Conteúdo customizado para 2.28"))
+    return widget
+
+def create_tab_2_31(icons):
+    widget = QWidget()
+    layout = QVBoxLayout(widget)
+    layout.addWidget(QLabel("Conteúdo customizado para 2.31"))
+    return widget
+
