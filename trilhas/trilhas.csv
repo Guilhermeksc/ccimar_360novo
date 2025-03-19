@@ -1,0 +1,748 @@
+"tril_cd_id"|"tril_cd_trilha"|"tril_nm_completo"|"tril_in_aprovado"|"niex_nm_completo"|"area_nm_completo"
+656|"4.1.102"|Militar em pagamento sem cadastro no SISPES.|"1"|MUITO ALTO|RECURSOS HUMANOS
+688|"4.3.34"|Pensionista, com estado civil no SIAPE, incompatível com a situação de filha Maior Solteira sem Cargo Público. |"1"|ALTO|RECURSOS HUMANOS
+708|"4.2.49"|Pensionista com mais de dois vínculos de pagamento Extra-MB.|"1"|ALTO|RECURSOS HUMANOS
+463|"4.1.120"|Militar da Ativa Sócio Gerente ou Administrador de Empresa Privada.|"1"|ALTO|RECURSOS HUMANOS
+627|"2.12"|Preço homologado acima do Estimado|"1"|ALTO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+455|"4.1.49"|Militar que recebeu ajuda de custo quando deveria receber diária|"1"|ALTO|RECURSOS HUMANOS
+694|"4.1.1"|Pagamento em Duplicidade|"1"|ALTO|RECURSOS HUMANOS
+401|"2.31"|Fornecedor com restrição para contratação.|"1"|ALTO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+757|"1.3.14"|Pagamento de autônomos de forma continuada|"0"|ALTO|ORÇAMENTÁRIA E FINANCEIRA
+672|"4.1.62"|Militar excluído, licenciado ou transferido para outro órgão em pagamento.|"1"|ALTO|RECURSOS HUMANOS
+701|"4.1.44"|Militar desertor em Pagamento no SISPAG2|"1"|ALTO|RECURSOS HUMANOS
+615|"4.3.1"|Servidores e Pensionistas de Civis falecidos em pagamento.|"1"|ALTO|RECURSOS HUMANOS
+703|"4.1.53"|Pagamento a menor / a maior da Compensação Pecuniária (CP)|"1"|ALTO|RECURSOS HUMANOS
+151|"4.2.1"|Pagamento em Duplicidade.|"1"|ALTO|RECURSOS HUMANOS
+631|"4.1.116"|Pagamento incorreto de Adicional Natalino Proporcional|"1"|ALTO|RECURSOS HUMANOS
+177|"4.2.26"|Militar Veterano ou Pensionista falecidos em Pagamento.|"1"|ALTO|RECURSOS HUMANOS
+723|"5.1.1"|Inconsistência de saldos, com registro de restrição na conformidade contábil da Unidade Gestora.|"1"|ALTO|PATRIMÔNIO
+100|"6-19"|“Risco de imagem” decorrente da aquisição de gêneros alimentícios que aparentemente não tenham vinculação direta com os objetivos institucionais do Órgão ou Entidade.|"1"|ALTO|MUNICIAMENTO
+255|"4.3.41"|Militar Médico com vínculo indevido de Residência Médica (carga horária: 60 Horas).|"1"|ALTO|RECURSOS HUMANOS
+315|"5.3.2"|Depreciação Acumulada|"1"|ALTO|PATRIMÔNIO
+614|"4.1.118"|Pagamento a menor / maior de Férias proporcional e Adicional Natalino proporcional.	|"1"|ALTO|RECURSOS HUMANOS
+10|"5.2.1"|Compatibilização Financeira (Bens Móveis)|"1"|ALTO|PATRIMÔNIO
+90|"4.1.38"|Militar com Pagamento “Ativo” após o ajuste de contas.|"1"|ALTO|RECURSOS HUMANOS
+704|"4.1.56"|Militar em pagamento após a data do LSAM|"1"|ALTO|RECURSOS HUMANOS
+191|"4.2.39"|Militar Veterano recebendo o Auxílio Invalidez e exercendo atividade remunerada em algum outro órgão público.|"1"|ALTO|RECURSOS HUMANOS
+134|"4.1.94"|Militar Médico com vínculo indevido de Residência Médica (carga horária: 60 Horas).|"1"|ALTO|RECURSOS HUMANOS
+690|"4.3.4"|Existência de Pensionistas Civis (Filha maior solteira com remuneração) da MB com outro vínculo de pagamento EXTRA-MB.|"1"|ALTO|RECURSOS HUMANOS
+612|"4.1.42"|Militar falecido na Ativa constando em pagamento no SISPAG2.|"1"|ALTO|RECURSOS HUMANOS
+4|"5.9.2"|Multas por infrações do CBT|"1"|ALTO|PATRIMÔNIO
+125|"4.1.83"|Permanência de militares Licenciados do Serviço Ativo da Marinha (LSAM) em acerto de contas por três meses ou mais.|"1"|ALTO|RECURSOS HUMANOS
+197|"4.2.44"|Militar Veterano recebendo outra remuneração no SIAPE, ultrapassando o Teto Constitucional.|"1"|ALTO|RECURSOS HUMANOS
+345|"2.28"|Fragilidade na Estimativa da Demanda|"1"|ALTO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+719|"5.12.1"|Divergência entre o valor registrado no SPIUnet e o valor contabilizado no SIAFI, na CC 12311.01.00 - Bens de Uso Especial Registrados no SPIUnet.|"1"|ALTO|PATRIMÔNIO
+218|"4.3.5"|Existência de Pensionistas Civis (Filha maior solteira com remuneração) da MB com outro vínculo de pagamento na MB.|"1"|ALTO|RECURSOS HUMANOS
+756|"2.31"|Fornecedor com restrição para contratação.|"1"|ALTO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+604|"5.12.11"|Inconsistência do saldo de Depreciação Acumulada de Bens Imóveis|"1"|ALTO|PATRIMÔNIO
+715|"5.12.7"|Saldo indevido ou ainda não regularizado na Conta Contábil 12321.99.05 - Imóveis a Classificar/a Registrar.|"1"|ALTO|PATRIMÔNIO
+601|"5.12.12"|Bens de Uso Especial não registrados no SPIUnet|"1"|ALTO|PATRIMÔNIO
+677|"4.1.84"|Pagamento indevido de Compensação Pecuniária (CP).|"1"|ALTO|RECURSOS HUMANOS
+702|"4.1.46"| Militar aluno com matrícula cancelada ou trancada constando em Pagamento|"1"|ALTO|RECURSOS HUMANOS
+8|"5.3.2"|Depreciação Acumulada|"1"|ALTO|PATRIMÔNIO
+687|"4.3.31"|Pagamento em duplicidade de Servidores.|"1"|ALTO|RECURSOS HUMANOS
+11|"4.1.49"|Militar que recebeu ajuda de custo quando deveria receber diária|"1"|ALTO|RECURSOS HUMANOS
+698|"4.1.115"|Pagamento incorreto de Férias Proporcionais para Militares RM2 em LSAM.|"1"|ALTO|RECURSOS HUMANOS
+15|"1.3.3"|Divergência entre o credor da nota de empenho e o da respectiva ordem bancária.|"1"|ALTO|ORÇAMENTÁRIA E FINANCEIRA
+179|"4.2.28"|Pensionista Filha de Ex-Combatente recebendo outra remuneração na MB.|"1"|ALTO|RECURSOS HUMANOS
+595|"5.12.10"|Controle do registro no SPIUnet a classificar, ainda não ratificado.|"1"|ALTO|PATRIMÔNIO
+96|"4.1.47"|Militar advindo de Suspensão ou Bloqueio com alteração na Conta Corrente, Agência ou Banco, após a reativação do Pagamento.|"1"|ALTO|RECURSOS HUMANOS
+626|"2.5"|Análise Processual de Alta Materialidade.|"1"|ALTO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+647|"4.1.106"|Exclusão/alteração de desconto antes da data término.|"1"|ALTO|RECURSOS HUMANOS
+681|"4.2.29"|Pensionista Filha de Ex-Combatente recebendo outra remuneração Extra-MB.|"1"|ALTO|RECURSOS HUMANOS
+181|"4.2.30"|Pensionista de Militar recebendo mais de 2 remunerações na MB ou Extra-MB.|"1"|ALTO|RECURSOS HUMANOS
+198|"4.2.45"|Pensionista recebendo outra remuneração no SIAPE, ultrapassando o Teto Constitucional.|"1"|ALTO|RECURSOS HUMANOS
+207|"4.2.54"|Militar Veterano recebendo Auxílio Invalidez (AI) exercendo atividade remunerada em outra fonte pagadora Extra-MB.|"1"|ALTO|RECURSOS HUMANOS
+98|"4.1.50"|Impropriedade no pagamento de precatório judicial em bilhete de pagamento.|"1"|ALTO|RECURSOS HUMANOS
+670|"4.1.45"|Militar licenciado a bem da disciplina ou excluído abem da disciplina em Pagamento.	|"1"|ALTO|RECURSOS HUMANOS
+114|"4.1.69"|Pagamento indevido de Ajuda de Custo a militar em detrimento a Gratificação de Representação (GRAT REP).|"1"|MÉDIO|RECURSOS HUMANOS
+729|"5.6.2"|Incumbência sem registro do Encarregado.|"1"|MÉDIO|PATRIMÔNIO
+525|"5.8.19"|CC 12311.08.04 - Bens Móveis em Reparo - Saldo a regularizar|"1"|MÉDIO|PATRIMÔNIO
+739|"5.8.20"|Saldo a regularizar na CC 12311.99.01 - Bens Móveis a Alienar.|"1"|MÉDIO|PATRIMÔNIO
+101|"6-21"|Realização de despesa de aquisição de gêneros alimentícios, com Ação Orçamentária (AO) diversa da 212B |"1"|MÉDIO|MUNICIAMENTO
+697|"4.1.114"|Pagamento de Compensação Pecuniária em prazo superior a 30 dias do licenciamento.|"1"|MÉDIO|RECURSOS HUMANOS
+3|"5.2.2"|Compatibilização Financeira (Bens de Estoque).|"1"|MÉDIO|PATRIMÔNIO
+231|"4.3.19"|Servidor da Ativa recebendo, continuadamente, rubrica de Ação Judicial.|"1"|MÉDIO|RECURSOS HUMANOS
+523|"5.8.15"|CC 12311.07.02 - Importações em Andamento - Bens Móveis - Saldo a regularizar|"1"|MÉDIO|PATRIMÔNIO
+707|"4.2.27"|Militar Veterano recebendo rubrica de Ativo no Pagamento.|"1"|MÉDIO|RECURSOS HUMANOS
+341|"5.3.1"|Itens não depreciados.|"1"|MÉDIO|PATRIMÔNIO
+519|"5.8.10"|CC 11581.03.01 - Mercadorias para Doação - Estoque Interno - Saldo a Regularizar|"1"|MÉDIO|PATRIMÔNIO
+720|"1.3A"|Despesas empenhadas com a AI do Gerente de Metas “Oscar”, com indícios de desvio de finalidade|"1"|MÉDIO|ORÇAMENTÁRIA E FINANCEIRA
+742|"5.8.22"|Saldo a regularizar na CC 12311.99.06 - Bens Móveis em Recuperação.|"1"|MÉDIO|PATRIMÔNIO
+550|"5.8.11"|CC 11581.05.00 - Importações em Andamento - Bens de Estoque - Saldo a regularizar|"1"|MÉDIO|PATRIMÔNIO
+640|"4.1.55"|Pagamento a maior de Auxílio Funeral (AF).|"1"|MÉDIO|RECURSOS HUMANOS
+625|"2.20"|Registro de penalidade no SICAF|"1"|MÉDIO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+714|"5.12.9"|Bens Dominicais não registrados no SIAPA - Saldo a regularizar.|"1"|MÉDIO|PATRIMÔNIO
+683|"4.3.2"|Servidor Aposentado recebendo rubrica de ativo no pagamento.|"1"|MÉDIO|RECURSOS HUMANOS
+294|"1.1.22"|Utilização inadequada de subelemento não vinculado à Ação Interna B.4D0.FC.|"1"|MÉDIO|ORÇAMENTÁRIA E FINANCEIRA
+224|"4.3.12"|Servidor sem informação ou com informação incorreta no Cadastro SIAPE com Cargo de Nível Intermediário.|"1"|MÉDIO|RECURSOS HUMANOS
+711|"4.3.24"|Dependente falecido gerando benefício para o servidor.|"1"|MÉDIO|RECURSOS HUMANOS
+621|"5.8.25"|Bens Móveis a Receber, ainda não regularizado.|"1"|MÉDIO|PATRIMÔNIO
+740|"5.8.26"|Bens de  Estoque a Receber, ainda não regularizado.|"1"|MÉDIO|PATRIMÔNIO
+517|"5.8.9"|CC 11581.02.05 - Estoque de Materiais para Premiações - Saldo a regularizar.|"1"|MÉDIO|PATRIMÔNIO
+732|"5.8.18"|Saldo a regularizar na CC 12311.08.03 - Bens Móveis a Reparar.|"1"|MÉDIO|PATRIMÔNIO
+28|"4.1.56"|Militar em pagamento após a data do LSAM|"1"|MÉDIO|RECURSOS HUMANOS
+747|"2.13"|Limite de Dispensa de Licitação|"1"|MÉDIO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+46|"4.1.79"|Pagamento indevido de Compensação Orgânica de Raio X.|"1"|MÉDIO|RECURSOS HUMANOS
+741|"5.8.21"|Saldo a regularizar na CC 12311.99.02 - Bens em Poder de Outras Unidades ou Terceiros.|"1"|MÉDIO|PATRIMÔNIO
+521|"5.8.13"|CC 12311.07.01 - Bens Móveis em Elaboração - Saldo a regularizar|"1"|MÉDIO|PATRIMÔNIO
+510|"5.8.3"|CC 11511.01.01 - Mercadorias para Venda ou Revenda - Saldo a regularizar|"1"|MÉDIO|PATRIMÔNIO
+107|"4.1.60"|Pagamento indevido no Acerto de Contas (LSAM).	|"1"|MÉDIO|RECURSOS HUMANOS
+724|"5.3.3"|Inconsistências nos registros da depreciação no SIAFI.|"1"|MÉDIO|PATRIMÔNIO
+606|"5.12.8"|Bens Imóveis com avaliações vencidas|"1"|MÉDIO|PATRIMÔNIO
+717|"5.12.4"|Conta Contábil 12321.06.05 - Estudos e Projetos - Saldo indevido ou ainda não regularizado.|"1"|MÉDIO|PATRIMÔNIO
+758|"1.3.15"|Pagamento de oficial RM2 por RPA|"0"|MÉDIO|ORÇAMENTÁRIA E FINANCEIRA
+716|"5.12.5"|Conta Contábil 12321.07.00 - Instalações - Saldo alongado, indevido ou ainda não regularizado.|"1"|MÉDIO|PATRIMÔNIO
+699|"4.1.30"|Pagamento da Assistência Pré-Escolar (APE) sem o registro de dependentes no Sistema BDPES.|"1"|MÉDIO|RECURSOS HUMANOS
+6|"5.7.2"|Itens registrados de maneira incompleta.|"1"|MÉDIO|PATRIMÔNIO
+734|"5.8.1"|Registro de bens móveis no SIAFI, em Conta Contábil não cadastradas no CADBEM.|"1"|MÉDIO|PATRIMÔNIO
+167|"2.13"|Limite de Dispensa de Licitação|"1"|MÉDIO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+9|"4.1.1"|Pagamento em Duplicidade|"1"|MÉDIO|RECURSOS HUMANOS
+755|"2.30"|Aplicação de Sanções Administrativas.|"1"|MÉDIO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+710|"4.3.20"|Pensionistas Civis recebendo continuadamente, rubrica de Ação Judicial.|"1"|MÉDIO|RECURSOS HUMANOS
+520|"5.8.12"|CC 11581.06.00 - Construções Civis - Saldo a regularizar|"1"|MÉDIO|PATRIMÔNIO
+526|"5.8.23"| Realocação e reavaliação de bens registrados na CC 12311.99.99 - Outros Bens Móveis|"1"|MÉDIO|PATRIMÔNIO
+649|"4.1.39"|Militar com endereçamento (ENDER) em branco|"1"|MÉDIO|RECURSOS HUMANOS
+257|"4.3.43"|Dependente com CPF do servidor gerando benefício.|"1"|MÉDIO|RECURSOS HUMANOS
+725|"5.3.4"|Bens Móveis que atingiram o seu valor residual.|"1"|MÉDIO|PATRIMÔNIO
+7|"5.7.3"|Itens cadastrados com mais de uma unidade.|"1"|MÉDIO|PATRIMÔNIO
+230|"4.3.18"|Servidores aposentados recebendo, continuadamente, rubrica de Ação Judicial.|"1"|MÉDIO|RECURSOS HUMANOS
+718|"5.12.3"|Conta Contábil 12321.06.01 - Obras em Andamento - Saldo indevido ou ainda não regularizado.|"1"|MÉDIO|PATRIMÔNIO
+750|"2.22.2"|Ausência de divulgação no Portal de Licitações (Publicação de extrato de contrato).|"1"|MÉDIO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+700|"4.1.43"|Pagamento de Auxílio Fardamento (AF) em valor integral quando deveria ter sido pago a diferença.|"1"|MÉDIO|RECURSOS HUMANOS
+522|"5.8.14"|CC 12311.04.99 - Outros Materiais Culturais, Educacionais e de Comunicações - Saldo a regularizar|"1"|MÉDIO|PATRIMÔNIO
+605|"5.12.13"|Reclassificação da conta contábil 12321.01.98 - Outros bens imóveis registrados no SPIUnet.|"1"|MÉDIO|PATRIMÔNIO
+225|"4.3.13"|Servidor sem informação ou com informação incorreta no Cadastro SIAPE com Cargo Nível Superior.|"1"|MÉDIO|RECURSOS HUMANOS
+253|"4.3.39"|Ausência de documentação que respalda o pagamento da rubrica Retribuição por Titulação (RT) de servidor.|"1"|MÉDIO|RECURSOS HUMANOS
+240|"4.3.26"|Pensão no SIAPE com cota parte indevida.|"1"|MÉDIO|RECURSOS HUMANOS
+513|"5.8.4"|CC 11561.02.00 - Estoque de Sobressalentes a Alienar - Saldo a regularizar|"1"|MÉDIO|PATRIMÔNIO
+254|"4.3.40"|Servidor com Pagamento Bloqueado ou Suspenso há mais de 3 meses.|"1"|MÉDIO|RECURSOS HUMANOS
+485|"1.1.30"|Militar como sócio-administrador de empresa.|"1"|MÉDIO|ORÇAMENTÁRIA E FINANCEIRA
+405|"5.2.2"|"Compatibilização Financeira (Bens de Estoque)
+"|"1"|MÉDIO|PATRIMÔNIO
+199|"4.2.46"|Militar Veterano ou Pensionista recebendo rubrica de pagamento de forma vitalícia, indevidamente.|"1"|MÉDIO|RECURSOS HUMANOS
+256|"4.3.42"|Preenchimento do campo “ESCOLARIDADE” incompatível com o direito para receber a rubrica “GQ GRAT. DE QUALIFICAÇÃO - AP”.|"1"|MÉDIO|RECURSOS HUMANOS
+486|"1.1.31"|Nota de Empenho tendo como favorecido empresa com sócio militar da ativa.|"1"|MÉDIO|ORÇAMENTÁRIA E FINANCEIRA
+2|"5.7.1"|Classificação inadequada de bens móveis.|"1"|MÉDIO|PATRIMÔNIO
+527|"5.8.24"|CC 11581.98.00 - Estoques Diversos - Saldo a regularizar|"1"|MÉDIO|PATRIMÔNIO
+14|"4.1.22"|Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) sem dependentes no BP.|"1"|MÉDIO|RECURSOS HUMANOS
+42|"4.1.53"|Pagamento a menor / a maior da Compensação Pecuniária (CP)|"1"|MÉDIO|RECURSOS HUMANOS
+288|"1.6.26"|Análise de comprovação de Suprimento de Fundos.|"1"|MÉDIO|ORÇAMENTÁRIA E FINANCEIRA
+5|"5.3.1"|Itens não depreciados|"1"|MÉDIO|PATRIMÔNIO
+555|"2.32"|Aplicabilidade da Lei Geral de Proteção de Dados (LGPD) aos Contratos|"1"|MÉDIO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+258|"4.3.44"|Valor incorreto de Pensão Graciosa.|"1"|MÉDIO|RECURSOS HUMANOS
+727|"5.5.1"|Itens na Incumbência “INC”.|"1"|MÉDIO|PATRIMÔNIO
+102|"6-18"|Realização de despesas não autorizadas utilizando recursos da AI B.441.01.|"1"|MÉDIO|MUNICIAMENTO
+695|"4.1.111"|Militar em Acerto de Contas há mais de 3 meses.|"1"|MÉDIO|RECURSOS HUMANOS
+759|"1.3.16"|Pagamento por RPA de militar RM1|"0"|MÉDIO|ORÇAMENTÁRIA E FINANCEIRA
+303|"1.1.12"|Notas de empenho emitidas com o subelemento destinado à “festividades e homenagens’.|"1"|MÉDIO|ORÇAMENTÁRIA E FINANCEIRA
+689|"4.3.38"|Servidor Civil recebendo Auxílio-Alimentação na MB e Extra-MB, concomitantemente.|"1"|MÉDIO|RECURSOS HUMANOS
+675|"4.1.73"|Pagamento do Auxílio-Transporte (AT) divergente ao valor autorizado na Declaração de Concessão de Auxílio-Transporte (DeCAT).|"1"|MÉDIO|RECURSOS HUMANOS
+691|"4.3.47"|Pensionista Civil recebendo rubrica de pagamento de forma vitalícia indevidamente.|"1"|MÉDIO|RECURSOS HUMANOS
+713|"5.12.6"|Conta Contábil 12321.08.00 - Benfeitorias em Propriedade de Terceiros - Saldo a regularizar.|"1"|MÉDIO|PATRIMÔNIO
+223|"4.3.11"|Servidores em cargo de Comissão (CCE) com o cadastro incompatível com a função. |"1"|MÉDIO|RECURSOS HUMANOS
+676|"4.1.82"|Pagamento a maior / menor de Ajuda de Custo para militar movimentado com / sem desligamento da OM.|"1"|MÉDIO|RECURSOS HUMANOS
+709|"4.2.52"|Militar Veterano recebendo as rubricas Auxílio Invalidez e Diária de Asilado, concomitantemente.|"1"|MÉDIO|RECURSOS HUMANOS
+514|"5.8.5"|CC 11561.10.00 - Materiais de Consumo não Localizados - Saldo a regularizar|"1"|MÉDIO|PATRIMÔNIO
+524|"5.8.17"|CC 12311.08.02 - Estoque para Distribuição - Saldo a regularizar|"1"|MÉDIO|PATRIMÔNIO
+731|"5.8.7"|Saldo a regularizar na CC 11581.02.02 - Mat. de Consumo Est. Armazém Terceiros p/ Distribuição.|"1"|MÉDIO|PATRIMÔNIO
+712|"4.3.48"|Ausência de registro, no SIAPE, de vínculo em outro órgão público.|"1"|MÉDIO|RECURSOS HUMANOS
+516|"5.8.8"|CC 11581.02.03 - Medicamento - Estoque Interno para Distribuição - Saldo a regularizar|"1"|MÉDIO|PATRIMÔNIO
+743|"6-30"|Municiamento de Servidores Civis que recebem auxílio-alimentação em pecúnia|"1"|MÉDIO|MUNICIAMENTO
+705|"4.1.90"|Pagamento indevido de Ajuda de Custo a militar em detrimento a Gratificação de Representação Operacional (GRAT REP OP).|"1"|MÉDIO|RECURSOS HUMANOS
+219|"4.3.6"|Servidor Aposentado recebendo a rubrica Retribuição por Titulação (RT) com cadastro pessoal incompatível.|"1"|MÉDIO|RECURSOS HUMANOS
+696|"4.1.113"|Pagamento indevido de férias a militar em período de afastamento|"1"|MÉDIO|RECURSOS HUMANOS
+679|"4.1.95"|Militar recebendo rubrica de pagamento de forma vitalícia indevidamente.|"1"|MÉDIO|RECURSOS HUMANOS
+529|"5.8.6"|Saldo a regularizar na CC 11581.02.01 - Mat. de Consumo Estoque Interno - para Distribuir.|"1"|MÉDIO|PATRIMÔNIO
+251|"4.3.37"|Preenchimento do campo “Parentesco Vínculo” incompatível com o campo “Estado Civil” da pensionista civil no Cadastro do SIAPE.|"1"|MÉDIO|RECURSOS HUMANOS
+220|"4.3.7"|Servidor Ativo recebendo a rubrica Retribuição por Titulação (RT) com cadastro pessoal incompatível.|"1"|MÉDIO|RECURSOS HUMANOS
+340|"5.7.1"|Classificação inadequada de bens móveis.|"1"|MÉDIO|PATRIMÔNIO
+45|"4.1.25"|Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.|"1"|MÉDIO|RECURSOS HUMANOS
+706|"4.2.21"|Militar Veterano ou Pensionista com Pagamento Suspenso há mais de 3 meses.|"1"|MÉDIO|RECURSOS HUMANOS
+19|"4.1.46"| Militar aluno com matrícula cancelada ou trancada constando em Pagamento|"1"|MÉDIO|RECURSOS HUMANOS
+760|"1.3.17"|Pagamento de autônomos que possuem relação de parentesco com militares da Marinha do Brasil|"0"|MÉDIO|ORÇAMENTÁRIA E FINANCEIRA
+173|"4.2.22"|Militar Veterano com Pagamento “Ativo” após o ajuste de contas (TRRM).|"1"|MÉDIO|RECURSOS HUMANOS
+291|"2.21"|Ausência de negociação do valor da proposta.|"1"|MÉDIO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+467|"2.33"|Dispensa Eletrônica|"1"|MÉDIO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+655|"4.1.101"|Pagamento indevido de Auxílio-Transporte (AT).|"1"|BAIXO|RECURSOS HUMANOS
+774|"8.6.7"|Cômputo de período em guarnição especial para contagem de tempo no cálculo do Adicional de Tempo de Serviço e para percepção de remuneração correspondente ao grau hierárquico superior.|"1"|BAIXO|ATOS DE PESSOAL
+269|"1.3.2"|Indício de utilização inadequada de código e/ou alíquota do Documento de Arrecadação de Receitas Federais (DARF).|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+85|"4.1.29"|Militar recebendo Assistência Pré Escolar (APE) em valor indevido.|"1"|BAIXO|RECURSOS HUMANOS
+490|"4.1.115"|Pagamento incorreto de Férias Proporcionais para Miitares RM2 em LSAM.|"1"|BAIXO|RECURSOS HUMANOS
+576|"8.4.1"|Cômputo de tempo laboral em atividade privada para percepção de remuneração correspondente ao grau hierárquico superior.|"1"|BAIXO|ATOS DE PESSOAL
+767|"8.4.1"|Cômputo de tempo laboral em atividade privada para percepção de remuneração correspondente ao grau hierárquico superior.|"1"|BAIXO|ATOS DE PESSOAL
+500|"1.1.12"|Notas de empenho emitidas com o subelemento destinado à “festividades e homenagens’.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+274|"1.3.10"|Pagamento de Documento de Despesa em nome de outra UGE.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+536|"1.1.6"|Indícios de desvio de finalidade de recursos.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+150|"4.1.110"|Militar descontando Fusma TIT indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+221|"4.3.8"|Servidor aposentado recebendo benefícios sem o número do CPF no cadastro de dependente do SIAPE.|"1"|BAIXO|RECURSOS HUMANOS
+229|"4.3.17"|Servidor ativo com mais de 75 anos.|"1"|BAIXO|RECURSOS HUMANOS
+466|"1.6.26"|Análise de comprovação de Suprimento de Fundos.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+654|"4.1.10"|Pagamento indevido de Gratificação de Representação de Comando (GRAT REP 10).|"1"|BAIXO|RECURSOS HUMANOS
+222|"4.3.9"|Servidor da ativa recebendo benefícios sem o número do CPF no cadastro de dependente no SIAPE.|"1"|BAIXO|RECURSOS HUMANOS
+275|"4.1.112"|Pagamento de Compensação Orgânica atrasada sem desconto de FUSMA e PENSÃO MILITAR|"1"|BAIXO|RECURSOS HUMANOS
+237|"1.1.17"|Empenho do tipo ordinário, inadequadamente usado, para pagamento de despesas parceladas.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+238|"4.3.21"|Servidores recebendo Auxílio-Transporte com valor acima de R$ 800,00 residentes na mesma cidade onde trabalha.|"1"|BAIXO|RECURSOS HUMANOS
+668|"4.1.23"|Militar recebendo Auxílio-Transporte (AT) sem o desconto da rubrica do beneficiário (6%).|"1"|BAIXO|RECURSOS HUMANOS
+667|"4.1.21"|Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) indevidamente fora da área A.|"1"|BAIXO|RECURSOS HUMANOS
+659|"4.1.110"|Militar descontando Fusma TIT indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+195|"4.2.42"|Militar Veterano  isento de IRRF exercendo TTC.|"1"|BAIXO|RECURSOS HUMANOS
+262|"1.2.4"|Lançamento inadequado de conta contábil segundo a natureza da despesa.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+165|"4.2.15"|Militar Veterano recebendo Assistência Pré Escolar (APE) com data término incorreta.|"1"|BAIXO|RECURSOS HUMANOS
+250|"4.3.36"|Pagamento da Assistência Per Capita Saúde Suplementar sem registro das informações dos dependentes no cadastro SIAPE.|"1"|BAIXO|RECURSOS HUMANOS
+289|"1.6.0"|Solicitação de Auditoria - Execução Financeira|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+666|"4.1.20"|Militar recebendo as rubricas GRAT LOC A e B concomitantemente.|"1"|BAIXO|RECURSOS HUMANOS
+665|"4.1.2"|Ausência do Desconto da Rubrica Pensão Militar|"1"|BAIXO|RECURSOS HUMANOS
+761|"1.1.9"|Realização de empenho no inciso I e II do art. 75 da Lei 14.133/21 sem utilização do Sistema de Dispensa Eletrônica.  |"0"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+768|"8.4.2"|Cômputo de tempo laboral no serviço público para percepção de remuneração correspondente ao grau hierárquico superior.|"1"|BAIXO|ATOS DE PESSOAL
+265|"1.1.1"|Não utilização do Comprasnet 4.0 para emissão de Notas de Empenho.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+465|"4.1.117"|Inconsistência na comprovação da execução do deslocamento no Auxílio-Transporte.|"1"|BAIXO|RECURSOS HUMANOS
+771|"8.6.3"|Cômputo de período em guarnição especial para contagem de tempo no cálculo do Adicional de Tempo de Serviço.|"1"|BAIXO|ATOS DE PESSOAL
+34|"4.1.100"|Militar recebendo Gratificação de Representação em rubrica indevida|"1"|BAIXO|RECURSOS HUMANOS
+279|"4.3.0"|Solicitação de Auditoria - Servidores/aposentados civis e pensionistas.|"1"|BAIXO|RECURSOS HUMANOS
+489|"4.3.0"|Solicitação de Auditoria - Servidores/aposentados civis e pensionistas.|"1"|BAIXO|RECURSOS HUMANOS
+278|"4.2.0"|Solicitação de Auditoria - Militares veteranos e pensionistas.|"1"|BAIXO|RECURSOS HUMANOS
+298|"1.1.8"|Enquadramento da despesa utilizando-se da classificação “outros” subelemento 99.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+272|"1.1.7"|Indícios de enquadramento inadequado da despesa segundo a classificação da sua natureza.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+201|"4.2.48"|Militar Veterano ou Pensionistas recebendo Adicional de Disponibilidade e Adicional de Tempo de Serviço, concomitantemente.|"1"|BAIXO|RECURSOS HUMANOS
+769|"8.4.4"|Concessão de remuneração correspondente ao grau hierárquico superior em desacordo com o estabelecido em lei.|"1"|BAIXO|ATOS DE PESSOAL
+518|"4.1.96"|Pagamento/desconto de direito pecuniário em rubrica Indevida.|"1"|BAIXO|RECURSOS HUMANOS
+319|"1.2.4"|Lançamento inadequado de conta contábil segundo a natureza da despesa.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+682|"4.3.10"|Servidores Aposentados (EST-02) lotados em UPAG da Ativa|"1"|BAIXO|RECURSOS HUMANOS
+548|"4.3.34"|Pensionista, com estado civil no SIAPE, incompatível com a situação de filha Maior Solteira sem Cargo Público. |"1"|BAIXO|RECURSOS HUMANOS
+209|"4.2.56"|Pagamento do Adicional de Inatividade em valores fixos.|"1"|BAIXO|RECURSOS HUMANOS
+212|"4.2.59"|Militar Veterano e Pensionista recebendo a rubrica diferença 28,86% em valores fixos.|"1"|BAIXO|RECURSOS HUMANOS
+773|"8.6.5"|Cômputo de período laboral no serviço público para contagem de tempo na apuração do Adicional de Tempo de Serviço e para percepção de remuneração correspondente ao grau hierárquico superior.|"1"|BAIXO|ATOS DE PESSOAL
+578|"8.4.3"|Cômputo de tempo laboral em guarnição especial para percepção de remuneração correspondente ao grau hierárquico superior.|"1"|BAIXO|ATOS DE PESSOAL
+310|"1.1.20B"|Preenchimento inadequado de campos da Nota de Empenho (NE).	|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+311|"1.1.11"|Impropriedades na descrição da Nota de Empenho (NE) ou Ordem Bancária de despesas de diárias.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+770|"8.4.6"|Concessão de benefício previsto no art. 110, da Lei nº 6.880/1980, para militares reformados.|"1"|BAIXO|ATOS DE PESSOAL
+55|"4.1.70"|Pagamento indevido de Auxílio-Transporte (AT)  para militar transferido para a Reserva Remunerada ou Reformado.|"1"|BAIXO|RECURSOS HUMANOS
+284|"4.3.1"|Servidores e Pensionistas de Civis falecidos em pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+772|"8.6.4"|Cômputo de período laboral na atividade privada e no serviço público para contagem de tempo na apuração do Adicional de Tempo de Serviço.|"1"|BAIXO|ATOS DE PESSOAL
+120|"4.1.76"|Pagamento incorreto de Transferência para Reserva Remunerada (TRRM).|"1"|BAIXO|RECURSOS HUMANOS
+122|"4.1.80"|Pagamento a menor de Auxílio Funeral (AF).|"1"|BAIXO|RECURSOS HUMANOS
+67|"4.1.77"| Pagamento incorreto de Auxílio-Natalidade.|"1"|BAIXO|RECURSOS HUMANOS
+501|"1.6.8"|Fragilidade da Justificativa para a utilização do CPGF, na modalidade saque.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+75|"4.1.15"|Militar recebendo GRAT LOC ESP A em valor indevido.|"1"|BAIXO|RECURSOS HUMANOS
+312|"4.1.76"|Pagamento incorreto de Transferência para Reserva Remunerada (TRRM).|"1"|BAIXO|RECURSOS HUMANOS
+297|"4.1.77"| Pagamento incorreto de Auxílio-Natalidade.|"1"|BAIXO|RECURSOS HUMANOS
+459|"4.1.115"|Pagamento incorreto de Férias Proporcionais para Miitares RM2 em LSAM.|"1"|BAIXO|RECURSOS HUMANOS
+766|"8.1.1"|Cumprimento da Súmula nº 106, do TCU.|"1"|BAIXO|ATOS DE PESSOAL
+104|"4.1.55"|Pagamento a maior de Auxílio Funeral (AF).|"1"|BAIXO|RECURSOS HUMANOS
+88|"4.1.34"|Militar recebendo mais de uma rubrica de Compensação Orgânica com somatório maior que 20%.|"1"|BAIXO|RECURSOS HUMANOS
+321|"2.22.3"|Ausência de divulgação no Portal de Licitações (Publicação de extrato de ata de registro de preços).|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+680|"4.2.2"|Militar Veterano e Pensionista que não descontam a rubrica Pensão Militar.|"1"|BAIXO|RECURSOS HUMANOS
+302|"4.1.43"|Pagamento de Auxílio Fardamento (AF) em valor integral quando deveria ter sido pago a diferença.|"1"|BAIXO|RECURSOS HUMANOS
+322|"4.1.55"|Pagamento a maior de Auxílio Funeral (AF).|"1"|BAIXO|RECURSOS HUMANOS
+610|"8.7.1"|Pensionista militar com mais de dois vínculos de pagamento |"1"|BAIXO|ATOS DE PESSOAL
+94|"4.1.44"|Militar desertor em Pagamento no SISPAG2|"1"|BAIXO|RECURSOS HUMANOS
+775|"8.7.1"|Pensionista militar com mais de dois vínculos de pagamento |"0"|BAIXO|ATOS DE PESSOAL
+54|"4.1.22"|Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) sem dependentes no BP.|"1"|BAIXO|RECURSOS HUMANOS
+16|"4.1.35"|Ausência do pagamento de Adicional Habilitação (AH)|"1"|BAIXO|RECURSOS HUMANOS
+324|"4.1.22"|Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) sem dependentes no BP.|"1"|BAIXO|RECURSOS HUMANOS
+406|"4.1.25"|Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.|"1"|BAIXO|RECURSOS HUMANOS
+50|"4.1.25"|Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.|"1"|BAIXO|RECURSOS HUMANOS
+328|"4.1.25"|Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.|"1"|BAIXO|RECURSOS HUMANOS
+280|"4.1.1"|Pagamento em Duplicidade|"1"|BAIXO|RECURSOS HUMANOS
+453|"4.1.21"|Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) indevidamente fora da área A.|"1"|BAIXO|RECURSOS HUMANOS
+776|"8.7.2"|Pensionista civil com mais de dois vínculos de pagamento.|"0"|BAIXO|ATOS DE PESSOAL
+329|"4.1.1"|Pagamento em Duplicidade|"1"|BAIXO|RECURSOS HUMANOS
+323|"4.1.43"|Pagamento de Auxílio Fardamento (AF) em valor integral quando deveria ter sido pago a diferença.|"1"|BAIXO|RECURSOS HUMANOS
+346|"6-18"|Realização de despesas não autorizadas utilizando recursos da AI B.441.01.|"1"|BAIXO|MUNICIAMENTO
+332|"4.1.43"|Pagamento de Auxílio Fardamento (AF) em valor integral quando deveria ter sido pago a diferença.|"1"|BAIXO|RECURSOS HUMANOS
+334|"1.3.4A"|Ausência de envio da Guia de Recolhimento do Fundo de Garantia por Tempo de Serviço e Informações à Previdência Social (GFIP).|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+333|"1.3.4"|Divergência entre a Guia de Recolhimento do Fundo de Garantia por Tempo de Serviço e Informações à Previdência Social (GFIP) e a Guia de Previdência Social (GPS). |"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+70|"4.1.10"|Pagamento indevido de Gratificação de Representação de Comando (GRAT REP 10).|"1"|BAIXO|RECURSOS HUMANOS
+678|"4.1.9"|Militar da Ativa sem receber o Adicional Militar|"1"|BAIXO|RECURSOS HUMANOS
+148|"4.1.109"|Pagamento de Adicional Habilitação (AH) em percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+476|"4.1.29"|Militar recebendo Assistência Pré Escolar (APE) em valor indevido.|"1"|BAIXO|RECURSOS HUMANOS
+410|"4.1.1"|Pagamento em Duplicidade|"1"|BAIXO|RECURSOS HUMANOS
+674|"4.1.70"|Pagamento indevido de Auxílio-Transporte (AT)  para militar transferido para a Reserva Remunerada ou Reformado.|"1"|BAIXO|RECURSOS HUMANOS
+336|"1.1.18"|Ausência de recolhimento de Contribuição Previdenciária Patronal.	|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+363|"1.2.5"|Registro inadequado no campo documento de origem no SIAFI|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+351|"4.1.37"|Militar com RR suspensa há mais de 3 meses.|"1"|BAIXO|RECURSOS HUMANOS
+408|"4.1.30"|Pagamento da Assistência Pré-Escolar (APE) sem o registro de dependentes no Sistema BDPES.|"1"|BAIXO|RECURSOS HUMANOS
+124|"4.1.82"|Pagamento a maior de Ajuda de Custo para militar movimentado sem desligamento da OM.|"1"|BAIXO|RECURSOS HUMANOS
+445|"4.1.42"|Militar falecido na Ativa constando em pagamento no SISPAG2.|"1"|BAIXO|RECURSOS HUMANOS
+364|"4.1.113"|Pagamento indevido de férias a militar em período de afastamento|"1"|BAIXO|RECURSOS HUMANOS
+305|"4.1.113"|Pagamento indevido de férias a militar em período de afastamento|"1"|BAIXO|RECURSOS HUMANOS
+496|"6-10"|Municiamento de estagiários em etapa indevida em função de carga horária|"1"|BAIXO|MUNICIAMENTO
+338|"1.3.5"|Ausência de recolhimento do Documento de Arrecadação de Receitas Federais (DARF).|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+777|"4.1.99"|Militar recebendo valor indevido de Gratificação de Representação.|"1"|BAIXO|RECURSOS HUMANOS
+259|"1.3.8"|Pagamento realizado, com nota de empenho pendente de assinatura do Ordenador de Despesas (OD).|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+339|"1.1.6"|Indícios de desvio de finalidade de recursos.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+537|"4.2.64"|Pensionista de militar recebendo indevidamente Auxílio Pré-Escolar (APE)|"1"|BAIXO|RECURSOS HUMANOS
+66|"4.1.31"|Militares recebendo Assistência Pré Escolar (APE) com data término indevida.|"1"|BAIXO|RECURSOS HUMANOS
+738|"5.10.2"|Dados registrados na DOTEMBA desatualizados. |"1"|BAIXO|PATRIMÔNIO
+762|"1.6.0"|Solicitação de Auditoria - Execução Financeira|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+764|"4.1.0"|Solicitação de Auditoria - Militares da ativa.|"1"|BAIXO|RECURSOS HUMANOS
+438|"4.1.22"|Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) sem dependentes no BP.|"1"|BAIXO|RECURSOS HUMANOS
+673|"4.1.65"|Ausência do pagamento da Rubrica  Adicional de Disponibilidade.|"1"|BAIXO|RECURSOS HUMANOS
+344|"1.5.5"|Divergência entre os registros do Rol de Responsáveis e do cadastro da Unidade Gestora.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+347|"6-21"|Realização de despesa de aquisição de gêneros alimentícios, com Ação Orçamentária (AO) diversa da 212B |"1"|BAIXO|MUNICIAMENTO
+348|"1.3.8"|Pagamento realizado, com nota de empenho pendente de assinatura do Ordenador de Despesas (OD).|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+475|"4.1.22"|Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) sem dependentes no BP.|"1"|BAIXO|RECURSOS HUMANOS
+349|"1.1.12"|Notas de empenho emitidas com o subelemento destinado à “festividades e homenagens’.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+409|"4.1.116"|Pagamento incorreto de Adicional Natalino Proporcional|"1"|BAIXO|RECURSOS HUMANOS
+352|"4.1.114"|Pagamento de Compensação Pecuniária em prazo superior a 30 dias do licenciamento.|"1"|BAIXO|RECURSOS HUMANOS
+350|"6-14"|Prestações de Contas com atrasos superiores a 30 dias|"1"|BAIXO|MUNICIAMENTO
+89|"4.1.37"|Militar com Pagamento Bloqueado ou Suspenso a mais de 3 meses.|"1"|BAIXO|RECURSOS HUMANOS
+106|"4.1.59"|Pagamento indevido de passagem em Bilhete de Pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+295|"4.1.21"|Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) indevidamente fora da área A.|"1"|BAIXO|RECURSOS HUMANOS
+420|"4.3.3"|Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.|"1"|BAIXO|RECURSOS HUMANOS
+267|"1.4.1"|Ausência de conformidade de Registro de Gestão.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+260|"4.1.111"|Militar em Acerto de Contas a mais de 3 meses.|"1"|BAIXO|RECURSOS HUMANOS
+266|"1.2.5"|"Registro inadequado no campo ""DH - Doc. de Origem"""|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+355|"4.1.111"|Militar em Acerto de Contas a mais de 3 meses.|"1"|BAIXO|RECURSOS HUMANOS
+216|"4.3.2"|Servidor Aposentado recebendo rubrica de ativo no pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+356|"4.1.21"|Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) indevidamente fora da área A.|"1"|BAIXO|RECURSOS HUMANOS
+541|"4.3.3"|Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.|"1"|BAIXO|RECURSOS HUMANOS
+362|"1.2.5"|Registro inadequado no campo |"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+317|"2.01"|Solicitação de Auditoria - Alta Materialidade|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+778|"4.1.123"|Implantação de Gratificação de Representação (GRAT REP OP, GRAT REP VI ou GRAT REP IN) superior a 30 dias. |"1"|BAIXO|RECURSOS HUMANOS
+384|"2.01"|Solicitação de Auditoria - Alta Materialidade|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+669|"4.1.27"|Militar descontando a Cota Parte sem o recebimento da Assistência Pré Escolar (APE).|"1"|BAIXO|RECURSOS HUMANOS
+292|"4.1.70"|Pagamento indevido de Auxílio-Transporte (AT)  para militar transferido para a Reserva Remunerada ou Reformado.|"1"|BAIXO|RECURSOS HUMANOS
+108|"4.1.62"|Militar excluído, licenciado ou transferido para outro órgão em pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+531|"4.1.62"|Militar excluído, licenciado ou transferido para outro órgão em pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+357|"4.1.70"|Pagamento indevido de Auxílio-Transporte (AT)  para militar transferido para a Reserva Remunerada ou Reformado.|"1"|BAIXO|RECURSOS HUMANOS
+58|"1.3.3"|Divergência entre o credor da nota de empenho e o da respectiva ordem bancária.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+413|"4.1.36"|Ausência do desconto de FUSMA TIT|"1"|BAIXO|RECURSOS HUMANOS
+664|"4.1.19"|Militar lotado em localidade considerada inóspita “B” sem receber GRAT LOC ESP |"1"|BAIXO|RECURSOS HUMANOS
+359|"1.3.3"|Divergência entre o credor da nota de empenho e o da respectiva ordem bancária.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+547|"4.2.29"|Pensionista Filha de Ex-Combatente recebendo outra remuneração Extra-MB.|"1"|BAIXO|RECURSOS HUMANOS
+296|"4.1.80"|Pagamento a menor de Auxílio Funeral (AF).|"1"|BAIXO|RECURSOS HUMANOS
+361|"1.1.10"|Preenchimento inadequado de campos da Nota de Empenho (NE).|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+663|"4.1.18"|Militar recebendo GRAT LOC ESP B em valor indevido.|"1"|BAIXO|RECURSOS HUMANOS
+360|"1.3.6"|Lançamento semelhante de documento de origem em documentos hábeis distintos.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+437|"4.1.80"|Pagamento a menor de Auxílio Funeral (AF).|"1"|BAIXO|RECURSOS HUMANOS
+545|"4.1.81"|Não inclusão das OS de direitos pecuniários no Portal de OS do CCIMAR.|"1"|BAIXO|RECURSOS HUMANOS
+662|"4.1.17"|Militar recebendo GRAT LOC ESP B indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+381|"4.1.116"|Pagamento incorreto de Adicional Natalino Proporcional|"1"|BAIXO|RECURSOS HUMANOS
+92|"4.1.42"|Militar falecido na Ativa constando em pagamento no SISPAG2.|"1"|BAIXO|RECURSOS HUMANOS
+369|"4.1.111"|Militar em Acerto de Contas há mais de 3 meses.|"1"|BAIXO|RECURSOS HUMANOS
+479|"4.1.56"|Militar em pagamento após a data do LSAM|"1"|BAIXO|RECURSOS HUMANOS
+80|"4.1.23"|Militar recebendo Auxílio-Transporte (AT) sem o desconto da rubrica do beneficiário (6%).|"1"|BAIXO|RECURSOS HUMANOS
+368|"4.1.29"|Militar recebendo Assistência Pré Escolar (APE) em valor indevido.|"1"|BAIXO|RECURSOS HUMANOS
+43|"4.1.36"|Ausência do desconto de FUSMA TIT|"1"|BAIXO|RECURSOS HUMANOS
+480|"4.1.70"|Pagamento indevido de Auxílio-Transporte (AT)  para militar transferido para a Reserva Remunerada ou Reformado.|"1"|BAIXO|RECURSOS HUMANOS
+450|"4.1.34"|Militar recebendo mais de uma rubrica de Compensação Orgânica com somatório maior que 20%.|"1"|BAIXO|RECURSOS HUMANOS
+379|"1.0.3"|A Unidade da Federação da Unidade Gestora Executora (UGE) não mantém concordância com o localizador de gasto do Plano de Trabalho (PT).|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+557|"1.1.20A"|Preenchimento inadequado de campos da Nota de Empenho (NE).	|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+376|"1.3.7"|Pagamento de documento fiscal cancelado pelo emitente.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+692|"4.1.34"|Militar recebendo mais de uma rubrica de Compensação Orgânica com somatório maior que 20%.|"1"|BAIXO|RECURSOS HUMANOS
+377|"1.1.27"|Inversão da fase da despesa pública|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+375|"2.12"|Preço homologado acima do Estimado|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+628|"4.1.1"|Pagamento em Duplicidade|"1"|BAIXO|RECURSOS HUMANOS
+382|"1.7.1 "|Transferência Voluntária pendente de comprovação.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+234|"4.3.22"|Servidores com descontos dos dias não trabalhados na Folha de Pagamento, sem registro das faltas no Cadastro do SIAPE.|"1"|BAIXO|RECURSOS HUMANOS
+388|"1.4.4"|Ausência de OS de diárias no Portal de OS,|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+232|"4.3.20"|Pensionistas Civis recebendo continuadamente, rubrica de Ação Judicial.|"1"|BAIXO|RECURSOS HUMANOS
+737|"5.9.4"|Viaturas registradas no CADBEM de maneira incompleta.|"1"|BAIXO|PATRIMÔNIO
+391|"5.11.2"|Bens de Estoque - Conta Contábil (CC) inadequada e sem registro no SIAFI.|"1"|BAIXO|PATRIMÔNIO
+390|"2.30"|Aplicação de Sanções Administrativas.|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+380|"6-0"|Solicitação de Auditoria|"1"|BAIXO|MUNICIAMENTO
+693|"4.1.76"|Pagamento incorreto de Transferência para Reserva Remunerada (TRRM).|"1"|BAIXO|RECURSOS HUMANOS
+616|"4.3.0"|Solicitação de Auditoria - Servidores/aposentados civis e pensionistas.|"1"|BAIXO|RECURSOS HUMANOS
+393|"4.1.15"|Militar recebendo GRAT LOC ESP A em valor indevido.|"1"|BAIXO|RECURSOS HUMANOS
+307|"4.1.71"|Pagamento indevido de Gratificação de Representação a militar prestando Tarefa por Tempo Certo (TTC).|"1"|BAIXO|RECURSOS HUMANOS
+394|"4.1.71"|Pagamento indevido de Gratificação de Representação a militar prestando Tarefa por Tempo Certo (TTC).|"1"|BAIXO|RECURSOS HUMANOS
+528|"6-0"|Solicitação de Auditoria|"1"|BAIXO|MUNICIAMENTO
+583|"4.1.122"|Impropriedade na comprovação da execução do transporte de militar movimentado entre sedes|"1"|BAIXO|RECURSOS HUMANOS
+487|"4.1.0"|Solicitação de Auditoria - Militares da ativa.|"1"|BAIXO|RECURSOS HUMANOS
+584|"8.7.1"|Pensionista militar com mais de dois vínculos de pagamento |"1"|BAIXO|ATOS DE PESSOAL
+395|"4.118"|Pagamento a menor / maior de Férias proporcional e Adicional Natalino proporcional.	|"1"|BAIXO|RECURSOS HUMANOS
+397|"6-17"|Ocorrência de diferenças superiores a 5% em Acerto de Paiol|"1"|BAIXO|MUNICIAMENTO
+456|"4.2.0"|Solicitação de Auditoria - Militares veteranos e pensionistas.|"1"|BAIXO|RECURSOS HUMANOS
+470|"4.1.115"|Pagamento incorreto de Férias Proporcionais para Miitares RM2 em LSAM.|"1"|BAIXO|RECURSOS HUMANOS
+488|"4.2.0"|Solicitação de Auditoria - Militares veteranos e pensionistas.|"1"|BAIXO|RECURSOS HUMANOS
+398|"6-19"|“Risco de imagem” decorrente da aquisição de gêneros alimentícios que aparentemente não tenham vinculação direta com os objetivos institucionais do Órgão ou Entidade.|"1"|BAIXO|MUNICIAMENTO
+399|"6-11"|Aquisição de gêneros com dispensa de Licitação acima dos limites legais|"1"|BAIXO|MUNICIAMENTO
+503|"1.6.5"|Verificação de natureza de despesas vedadas para Suprimento de Fundos (SF)|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+400|"6-7"|OM sacando complemento escolar que não desenvolva atividades de ensino e instrução. |"1"|BAIXO|MUNICIAMENTO
+504|"1.6.30"|Inscrição em Restos a Pagar de Empenhos destinados a Suprimento de Fundos.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+306|"4.3.45"|Servidores recebendo indevidamente Função de Confiança|"1"|BAIXO|RECURSOS HUMANOS
+417|"4.3.45"|Servidores recebendo indevidamente Função de Confiança|"1"|BAIXO|RECURSOS HUMANOS
+441|"4.1.59"|Pagamento indevido de passagem em Bilhete de Pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+133|"4.1.93"|Comando de pagamento em rubrica divergente ao código de direito pecuniário de Transferência para Reserva Remunerada (TRRM).|"1"|BAIXO|RECURSOS HUMANOS
+402|"6-15"|Não conformidades na formalização de Termo de Despesa|"1"|BAIXO|MUNICIAMENTO
+309|"1.1.1"|Não utilização do Comprasnet 4.0 para emissão de Notas de Empenho.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+17|"4.1.16"|"Militar lotado em localidade considerada inóspita “A” sem receber ""GRAT LOC ESP A"""|"1"|BAIXO|RECURSOS HUMANOS
+586|"8.6.1"|Cômputo de período laboral na atividade privada para contagem de tempo na apuração do Adicional de Tempo de Serviço.|"1"|BAIXO|ATOS DE PESSOAL
+451|"4.1.2"|Ausência do Desconto da Rubrica Pensão Militar|"1"|BAIXO|RECURSOS HUMANOS
+172|"4.2.21"|Militar Veterano ou Pensionista com Pagamento Suspenso a mais de 3 meses.|"1"|BAIXO|RECURSOS HUMANOS
+421|"4.1.16"|Militar lotado em localidade considerada inóspita “A” sem receber |"1"|BAIXO|RECURSOS HUMANOS
+617|"4.1.114"|Pagamento de Compensação Pecuniária em prazo superior a 30 dias do licenciamento.|"1"|BAIXO|RECURSOS HUMANOS
+416|"4.1.92"|Militar recebendo Adicional de Férias de Compensação Orgânica RX em rubrica indevida.|"1"|BAIXO|RECURSOS HUMANOS
+427|"4.1.112"|Pagamento de Compensação Orgânica atrasada sem desconto de FUSMA e PENSÃO MILITAR|"1"|BAIXO|RECURSOS HUMANOS
+404|"4.1.115"|Pagamento incorreto de Férias Proporcionais para Miitares RM2 em LSAM.|"1"|BAIXO|RECURSOS HUMANOS
+608|"8.7.2"|Pensionista civil com mais de dois vínculos de pagamento.|"1"|BAIXO|ATOS DE PESSOAL
+392|"5.2.2"|Compatibilização Financeira (Bens de Estoque).|"1"|BAIXO|PATRIMÔNIO
+330|"4.1.52"|Pagamento indevido de Auxílio-Transporte (AT) a militares em período de afastamento.|"1"|BAIXO|RECURSOS HUMANOS
+301|"4.1.30"|Pagamento da Assistência Pré-Escolar (APE) sem o registro de dependentes no Sistema BDPES.|"1"|BAIXO|RECURSOS HUMANOS
+407|"4.1.52"|Pagamento indevido de Auxílio-Transporte (AT) a militares em período de afastamento.|"1"|BAIXO|RECURSOS HUMANOS
+588|"1.1.36 "|Notas de Empenho amparadas na Lei 14.133 art. 75 incisos I e II emitidas no SIAFI|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+448|"4.1.0"|Solicitação de Auditoria - Militares da ativa.|"1"|BAIXO|RECURSOS HUMANOS
+587|"1.1.35"|Nota de Empenho da modalidade pregão emitida no SIAFI|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+342|"4.1.31"|Militares recebendo Assistência Pré Escolar (APE) com data término indevida.|"1"|BAIXO|RECURSOS HUMANOS
+371|"4.1.36"|Ausência do desconto de FUSMA TIT|"1"|BAIXO|RECURSOS HUMANOS
+558|"1.1.4"|Indícios de incompatibilidade entre subelemento e submeta.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+412|"4.1.31"|Militares recebendo Assistência Pré Escolar (APE) com data término indevida.|"1"|BAIXO|RECURSOS HUMANOS
+325|"4.1.35"|Ausência do pagamento de Adicional Habilitação (AH)|"1"|BAIXO|RECURSOS HUMANOS
+285|"4.3.3"|Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.|"1"|BAIXO|RECURSOS HUMANOS
+27|"4.1.9"|Militar da Ativa sem receber o Adicional Militar|"1"|BAIXO|RECURSOS HUMANOS
+248|"4.3.34"|Pensionista, com estado civil no SIAPE, incompatível com a situação de filha Maior Solteira sem Cargo Público. |"1"|BAIXO|RECURSOS HUMANOS
+337|"4.1.82"|Pagamento a maior / menor de Ajuda de Custo para militar movimentado sem desligamento da OM.|"1"|BAIXO|RECURSOS HUMANOS
+426|"4.1.70"|Pagamento indevido de Auxílio-Transporte (AT)  para militar transferido para a Reserva Remunerada ou Reformado.|"1"|BAIXO|RECURSOS HUMANOS
+422|"4.1.106"|Exclusão/alteração de desconto antes da data término.|"1"|BAIXO|RECURSOS HUMANOS
+281|"4.1.100"|Militar recebendo Gratificação de Representação em rubrica indevida|"1"|BAIXO|RECURSOS HUMANOS
+506|"1.1.1"|Não utilização do Comprasnet 4.0 para emissão de Notas de Empenho.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+492|"4.1.44"|Militar desertor em Pagamento no SISPAG2|"1"|BAIXO|RECURSOS HUMANOS
+316|"4.1.96"|Pagamento/desconto de direito pecuniário em rubrica Indevida.|"1"|BAIXO|RECURSOS HUMANOS
+424|"4.1.114"|Pagamento de Compensação Pecuniária em prazo superior a 30 dias do licenciamento.|"1"|BAIXO|RECURSOS HUMANOS
+425|"4.1.96"|Pagamento/desconto de direito pecuniário em rubrica Indevida.|"1"|BAIXO|RECURSOS HUMANOS
+428|"4.1.100"|Militar recebendo Gratificação de Representação em rubrica indevida|"1"|BAIXO|RECURSOS HUMANOS
+354|"4.1.56"|Militar em pagamento após a data do LSAM|"1"|BAIXO|RECURSOS HUMANOS
+435|"4.1.29"|Militar recebendo Assistência Pré Escolar (APE) em valor indevido.|"1"|BAIXO|RECURSOS HUMANOS
+429|"4.1.56"|Militar em pagamento após a data do LSAM|"1"|BAIXO|RECURSOS HUMANOS
+590|"1.1.4"|Indícios de incompatibilidade entre subelemento e submeta.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+507|"1.1.22"|Utilização inadequada de subelemento não vinculado à Ação Interna B.4D0.FC.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+18|"4.3.10"|Servidores Aposentados (EST-02) lotados em UPAG da Ativa|"1"|BAIXO|RECURSOS HUMANOS
+433|"4.1.37"|Militar com RR suspensa há mais de 3 meses.|"1"|BAIXO|RECURSOS HUMANOS
+591|"1.1.22"|Utilização inadequada de subelemento não vinculado à Ação Interna B.4D0.FC.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+440|"4.1.111"|Militar em Acerto de Contas há mais de 3 meses.|"1"|BAIXO|RECURSOS HUMANOS
+60|"4.1.46"| Militar aluno com matrícula cancelada ou trancada constando em Pagamento|"1"|BAIXO|RECURSOS HUMANOS
+335|"4.1.10"|Pagamento indevido de Gratificação de Representação de Comando (GRAT REP 10).|"1"|BAIXO|RECURSOS HUMANOS
+443|"4.1.75"|Pagamento de Assistência Pré Escolar (APE) a dependente falecido.|"1"|BAIXO|RECURSOS HUMANOS
+589|"8.6.2"|Cômputo de período laboral no serviço público para contagem de tempo no cálculo do Adicional de Tempo de Serviço.|"1"|BAIXO|ATOS DE PESSOAL
+442|"4.1.77"| Pagamento incorreto de Auxílio-Natalidade.|"1"|BAIXO|RECURSOS HUMANOS
+367|"4.1.42"|Militar falecido na Ativa constando em pagamento no SISPAG2.|"1"|BAIXO|RECURSOS HUMANOS
+444|"4.1.10"|Pagamento indevido de Gratificação de Representação de Comando (GRAT REP 10).|"1"|BAIXO|RECURSOS HUMANOS
+592|"8.6.2"|Cômputo de período laboral no serviço público para contagem de tempo no cálculo do Adicional de Tempo de Serviço.|"1"|BAIXO|ATOS DE PESSOAL
+182|"4.2.31"|Militar Veterano, sem exercer TTC, recebendo rubrica de Auxílio-Transporte (AT).|"1"|BAIXO|RECURSOS HUMANOS
+200|"4.2.47"|Militar Veterano ou Pensionistas sem estar recebendo o Adicional de Disponibilidade.|"1"|BAIXO|RECURSOS HUMANOS
+446|"4.2.47"|Militar Veterano ou Pensionistas sem estar recebendo o Adicional de Disponibilidade.|"1"|BAIXO|RECURSOS HUMANOS
+277|"4.1.0"|Solicitação de Auditoria - Militares da ativa.|"1"|BAIXO|RECURSOS HUMANOS
+447|"4.3.0"|Solicitação de Auditoria - Servidores/aposentados civis e pensionistas.|"1"|BAIXO|RECURSOS HUMANOS
+449|"4.1.93"|Comando de pagamento em rubrica divergente ao código de direito pecuniário de Transferência para Reserva Remunerada (TRRM).|"1"|BAIXO|RECURSOS HUMANOS
+283|"4.1.110"|Militar descontando Fusma TIT indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+593|"1.3.21"|Indícios de concessão de diárias por períodos superiores a 30 dias, em desacordo com o Decreto nº 11.645/2023.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+169|"4.2.18"|Militar Veterano recebendo mais de uma rubrica de Compensação Orgânica com somatório maior que 20%.|"1"|BAIXO|RECURSOS HUMANOS
+373|"1.1.29"|Fragilidade no preenchimento, do campo |"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+594|"1.1.29"|Fragilidade no preenchimento, do campo Processo da Nota de Empenho.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+535|"1.1.33"|Indícios de emissão de NE para empresas sancionadas.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+624|"1.3.22"|Divergência no pagamento de diárias.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+418|"4.1.43"|Pagamento de Auxílio Fardamento (AF) em valor integral quando deveria ter sido pago a diferença.|"1"|BAIXO|RECURSOS HUMANOS
+553|"4.3.22"|Servidores com descontos dos dias não trabalhados na Folha de Pagamento, sem registro das faltas no Cadastro do SIAPE.|"1"|BAIXO|RECURSOS HUMANOS
+546|"1.1.34"|Empenho emitido para pagamento de Gratificação por Encargo de Curso ou Concurso – GECC|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+508|"4.3.48"|Ausência de registro, no SIAPE, de vínculo em outro órgão público.|"1"|BAIXO|RECURSOS HUMANOS
+562|"1.6.2"|Verificação de valores por ato de concessão de SF.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+585|"4.1.0"|Solicitação de Auditoria - Militares da ativa.|"1"|BAIXO|RECURSOS HUMANOS
+607|"1.6.0"|Solicitação de Auditoria - Execução Financeira|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+598|"8.6.4"|Cômputo de período laboral na atividade privada e no serviço público para contagem de tempo na apuração do Adicional de Tempo de Serviço.|"1"|BAIXO|ATOS DE PESSOAL
+389|"5.7.3"|Itens cadastrados com mais de uma unidade.|"1"|BAIXO|PATRIMÔNIO
+599|"8.6.3"|Cômputo de período em guarnição especial para contagem de tempo no cálculo do Adicional de Tempo de Serviço.|"1"|BAIXO|ATOS DE PESSOAL
+611|"4.1.0"|Solicitação de Auditoria - Militares da ativa.|"1"|BAIXO|RECURSOS HUMANOS
+515|"5.8.6"|CC 11561.02.01 - Material de Consumo - Estoque Interno - para Distribuir - Saldo a regularizar.|"1"|BAIXO|PATRIMÔNIO
+554|"4.1.115"|Pagamento incorreto de Férias Proporcionais para Militares RM2 em LSAM.|"1"|BAIXO|RECURSOS HUMANOS
+638|"4.1.46"| Militar aluno com matrícula cancelada ou trancada constando em Pagamento|"1"|BAIXO|RECURSOS HUMANOS
+618|"1.6.0"|Solicitação de Auditoria - Execução Financeira|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+597|"8.4.5"|Concessão de pensão militar correspondente a um ou dois postos/ graduações acima, sem a respectiva contribuição pelo instituidor da pensão.|"1"|BAIXO|ATOS DE PESSOAL
+103|"4.1.51"|Militar recebendo Auxílio-Transporte (AT) em valores elevados, sem comprovação.|"1"|BAIXO|RECURSOS HUMANOS
+474|"4.1.42"|Militar falecido na Ativa constando em pagamento no SISPAG2.|"1"|BAIXO|RECURSOS HUMANOS
+464|"4.3.1"|Servidores e Pensionistas de Civis falecidos em pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+560|"4.1.51"|Militar recebendo Auxílio-Transporte (AT) em valores elevados, sem comprovação.|"1"|BAIXO|RECURSOS HUMANOS
+563|"4.1.84"|Pagamento indevido de Compensação Pecuniária (CP).|"1"|BAIXO|RECURSOS HUMANOS
+423|"4.1.82"|Pagamento a maior / menor de Ajuda de Custo para militar movimentado sem desligamento da OM.|"1"|BAIXO|RECURSOS HUMANOS
+565|"4.1.82"|Pagamento a maior / menor de Ajuda de Custo para militar movimentado sem desligamento da OM.|"1"|BAIXO|RECURSOS HUMANOS
+564|"4.3.49"|Não implantação em BP do desconto do Auxílio-Alimentação (AA) referente aos dias não trabalhados.|"1"|BAIXO|RECURSOS HUMANOS
+436|"4.1.53"|Pagamento a menor / a maior da Compensação Pecuniária (CP)|"1"|BAIXO|RECURSOS HUMANOS
+570|"8.2.5"|Cumprimento de prazo para cadastro de ato de reforma por idade.|"1"|BAIXO|ATOS DE PESSOAL
+735|"5.11.1"|Bens de estoque - CC inadequada e sem registro no SIAFI.|"1"|BAIXO|PATRIMÔNIO
+549|"4.3.48"|Ausência de registro, no SIAPE, de vínculo em outro órgão público.|"1"|BAIXO|RECURSOS HUMANOS
+613|"4.1.115"|Pagamento incorreto de Férias Proporcionais para Militares RM2 em LSAM.|"1"|BAIXO|RECURSOS HUMANOS
+620|"4.1.82"|Pagamento a maior / menor de Ajuda de Custo para militar movimentado com / sem desligamento da OM.|"1"|BAIXO|RECURSOS HUMANOS
+473|"4.1.1"|Pagamento em Duplicidade|"1"|BAIXO|RECURSOS HUMANOS
+353|"2.5"|Análise Processual de Alta Materialidade.|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+530|"4.1.76"|Pagamento incorreto de Transferência para Reserva Remunerada (TRRM).|"1"|BAIXO|RECURSOS HUMANOS
+619|"4.1.115"|Pagamento incorreto de Férias Proporcionais para Militares RM2 em LSAM.|"1"|BAIXO|RECURSOS HUMANOS
+629|"4.1.76"|Pagamento incorreto de Transferência para Reserva Remunerada (TRRM).|"1"|BAIXO|RECURSOS HUMANOS
+439|"4.1.57"|Pagamento indevido a militar em LTIP ou LAC.|"1"|BAIXO|RECURSOS HUMANOS
+642|"4.1.57"|Pagamento indevido a militar em LTIP ou LAC.|"1"|BAIXO|RECURSOS HUMANOS
+630|"4.1.115"|Pagamento incorreto de Férias Proporcionais para Militares RM2 em LSAM.|"1"|BAIXO|RECURSOS HUMANOS
+540|"4.1.116"|Pagamento incorreto de Adicional Natalino Proporcional|"1"|BAIXO|RECURSOS HUMANOS
+633|"4.1.30"|Pagamento da Assistência Pré-Escolar (APE) sem o registro de dependentes no Sistema BDPES.|"1"|BAIXO|RECURSOS HUMANOS
+477|"4.1.30"|Pagamento da Assistência Pré-Escolar (APE) sem o registro de dependentes no Sistema BDPES.|"1"|BAIXO|RECURSOS HUMANOS
+414|"4.1.35"|Ausência do pagamento de Adicional Habilitação (AH)|"1"|BAIXO|RECURSOS HUMANOS
+634|"4.1.35"|Ausência do pagamento de Adicional Habilitação (AH)|"1"|BAIXO|RECURSOS HUMANOS
+636|"4.1.43"|Pagamento de Auxílio Fardamento (AF) em valor integral quando deveria ter sido pago a diferença.|"1"|BAIXO|RECURSOS HUMANOS
+543|"4.1.43"|Pagamento de Auxílio Fardamento (AF) em valor integral quando deveria ter sido pago a diferença.|"1"|BAIXO|RECURSOS HUMANOS
+637|"4.1.44"|Militar desertor em Pagamento no SISPAG2|"1"|BAIXO|RECURSOS HUMANOS
+765|"4.1.0"|Solicitação de Auditoria - Militares da ativa.|"1"|BAIXO|RECURSOS HUMANOS
+646|"4.1.96"|Pagamento/desconto de direito pecuniário em rubrica Indevida.|"1"|BAIXO|RECURSOS HUMANOS
+493|"4.1.46"| Militar aluno com matrícula cancelada ou trancada constando em Pagamento|"1"|BAIXO|RECURSOS HUMANOS
+478|"4.1.52"|Pagamento indevido de Auxílio-Transporte (AT) a militares em período de afastamento.|"1"|BAIXO|RECURSOS HUMANOS
+434|"4.1.113"|Pagamento indevido de férias a militar em período de afastamento|"1"|BAIXO|RECURSOS HUMANOS
+639|"4.1.52"|Pagamento indevido de Auxílio-Transporte (AT) a militares em período de afastamento.|"1"|BAIXO|RECURSOS HUMANOS
+452|"4.1.55"|Pagamento a maior de Auxílio Funeral (AF).|"1"|BAIXO|RECURSOS HUMANOS
+648|"4.1.113"|Pagamento indevido de férias a militar em período de afastamento|"1"|BAIXO|RECURSOS HUMANOS
+481|"4.1.71"|Pagamento indevido de Gratificação de Representação a militar prestando Tarefa por Tempo Certo (TTC).|"1"|BAIXO|RECURSOS HUMANOS
+721|"1.7A"|Enquadramento inadequado de subelemento 33903205 em relação a sua natureza de despesa.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+544|"4.1.77"| Pagamento incorreto de Auxílio-Natalidade.|"1"|BAIXO|RECURSOS HUMANOS
+505|"4.1.80"|Pagamento a menor de Auxílio Funeral (AF).|"1"|BAIXO|RECURSOS HUMANOS
+722|"5.4"|Inscrição em restos a pagar de empenhos destinados a despesa com diárias.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+482|"4.1.106"|Exclusão/alteração de desconto antes da data término.|"1"|BAIXO|RECURSOS HUMANOS
+632|"4.1.25"|Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.|"1"|BAIXO|RECURSOS HUMANOS
+635|"4.1.36"|Ausência do desconto de FUSMA TIT|"1"|BAIXO|RECURSOS HUMANOS
+641|"4.1.56"|Militar em pagamento após a data do LSAM|"1"|BAIXO|RECURSOS HUMANOS
+643|"4.1.71"|Pagamento indevido de Gratificação de Representação a militar prestando Tarefa por Tempo Certo (TTC).|"1"|BAIXO|RECURSOS HUMANOS
+644|"4.1.77"| Pagamento incorreto de Auxílio-Natalidade.|"1"|BAIXO|RECURSOS HUMANOS
+72|"4.1.12"|Militar recebendo a rubrica GRAT REP GAB indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+651|"4.1.12"|Militar recebendo a rubrica GRAT REP GAB indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+146|"4.1.107"|Pagamento a maior da Gratificação de Localidade Especial mar para militares em emprego operacional.  |"1"|BAIXO|RECURSOS HUMANOS
+31|"4.1.20"|Militar recebendo as rubricas GRAT LOC A e B concomitantemente.|"1"|BAIXO|RECURSOS HUMANOS
+653|"1.5.9"|Permanência de saldos de empenhos a liquidar de diárias, ao final / início do exercício.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+471|"4.1.21"|Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) indevidamente fora da área A.|"1"|BAIXO|RECURSOS HUMANOS
+512|"4.1.23"|Militar recebendo Auxílio-Transporte (AT) sem o desconto da rubrica do beneficiário (6%).|"1"|BAIXO|RECURSOS HUMANOS
+472|"4.1.10"|Pagamento indevido de Gratificação de Representação de Comando (GRAT REP 10).|"1"|BAIXO|RECURSOS HUMANOS
+140|"4.1.101"|Pagamento indevido de Auxílio-Transporte (AT).|"1"|BAIXO|RECURSOS HUMANOS
+144|"4.1.105"|Parcelamento da restituição de rubrica recebida indevidamente em valor inferior ao previsto em norma|"1"|BAIXO|RECURSOS HUMANOS
+511|"4.1.11"|Militar recebendo Gratificação de Representação de Comando (GRAT REP 10) em valor diferente de 10%.|"1"|BAIXO|RECURSOS HUMANOS
+533|"4.1.110"|Militar descontando Fusma TIT indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+74|"4.1.14"|Militar recebendo GRAT LOC ESP A indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+77|"4.1.17"|Militar recebendo GRAT LOC ESP B indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+660|"4.1.15"|Militar recebendo GRAT LOC ESP A em valor indevido.|"1"|BAIXO|RECURSOS HUMANOS
+432|"4.1.19"|Militar lotado em localidade considerada inóspita “B” sem receber GRAT LOC ESP |"1"|BAIXO|RECURSOS HUMANOS
+491|"4.1.2"|Ausência do Desconto da Rubrica Pensão Militar|"1"|BAIXO|RECURSOS HUMANOS
+82|"4.1.26"|Militar recebendo Assistência Pré Escolar (APE) sem o desconto da Cota Parte.|"1"|BAIXO|RECURSOS HUMANOS
+95|"4.1.45"|Militar licenciado a bem da disciplina ou excluído abem da disciplina em Pagamento.	|"1"|BAIXO|RECURSOS HUMANOS
+671|"4.1.51"|Militar recebendo Auxílio-Transporte (AT) em valores elevados, sem comprovação.|"1"|BAIXO|RECURSOS HUMANOS
+542|"4.1.62"|Militar excluído, licenciado ou transferido para outro órgão em pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+110|"4.1.65"|Ausência do pagamento da Rubrica  Adicional de Disponibilidade.|"1"|BAIXO|RECURSOS HUMANOS
+111|"4.1.66"|Militar recebendo Adicional de Disponibilidade e Adicional de Tempo de Serviço, concomitantemente. |"1"|BAIXO|RECURSOS HUMANOS
+113|"4.1.68"|Militar recebendo Adicional de Disponibilidade indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+121|"4.1.78"|Pagamento indevido de Auxílio Funeral (AF).|"1"|BAIXO|RECURSOS HUMANOS
+645|"4.1.80"|Pagamento a menor de Auxílio Funeral (AF).|"1"|BAIXO|RECURSOS HUMANOS
+131|"4.1.89"|Pagamento indevido de diferença de Auxílio-Transporte (AT)|"1"|BAIXO|RECURSOS HUMANOS
+160|"4.2.10"|Militar Veterano recebendo Assistência Pré Escolar (APE) sem o desconto da Cota Parte.|"1"|BAIXO|RECURSOS HUMANOS
+162|"4.2.12"|Militar Veterano recebendo Assistência Pré Escolar (APE) sem Data Término.|"1"|BAIXO|RECURSOS HUMANOS
+170|"4.2.19"|Militar Veterano sem receber o Adicional de Habilitação (AH).|"1"|BAIXO|RECURSOS HUMANOS
+171|"4.2.20"|Ausência do desconto da rubrica FUSMA TIT para Militar Veterano.|"1"|BAIXO|RECURSOS HUMANOS
+183|"4.2.32"|Militar Veterano recebendo Auxílio Invalidez e a Rubrica de Pro Labore (TTC), concomitantemente.|"1"|BAIXO|RECURSOS HUMANOS
+184|"4.2.33"|Militar Veterano recebendo a rubrica Gratificação de Comando (GRAT REP 10) em BP.|"1"|BAIXO|RECURSOS HUMANOS
+185|"4.2.34"|Militar Veterano recebendo a rubrica GRAT LOC ESP A.|"1"|BAIXO|RECURSOS HUMANOS
+186|"4.2.35"|Militar Veterano recebendo a rubrica GRAT LOC ESP B.|"1"|BAIXO|RECURSOS HUMANOS
+188|"4.2.36"|Militar Veterano ou Pensionista recebendo o Auxílio Funeral (AF) no valor superior a uma remuneração mensal.|"1"|BAIXO|RECURSOS HUMANOS
+193|"4.2.41"|Pensionista de Ex-Combatente recebendo Adicional de Habilitação (AH).|"1"|BAIXO|RECURSOS HUMANOS
+744|"8.6.8"|Cômputo de período matriculado como aluno de órgão de formação da reserva para contagem de tempo no cálculo do Adicional de Tempo de Serviço.|"1"|BAIXO|ATOS DE PESSOAL
+728|"5.6.1"|Usuários da Gestão Patrimonial, registrados no SISBENS, com CPF inválido.|"1"|BAIXO|PATRIMÔNIO
+569|"8.2.4"|Cumprimento de prazo para cadastro de ato de pensão especial a ex-combatente.|"1"|BAIXO|ATOS DE PESSOAL
+145|"4.1.106"|Exclusão/alteração de desconto antes da data término.|"1"|BAIXO|RECURSOS HUMANOS
+26|"4.1.8"|CE, ME, SE, MN, SD ou AM recebendo Adicional Militar com percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+539|"4.1.25"|Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.|"1"|BAIXO|RECURSOS HUMANOS
+29|"4.1.19"|"Militar lotado em localidade considerada inóspita “B” sem receber GRAT LOC ESP ""B"""|"1"|BAIXO|RECURSOS HUMANOS
+24|"4.1.6"|Oficial Subalterno recebendo Adicional Militar com percentual indevido|"1"|BAIXO|RECURSOS HUMANOS
+25|"4.1.7"|SO, 1ºSG, 2ºSG ou 3ºSG recebendo Adicional Militar com percentual indevido|"1"|BAIXO|RECURSOS HUMANOS
+33|"1.1.12"|Notas de empenho emitidas com o subelemento destinado à “festividades e homenagens’.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+30|"4.1.20"|Militar recebendo as rubricas GRAT LOC A e B concomitantemente.|"1"|BAIXO|RECURSOS HUMANOS
+12|"5.7.4"|Itens duplicados|"1"|BAIXO|PATRIMÔNIO
+430|"4.1.76"|Pagamento incorreto de Transferência para Reserva Remunerada (TRRM).|"1"|BAIXO|RECURSOS HUMANOS
+87|"4.1.33"|Militar recebendo a rubrica Compensação Orgânica em percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+149|"1.3.9"|Pagamento de documento de despesa com prazo superior a 30 dias.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+215|"4.2.62"|Militar Veterano e Pensionista recebendo a rubrica Plano Collor em valores fixos.|"1"|BAIXO|RECURSOS HUMANOS
+733|"2.27"|Ausência de registro no Cadastro Integrado de Projetos de Investimento (CIPI)|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+40|"6-5"|Municiamento indevido de TTC/SC aos finais de semana.|"1"|BAIXO|MUNICIAMENTO
+37|"6-3"|Municiamento indevido de militares veteranos no Sistema QUAESTOR.|"1"|BAIXO|MUNICIAMENTO
+159|"4.2.9"|Militar Veterano ou Pensionista sem receber o Adicional Militar.|"1"|BAIXO|RECURSOS HUMANOS
+21|"4.1.3"|Oficial General recebendo Adicional Militar com percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+99|"4.1.92"|Militar recebendo Adicional de Férias de Compensação Orgânica RX em rubrica indevida.|"1"|BAIXO|RECURSOS HUMANOS
+35|"6-1"|Municiados em situação irregular no BDPES|"1"|BAIXO|MUNICIAMENTO
+22|"4.1.4"|Oficial Superior recebendo Adicional Militar com percentual indevido|"1"|BAIXO|RECURSOS HUMANOS
+23|"4.1.5"|Oficial Intermediário recebendo Adicional Militar com percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+39|"2.20"|Registro de penalidade no SICAF|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+168|"4.2.17"|Militar Veterano recebendo a rubrica Compensação Orgânica em percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+38|"6-4"|Municiamento indevido de Servidores Civis no Sistema QUAESTOR.|"1"|BAIXO|MUNICIAMENTO
+264|"1.1.20A"|Preenchimento inadequado de campos da Nota de Empenho (NE).	|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+36|"6-2"|Municiados não cadastrados nos bancos de dados de pessoal.|"1"|BAIXO|MUNICIAMENTO
+41|"6-6"|Militares em licenças especiais municiados|"1"|BAIXO|MUNICIAMENTO
+431|"4.3.10"|Servidores Aposentados (EST-02) lotados em UPAG da Ativa|"1"|BAIXO|RECURSOS HUMANOS
+403|"6-25"|Ausência de lançamento de Notas Fiscais no Sistema Quaestor|"1"|BAIXO|MUNICIAMENTO
+62|"4.1.92"|Militar recebendo Adicional de Férias de Compensação Orgânica RX em rubrica indevida.|"1"|BAIXO|RECURSOS HUMANOS
+48|"1.6.8"|Fragilidade da Justificativa para a utilização do CPGF, na modalidade saque.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+623|"5.9.3"|Dados incompletos no SINGRA-2.|"1"|BAIXO|PATRIMÔNIO
+68|"4.1.1"|Pagamento em Duplicidade|"1"|BAIXO|RECURSOS HUMANOS
+64|"4.1.1"|Pagamento em Duplicidade|"1"|BAIXO|RECURSOS HUMANOS
+300|"1.3.9"|Pagamento de documento de despesa com prazo superior a 30 dias.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+327|"5.10.1"|DOTEMBA X CADBEM|"1"|BAIXO|PATRIMÔNIO
+736|"5.9.5"|Relatório emitido pelo SINGRA-2 desatualizado.|"1"|BAIXO|PATRIMÔNIO
+454|"4.1.74"|Militar recebendo Assistência Pré Escolar (APE) de gêmeos na mesma rubrica de pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+115|"4.1.72"|Declarações de Concessão de Auxílio-Transporte (DeCAT) desatualizadas.|"1"|BAIXO|RECURSOS HUMANOS
+53|"1.3.6"|Lançamento semelhante de documento de origem em documentos hábeis distintos.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+51|"1.3.7"|Pagamento de documento fiscal cancelado pelo emitente.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+142|"4.1.103"|Cancelamento de Nota de Auditoria.|"1"|BAIXO|RECURSOS HUMANOS
+56|"4.1.52"|Pagamento indevido de Auxílio-Transporte (AT) a militares em período de afastamento.|"1"|BAIXO|RECURSOS HUMANOS
+105|"4.1.57"|Pagamento indevido a militar em LTIP ou LAC.|"1"|BAIXO|RECURSOS HUMANOS
+123|"4.1.81"|Não inclusão das OS de direitos pecuniários no Portal de OS do CCIMAR.|"1"|BAIXO|RECURSOS HUMANOS
+129|"4.1.87"|Pagamento indevido de diferença do Adicional de Férias.|"1"|BAIXO|RECURSOS HUMANOS
+551|"4.3.2"|Servidor Aposentado recebendo rubrica de ativo no pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+561|"4.1.0"|Solicitação de Auditoria - Militares da ativa.|"1"|BAIXO|RECURSOS HUMANOS
+684|"4.3.22"|Servidores com descontos dos dias não trabalhados na Folha de Pagamento, sem registro das faltas no Cadastro do SIAPE.|"1"|BAIXO|RECURSOS HUMANOS
+556|"1.1.20"|Preenchimento inadequado de campos da Nota de Empenho (NE).	|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+164|"4.2.14"|Militar Veterano recebendo Assistência Pré Escolar (APE) sem dependentes cadastrados no SISPES.|"1"|BAIXO|RECURSOS HUMANOS
+299|"2.2"|Análise de Pregões abandonados.|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+202|"4.2.49"|Pensionista com mais de dois vínculos de pagamento Extra-MB.|"1"|BAIXO|RECURSOS HUMANOS
+59|"4.1.53"|Pagamento a menor / a maior da Compensação Pecuniária (CP)|"1"|BAIXO|RECURSOS HUMANOS
+73|"4.1.13"|Militar recebendo GRAT REP GAB em valor indevido.|"1"|BAIXO|RECURSOS HUMANOS
+86|"4.1.32"|Militar recebendo a rubrica Compensação Orgânica Raio X em percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+242|"4.3.27"|Pagamento indevido de Adicional Noturno para Servidores da Ativa.|"1"|BAIXO|RECURSOS HUMANOS
+141|"4.1.102"|Militar em pagamento sem cadastro no SISPES.|"1"|BAIXO|RECURSOS HUMANOS
+244|"4.3.29"|Não implantação em FF do Acerto dos Adicionais Ocupacionais referente aos dias não trabalhados de Servidores Civis.|"1"|BAIXO|RECURSOS HUMANOS
+457|"4.2.14"|Militar Veterano recebendo Assistência Pré Escolar (APE) sem dependentes cadastrados no SISPES.|"1"|BAIXO|RECURSOS HUMANOS
+136|"4.1.97"|Pagamento a maior / menor na rubrica Exercício Anterior.|"1"|BAIXO|RECURSOS HUMANOS
+261|"1.1.10"|Preenchimento inadequado de campos da Nota de Empenho (NE).|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+458|"4.1.115"|Pagamento incorreto de Férias Proporcionais para Miitares RM2 em LSAM.|"1"|BAIXO|RECURSOS HUMANOS
+685|"4.3.3"|Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.|"1"|BAIXO|RECURSOS HUMANOS
+241|"4.3.30"|Pagamento indevido de Adicional Noturno para Servidores da Ativa.|"1"|BAIXO|RECURSOS HUMANOS
+313|"1.1.22"|Utilização inadequada de subelemento não vinculado à Ação Interna B.4D0.FC.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+119|"4.1.75"|Pagamento de Assistência Pré Escolar (APE) a dependente falecido.|"1"|BAIXO|RECURSOS HUMANOS
+686|"4.3.30"|Pagamento indevido de Adicional Noturno para Servidores da Ativa.|"1"|BAIXO|RECURSOS HUMANOS
+112|"4.1.67"|Não regularização de débitos inscritos no Sistema de Responsabilidade (SISRES)|"1"|BAIXO|RECURSOS HUMANOS
+118|"4.1.74"|Militar recebendo Assistência Pré Escolar (APE) de gêmeos na mesma rubrica de pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+189|"4.2.37"|Militar Veterano ou Pensionista recebendo o Auxílio Funeral no valor inferior ao soldo de SO.|"1"|BAIXO|RECURSOS HUMANOS
+71|"4.1.11"|Militar recebendo Gratificação de Representação de Comando (GRAT REP 10) em valor diferente de 10%.|"1"|BAIXO|RECURSOS HUMANOS
+49|"1.6.7"|Preenchimento inadequado de campos da Nota de Empenho (NE), de Suprimento de Fundos.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+247|"4.3.33"|Pensionista civil recebendo valores elevados de exercícios anteriores.|"1"|BAIXO|RECURSOS HUMANOS
+577|"8.4.2"|Cômputo de tempo laboral no serviço público para percepção de remuneração correspondente ao grau hierárquico superior.|"1"|BAIXO|ATOS DE PESSOAL
+81|"4.1.24"|Militar descontando a rubrica do beneficiário (6%) sem o recebimento do Auxílio-Transporte (AT).|"1"|BAIXO|RECURSOS HUMANOS
+206|"4.2.53"|Militar da Ativa em OC de Veterano ou Pensionista (SVPM). |"1"|BAIXO|RECURSOS HUMANOS
+314|"1.6.7"|Preenchimento inadequado de campos da Nota de Empenho (NE), de Suprimento de Fundos.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+78|"4.1.18"|Militar recebendo GRAT LOC ESP B em valor indevido.|"1"|BAIXO|RECURSOS HUMANOS
+83|"4.1.27"|Militar descontando a Cota Parte sem o recebimento da Assistência Pré Escolar (APE).|"1"|BAIXO|RECURSOS HUMANOS
+213|"4.2.60"|Militar Veterano ou Pensionista recebendo a rubrica diferença do Plano Bresser em valores fixos.|"1"|BAIXO|RECURSOS HUMANOS
+32|"4.1.30"|Pagamento da Assistência Pré-Escolar (APE) sem o registro de dependentes no Sistema BDPES.|"1"|BAIXO|RECURSOS HUMANOS
+116|"4.1.73"|Pagamento do Auxílio-Transporte (AT) divergente ao valor autorizado na Declaração de Concessão de Auxílio-Transporte (DeCAT).|"1"|BAIXO|RECURSOS HUMANOS
+126|"4.1.84"|Pagamento indevido de Compensação Pecuniária (CP).|"1"|BAIXO|RECURSOS HUMANOS
+495|"6-25"|Ausência de lançamento de Notas Fiscais no Sistema Quaestor|"1"|BAIXO|MUNICIAMENTO
+117|"4.1.56"|Militar em pagamento após a data do LSAM|"1"|BAIXO|RECURSOS HUMANOS
+460|"1.3.18"|Permanência de saldo na Conta Contábil (CC) relativo Ordem Bancária cancelada. |"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+726|"5.3.5"|Amortização dos Bens Intangíveis.|"1"|BAIXO|PATRIMÔNIO
+84|"4.1.28"|Militar recebendo Assistência Pré Escolar (APE) sem Data Término.|"1"|BAIXO|RECURSOS HUMANOS
+246|"4.3.32"|Servidor da ativa ou aposentado recebendo valores elevados de exercícios anteriores.|"1"|BAIXO|RECURSOS HUMANOS
+494|"6-1"|Municiados em situação irregular no BDPES|"1"|BAIXO|MUNICIAMENTO
+596|"8.4.4"|Concessão de remuneração correspondente ao grau hierárquico superior em desacordo com o estabelecido em lei.|"1"|BAIXO|ATOS DE PESSOAL
+271|"1.1.4"|Indícios de incompatibilidade entre subelemento e submeta.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+178|"4.2.27"|Militar Veterano recebendo rubrica de Ativo no Pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+187|"4.2.29"|Pensionista Filha de Ex-Combatente recebendo outra remuneração Extra-MB.|"1"|BAIXO|RECURSOS HUMANOS
+574|"8.2.6"|Cumprimento de prazo para cadastro de ato de reforma por incapacidade.|"1"|BAIXO|ATOS DE PESSOAL
+132|"4.1.90"|Pagamento indevido de Ajuda de Custo a militar em detrimento a Gratificação de Representação Operacional (GRAT REP OP).|"1"|BAIXO|RECURSOS HUMANOS
+138|"4.1.99"|Militar recebendo valor indevido de Gratificação de Representação.|"1"|BAIXO|RECURSOS HUMANOS
+93|"4.1.43"|Pagamento de Auxílio Fardamento (AF) em valor integral quando deveria ter sido pago a diferença.|"1"|BAIXO|RECURSOS HUMANOS
+217|"4.3.4"|Existência de Pensionistas Civis (Filha maior solteira com remuneração) da MB com outro vínculo de pagamento EXTRA-MB.|"1"|BAIXO|RECURSOS HUMANOS
+600|"8.4.6"|Concessão de benefício previsto no art. 110, da Lei nº 6.880/1980, para militares reformados.|"1"|BAIXO|ATOS DE PESSOAL
+192|"4.2.40"|Militar Veterano recebendo o Auxílio Invalidez sem isenção de IRRF.|"1"|BAIXO|RECURSOS HUMANOS
+205|"4.2.52"|Militar Veterano recebendo as rubricas Auxílio Invalidez e Diária de Asilado, concomitantemente.|"1"|BAIXO|RECURSOS HUMANOS
+127|"4.1.85"|Pagamento do Auxílio Pré-Escolar (APE) sem data término a dependente especial não diagnosticado com CID 10 F73.|"1"|BAIXO|RECURSOS HUMANOS
+135|"4.1.96"|Pagamento/desconto de direito pecuniário em rubrica Indevida.|"1"|BAIXO|RECURSOS HUMANOS
+194|"5.7.2"|Itens registrados de maneira incompleta.|"1"|BAIXO|PATRIMÔNIO
+383|"5.0"|Solicitação de Auditoria|"1"|BAIXO|PATRIMÔNIO
+249|"4.3.35"|Pagamento indevido de Auxílio-Transporte (AT) a servidores em período de afastamento.|"1"|BAIXO|RECURSOS HUMANOS
+211|"4.2.58"|Militar Veterano ou Pensionista recebendo a rubrica Complemento Salário Mínimo em valores fixos.|"1"|BAIXO|RECURSOS HUMANOS
+469|"4.3.47"|Pensionista Civil recebendo rubrica de pagamento de forma vitalícia indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+462|"4.1.90"|Pagamento indevido de Ajuda de Custo a militar em detrimento a Gratificação de Representação Operacional (GRAT REP OP).|"1"|BAIXO|RECURSOS HUMANOS
+143|"4.3.1"|Servidores e Pensionistas de Civis falecidos em Pagamento.|"1"|BAIXO|RECURSOS HUMANOS
+282|"4.1.106"|Exclusão/alteração de desconto antes da data término.|"1"|BAIXO|RECURSOS HUMANOS
+152|"4.2.2"|Militar Veterano e Pensionista que não descontam a rubrica Pensão Militar.|"1"|BAIXO|RECURSOS HUMANOS
+190|"4.2.38"|Militar Veterano recebendo o Auxílio Invalidez em valor indevido.|"1"|BAIXO|RECURSOS HUMANOS
+158|"4.2.8"|Militar Veterano ou Pensionista de CE, ME, SE, MN, SD, AM recebendo Adicional Militar com percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+196|"4.2.43"|Militar Veterano sem exercer TTC recebendo Adicional de Férias.|"1"|BAIXO|RECURSOS HUMANOS
+263|"1.1.20"|Preenchimento inadequado de campos da Nota de Empenho (NE).	|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+252|"4.3.38"|Servidor Civil recebendo Auxílio-Alimentação na MB e Extra-MB, concomitantemente.|"1"|BAIXO|RECURSOS HUMANOS
+582|"4.3.49"|Não implantação em BP do desconto do Auxílio-Alimentação (AA) referente aos dias não trabalhados.|"1"|BAIXO|RECURSOS HUMANOS
+226|"4.3.14"|Servidor da ativa recebendo Abono de Permanência incompatível com idade menor de 50 anos.|"1"|BAIXO|RECURSOS HUMANOS
+163|"4.2.13"|Militar Veterano recebendo Assistência Pré Escolar (APE) em valor indevido.|"1"|BAIXO|RECURSOS HUMANOS
+497|"1.1.4"|Indícios de incompatibilidade entre subelemento e submeta.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+166|"4.2.16"|Militar Veterano recebendo a rubrica Compensação Orgânica Raio X em percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+286|"4.3.15"|Servidor da Ativa recebendo Adicional de Férias no mês anterior e Adicional Noturno no mesmo posterior.|"1"|BAIXO|RECURSOS HUMANOS
+139|"4.1.95"|Militar recebendo rubrica de pagamento de forma vitalícia indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+304|"4.1.106"|Exclusão/alteração de desconto antes da data término.|"1"|BAIXO|RECURSOS HUMANOS
+498|"1.1.8"|Enquadramento da despesa utilizando-se da classificação “outros” subelemento 99.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+128|"4.1.86"|Pagamento a menor das férias proporcionais relativas à atividade de Raio X.|"1"|BAIXO|RECURSOS HUMANOS
+154|"4.2.4"|Militar Veterano ou Pensionista de Oficial superior recebendo Adicional Militar com percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+318|"1.6.7"|Preenchimento inadequado de campos da Nota de Empenho (NE), de Suprimento de Fundos.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+52|"1.4.2"|Emissão de documento por Agente que não possui competência.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+155|"4.2.5"|Militar Veterano ou Pensionista de Oficial Intermediário recebendo Adicional Militar com percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+378|"1.1.6"|Indícios de desvio de finalidade de recursos.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+157|"4.2.7"|Militar Veterano ou Pensionista de SO, 1ºSG, 2ºSG e 3ºSG recebendo Adicional Militar com percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+235|"4.3.23"|Servidores que recebem Assistência Pré-Escolar fora do Módulo de Dependentes.|"1"|BAIXO|RECURSOS HUMANOS
+153|"4.2.3"|Militar Veterano ou Pensionista de Oficial General recebendo Adicional Militar com percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+156|"4.2.6"|Militar Veterano ou Pensionista de Oficial Subalterno recebendo Adicional Militar com percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+20|"4.1.2"|Ausência do Desconto da Rubrica Pensão Militar|"1"|BAIXO|RECURSOS HUMANOS
+79|"4.1.21"|Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) indevidamente fora da área A.|"1"|BAIXO|RECURSOS HUMANOS
+499|"1.4.2"|Emissão de documento por Agente que não possui competência.|"1"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+203|"4.2.50"|Pensionista de Ex-Combatente recebendo a rubrica Ad Disponibilidade indevidamente.|"1"|BAIXO|RECURSOS HUMANOS
+65|"4.1.71"|Pagamento indevido de Gratificação de Representação a militar prestando Tarefa por Tempo Certo (TTC).|"1"|BAIXO|RECURSOS HUMANOS
+573|"8.2.8"|Cumprimento de prazo para cadastro de ato de alteração de concessão.|"1"|BAIXO|ATOS DE PESSOAL
+236|"4.3.24"|Dependente falecido gerando benefício para o servidor.|"1"|BAIXO|RECURSOS HUMANOS
+602|"8.6.5"|Cômputo de período laboral no serviço público para contagem de tempo na apuração do Adicional de Tempo de Serviço e para percepção de remuneração correspondente ao grau hierárquico superior.|"1"|BAIXO|ATOS DE PESSOAL
+228|"4.3.16"|Pensionista de Civil sem o registro ou com incorreção no Campo da Natureza da Pensão no Cadastro do SIAPE.|"1"|BAIXO|RECURSOS HUMANOS
+161|"4.2.11"|Militar Veterano descontando a Cota Parte sem o recebimento da Assistência Pré Escolar (APE).|"1"|BAIXO|RECURSOS HUMANOS
+290|"2.0"|Solicitação de Auditoria - Obtenção/Compras|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+243|"4.3.28"|Ausência do Cadastro de Pessoas Físicas dos dependentes.|"1"|BAIXO|RECURSOS HUMANOS
+661|"4.1.16"|Militar lotado em localidade considerada inóspita “A” sem receber |"1"|BAIXO|RECURSOS HUMANOS
+147|"4.1.108"|Militar recebendo AD Militar Indevidamente. |"1"|BAIXO|RECURSOS HUMANOS
+214|"4.2.61"|Militar Veterano e Pensionista recebendo a rubrica VANT PES N I em valores fixos.|"1"|BAIXO|RECURSOS HUMANOS
+208|"4.2.55"|Concessão indevida de Adicional de Permanência.|"1"|BAIXO|RECURSOS HUMANOS
+603|"8.6.6"|Cômputo de período laboral na atividade privada para contagem de tempo na apuração do Adicional de Tempo de Serviço e para percepção de remuneração correspondente ao grau hierárquico superior.|"1"|BAIXO|ATOS DE PESSOAL
+61|"4.3.3"|Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.|"1"|BAIXO|RECURSOS HUMANOS
+245|"4.3.31"|Pagamento em duplicidade de Servidores.|"1"|BAIXO|RECURSOS HUMANOS
+387|"4.1.117"|Inconsistência na comprovação da execução do deslocamento no Auxílio-Transporte.|"1"|BAIXO|RECURSOS HUMANOS
+609|"8.6.7"|Cômputo de período em guarnição especial para contagem de tempo no cálculo do Adicional de Tempo de Serviço e para percepção de remuneração correspondente ao grau hierárquico superior.|"1"|BAIXO|ATOS DE PESSOAL
+658|"4.1.11"|Militar recebendo Gratificação de Representação de Comando (GRAT REP 10) em valor diferente de 10%.|"1"|BAIXO|RECURSOS HUMANOS
+210|"4.2.57"|Militar Veterano ou Pensionista recebendo a rubrica URP (URP-FEV1989 e ABR/MAI1989) em valores fixos.|"1"|BAIXO|RECURSOS HUMANOS
+657|"4.1.109"|Pagamento de Adicional Habilitação (AH) em percentual indevido.|"1"|BAIXO|RECURSOS HUMANOS
+44|"2.22"|Ausência de publicação de aviso do edital no Portal de Licitações da Marinha|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+745|"8.6.9"|Cômputo de período matriculado como aluno de órgão de formação da reserva para contagem de tempo no cálculo do Adicional de Tempo de Serviço e para percepção de remuneração correspondente ao grau hierárquico superior.|"1"|BAIXO|ATOS DE PESSOAL
+320|"2.22.2"|Ausência de divulgação no Portal de Licitações (Publicação de extrato de contrato).|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+273|"2.3"|Análise de Publicação de Matérias da Seção 3 do DOU.|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+287|"2.22.1"|Ausência de divulgação no Portal de Licitações (Publicação de Inexigibilidade/Dispensa).|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+358|"2.22.4"|Divulgação, no Portal de Licitações, de documento que não permite a pesquisa de conteúdos.|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+372|"2.29"|Assinatura de documento nato-digital.|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+386|"2.21"|Ausência de negociação do valor da proposta.|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+746|"2.22"|Ausência de publicação de aviso do edital no Portal de Licitações da Marinha|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+754|"2.21"|Ausência de negociação do valor da proposta.|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+753|"2.29"|Assinatura de documento nato-digital.|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+575|"8.1.1"|Cumprimento da Súmula nº 106, do TCU.|"1"|BAIXO|ATOS DE PESSOAL
+752|"2.22.4"|Divulgação, no Portal de Licitações, de documento que não permite a pesquisa de conteúdos.|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+751|"2.22.3"|Ausência de divulgação no Portal de Licitações (Publicação de extrato de ata de registro de preços).|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+749|"2.22.1"|Ausência de divulgação no Portal de Licitações (Publicação de Inexigibilidade/Dispensa).|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+748|"2.3"|Análise de Publicação de Matérias da Seção 3 do DOU.|"1"|BAIXO|COMPRAS, CONTRATAÇÕES E ACORDOS ADMINISTRATIVOS
+763|"1.1.6B"|Verificação das AO atinentes a AEN (Ações de Estratégias Navais)|"0"|BAIXO|ORÇAMENTÁRIA E FINANCEIRA
+396|"4.1.119"|Ausência de recolhimento de FUSMA durante período de Licença para Acompanhar Cônjuge (LAC)|"1"|BAIXO|RECURSOS HUMANOS
+566|"8.2.1"|Cumprimento de prazo para cadastro de ato de admissão de pessoal.|"1"|BAIXO|ATOS DE PESSOAL
+567|"8.2.2"|Cumprimento de prazo para cadastro de ato de aposentadoria.|"1"|BAIXO|ATOS DE PESSOAL
+568|"8.2.3"|Cumprimento de prazo para cadastro de ato de pensão civil.|"1"|BAIXO|ATOS DE PESSOAL
+572|"8.2.7"|Cumprimento de prazo para cadastro de ato de pensão militar.|"1"|BAIXO|ATOS DE PESSOAL
+622|"5.9.1"|Divergência no total de viaturas nos sistemas CADBEM e SINGRA-2.|"1"|BAIXO|PATRIMÔNIO
+109|"4.1.64"|Militar recebendo Adicional de Disponibilidade com percentual indevido.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+411|"4.1.39"|Militar com endereçamento (ENDER) em branco|"1"|MUITO BAIXO|RECURSOS HUMANOS
+650|"4.1.40"|Militares com PASEP em Branco.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+419|"4.1.40"|Militares com PASEP em Branco.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+415|"4.1.104"|Militar reformado ou veterano lotado em OM da Ativa.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+370|"4.1.40"|Militares com PASEP em Branco.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+331|"4.1.39"|Militar com endereçamento (ENDER) em branco|"1"|MUITO BAIXO|RECURSOS HUMANOS
+308|"4.1.104"|Militar reformado ou veterano lotado em OM da Ativa.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+468|"4.3.46"|Impropriedades observadas nas Prestações de Contas (PC) de Pagamento de Civil.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+63|"4.1.104"|Militar reformado ou veterano lotado em OM da Ativa.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+239|"4.3.25"|Servidor ou Pensionista com o campo CPF em branco na Ficha Financeira.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+204|"4.2.51"|Militar Veterano recebendo Assistência Pré Escolar (APE) de gêmeos na mesma rubrica de pagamento.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+176|"4.2.25"|Militar Veterano ou Pensionista sem CPF.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+13|"4.1.39"|Militar com endereçamento (ENDER) em branco|"1"|MUITO BAIXO|RECURSOS HUMANOS
+175|"4.2.24"|Militar Veterano com o campo PASEP em Branco.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+91|"4.1.41"|Militar sem CPF no SISPAG2.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+174|"4.2.23"|Ausência do ENDER para Militar Veterano ou Pensionista.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+69|"4.1.40"|Militares com PASEP em Branco.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+461|"4.1.121"|Pagamento incorreto de Ajuda de Custo para militar em missão no exterior.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+137|"4.1.98"|Pagamento de acerto do AT em OS por período superior a 120 dias, sem o registro do motivo que impediu o beneficiário de receber o AT na época devida.|"1"|MUITO BAIXO|RECURSOS HUMANOS
+97|"4.1.48"|"Militar da Ativa com o campo ""Isento de IRRF"" preenchido."|"1"|MUITO BAIXO|RECURSOS HUMANOS
+534|"4.2.63"|Militar recebendo Adicional Pro Labore não lotado na OM de TTC.|"1"|MUITO BAIXO|RECURSOS HUMANOS

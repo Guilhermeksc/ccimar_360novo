@@ -10,3 +10,5 @@ LEFT JOIN public.nivel_exposicao trt ON t.niex_cd_id = trt.niex_cd_id
 WHERE t.area_cd_id = 11
 AND t.tril_in_ativo = B'1'
 ORDER BY trt.niex_nr_nivel_exposicao DESC;
+
+
