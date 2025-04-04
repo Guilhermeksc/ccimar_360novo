@@ -1,0 +1,2103 @@
+{
+"SELECT DISTINCT ON (t.tril_cd_trilha)\n    t.tril_cd_trilha,\n    t.tril_nm_completo, \n    t.tril_in_prazo_resposta\nFROM public.trilha t\nWHERE t.tril_in_ativo = B'1'\nORDER BY t.tril_cd_trilha, t.tril_cd_id DESC": [
+	{
+		"tril_cd_trilha" : "1.0.3",
+		"tril_nm_completo" : "A Unidade da Federação da Unidade Gestora Executora (UGE) não mantém concordância com o localizador de gasto do Plano de Trabalho (PT).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.1",
+		"tril_nm_completo" : "Não utilização do Comprasnet 4.0 para emissão de Notas de Empenho.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.10",
+		"tril_nm_completo" : "Preenchimento inadequado de campos da Nota de Empenho (NE).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.11",
+		"tril_nm_completo" : "Impropriedades na descrição da Nota de Empenho (NE) ou Ordem Bancária de despesas de diárias.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.12",
+		"tril_nm_completo" : "Notas de empenho emitidas com o subelemento destinado à “festividades e homenagens’.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.17",
+		"tril_nm_completo" : "Empenho do tipo ordinário, inadequadamente usado, para pagamento de despesas parceladas.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.18",
+		"tril_nm_completo" : "Ausência de recolhimento de Contribuição Previdenciária Patronal.\t",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.20",
+		"tril_nm_completo" : "Preenchimento inadequado de campos da Nota de Empenho (NE).\t",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.20A",
+		"tril_nm_completo" : "Preenchimento inadequado de campos da Nota de Empenho (NE).\t",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.20B",
+		"tril_nm_completo" : "Preenchimento inadequado de campos da Nota de Empenho (NE).\t",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.22",
+		"tril_nm_completo" : "Utilização inadequada de subelemento não vinculado à Ação Interna B.4D0.FC.",
+		"tril_in_prazo_resposta" : 10
+	},
+	{
+		"tril_cd_trilha" : "1.1.27",
+		"tril_nm_completo" : "Inversão da fase da despesa pública",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.29",
+		"tril_nm_completo" : "Fragilidade no preenchimento, do campo Processo da Nota de Empenho.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.30",
+		"tril_nm_completo" : "Militar como sócio-administrador de empresa.",
+		"tril_in_prazo_resposta" : 120
+	},
+	{
+		"tril_cd_trilha" : "1.1.31",
+		"tril_nm_completo" : "Nota de Empenho tendo como favorecido empresa com sócio militar da ativa.",
+		"tril_in_prazo_resposta" : 120
+	},
+	{
+		"tril_cd_trilha" : "1.1.33",
+		"tril_nm_completo" : "Indícios de emissão de NE para empresas sancionadas.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.34",
+		"tril_nm_completo" : "Empenho emitido para pagamento de Gratificação por Encargo de Curso ou Concurso – GECC",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.35",
+		"tril_nm_completo" : "Nota de Empenho da modalidade pregão emitida no SIAFI",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.36 ",
+		"tril_nm_completo" : "Notas de Empenho amparadas na Lei 14.133 art. 75 incisos I e II emitidas no SIAFI",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.4",
+		"tril_nm_completo" : "Indícios de incompatibilidade entre subelemento e submeta.",
+		"tril_in_prazo_resposta" : 10
+	},
+	{
+		"tril_cd_trilha" : "1.1.6",
+		"tril_nm_completo" : "Indícios de desvio de finalidade de recursos.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.6B",
+		"tril_nm_completo" : "Verificação das AO atinentes a AEN (Ações de Estratégias Navais)",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.7",
+		"tril_nm_completo" : "Indícios de enquadramento inadequado da despesa segundo a classificação da sua natureza.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.8",
+		"tril_nm_completo" : "Enquadramento da despesa utilizando-se da classificação “outros” subelemento 99.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.1.9",
+		"tril_nm_completo" : "Realização de empenho no inciso I e II do art. 75 da Lei 14.133\/21 sem utilização do Sistema de Dispensa Eletrônica.  ",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.2.4",
+		"tril_nm_completo" : "Lançamento inadequado de conta contábil segundo a natureza da despesa.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.2.5",
+		"tril_nm_completo" : "Registro inadequado no campo documento de origem no SIAFI",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.10",
+		"tril_nm_completo" : "Pagamento de Documento de Despesa em nome de outra UGE.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.14",
+		"tril_nm_completo" : "Pagamento de autônomos de forma continuada",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.15",
+		"tril_nm_completo" : "Pagamento de oficial RM2 por RPA",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.16",
+		"tril_nm_completo" : "Pagamento por RPA de militar RM1",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.17",
+		"tril_nm_completo" : "Pagamento de autônomos que possuem relação de parentesco com militares da Marinha do Brasil",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.18",
+		"tril_nm_completo" : "Permanência de saldo na Conta Contábil (CC) relativo Ordem Bancária cancelada. ",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.2",
+		"tril_nm_completo" : "Indício de utilização inadequada de código e\/ou alíquota do Documento de Arrecadação de Receitas Federais (DARF).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.21",
+		"tril_nm_completo" : "Indícios de concessão de diárias por períodos superiores a 30 dias, em desacordo com o Decreto nº 11.645\/2023.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.22",
+		"tril_nm_completo" : "Divergência no pagamento de diárias.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.3",
+		"tril_nm_completo" : "Divergência entre o credor da nota de empenho e o da respectiva ordem bancária.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.4",
+		"tril_nm_completo" : "Divergência entre a Guia de Recolhimento do Fundo de Garantia por Tempo de Serviço e Informações à Previdência Social (GFIP) e a Guia de Previdência Social (GPS). ",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.4A",
+		"tril_nm_completo" : "Ausência de envio da Guia de Recolhimento do Fundo de Garantia por Tempo de Serviço e Informações à Previdência Social (GFIP).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.5",
+		"tril_nm_completo" : "Ausência de recolhimento do Documento de Arrecadação de Receitas Federais (DARF).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.6",
+		"tril_nm_completo" : "Lançamento semelhante de documento de origem em documentos hábeis distintos.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.7",
+		"tril_nm_completo" : "Pagamento de documento fiscal cancelado pelo emitente.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.8",
+		"tril_nm_completo" : "Pagamento realizado, com nota de empenho pendente de assinatura do Ordenador de Despesas (OD).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3.9",
+		"tril_nm_completo" : "Pagamento de documento de despesa com prazo superior a 30 dias.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.3A",
+		"tril_nm_completo" : "Despesas empenhadas com a AI do Gerente de Metas “Oscar”, com indícios de desvio de finalidade",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.4.1",
+		"tril_nm_completo" : "Ausência de conformidade de Registro de Gestão.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.4.2",
+		"tril_nm_completo" : "Emissão de documento por Agente que não possui competência.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.4.4",
+		"tril_nm_completo" : "Ausência de OS de diárias no Portal de OS,",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.5.5",
+		"tril_nm_completo" : "Divergência entre os registros do Rol de Responsáveis e do cadastro da Unidade Gestora.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.5.9",
+		"tril_nm_completo" : "Permanência de saldos de empenhos a liquidar de diárias, ao final \/ início do exercício.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.6.0",
+		"tril_nm_completo" : "Solicitação de Auditoria - Execução Financeira",
+		"tril_in_prazo_resposta" : 15
+	},
+	{
+		"tril_cd_trilha" : "1.6.2",
+		"tril_nm_completo" : "Verificação de valores por ato de concessão de SF.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.6.26",
+		"tril_nm_completo" : "Análise de comprovação de Suprimento de Fundos.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.6.30",
+		"tril_nm_completo" : "Inscrição em Restos a Pagar de Empenhos destinados a Suprimento de Fundos.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.6.5",
+		"tril_nm_completo" : "Verificação de natureza de despesas vedadas para Suprimento de Fundos (SF)",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.6.7",
+		"tril_nm_completo" : "Preenchimento inadequado de campos da Nota de Empenho (NE), de Suprimento de Fundos.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.6.8",
+		"tril_nm_completo" : "Fragilidade da Justificativa para a utilização do CPGF, na modalidade saque.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.7.1 ",
+		"tril_nm_completo" : "Transferência Voluntária pendente de comprovação.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "1.7A",
+		"tril_nm_completo" : "Enquadramento inadequado de subelemento 33903205 em relação a sua natureza de despesa.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.0",
+		"tril_nm_completo" : "Solicitação de Auditoria - Obtenção\/Compras",
+		"tril_in_prazo_resposta" : 15
+	},
+	{
+		"tril_cd_trilha" : "2.01",
+		"tril_nm_completo" : "Solicitação de Auditoria - Alta Materialidade",
+		"tril_in_prazo_resposta" : 15
+	},
+	{
+		"tril_cd_trilha" : "2.12",
+		"tril_nm_completo" : "Preço homologado acima do Estimado",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.13",
+		"tril_nm_completo" : "Limite de Dispensa de Licitação",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.2",
+		"tril_nm_completo" : "Análise de Pregões abandonados.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.20",
+		"tril_nm_completo" : "Registro de penalidade no SICAF",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.21",
+		"tril_nm_completo" : "Ausência de negociação do valor da proposta.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.22",
+		"tril_nm_completo" : "Ausência de publicação de aviso do edital no Portal de Licitações da Marinha",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.22.1",
+		"tril_nm_completo" : "Ausência de divulgação no Portal de Licitações (Publicação de Inexigibilidade\/Dispensa).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.22.2",
+		"tril_nm_completo" : "Ausência de divulgação no Portal de Licitações (Publicação de extrato de contrato).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.22.3",
+		"tril_nm_completo" : "Ausência de divulgação no Portal de Licitações (Publicação de extrato de ata de registro de preços).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.22.4",
+		"tril_nm_completo" : "Divulgação, no Portal de Licitações, de documento que não permite a pesquisa de conteúdos.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.27",
+		"tril_nm_completo" : "Ausência de registro no Cadastro Integrado de Projetos de Investimento (CIPI)",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.28",
+		"tril_nm_completo" : "Fragilidade na Estimativa da Demanda",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.29",
+		"tril_nm_completo" : "Assinatura de documento nato-digital.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.3",
+		"tril_nm_completo" : "Análise de Publicação de Matérias da Seção 3 do DOU.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.30",
+		"tril_nm_completo" : "Aplicação de Sanções Administrativas.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.31",
+		"tril_nm_completo" : "Fornecedor com restrição para contratação.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.32",
+		"tril_nm_completo" : "Aplicabilidade da Lei Geral de Proteção de Dados (LGPD) aos Contratos",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.33",
+		"tril_nm_completo" : "Dispensa Eletrônica",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "2.5",
+		"tril_nm_completo" : "Análise Processual de Alta Materialidade.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.0",
+		"tril_nm_completo" : "Solicitação de Auditoria - Militares da ativa.",
+		"tril_in_prazo_resposta" : 15
+	},
+	{
+		"tril_cd_trilha" : "4.1.1",
+		"tril_nm_completo" : "Pagamento em Duplicidade",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.10",
+		"tril_nm_completo" : "Pagamento indevido de Gratificação de Representação de Comando (GRAT REP 10).",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.100",
+		"tril_nm_completo" : "Militar recebendo Gratificação de Representação em rubrica indevida",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.101",
+		"tril_nm_completo" : "Pagamento indevido de Auxílio-Transporte (AT).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.102",
+		"tril_nm_completo" : "Militar em pagamento sem cadastro no SISPES.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.103",
+		"tril_nm_completo" : "Cancelamento de Nota de Auditoria.",
+		"tril_in_prazo_resposta" : 0
+	},
+	{
+		"tril_cd_trilha" : "4.1.104",
+		"tril_nm_completo" : "Militar reformado ou veterano lotado em OM da Ativa.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.105",
+		"tril_nm_completo" : "Parcelamento da restituição de rubrica recebida indevidamente em valor inferior ao previsto em norma",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.106",
+		"tril_nm_completo" : "Exclusão\/alteração de desconto antes da data término.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.107",
+		"tril_nm_completo" : "Pagamento a maior da Gratificação de Localidade Especial mar para militares em emprego operacional.  ",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.108",
+		"tril_nm_completo" : "Militar recebendo AD Militar Indevidamente. ",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.109",
+		"tril_nm_completo" : "Pagamento de Adicional Habilitação (AH) em percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.11",
+		"tril_nm_completo" : "Militar recebendo Gratificação de Representação de Comando (GRAT REP 10) em valor diferente de 10%.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.110",
+		"tril_nm_completo" : "Militar descontando Fusma TIT indevidamente.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.111",
+		"tril_nm_completo" : "Militar em Acerto de Contas há mais de 3 meses.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.112",
+		"tril_nm_completo" : "Pagamento de Compensação Orgânica atrasada sem desconto de FUSMA e PENSÃO MILITAR",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.113",
+		"tril_nm_completo" : "Pagamento indevido de férias a militar em período de afastamento",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.114",
+		"tril_nm_completo" : "Pagamento de Compensação Pecuniária em prazo superior a 30 dias do licenciamento.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.115",
+		"tril_nm_completo" : "Pagamento incorreto de Férias Proporcionais para Militares RM2 em LSAM.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.116",
+		"tril_nm_completo" : "Pagamento incorreto de Adicional Natalino Proporcional",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.117",
+		"tril_nm_completo" : "Inconsistência na comprovação da execução do deslocamento no Auxílio-Transporte.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.118",
+		"tril_nm_completo" : "Pagamento a menor \/ maior de Férias proporcional e Adicional Natalino proporcional.\t",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.119",
+		"tril_nm_completo" : "Ausência de recolhimento de FUSMA durante período de Licença para Acompanhar Cônjuge (LAC)",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.12",
+		"tril_nm_completo" : "Militar recebendo a rubrica GRAT REP GAB indevidamente.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.120",
+		"tril_nm_completo" : "Militar da Ativa Sócio Gerente ou Administrador de Empresa Privada.",
+		"tril_in_prazo_resposta" : 120
+	},
+	{
+		"tril_cd_trilha" : "4.1.121",
+		"tril_nm_completo" : "Pagamento incorreto de Ajuda de Custo para militar em missão no exterior.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.122",
+		"tril_nm_completo" : "Impropriedade na comprovação da execução do transporte de militar movimentado entre sedes",
+		"tril_in_prazo_resposta" : 15
+	},
+	{
+		"tril_cd_trilha" : "4.1.123",
+		"tril_nm_completo" : "Implantação de Gratificação de Representação (GRAT REP OP, GRAT REP VI ou GRAT REP IN) superior a 30 dias. ",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.13",
+		"tril_nm_completo" : "Militar recebendo GRAT REP GAB em valor indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.14",
+		"tril_nm_completo" : "Militar recebendo GRAT LOC ESP A indevidamente.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.15",
+		"tril_nm_completo" : "Militar recebendo GRAT LOC ESP A em valor indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.16",
+		"tril_nm_completo" : "Militar lotado em localidade considerada inóspita “A” sem receber ",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.17",
+		"tril_nm_completo" : "Militar recebendo GRAT LOC ESP B indevidamente.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.118",
+		"tril_nm_completo" : "Pagamento a menor \/ maior de Férias proporcional e Adicional Natalino proporcional.\t",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.18",
+		"tril_nm_completo" : "Militar recebendo GRAT LOC ESP B em valor indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.19",
+		"tril_nm_completo" : "Militar lotado em localidade considerada inóspita “B” sem receber GRAT LOC ESP ",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.2",
+		"tril_nm_completo" : "Ausência do Desconto da Rubrica Pensão Militar",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.20",
+		"tril_nm_completo" : "Militar recebendo as rubricas GRAT LOC A e B concomitantemente.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.21",
+		"tril_nm_completo" : "Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) indevidamente fora da área A.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.22",
+		"tril_nm_completo" : "Militar recebendo Auxílio-Alimentação (AA – Rubrica 1237003) sem dependentes no BP.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.23",
+		"tril_nm_completo" : "Militar recebendo Auxílio-Transporte (AT) sem o desconto da rubrica do beneficiário (6%).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.24",
+		"tril_nm_completo" : "Militar descontando a rubrica do beneficiário (6%) sem o recebimento do Auxílio-Transporte (AT).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.25",
+		"tril_nm_completo" : "Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.26",
+		"tril_nm_completo" : "Militar recebendo Assistência Pré Escolar (APE) sem o desconto da Cota Parte.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.27",
+		"tril_nm_completo" : "Militar descontando a Cota Parte sem o recebimento da Assistência Pré Escolar (APE).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.28",
+		"tril_nm_completo" : "Militar recebendo Assistência Pré Escolar (APE) sem Data Término.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.29",
+		"tril_nm_completo" : "Militar recebendo Assistência Pré Escolar (APE) em valor indevido.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.3",
+		"tril_nm_completo" : "Oficial General recebendo Adicional Militar com percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.30",
+		"tril_nm_completo" : "Pagamento da Assistência Pré-Escolar (APE) sem o registro de dependentes no Sistema BDPES.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.31",
+		"tril_nm_completo" : "Militares recebendo Assistência Pré Escolar (APE) com data término indevida.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.32",
+		"tril_nm_completo" : "Militar recebendo a rubrica Compensação Orgânica Raio X em percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.33",
+		"tril_nm_completo" : "Militar recebendo a rubrica Compensação Orgânica em percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.34",
+		"tril_nm_completo" : "Militar recebendo mais de uma rubrica de Compensação Orgânica com somatório maior que 20%.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.35",
+		"tril_nm_completo" : "Ausência do pagamento de Adicional Habilitação (AH)",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.36",
+		"tril_nm_completo" : "Ausência do desconto de FUSMA TIT",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.37",
+		"tril_nm_completo" : "Militar com RR suspensa há mais de 3 meses.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.38",
+		"tril_nm_completo" : "Militar com Pagamento “Ativo” após o ajuste de contas.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.39",
+		"tril_nm_completo" : "Militar com endereçamento (ENDER) em branco",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.1.4",
+		"tril_nm_completo" : "Oficial Superior recebendo Adicional Militar com percentual indevido",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.40",
+		"tril_nm_completo" : "Militares com PASEP em Branco.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.1.41",
+		"tril_nm_completo" : "Militar sem CPF no SISPAG2.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.42",
+		"tril_nm_completo" : "Militar falecido na Ativa constando em pagamento no SISPAG2.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.43",
+		"tril_nm_completo" : "Pagamento de Auxílio Fardamento (AF) em valor integral quando deveria ter sido pago a diferença.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.44",
+		"tril_nm_completo" : "Militar desertor em Pagamento no SISPAG2",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.45",
+		"tril_nm_completo" : "Militar licenciado a bem da disciplina ou excluído abem da disciplina em Pagamento.\t",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.46",
+		"tril_nm_completo" : " Militar aluno com matrícula cancelada ou trancada constando em Pagamento",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.47",
+		"tril_nm_completo" : "Militar advindo de Suspensão ou Bloqueio com alteração na Conta Corrente, Agência ou Banco, após a reativação do Pagamento.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.48",
+		"tril_nm_completo" : "Militar da Ativa com o campo \"Isento de IRRF\" preenchido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.49",
+		"tril_nm_completo" : "Militar que recebeu ajuda de custo quando deveria receber diária",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.5",
+		"tril_nm_completo" : "Oficial Intermediário recebendo Adicional Militar com percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.50",
+		"tril_nm_completo" : "Impropriedade no pagamento de precatório judicial em bilhete de pagamento.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.51",
+		"tril_nm_completo" : "Militar recebendo Auxílio-Transporte (AT) em valores elevados, sem comprovação.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.52",
+		"tril_nm_completo" : "Pagamento indevido de Auxílio-Transporte (AT) a militares em período de afastamento.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.53",
+		"tril_nm_completo" : "Pagamento a menor \/ a maior da Compensação Pecuniária (CP)",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.55",
+		"tril_nm_completo" : "Pagamento a maior de Auxílio Funeral (AF).",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.56",
+		"tril_nm_completo" : "Militar em pagamento após a data do LSAM",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.57",
+		"tril_nm_completo" : "Pagamento indevido a militar em LTIP ou LAC.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.59",
+		"tril_nm_completo" : "Pagamento indevido de passagem em Bilhete de Pagamento.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.6",
+		"tril_nm_completo" : "Oficial Subalterno recebendo Adicional Militar com percentual indevido",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.60",
+		"tril_nm_completo" : "Pagamento indevido no Acerto de Contas (LSAM).\t",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.62",
+		"tril_nm_completo" : "Militar excluído, licenciado ou transferido para outro órgão em pagamento.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.64",
+		"tril_nm_completo" : "Militar recebendo Adicional de Disponibilidade com percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.65",
+		"tril_nm_completo" : "Ausência do pagamento da Rubrica  Adicional de Disponibilidade.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.66",
+		"tril_nm_completo" : "Militar recebendo Adicional de Disponibilidade e Adicional de Tempo de Serviço, concomitantemente. ",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.67",
+		"tril_nm_completo" : "Não regularização de débitos inscritos no Sistema de Responsabilidade (SISRES)",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.68",
+		"tril_nm_completo" : "Militar recebendo Adicional de Disponibilidade indevidamente.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.69",
+		"tril_nm_completo" : "Pagamento indevido de Ajuda de Custo a militar em detrimento a Gratificação de Representação (GRAT REP).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.7",
+		"tril_nm_completo" : "SO, 1ºSG, 2ºSG ou 3ºSG recebendo Adicional Militar com percentual indevido",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.70",
+		"tril_nm_completo" : "Pagamento indevido de Auxílio-Transporte (AT)  para militar transferido para a Reserva Remunerada ou Reformado.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.71",
+		"tril_nm_completo" : "Pagamento indevido de Gratificação de Representação a militar prestando Tarefa por Tempo Certo (TTC).",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.72",
+		"tril_nm_completo" : "Declarações de Concessão de Auxílio-Transporte (DeCAT) desatualizadas.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.73",
+		"tril_nm_completo" : "Pagamento do Auxílio-Transporte (AT) divergente ao valor autorizado na Declaração de Concessão de Auxílio-Transporte (DeCAT).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.74",
+		"tril_nm_completo" : "Militar recebendo Assistência Pré Escolar (APE) de gêmeos na mesma rubrica de pagamento.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.75",
+		"tril_nm_completo" : "Pagamento de Assistência Pré Escolar (APE) a dependente falecido.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.76",
+		"tril_nm_completo" : "Pagamento incorreto de Transferência para Reserva Remunerada (TRRM).",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.77",
+		"tril_nm_completo" : " Pagamento incorreto de Auxílio-Natalidade.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.78",
+		"tril_nm_completo" : "Pagamento indevido de Auxílio Funeral (AF).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.79",
+		"tril_nm_completo" : "Pagamento indevido de Compensação Orgânica de Raio X.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.8",
+		"tril_nm_completo" : "CE, ME, SE, MN, SD ou AM recebendo Adicional Militar com percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.80",
+		"tril_nm_completo" : "Pagamento a menor de Auxílio Funeral (AF).",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.81",
+		"tril_nm_completo" : "Não inclusão das OS de direitos pecuniários no Portal de OS do CCIMAR.",
+		"tril_in_prazo_resposta" : 5
+	},
+	{
+		"tril_cd_trilha" : "4.1.82",
+		"tril_nm_completo" : "Pagamento a maior \/ menor de Ajuda de Custo para militar movimentado com \/ sem desligamento da OM.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.83",
+		"tril_nm_completo" : "Permanência de militares Licenciados do Serviço Ativo da Marinha (LSAM) em acerto de contas por três meses ou mais.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.84",
+		"tril_nm_completo" : "Pagamento indevido de Compensação Pecuniária (CP).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.85",
+		"tril_nm_completo" : "Pagamento do Auxílio Pré-Escolar (APE) sem data término a dependente especial não diagnosticado com CID 10 F73.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.86",
+		"tril_nm_completo" : "Pagamento a menor das férias proporcionais relativas à atividade de Raio X.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.87",
+		"tril_nm_completo" : "Pagamento indevido de diferença do Adicional de Férias.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.89",
+		"tril_nm_completo" : "Pagamento indevido de diferença de Auxílio-Transporte (AT)",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.9",
+		"tril_nm_completo" : "Militar da Ativa sem receber o Adicional Militar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.90",
+		"tril_nm_completo" : "Pagamento indevido de Ajuda de Custo a militar em detrimento a Gratificação de Representação Operacional (GRAT REP OP).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.92",
+		"tril_nm_completo" : "Militar recebendo Adicional de Férias de Compensação Orgânica RX em rubrica indevida.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.93",
+		"tril_nm_completo" : "Comando de pagamento em rubrica divergente ao código de direito pecuniário de Transferência para Reserva Remunerada (TRRM).",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.94",
+		"tril_nm_completo" : "Militar Médico com vínculo indevido de Residência Médica (carga horária: 60 Horas).",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.1.95",
+		"tril_nm_completo" : "Militar recebendo rubrica de pagamento de forma vitalícia indevidamente.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.1.96",
+		"tril_nm_completo" : "Pagamento\/desconto de direito pecuniário em rubrica Indevida.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.1.97",
+		"tril_nm_completo" : "Pagamento a maior \/ menor na rubrica Exercício Anterior.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.98",
+		"tril_nm_completo" : "Pagamento de acerto do AT em OS por período superior a 120 dias, sem o registro do motivo que impediu o beneficiário de receber o AT na época devida.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.1.99",
+		"tril_nm_completo" : "Militar recebendo valor indevido de Gratificação de Representação.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.0",
+		"tril_nm_completo" : "Solicitação de Auditoria - Militares veteranos e pensionistas.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.1",
+		"tril_nm_completo" : "Pagamento em Duplicidade.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.10",
+		"tril_nm_completo" : "Militar Veterano recebendo Assistência Pré Escolar (APE) sem o desconto da Cota Parte.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.11",
+		"tril_nm_completo" : "Militar Veterano descontando a Cota Parte sem o recebimento da Assistência Pré Escolar (APE).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.12",
+		"tril_nm_completo" : "Militar Veterano recebendo Assistência Pré Escolar (APE) sem Data Término.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.13",
+		"tril_nm_completo" : "Militar Veterano recebendo Assistência Pré Escolar (APE) em valor indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.14",
+		"tril_nm_completo" : "Militar Veterano recebendo Assistência Pré Escolar (APE) sem dependentes cadastrados no SISPES.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.2.15",
+		"tril_nm_completo" : "Militar Veterano recebendo Assistência Pré Escolar (APE) com data término incorreta.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.16",
+		"tril_nm_completo" : "Militar Veterano recebendo a rubrica Compensação Orgânica Raio X em percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.17",
+		"tril_nm_completo" : "Militar Veterano recebendo a rubrica Compensação Orgânica em percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.18",
+		"tril_nm_completo" : "Militar Veterano recebendo mais de uma rubrica de Compensação Orgânica com somatório maior que 20%.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.19",
+		"tril_nm_completo" : "Militar Veterano sem receber o Adicional de Habilitação (AH).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.2",
+		"tril_nm_completo" : "Militar Veterano e Pensionista que não descontam a rubrica Pensão Militar.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.20",
+		"tril_nm_completo" : "Ausência do desconto da rubrica FUSMA TIT para Militar Veterano.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.21",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista com Pagamento Suspenso há mais de 3 meses.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.22",
+		"tril_nm_completo" : "Militar Veterano com Pagamento “Ativo” após o ajuste de contas (TRRM).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.23",
+		"tril_nm_completo" : "Ausência do ENDER para Militar Veterano ou Pensionista.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.2.24",
+		"tril_nm_completo" : "Militar Veterano com o campo PASEP em Branco.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.25",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista sem CPF.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.26",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista falecidos em Pagamento.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.27",
+		"tril_nm_completo" : "Militar Veterano recebendo rubrica de Ativo no Pagamento.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.28",
+		"tril_nm_completo" : "Pensionista Filha de Ex-Combatente recebendo outra remuneração na MB.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.2.29",
+		"tril_nm_completo" : "Pensionista Filha de Ex-Combatente recebendo outra remuneração Extra-MB.",
+		"tril_in_prazo_resposta" : 150
+	},
+	{
+		"tril_cd_trilha" : "4.2.3",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista de Oficial General recebendo Adicional Militar com percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.30",
+		"tril_nm_completo" : "Pensionista de Militar recebendo mais de 2 remunerações na MB ou Extra-MB.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.2.31",
+		"tril_nm_completo" : "Militar Veterano, sem exercer TTC, recebendo rubrica de Auxílio-Transporte (AT).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.32",
+		"tril_nm_completo" : "Militar Veterano recebendo Auxílio Invalidez e a Rubrica de Pro Labore (TTC), concomitantemente.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.33",
+		"tril_nm_completo" : "Militar Veterano recebendo a rubrica Gratificação de Comando (GRAT REP 10) em BP.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.34",
+		"tril_nm_completo" : "Militar Veterano recebendo a rubrica GRAT LOC ESP A.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.35",
+		"tril_nm_completo" : "Militar Veterano recebendo a rubrica GRAT LOC ESP B.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.36",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista recebendo o Auxílio Funeral (AF) no valor superior a uma remuneração mensal.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.37",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista recebendo o Auxílio Funeral no valor inferior ao soldo de SO.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.38",
+		"tril_nm_completo" : "Militar Veterano recebendo o Auxílio Invalidez em valor indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.39",
+		"tril_nm_completo" : "Militar Veterano recebendo o Auxílio Invalidez e exercendo atividade remunerada em algum outro órgão público.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.2.4",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista de Oficial superior recebendo Adicional Militar com percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.40",
+		"tril_nm_completo" : "Militar Veterano recebendo o Auxílio Invalidez sem isenção de IRRF.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.41",
+		"tril_nm_completo" : "Pensionista de Ex-Combatente recebendo Adicional de Habilitação (AH).",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.42",
+		"tril_nm_completo" : "Militar Veterano  isento de IRRF exercendo TTC.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.43",
+		"tril_nm_completo" : "Militar Veterano sem exercer TTC recebendo Adicional de Férias.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.44",
+		"tril_nm_completo" : "Militar Veterano recebendo outra remuneração no SIAPE, ultrapassando o Teto Constitucional.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.2.45",
+		"tril_nm_completo" : "Pensionista recebendo outra remuneração no SIAPE, ultrapassando o Teto Constitucional.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.2.46",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista recebendo rubrica de pagamento de forma vitalícia, indevidamente.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.47",
+		"tril_nm_completo" : "Militar Veterano ou Pensionistas sem estar recebendo o Adicional de Disponibilidade.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.2.48",
+		"tril_nm_completo" : "Militar Veterano ou Pensionistas recebendo Adicional de Disponibilidade e Adicional de Tempo de Serviço, concomitantemente.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.49",
+		"tril_nm_completo" : "Pensionista com mais de dois vínculos de pagamento Extra-MB.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.2.5",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista de Oficial Intermediário recebendo Adicional Militar com percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.50",
+		"tril_nm_completo" : "Pensionista de Ex-Combatente recebendo a rubrica Ad Disponibilidade indevidamente.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.51",
+		"tril_nm_completo" : "Militar Veterano recebendo Assistência Pré Escolar (APE) de gêmeos na mesma rubrica de pagamento.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.52",
+		"tril_nm_completo" : "Militar Veterano recebendo as rubricas Auxílio Invalidez e Diária de Asilado, concomitantemente.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.53",
+		"tril_nm_completo" : "Militar da Ativa em OC de Veterano ou Pensionista (SVPM). ",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.54",
+		"tril_nm_completo" : "Militar Veterano recebendo Auxílio Invalidez (AI) exercendo atividade remunerada em outra fonte pagadora Extra-MB.",
+		"tril_in_prazo_resposta" : 120
+	},
+	{
+		"tril_cd_trilha" : "4.2.55",
+		"tril_nm_completo" : "Concessão indevida de Adicional de Permanência.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.56",
+		"tril_nm_completo" : "Pagamento do Adicional de Inatividade em valores fixos.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.57",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista recebendo a rubrica URP (URP-FEV1989 e ABR\/MAI1989) em valores fixos.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.58",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista recebendo a rubrica Complemento Salário Mínimo em valores fixos.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.59",
+		"tril_nm_completo" : "Militar Veterano e Pensionista recebendo a rubrica diferença 28,86% em valores fixos.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.6",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista de Oficial Subalterno recebendo Adicional Militar com percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.60",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista recebendo a rubrica diferença do Plano Bresser em valores fixos.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.61",
+		"tril_nm_completo" : "Militar Veterano e Pensionista recebendo a rubrica VANT PES N I em valores fixos.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.62",
+		"tril_nm_completo" : "Militar Veterano e Pensionista recebendo a rubrica Plano Collor em valores fixos.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.63",
+		"tril_nm_completo" : "Militar recebendo Adicional Pro Labore não lotado na OM de TTC.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.64",
+		"tril_nm_completo" : "Pensionista de militar recebendo indevidamente Auxílio Pré-Escolar (APE)",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.2.7",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista de SO, 1ºSG, 2ºSG e 3ºSG recebendo Adicional Militar com percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.8",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista de CE, ME, SE, MN, SD, AM recebendo Adicional Militar com percentual indevido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.2.9",
+		"tril_nm_completo" : "Militar Veterano ou Pensionista sem receber o Adicional Militar.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.0",
+		"tril_nm_completo" : "Solicitação de Auditoria - Servidores\/aposentados civis e pensionistas.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.1",
+		"tril_nm_completo" : "Servidores e Pensionistas de Civis falecidos em pagamento.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.10",
+		"tril_nm_completo" : "Servidores Aposentados (EST-02) lotados em UPAG da Ativa",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.3.11",
+		"tril_nm_completo" : "Servidores em cargo de Comissão (CCE) com o cadastro incompatível com a função. ",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.12",
+		"tril_nm_completo" : "Servidor sem informação ou com informação incorreta no Cadastro SIAPE com Cargo de Nível Intermediário.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.3.13",
+		"tril_nm_completo" : "Servidor sem informação ou com informação incorreta no Cadastro SIAPE com Cargo Nível Superior.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.3.14",
+		"tril_nm_completo" : "Servidor da ativa recebendo Abono de Permanência incompatível com idade menor de 50 anos.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.15",
+		"tril_nm_completo" : "Servidor da Ativa recebendo Adicional de Férias no mês anterior e Adicional Noturno no mesmo posterior.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.16",
+		"tril_nm_completo" : "Pensionista de Civil sem o registro ou com incorreção no Campo da Natureza da Pensão no Cadastro do SIAPE.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.3.17",
+		"tril_nm_completo" : "Servidor ativo com mais de 75 anos.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.18",
+		"tril_nm_completo" : "Servidores aposentados recebendo, continuadamente, rubrica de Ação Judicial.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.19",
+		"tril_nm_completo" : "Servidor da Ativa recebendo, continuadamente, rubrica de Ação Judicial.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.2",
+		"tril_nm_completo" : "Servidor Aposentado recebendo rubrica de ativo no pagamento.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.20",
+		"tril_nm_completo" : "Pensionistas Civis recebendo continuadamente, rubrica de Ação Judicial.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.21",
+		"tril_nm_completo" : "Servidores recebendo Auxílio-Transporte com valor acima de R$ 800,00 residentes na mesma cidade onde trabalha.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.22",
+		"tril_nm_completo" : "Servidores com descontos dos dias não trabalhados na Folha de Pagamento, sem registro das faltas no Cadastro do SIAPE.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.23",
+		"tril_nm_completo" : "Servidores que recebem Assistência Pré-Escolar fora do Módulo de Dependentes.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.24",
+		"tril_nm_completo" : "Dependente falecido gerando benefício para o servidor.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.25",
+		"tril_nm_completo" : "Servidor ou Pensionista com o campo CPF em branco na Ficha Financeira.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.26",
+		"tril_nm_completo" : "Pensão no SIAPE com cota parte indevida.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.3.27",
+		"tril_nm_completo" : "Pagamento indevido de Adicional Noturno para Servidores da Ativa.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.28",
+		"tril_nm_completo" : "Ausência do Cadastro de Pessoas Físicas dos dependentes.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.29",
+		"tril_nm_completo" : "Não implantação em FF do Acerto dos Adicionais Ocupacionais referente aos dias não trabalhados de Servidores Civis.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.3",
+		"tril_nm_completo" : "Não implantação em BP do acerto do Auxílio-Transporte (AT) referente aos dias não trabalhados.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.30",
+		"tril_nm_completo" : "Pagamento indevido de Adicional Noturno para Servidores da Ativa.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.31",
+		"tril_nm_completo" : "Pagamento em duplicidade de Servidores.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.32",
+		"tril_nm_completo" : "Servidor da ativa ou aposentado recebendo valores elevados de exercícios anteriores.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.3.33",
+		"tril_nm_completo" : "Pensionista civil recebendo valores elevados de exercícios anteriores.",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.3.34",
+		"tril_nm_completo" : "Pensionista, com estado civil no SIAPE, incompatível com a situação de filha Maior Solteira sem Cargo Público. ",
+		"tril_in_prazo_resposta" : 120
+	},
+	{
+		"tril_cd_trilha" : "4.3.35",
+		"tril_nm_completo" : "Pagamento indevido de Auxílio-Transporte (AT) a servidores em período de afastamento.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.36",
+		"tril_nm_completo" : "Pagamento da Assistência Per Capita Saúde Suplementar sem registro das informações dos dependentes no cadastro SIAPE.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.37",
+		"tril_nm_completo" : "Preenchimento do campo “Parentesco Vínculo” incompatível com o campo “Estado Civil” da pensionista civil no Cadastro do SIAPE.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.3.38",
+		"tril_nm_completo" : "Servidor Civil recebendo Auxílio-Alimentação na MB e Extra-MB, concomitantemente.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.39",
+		"tril_nm_completo" : "Ausência de documentação que respalda o pagamento da rubrica Retribuição por Titulação (RT) de servidor.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.3.4",
+		"tril_nm_completo" : "Existência de Pensionistas Civis (Filha maior solteira com remuneração) da MB com outro vínculo de pagamento EXTRA-MB.",
+		"tril_in_prazo_resposta" : 120
+	},
+	{
+		"tril_cd_trilha" : "4.3.40",
+		"tril_nm_completo" : "Servidor com Pagamento Bloqueado ou Suspenso há mais de 3 meses.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.41",
+		"tril_nm_completo" : "Militar Médico com vínculo indevido de Residência Médica (carga horária: 60 Horas).",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.3.42",
+		"tril_nm_completo" : "Preenchimento do campo “ESCOLARIDADE” incompatível com o direito para receber a rubrica “GQ GRAT. DE QUALIFICAÇÃO - AP”.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.43",
+		"tril_nm_completo" : "Dependente com CPF do servidor gerando benefício.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.44",
+		"tril_nm_completo" : "Valor incorreto de Pensão Graciosa.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.45",
+		"tril_nm_completo" : "Servidores recebendo indevidamente Função de Confiança",
+		"tril_in_prazo_resposta" : 45
+	},
+	{
+		"tril_cd_trilha" : "4.3.46",
+		"tril_nm_completo" : "Impropriedades observadas nas Prestações de Contas (PC) de Pagamento de Civil.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.47",
+		"tril_nm_completo" : "Pensionista Civil recebendo rubrica de pagamento de forma vitalícia indevidamente.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.48",
+		"tril_nm_completo" : "Ausência de registro, no SIAPE, de vínculo em outro órgão público.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "4.3.49",
+		"tril_nm_completo" : "Não implantação em BP do desconto do Auxílio-Alimentação (AA) referente aos dias não trabalhados.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "4.3.5",
+		"tril_nm_completo" : "Existência de Pensionistas Civis (Filha maior solteira com remuneração) da MB com outro vínculo de pagamento na MB.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.3.6",
+		"tril_nm_completo" : "Servidor Aposentado recebendo a rubrica Retribuição por Titulação (RT) com cadastro pessoal incompatível.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.3.7",
+		"tril_nm_completo" : "Servidor Ativo recebendo a rubrica Retribuição por Titulação (RT) com cadastro pessoal incompatível.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.3.8",
+		"tril_nm_completo" : "Servidor aposentado recebendo benefícios sem o número do CPF no cadastro de dependente do SIAPE.",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "4.3.9",
+		"tril_nm_completo" : "Servidor da ativa recebendo benefícios sem o número do CPF no cadastro de dependente no SIAPE.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "5.0",
+		"tril_nm_completo" : "Solicitação de Auditoria",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.10.1",
+		"tril_nm_completo" : "DOTEMBA X CADBEM",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.10.2",
+		"tril_nm_completo" : "Dados registrados na DOTEMBA desatualizados. ",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.1.1",
+		"tril_nm_completo" : "Inconsistência de saldos, com registro de restrição na conformidade contábil da Unidade Gestora.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.11.1",
+		"tril_nm_completo" : "Bens de estoque - CC inadequada e sem registro no SIAFI.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.11.2",
+		"tril_nm_completo" : "Bens de Estoque - Conta Contábil (CC) inadequada e sem registro no SIAFI.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.12.1",
+		"tril_nm_completo" : "Divergência entre o valor registrado no SPIUnet e o valor contabilizado no SIAFI, na CC 12311.01.00 - Bens de Uso Especial Registrados no SPIUnet.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.12.10",
+		"tril_nm_completo" : "Controle do registro no SPIUnet a classificar, ainda não ratificado.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.12.11",
+		"tril_nm_completo" : "Inconsistência do saldo de Depreciação Acumulada de Bens Imóveis",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.12.12",
+		"tril_nm_completo" : "Bens de Uso Especial não registrados no SPIUnet",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.12.13",
+		"tril_nm_completo" : "Reclassificação da conta contábil 12321.01.98 - Outros bens imóveis registrados no SPIUnet.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.12.3",
+		"tril_nm_completo" : "Conta Contábil 12321.06.01 - Obras em Andamento - Saldo indevido ou ainda não regularizado.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.12.4",
+		"tril_nm_completo" : "Conta Contábil 12321.06.05 - Estudos e Projetos - Saldo indevido ou ainda não regularizado.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.12.5",
+		"tril_nm_completo" : "Conta Contábil 12321.07.00 - Instalações - Saldo alongado, indevido ou ainda não regularizado.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.12.6",
+		"tril_nm_completo" : "Conta Contábil 12321.08.00 - Benfeitorias em Propriedade de Terceiros - Saldo a regularizar.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.12.7",
+		"tril_nm_completo" : "Saldo indevido ou ainda não regularizado na Conta Contábil 12321.99.05 - Imóveis a Classificar\/a Registrar.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.12.8",
+		"tril_nm_completo" : "Bens Imóveis com avaliações vencidas",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.12.9",
+		"tril_nm_completo" : "Bens Dominicais não registrados no SIAPA - Saldo a regularizar.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.2.1",
+		"tril_nm_completo" : "Compatibilização Financeira (Bens Móveis)",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.2.2",
+		"tril_nm_completo" : "Compatibilização Financeira (Bens de Estoque)\n",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.3.1",
+		"tril_nm_completo" : "Itens não depreciados.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "5.3.2",
+		"tril_nm_completo" : "Depreciação Acumulada",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.3.3",
+		"tril_nm_completo" : "Inconsistências nos registros da depreciação no SIAFI.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.3.4",
+		"tril_nm_completo" : "Bens Móveis que atingiram o seu valor residual.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.3.5",
+		"tril_nm_completo" : "Amortização dos Bens Intangíveis.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.4",
+		"tril_nm_completo" : "Inscrição em restos a pagar de empenhos destinados a despesa com diárias.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.5.1",
+		"tril_nm_completo" : "Itens na Incumbência “INC”.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.6.1",
+		"tril_nm_completo" : "Usuários da Gestão Patrimonial, registrados no SISBENS, com CPF inválido.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.6.2",
+		"tril_nm_completo" : "Incumbência sem registro do Encarregado.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.7.1",
+		"tril_nm_completo" : "Classificação inadequada de bens móveis.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.7.2",
+		"tril_nm_completo" : "Itens registrados de maneira incompleta.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.7.3",
+		"tril_nm_completo" : "Itens cadastrados com mais de uma unidade.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.7.4",
+		"tril_nm_completo" : "Itens duplicados",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.1",
+		"tril_nm_completo" : "Registro de bens móveis no SIAFI, em Conta Contábil não cadastradas no CADBEM.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.10",
+		"tril_nm_completo" : "CC 11581.03.01 - Mercadorias para Doação - Estoque Interno - Saldo a Regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.11",
+		"tril_nm_completo" : "CC 11581.05.00 - Importações em Andamento - Bens de Estoque - Saldo a regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.12",
+		"tril_nm_completo" : "CC 11581.06.00 - Construções Civis - Saldo a regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.13",
+		"tril_nm_completo" : "CC 12311.07.01 - Bens Móveis em Elaboração - Saldo a regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.14",
+		"tril_nm_completo" : "CC 12311.04.99 - Outros Materiais Culturais, Educacionais e de Comunicações - Saldo a regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.15",
+		"tril_nm_completo" : "CC 12311.07.02 - Importações em Andamento - Bens Móveis - Saldo a regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.17",
+		"tril_nm_completo" : "CC 12311.08.02 - Estoque para Distribuição - Saldo a regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.18",
+		"tril_nm_completo" : "Saldo a regularizar na CC 12311.08.03 - Bens Móveis a Reparar.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.19",
+		"tril_nm_completo" : "CC 12311.08.04 - Bens Móveis em Reparo - Saldo a regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.20",
+		"tril_nm_completo" : "Saldo a regularizar na CC 12311.99.01 - Bens Móveis a Alienar.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.21",
+		"tril_nm_completo" : "Saldo a regularizar na CC 12311.99.02 - Bens em Poder de Outras Unidades ou Terceiros.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.22",
+		"tril_nm_completo" : "Saldo a regularizar na CC 12311.99.06 - Bens Móveis em Recuperação.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.23",
+		"tril_nm_completo" : " Realocação e reavaliação de bens registrados na CC 12311.99.99 - Outros Bens Móveis",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.24",
+		"tril_nm_completo" : "CC 11581.98.00 - Estoques Diversos - Saldo a regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.25",
+		"tril_nm_completo" : "Bens Móveis a Receber, ainda não regularizado.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.26",
+		"tril_nm_completo" : "Bens de  Estoque a Receber, ainda não regularizado.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.3",
+		"tril_nm_completo" : "CC 11511.01.01 - Mercadorias para Venda ou Revenda - Saldo a regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.4",
+		"tril_nm_completo" : "CC 11561.02.00 - Estoque de Sobressalentes a Alienar - Saldo a regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.5",
+		"tril_nm_completo" : "CC 11561.10.00 - Materiais de Consumo não Localizados - Saldo a regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.6",
+		"tril_nm_completo" : "Saldo a regularizar na CC 11581.02.01 - Mat. de Consumo Estoque Interno - para Distribuir.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.7",
+		"tril_nm_completo" : "Saldo a regularizar na CC 11581.02.02 - Mat. de Consumo Est. Armazém Terceiros p\/ Distribuição.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.8",
+		"tril_nm_completo" : "CC 11581.02.03 - Medicamento - Estoque Interno para Distribuição - Saldo a regularizar",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.8.9",
+		"tril_nm_completo" : "CC 11581.02.05 - Estoque de Materiais para Premiações - Saldo a regularizar.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.9.1",
+		"tril_nm_completo" : "Divergência no total de viaturas nos sistemas CADBEM e SINGRA-2.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.9.2",
+		"tril_nm_completo" : "Multas por infrações do CBT",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.9.3",
+		"tril_nm_completo" : "Dados incompletos no SINGRA-2.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.9.4",
+		"tril_nm_completo" : "Viaturas registradas no CADBEM de maneira incompleta.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "5.9.5",
+		"tril_nm_completo" : "Relatório emitido pelo SINGRA-2 desatualizado.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-0",
+		"tril_nm_completo" : "Solicitação de Auditoria",
+		"tril_in_prazo_resposta" : 15
+	},
+	{
+		"tril_cd_trilha" : "6-1",
+		"tril_nm_completo" : "Municiados em situação irregular no BDPES",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-10",
+		"tril_nm_completo" : "Municiamento de estagiários em etapa indevida em função de carga horária",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-11",
+		"tril_nm_completo" : "Aquisição de gêneros com dispensa de Licitação acima dos limites legais",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-14",
+		"tril_nm_completo" : "Prestações de Contas com atrasos superiores a 30 dias",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-15",
+		"tril_nm_completo" : "Não conformidades na formalização de Termo de Despesa",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-17",
+		"tril_nm_completo" : "Ocorrência de diferenças superiores a 5% em Acerto de Paiol",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-18",
+		"tril_nm_completo" : "Realização de despesas não autorizadas utilizando recursos da AI B.441.01.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-19",
+		"tril_nm_completo" : "“Risco de imagem” decorrente da aquisição de gêneros alimentícios que aparentemente não tenham vinculação direta com os objetivos institucionais do Órgão ou Entidade.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-2",
+		"tril_nm_completo" : "Municiados não cadastrados nos bancos de dados de pessoal.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-21",
+		"tril_nm_completo" : "Realização de despesa de aquisição de gêneros alimentícios, com Ação Orçamentária (AO) diversa da 212B ",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-25",
+		"tril_nm_completo" : "Ausência de lançamento de Notas Fiscais no Sistema Quaestor",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-3",
+		"tril_nm_completo" : "Municiamento indevido de militares veteranos no Sistema QUAESTOR.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-30",
+		"tril_nm_completo" : "Municiamento de Servidores Civis que recebem auxílio-alimentação em pecúnia",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-4",
+		"tril_nm_completo" : "Municiamento indevido de Servidores Civis no Sistema QUAESTOR.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-5",
+		"tril_nm_completo" : "Municiamento indevido de TTC\/SC aos finais de semana.",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-6",
+		"tril_nm_completo" : "Militares em licenças especiais municiados",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "6-7",
+		"tril_nm_completo" : "OM sacando complemento escolar que não desenvolva atividades de ensino e instrução. ",
+		"tril_in_prazo_resposta" : 30
+	},
+	{
+		"tril_cd_trilha" : "8.1.1",
+		"tril_nm_completo" : "Cumprimento da Súmula nº 106, do TCU.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.2.1",
+		"tril_nm_completo" : "Cumprimento de prazo para cadastro de ato de admissão de pessoal.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.2.2",
+		"tril_nm_completo" : "Cumprimento de prazo para cadastro de ato de aposentadoria.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.2.3",
+		"tril_nm_completo" : "Cumprimento de prazo para cadastro de ato de pensão civil.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.2.4",
+		"tril_nm_completo" : "Cumprimento de prazo para cadastro de ato de pensão especial a ex-combatente.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.2.5",
+		"tril_nm_completo" : "Cumprimento de prazo para cadastro de ato de reforma por idade.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.2.6",
+		"tril_nm_completo" : "Cumprimento de prazo para cadastro de ato de reforma por incapacidade.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.2.7",
+		"tril_nm_completo" : "Cumprimento de prazo para cadastro de ato de pensão militar.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.2.8",
+		"tril_nm_completo" : "Cumprimento de prazo para cadastro de ato de alteração de concessão.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.4.1",
+		"tril_nm_completo" : "Cômputo de tempo laboral em atividade privada para percepção de remuneração correspondente ao grau hierárquico superior.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.4.2",
+		"tril_nm_completo" : "Cômputo de tempo laboral no serviço público para percepção de remuneração correspondente ao grau hierárquico superior.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.4.3",
+		"tril_nm_completo" : "Cômputo de tempo laboral em guarnição especial para percepção de remuneração correspondente ao grau hierárquico superior.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.4.4",
+		"tril_nm_completo" : "Concessão de remuneração correspondente ao grau hierárquico superior em desacordo com o estabelecido em lei.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.4.5",
+		"tril_nm_completo" : "Concessão de pensão militar correspondente a um ou dois postos\/ graduações acima, sem a respectiva contribuição pelo instituidor da pensão.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.4.6",
+		"tril_nm_completo" : "Concessão de benefício previsto no art. 110, da Lei nº 6.880\/1980, para militares reformados.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.6.1",
+		"tril_nm_completo" : "Cômputo de período laboral na atividade privada para contagem de tempo na apuração do Adicional de Tempo de Serviço.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.6.2",
+		"tril_nm_completo" : "Cômputo de período laboral no serviço público para contagem de tempo no cálculo do Adicional de Tempo de Serviço.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.6.3",
+		"tril_nm_completo" : "Cômputo de período em guarnição especial para contagem de tempo no cálculo do Adicional de Tempo de Serviço.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.6.4",
+		"tril_nm_completo" : "Cômputo de período laboral na atividade privada e no serviço público para contagem de tempo na apuração do Adicional de Tempo de Serviço.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.6.5",
+		"tril_nm_completo" : "Cômputo de período laboral no serviço público para contagem de tempo na apuração do Adicional de Tempo de Serviço e para percepção de remuneração correspondente ao grau hierárquico superior.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.6.6",
+		"tril_nm_completo" : "Cômputo de período laboral na atividade privada para contagem de tempo na apuração do Adicional de Tempo de Serviço e para percepção de remuneração correspondente ao grau hierárquico superior.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.6.7",
+		"tril_nm_completo" : "Cômputo de período em guarnição especial para contagem de tempo no cálculo do Adicional de Tempo de Serviço e para percepção de remuneração correspondente ao grau hierárquico superior.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.6.8",
+		"tril_nm_completo" : "Cômputo de período matriculado como aluno de órgão de formação da reserva para contagem de tempo no cálculo do Adicional de Tempo de Serviço.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.6.9",
+		"tril_nm_completo" : "Cômputo de período matriculado como aluno de órgão de formação da reserva para contagem de tempo no cálculo do Adicional de Tempo de Serviço e para percepção de remuneração correspondente ao grau hierárquico superior.",
+		"tril_in_prazo_resposta" : 60
+	},
+	{
+		"tril_cd_trilha" : "8.7.1",
+		"tril_nm_completo" : "Pensionista militar com mais de dois vínculos de pagamento ",
+		"tril_in_prazo_resposta" : 90
+	},
+	{
+		"tril_cd_trilha" : "8.7.2",
+		"tril_nm_completo" : "Pensionista civil com mais de dois vínculos de pagamento.",
+		"tril_in_prazo_resposta" : 90
+	}
+]}

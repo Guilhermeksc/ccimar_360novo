@@ -12,3 +12,44 @@ AND t.tril_in_ativo = B'1'
 ORDER BY trt.niex_nr_nivel_exposicao DESC;
 
 
+SELECT 
+    nt.noau_tx_numero_na, 
+    nt.noau_cd_om,
+    nt.noau_ds_assunto,
+    nt.noau_dt_envio,
+    nt.noau_dt_prazo,
+    nt.noau_vl_valor,
+    nt.stat_cd_id,    
+    nt.noau_dt_resposta,
+    s.stat_nm_completo,
+    b."NROIDENTOM",
+    b."NOMEOM",
+    b."SIGLAOM",
+    b."AREAOM",
+    ge.geem_cd_om,
+    ods.nome_setor
+FROM public.nota_auditoria nt
+-- Adicionando a cláusula WHERE para excluir stat_cd_id 5 e 6
+LEFT JOIN public.status s ON nt.stat_cd_id = s.stat_cd_id
+JOIN public.bdpes_om_temp b ON nt.noau_cd_om = b."CODOM"
+LEFT JOIN public.gerenciador_email ge ON nt.noau_cd_om = ge.geem_cd_om
+LEFT JOIN public.ods ods ON ge.geem_id_ods = ods.id
+WHERE nt.stat_cd_id NOT IN (2, 3, 5, 6);
+
+
+SELECT 
+    t.tril_cd_trilha,
+    nt.noau_cd_id,
+    tv.siglaom,
+    s.stat_nm_completo,
+    a.anna_nm_arquivo
+FROM public.trilha t
+INNER JOIN public.nota_auditoria nt 
+    ON t.tril_cd_id = nt.tril_cd_id
+INNER JOIN public.tabela_view_om tv 
+    ON tv.codom = nt.noau_cd_om 
+INNER JOIN public.status s
+    ON nt.stat_cd_id = s.stat_cd_id
+INNER JOIN public.anexo_nota_auditoria a 
+    ON nt.noau_cd_id = a.noau_cd_id
+WHERE t.tril_cd_trilha = '4.1.0';
