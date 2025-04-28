@@ -691,24 +691,6 @@
     ],
     "Com4ºDN": [
         {
-            "uasg": "84910",
-            "sigla": "AvInBrazdeAguiar",
-            "nome": "AVISO DE INSTRUÇÃO BRAZ DE AGUIAR",
-            "url": "https://catalogo.prod.dadm.mb/om/84910"
-        },
-        {
-            "uasg": "84800",
-            "sigla": "BNVC",
-            "nome": "BASE NAVAL DE VAL-DE-CÃES",
-            "url": "https://catalogo.prod.dadm.mb/om/84800"
-        },
-        {
-            "uasg": "84800",
-            "sigla": "BNVC",
-            "nome": "BASE NAVAL DE VAL-DE-CÃES",
-            "url": "https://catalogo.prod.dadm.mb/om/84800"
-        },
-        {
             "uasg": "84800",
             "sigla": "BNVC",
             "nome": "BASE NAVAL DE VAL-DE-CÃES",
@@ -933,6 +915,54 @@
     ],
     "Com5ºDN": [
         {
+            "uasg": "85810",
+            "sigla": "CeIMRG",
+            "nome": "CENTRO DE INTENDÊNCIA DA MARINHA EM RIO GRANDE",
+            "url": "https://catalogo.prod.dadm.mb/om/85810"
+        },
+        {
+            "uasg": "85810",
+            "sigla": "CeIMRG",
+            "nome": "CENTRO DE INTENDÊNCIA DA MARINHA EM RIO GRANDE",
+            "url": "https://catalogo.prod.dadm.mb/om/85810"
+        },
+        {
+            "uasg": "85810",
+            "sigla": "CeIMRG",
+            "nome": "CENTRO DE INTENDÊNCIA DA MARINHA EM RIO GRANDE",
+            "url": "https://catalogo.prod.dadm.mb/om/85810"
+        },
+        {
+            "uasg": "85350",
+            "sigla": "CFPA",
+            "nome": "CAPITANIA FLUVIAL DE PORTO ALEGRE",
+            "url": "https://catalogo.prod.dadm.mb/om/85350"
+        },
+        {
+            "uasg": "85350",
+            "sigla": "CFPA",
+            "nome": "CAPITANIA FLUVIAL DE PORTO ALEGRE",
+            "url": "https://catalogo.prod.dadm.mb/om/85350"
+        },
+        {
+            "uasg": "85350",
+            "sigla": "CFPA",
+            "nome": "CAPITANIA FLUVIAL DE PORTO ALEGRE",
+            "url": "https://catalogo.prod.dadm.mb/om/85350"
+        },
+        {
+            "uasg": "85100",
+            "sigla": "ComGptPatNavS",
+            "nome": "COMANDO DO GRUPAMENTO DE PATRULHA NAVAL DO SUL",
+            "url": "https://catalogo.prod.dadm.mb/om/85100"
+        },
+        {
+            "uasg": "85100",
+            "sigla": "ComGptPatNavS",
+            "nome": "COMANDO DO GRUPAMENTO DE PATRULHA NAVAL DO SUL",
+            "url": "https://catalogo.prod.dadm.mb/om/85100"
+        },
+        {
             "uasg": "85100",
             "sigla": "ComGptPatNavS",
             "nome": "COMANDO DO GRUPAMENTO DE PATRULHA NAVAL DO SUL",
@@ -1103,60 +1133,6 @@
     ],
     "Com6ºDN": [
         {
-            "uasg": "86200",
-            "sigla": "3ºBtlOpRib",
-            "nome": "3º BATALHÃO DE OPERAÇÕES RIBEIRINHAS",
-            "url": "https://catalogo.prod.dadm.mb/om/86200"
-        },
-        {
-            "uasg": "86200",
-            "sigla": "3ºBtlOpRib",
-            "nome": "3º BATALHÃO DE OPERAÇÕES RIBEIRINHAS",
-            "url": "https://catalogo.prod.dadm.mb/om/86200"
-        },
-        {
-            "uasg": "86200",
-            "sigla": "3ºBtlOpRib",
-            "nome": "3º BATALHÃO DE OPERAÇÕES RIBEIRINHAS",
-            "url": "https://catalogo.prod.dadm.mb/om/86200"
-        },
-        {
-            "uasg": "86800",
-            "sigla": "BFLa",
-            "nome": "BASE FLUVIAL DE LADÁRIO",
-            "url": "https://catalogo.prod.dadm.mb/om/86800"
-        },
-        {
-            "uasg": "86800",
-            "sigla": "BFLa",
-            "nome": "BASE FLUVIAL DE LADÁRIO",
-            "url": "https://catalogo.prod.dadm.mb/om/86800"
-        },
-        {
-            "uasg": "86800",
-            "sigla": "BFLa",
-            "nome": "BASE FLUVIAL DE LADÁRIO",
-            "url": "https://catalogo.prod.dadm.mb/om/86800"
-        },
-        {
-            "uasg": "86810",
-            "sigla": "CeIMLa",
-            "nome": "CENTRO DE INTENDÊNCIA DA MARINHA EM LADÁRIO",
-            "url": "https://catalogo.prod.dadm.mb/om/86810"
-        },
-        {
-            "uasg": "86810",
-            "sigla": "CeIMLa",
-            "nome": "CENTRO DE INTENDÊNCIA DA MARINHA EM LADÁRIO",
-            "url": "https://catalogo.prod.dadm.mb/om/86810"
-        },
-        {
-            "uasg": "86810",
-            "sigla": "CeIMLa",
-            "nome": "CENTRO DE INTENDÊNCIA DA MARINHA EM LADÁRIO",
-            "url": "https://catalogo.prod.dadm.mb/om/86810"
-        },
-        {
             "uasg": "86320",
             "sigla": "CFMT",
             "nome": "CAPITANIA FLUVIAL DE MATO GROSSO",
@@ -1266,18 +1242,6 @@
         }
     ],
     "Com7ºDN": [
-        {
-            "uasg": "87320",
-            "sigla": "CFB",
-            "nome": "CAPITANIA FLUVIAL DE BRASÍLIA",
-            "url": "https://catalogo.prod.dadm.mb/om/87320"
-        },
-        {
-            "uasg": "87330",
-            "sigla": "CFGO",
-            "nome": "CAPITANIA FLUVIAL DE GOIÁS",
-            "url": "https://catalogo.prod.dadm.mb/om/87330"
-        },
         {
             "uasg": "87330",
             "sigla": "CFGO",

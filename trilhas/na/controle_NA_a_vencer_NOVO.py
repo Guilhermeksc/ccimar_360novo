@@ -58,7 +58,7 @@ with open(json_path, 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 # Dados obtidos a partir da consulta SQL
-dados = data["    \n    \n    \n    SELECT \n    nt.noau_tx_numero_na,  \n    nt.noau_cd_om,\n    nt.noau_ds_assunto,\n    nt.noau_dt_envio,\n    nt.noau_dt_prazo,\n    SUM(COALESCE(qtde.qtde_prorrogacoes, 0)) AS qtde_prorrogacoes,\n    nt.stat_cd_id,    \n    nt.noau_dt_resposta,\n    ne.niex_nm_completo,\n    s.stat_nm_completo,\n    b.\"SIGLAOM\",\n    b.\"AREAOM\",\n    ods.nome_setor,\n    vo.nome_ods\nFROM public.nota_auditoria nt\nJOIN public.status s ON nt.stat_cd_id = s.stat_cd_id\nJOIN public.bdpes_om_temp b ON nt.noau_cd_om = b.\"CODOM\"\n--JOIN public.gerenciador_email ge ON nt.noau_cd_om = ge.geem_cd_om\njoin public.view_ods_por_om vo on   vo.geem_cd_om  = nt.noau_cd_om\nJOIN public.ods ods ON vo.geem_id_ods = ods.id \nJOIN public.trilha t ON nt.tril_cd_id = t.tril_cd_id\nJOIN public.nivel_exposicao ne ON t.niex_cd_id = ne.niex_cd_id\nJOIN public.qtde_prorrogacoes qtde ON nt.noau_cd_id = qtde.noau_cd_id\nWHERE nt.stat_cd_id NOT IN (2, 3, 5, 6, 9)\nGROUP BY \n    nt.noau_tx_numero_na,  \n    nt.noau_cd_om,\n    nt.noau_ds_assunto,\n    nt.noau_dt_envio,\n    nt.noau_dt_prazo,\n    nt.stat_cd_id,    \n    nt.noau_dt_resposta,\n    ne.niex_nm_completo,\n    s.stat_nm_completo,\n    b.\"SIGLAOM\",\n    b.\"AREAOM\",\n    ods.nome_setor,vo.nome_ods\n    "]
+dados = data["    \n    \n    SELECT \n    nt.noau_tx_numero_na,  \n    nt.noau_cd_om,\n    nt.noau_ds_assunto,\n    nt.noau_dt_envio,\n    nt.noau_dt_prazo,\n    SUM(COALESCE(qtde.qtde_prorrogacoes, 0)) AS qtde_prorrogacoes,\n    nt.stat_cd_id,    \n    nt.noau_dt_resposta,\n    ne.niex_nm_completo,\n    s.stat_nm_completo,\n    b.\"SIGLAOM\",\n    b.\"AREAOM\",\n    ods.nome_setor,\n    vo.nome_ods\nFROM public.nota_auditoria nt\nJOIN public.status s ON nt.stat_cd_id = s.stat_cd_id\nJOIN public.bdpes_om_temp b ON nt.noau_cd_om = b.\"CODOM\"\n--JOIN public.gerenciador_email ge ON nt.noau_cd_om = ge.geem_cd_om\njoin public.view_ods_por_om vo on   vo.geem_cd_om  = nt.noau_cd_om\nJOIN public.ods ods ON vo.geem_id_ods = ods.id \nJOIN public.trilha t ON nt.tril_cd_id = t.tril_cd_id\nJOIN public.nivel_exposicao ne ON t.niex_cd_id = ne.niex_cd_id\nJOIN public.qtde_prorrogacoes qtde ON nt.noau_cd_id = qtde.noau_cd_id\nWHERE nt.stat_cd_id NOT IN (2, 3, 5, 6, 9)\nGROUP BY \n    nt.noau_tx_numero_na,  \n    nt.noau_cd_om,\n    nt.noau_ds_assunto,\n    nt.noau_dt_envio,\n    nt.noau_dt_prazo,\n    nt.stat_cd_id,    \n    nt.noau_dt_resposta,\n    ne.niex_nm_completo,\n    s.stat_nm_completo,\n    b.\"SIGLAOM\",\n    b.\"AREAOM\",\n    ods.nome_setor,vo.nome_ods\n    \n    "]
 
 # Processa os dados em DataFrame
 dados_df = pd.DataFrame(dados)
@@ -80,7 +80,7 @@ dados_df['AREAOM'] = dados_df['AREAOM'].str.strip().str.upper().map(mapping_ods)
 # Seleciona as colunas necessárias
 dados_df = dados_df[['noau_tx_numero_na', 'noau_ds_assunto', 'noau_dt_envio', 
                      'noau_dt_prazo', 'noau_dt_resposta', 'qtde_prorrogacoes', 'niex_nm_completo',
-                     'stat_nm_completo', 'SIGLAOM', 'AREAOM', 'nome_setor']].copy()
+                     'stat_nm_completo', 'SIGLAOM', 'AREAOM', 'nome_setor', 'nome_ods']].copy()
 
 # Ordena o DataFrame por data de envio (ordem crescente)
 dados_df['noau_dt_envio'] = pd.to_datetime(dados_df['noau_dt_envio'])
@@ -166,16 +166,6 @@ def categorize_due_date(row):
 
 dados_df['Status NA'] = dados_df.apply(categorize_due_date, axis=1)
 
-# Para as planilhas consolidadas, separamos duas colunas: uma para Área e outra para Distrito/ODS.
-# No "Consolidado Distrito" usamos AREAOM e, no "Consolidado ODS", usamos nome_setor.
-contagem_distrito_df = dados_df.groupby(['AREAOM','Assunto'])['Status NA']\
-    .value_counts().unstack(fill_value=0).reset_index()
-contagem_distrito_df.rename(columns={'AREAOM': 'Área', 'Assunto': 'Distrito/ODS'}, inplace=True)
-
-contagem_ods_df = dados_df.groupby(['nome_setor','Assunto'])['Status NA']\
-    .value_counts().unstack(fill_value=0).reset_index()
-contagem_ods_df.rename(columns={'nome_setor': 'Área', 'Assunto': 'Distrito/ODS'}, inplace=True)
-
 # Data atual apenas com data (sem hora)
 hoje = pd.to_datetime(datetime.today().date())
 
@@ -185,7 +175,7 @@ dados_df['Dias p/ Vencer'] = dados_df['Data Prazo'].apply(
 )
 # Reordena as colunas e renomeia os títulos no DataFrame principal
 nova_ordem = [
-    'ordem', 'noau_tx_numero_na', 'Assunto', 'SIGLAOM', 'AREAOM', 'nome_setor',
+    'ordem', 'noau_tx_numero_na', 'Assunto', 'SIGLAOM', 'AREAOM', 'nome_setor', 'nome_ods',
     'Data Envio', 'Data Prazo',  'Dias p/ Vencer', 'Data Resposta', 'qtde_prorrogacoes', 'niex_nm_completo', 'stat_nm_completo', 'Status NA',
 ]
 dados_df = dados_df[nova_ordem]
@@ -193,7 +183,8 @@ dados_df.rename(columns={
     'noau_tx_numero_na': 'NA',
     'SIGLAOM': 'OM',
     'AREAOM': 'Distrito',
-    'nome_setor': 'ODS',
+    'nome_setor': 'SETOR',
+    'nome_ods': 'ODS',
     'qtde_prorrogacoes': 'Prorrogações',
     'niex_nm_completo': 'Risco',
     'stat_nm_completo': 'Status'
@@ -226,7 +217,7 @@ def format_table(sheet_name, df, col_widths, add_totals=False, workbook=None):
             worksheet.write(row, col, value, center_format)
 
     # Condicional: Se a planilha for "Dados", formata em vermelho as células de "Status NA" com valor "Vencida"
-    if sheet_name == 'Dados' and workbook is not None and "Status NA" in df.columns:
+    if workbook is not None and "Status NA" in df.columns:
         status_na_index = df.columns.get_loc("Status NA")
         status_na_col = xl_col_to_name(status_na_index)
         worksheet.conditional_format(
@@ -272,10 +263,20 @@ def format_table(sheet_name, df, col_widths, add_totals=False, workbook=None):
 # Caminho do arquivo Excel
 excel_path = os.path.join(script_dir, 'Consolidado_Dados.xlsx')
 
+# Lista de ODS que devem ter planilhas específicas
+lista_ods = [
+    'CGCFN', 'COGESN', 'COM1DN', 'COM2DN', 'COM3DN', 'COM4DN', 'COM5DN', 'COM6DN',
+    'COM7DN', 'COM8DN', 'COM9DN', 'COMEMCH', 'COMFFE', 'DGDNTM', 'DGMM', 'DGN', 'DGPM', 'SGM'
+]
+
+# Ordena o DataFrame de modo que “Vencida” fique no topo
+status_order = {'Vencida': 2, 'À Vencer': 1, 'Não identificada': 0}
+dados_df['status_order'] = dados_df['Status NA'].map(status_order)
+dados_df.sort_values('status_order', ascending=False, inplace=True)
+dados_df.drop(columns=['status_order'], inplace=True)
+
+
 with pd.ExcelWriter(excel_path, engine='xlsxwriter') as writer:
-    dados_df.to_excel(writer, sheet_name='Dados', index=False)
-    contagem_distrito_df.to_excel(writer, sheet_name='Consolidado Distrito', index=False)
-    contagem_ods_df.to_excel(writer, sheet_name='Consolidado ODS', index=False)
 
     workbook = writer.book
     center_format = workbook.add_format({
@@ -290,10 +291,121 @@ with pd.ExcelWriter(excel_path, engine='xlsxwriter') as writer:
         'bg_color': '#D9E1F2',
         'border': 1
     })
-    
-    # Aplica a formatação, passando o objeto workbook para o sheet "Dados"
-    format_table('Dados', dados_df, [10, 13, 28, 15, 10, 12, 12, 12, 12, 12, 15, 15, 16, 11], workbook=workbook)
-    format_table('Consolidado Distrito', contagem_distrito_df, [10, 40, 10, 10])
-    format_table('Consolidado ODS', contagem_ods_df, [10, 40, 10, 10])
+
+    # Geração das planilhas por nome_ods (cada ODS terá uma aba própria)
+    for ods in lista_ods:
+        df_ods = dados_df[dados_df['ODS'] == ods]
+        if not df_ods.empty:
+            sheet_name = ods[:31]  # Limite de 31 caracteres no Excel
+            df_ods.to_excel(writer, sheet_name=sheet_name, index=False)
+            format_table(sheet_name, df_ods, [10, 13, 28, 15, 10, 12, 12, 12, 12, 12, 15, 15, 16, 11], workbook=workbook)
+
 
 print(f'Arquivo Excel gerado com sucesso: {excel_path}')
+
+import zipfile
+import re
+
+# Diretório onde os arquivos serão salvos
+output_dir = os.path.join(script_dir, 'consulta_na')
+os.makedirs(output_dir, exist_ok=True)
+
+xlsx_files = []
+
+# Geração dos arquivos XLSX por ODS
+for ods in lista_ods:
+    df_ods = dados_df[dados_df['ODS'] == ods]
+    if not df_ods.empty:
+        nome_arquivo = re.sub(r'[\\/*?:"<>|]', "_", ods[:50]) + ".xlsx"
+        caminho_arquivo = os.path.join(output_dir, nome_arquivo)
+        with pd.ExcelWriter(caminho_arquivo, engine='xlsxwriter') as writer:
+            df_ods.to_excel(writer, sheet_name=ods[:31], index=False)
+            workbook = writer.book
+            center_format = workbook.add_format({'align': 'center', 'valign': 'vcenter', 'border': 1})
+            header_format = workbook.add_format({'align': 'center', 'valign': 'vcenter', 'bold': True, 'bg_color': '#D9E1F2', 'border': 1})
+            format_table(ods[:31], df_ods, [10, 13, 28, 15, 10, 12, 12, 12, 12, 12, 15, 15, 16, 11], workbook=workbook)
+        xlsx_files.append(caminho_arquivo)
+
+# Geração dos arquivos XLSX por SETOR
+setores_unicos = dados_df['SETOR'].dropna().unique()
+
+for setor in setores_unicos:
+    df_setor = dados_df[dados_df['SETOR'] == setor]
+    if not df_setor.empty:
+        nome_arquivo = re.sub(r'[\\/*?:"<>|]', "_", setor[:50]) + ".xlsx"
+        caminho_arquivo = os.path.join(output_dir, nome_arquivo)
+        with pd.ExcelWriter(caminho_arquivo, engine='xlsxwriter') as writer:
+            df_setor.to_excel(writer, sheet_name='Consulta NA', index=False)
+            workbook = writer.book
+            center_format = workbook.add_format({'align': 'center', 'valign': 'vcenter', 'border': 1})
+            header_format = workbook.add_format({'align': 'center', 'valign': 'vcenter', 'bold': True, 'bg_color': '#D9E1F2', 'border': 1})
+        
+            workbook = writer.book
+            center_format = workbook.add_format({
+                'align': 'center',
+                'valign': 'vcenter',
+                'border': 1
+            })
+            header_format = workbook.add_format({
+                'align': 'center',
+                'valign': 'vcenter',
+                'bold': True,
+                'bg_color': '#D9E1F2',
+                'border': 1
+            })
+
+            format_table('Consulta NA', df_setor, [10, 13, 28, 15, 10, 12, 12, 12, 12, 12, 15, 15, 16, 11], workbook=workbook)
+
+        xlsx_files.append(caminho_arquivo)
+
+# Cria o arquivo zip com todos os arquivos XLSX gerados
+zip_path = os.path.join(script_dir, 'consulta_na.zip')
+with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+    for file_path in xlsx_files:
+        arcname = os.path.basename(file_path)
+        zipf.write(file_path, arcname)
+
+print(f'\nTodos os arquivos XLSX foram salvos em: {output_dir}')
+print(f'Arquivo ZIP criado com sucesso em: {zip_path}')
+
+# Geração da tabela de contagem de NA por SETOR
+# Geração da tabela de contagem de NA por SETOR, incluindo as colunas NA Vencidas e NA À vencer
+contagem_por_setor = dados_df.groupby('SETOR').agg(
+    Quantidade_de_NA=('NA', 'count'),
+    NA_Vencidas=('Status NA', lambda x: (x == 'Vencida').sum()),
+    NA_A_vencer=('Status NA', lambda x: (x == 'À Vencer').sum())
+).reset_index()
+
+contagem_por_setor.rename(columns={'NA': 'Quantidade de NA'}, inplace=True)
+
+# Caminho para salvar a planilha de contagem
+contagem_path = os.path.join(script_dir, 'consulta_na', 'Contagem_NA_por_Setor.xlsx')
+with pd.ExcelWriter(contagem_path, engine='xlsxwriter') as writer:
+    contagem_por_setor.to_excel(writer, sheet_name='Contagem', index=False)
+    workbook = writer.book
+    worksheet = writer.sheets['Contagem']
+    header_format = workbook.add_format({
+        'bold': True,
+        'bg_color': '#D9E1F2',
+        'border': 1,
+        'align': 'center',
+        'valign': 'vcenter'
+    })
+    cell_format = workbook.add_format({
+        'border': 1,
+        'align': 'center',
+        'valign': 'vcenter'
+    })
+    worksheet.set_column('A:A', 50)
+    worksheet.set_column('B:B', 20)
+    for col_num, value in enumerate(contagem_por_setor.columns):
+        worksheet.write(0, col_num, value, header_format)
+    for row in range(1, len(contagem_por_setor) + 1):
+        for col in range(2):
+            worksheet.write(row, col, contagem_por_setor.iloc[row - 1, col], cell_format)
+
+# Adiciona o novo arquivo ao ZIP
+with zipfile.ZipFile(zip_path, 'a', zipfile.ZIP_DEFLATED) as zipf:
+    zipf.write(contagem_path, arcname='Contagem_NA_por_Setor.xlsx')
+
+print(f'Tabela "Contagem_NA_por_Setor.xlsx" salva em: {contagem_path}')
